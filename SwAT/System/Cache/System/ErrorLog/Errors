@@ -1,0 +1,33 @@
+
+
+
+
+
+=================================
+IssueID = 0x13
+IssueTime = 2022-12-09 15:27:50.006123
+Critical = True
+=================================
+Script_ID = System.Drive.Login
+LineNumber ~ 19
+KeyWords = ['LoginUserID']
+=================================
+UserException = "None"
+UserID = JDX50S
+=================================
+
+
+
+=================================
+IssueID = 0x13
+IssueTime = 2022-12-09 15:28:41.975499
+Critical = True
+=================================
+Script_ID = System.Drive.Login
+LineNumber ~ 19
+KeyWords = ['LoginUserID']
+=================================
+UserException = "None"
+UserID = JDX50S
+=================================
+
