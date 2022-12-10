@@ -7,17 +7,17 @@ Launch with: python3 Start.py
 
 Technical Information #3
 =====================
-SwAT Version = v1.1.2\n
-GitConnect = v1.0\n
-LocalConnect = v1.0\n
-UserPass = v2.2\n
-ReturnFunction = v2.1\n
-PackageActivator.py = v2.2\n
-Menu = 6/8\n
-Version Status = Released\n
-Version Date = December 10 2022\n
-Developer = JDX50S, Smoke-wolf\n
-Version Security = Secure\n
+SwAT Version = v1.1.2 **Enter**
+GitConnect = v1.0 **Enter**
+LocalConnect = v1.0 **Enter**
+UserPass = v2.2 **Enter**
+ReturnFunction = v2.1 **Enter**
+PackageActivator.py = v2.2 **Enter**
+Menu = 6/8 **Enter**
+Version Status = Released **Enter**
+Version Date = December 10 2022 **Enter**
+Developer = JDX50S, Smoke-wolf **Enter**
+Version Security = Secure **Enter**
 
 
 Technical Information 0.2
