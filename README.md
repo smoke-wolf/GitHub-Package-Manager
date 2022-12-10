@@ -5,11 +5,7 @@ This is the solution to scattered, disorginized git repos.
 
 Launch with: python3 Start.py
 
-
-        #Update Log
-================================
-
-Technical Information #3
+**Technical Information #3**
 =====================
 SwAT Version = v1.1.2
 GitConnect = v1.0
