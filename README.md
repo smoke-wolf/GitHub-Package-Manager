@@ -13,57 +13,28 @@ you will need to create a UserProfile, once done you need to re-run 'python3 Sta
 
 # Main features:
 
-`	`⁃	Cache\
-`	`⁃		Clear all git -> wipes all GitHub download data \*Requires password 
+`	`⁃	Cache -> Clear all git -> wipes all GitHub download data \*Requires password 
 
-`	`⁃	Settings\
-`	`⁃		User
+`	`⁃	Settings -> User -> None
 
-`	`⁃			None
+`	`⁃	System -> ForcedLogin \*requires password -> Toggles the need for a password on launch
 
-`	`⁃		System
+`	`⁃	System -> ForcedModuleImport \*requires password -> Toggles imports on launch
 
-`	`⁃			ForcedLogin \*requires password
+`	`⁃	PackageInstaller -> GitRepo -> enter the git repo to clonne -> for launch script, enter the corresponding number (check the repo for launch script name)
 
-`	`⁃				Toggles the need for a password on launch
+`	`⁃	PackageInstaller -> LocalDir -> enter the directory you want to connect -> for launch script, enter the corresponding number
 
-`	`⁃			ForcedModuleImport \*requires password
+`	`⁃	PackageActivator -> GitHub -> select the package to run from list
 
-`	`⁃				Toggles imports on launch
-
-`	`⁃	PackageInstaller\
-`	`⁃		GitRepo
-
-`	`⁃			enter the git repo to clone ->
-
-`	`⁃				for launch script, enter the corresponding number (check the repo for launch script name)
-
-`	`⁃		LocalDir
-
-`	`⁃			enter the directory you want to connect
-
-`	`⁃				for launch script, enter the corresponding number
-
-`	`⁃	PackageActivator\
-`	`⁃		GitHub
-
-`	`⁃			select the package to run from list
-
-`	`⁃		local
-
-`	`⁃			select the package to run from list
+`	`⁃  PackageActivator -> local -> select the package to run from list
 
 `	`⁃	PackageUninstaller \* will delete directory as well as launch command\
-`	`⁃		Github
+`	`⁃		Github -> select the package to uninstall from list
 
-`	`⁃			select the package to uninstall from list
+`	`⁃		Local -> select the package to uninstall from list
 
-`	`⁃		Local
-
-`	`⁃			select the package to uninstall from list
-
-`	`⁃	Events/errors\
-`	`⁃		all saved in System/Cache/System/ErrorLog/
+`	`⁃	Events/errors -> all saved in System/Cache/System/ErrorLog/
 
 
 NOTE\* System.Drive.Functions.Uninstall will not work if you have already launched a package in said instance
