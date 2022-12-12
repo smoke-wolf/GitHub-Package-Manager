@@ -11,14 +11,12 @@ python3 Start.py
 you will need to create a UserProfile, once done you need to re-run 'python3 Start.py'
 
 
-\# Main features:
+# Main features:
 
 `	`⁃	Cache\
-
-`	`⁃		Clear all git -> wipes all GitHub download data \*Requires password
+`	`⁃		Clear all git -> wipes all GitHub download data \*Requires password 
 
 `	`⁃	Settings\
-
 `	`⁃		User
 
 `	`⁃			None
@@ -34,7 +32,6 @@ you will need to create a UserProfile, once done you need to re-run 'python3 Sta
 `	`⁃				Toggles imports on launch
 
 `	`⁃	PackageInstaller\
-
 `	`⁃		GitRepo
 
 `	`⁃			enter the git repo to clone ->
@@ -48,7 +45,6 @@ you will need to create a UserProfile, once done you need to re-run 'python3 Sta
 `	`⁃				for launch script, enter the corresponding number
 
 `	`⁃	PackageActivator\
-
 `	`⁃		GitHub
 
 `	`⁃			select the package to run from list
@@ -58,7 +54,6 @@ you will need to create a UserProfile, once done you need to re-run 'python3 Sta
 `	`⁃			select the package to run from list
 
 `	`⁃	PackageUninstaller \* will delete directory as well as launch command\
-
 `	`⁃		Github
 
 `	`⁃			select the package to uninstall from list
@@ -67,8 +62,7 @@ you will need to create a UserProfile, once done you need to re-run 'python3 Sta
 
 `	`⁃			select the package to uninstall from list
 
-`	`⁃	Events/errors
-
+`	`⁃	Events/errors\
 `	`⁃		all saved in System/Cache/System/ErrorLog/
 
 
