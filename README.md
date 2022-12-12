@@ -80,29 +80,18 @@ NOTE\* There’s an unknown bug within the System.Drive.Functions.PackageInstall
 
 Event at 2022-12-12 02:59:42:User [!]Install @GitRepo[!]
 
-Event at 2022-12-12 02:59:43:System [!]Downloaded from Github[!] ~~~~~~ \*download from git -> no launch file -> no error recorded.\*
-
-Event at 2022-12-12 02:59:43:User [!]FunctionRequest = PackageInstaller[!]
-
-Event at 2022-12-12 02:59:58:User [!]Install @GitRepo[!]
-
-Event at 2022-12-12 02:59:59:System [!]FunctionRequest = PackageInstaller \* Failed[!]
-
-Event at 2022-12-12 03:00:13:User [!]Install @GitRepo[!]
-
-Event at 2022-12-12 03:00:15:System [!]FunctionRequest = PackageInstaller \* Failed[!]
-
-Event at 2022-12-12 03:02:19:User [!]Install @GitRepo[!]
-
-Event at 2022-12-12 03:02:20:System [!]FunctionRequest = PackageInstaller \* Failed[!]
-
-Event at 2022-12-12 03:03:07:User [!]Install @GitRepo[!]
-
-Event at 2022-12-12 03:03:10:System [!]FunctionRequest = PackageInstaller \* Failed[!]
-
-Event at 2022-12-12 03:04:16:User [!]Install @GitRepo[!]
-
-Event at 2022-12-12 03:04:18:System [!]FunctionRequest = PackageInstaller \* Failed[!]}
+Event at 2022-12-12 02:59:43:System [!]Downloaded from Github[!] ~~~~~~ \*download from git -> no launch file -> no error recorded.\* \
+Event at 2022-12-12 02:59:43:User [!]FunctionRequest = PackageInstaller[!]\
+Event at 2022-12-12 02:59:58:User [!]Install @GitRepo[!]\
+Event at 2022-12-12 02:59:59:System [!]FunctionRequest = PackageInstaller \* Failed[!]\
+Event at 2022-12-12 03:00:13:User [!]Install @GitRepo[!]\
+Event at 2022-12-12 03:00:15:System [!]FunctionRequest = PackageInstaller \* Failed[!]\
+Event at 2022-12-12 03:02:19:User [!]Install @GitRepo[!]\
+Event at 2022-12-12 03:02:20:System [!]FunctionRequest = PackageInstaller \* Failed[!]\
+Event at 2022-12-12 03:03:07:User [!]Install @GitRepo[!]\
+Event at 2022-12-12 03:03:10:System [!]FunctionRequest = PackageInstaller \* Failed[!]\
+Event at 2022-12-12 03:04:16:User [!]Install @GitRepo[!]\
+Event at 2022-12-12 03:04:18:System [!]FunctionRequest = PackageInstaller \* Failed[!]}\
 
 the bug does not occur regularly. when it does it is noticed by menus not loading -> Packages not activating correctly
 
