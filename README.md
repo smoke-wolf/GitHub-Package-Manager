@@ -6,7 +6,7 @@ This is the solution to scattered, disorginized git repos.
 # Lauch instructions
 git clone https://github.com/smoke-wolf/SwAT.git \
 cd SwAT\
-python3 Start.py\
+python3 Start.py
 
 you will need to create a UserProfile, once done you need to re-run 'python3 Start.py'\
 
