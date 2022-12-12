@@ -75,11 +75,9 @@ NOTE\* There’s an unknown bug within the System.Drive.Functions.PackageInstall
 
 
 * 1
-
-{Event at 2022-12-12 02:30:26:User [!]FunctionRequest = PackageInstaller[!]
-
-Event at 2022-12-12 02:59:42:User [!]Install @GitRepo[!]
-
+# Errors
+{Event at 2022-12-12 02:30:26:User [!]FunctionRequest = PackageInstaller[!]\
+Event at 2022-12-12 02:59:42:User [!]Install @GitRepo[!]\
 Event at 2022-12-12 02:59:43:System [!]Downloaded from Github[!] ~~~~~~ \*download from git -> no launch file -> no error recorded.\* \
 Event at 2022-12-12 02:59:43:User [!]FunctionRequest = PackageInstaller[!]\
 Event at 2022-12-12 02:59:58:User [!]Install @GitRepo[!]\
