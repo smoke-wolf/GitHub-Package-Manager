@@ -103,8 +103,7 @@ def All():
 
         f = open(f'{cwd}/System/Cache/System/Local/Int2.py', 'r')
 
-        with open(f'{cwd}/System/Cache/System/Local/Int.py', 'r') as r, open(f'{cwd}/System/Cache/System/Local/Int2.py',
-                                                                             'w') as o:
+        with open(f'{cwd}/System/Cache/System/Local/Int.py', 'r') as r, open(f'{cwd}/System/Cache/System/Local/Int2.py','w') as o:
             for line in r:
                 if line.strip():
                     o.write(line)
@@ -123,25 +122,30 @@ def All():
             if count1 == count:
 
                 import System.Drive.Errors_Events.EventMan as EV
-                EV.NewEvent(event=f'{count1}={count}', Pol=0)
+
                 valuee = input('Enter a value to continue: ')
+                EV.NewEvent(event=f'valuee ={valuee}', Pol=0)
                 value = lines[int(valuee) - 1]
                 listOfWords = value.split('-', 1)
+
                 if len(listOfWords) > 0:
                     valueg = listOfWords[1]
 
                 with open(f'{cwd}/System/Cache/System/Local/Int.py', 'r') as file:
                     lines55 = file.readlines()
+                try:
+                    with open(f'{cwd}/System/Cache/System/Local/Int.py', 'w') as file:
+                        for lineff in lines55:
+                            if lineff.find(value) != -1:
+                                pass
+                            else:
+                                file.write(lineff)
+                    import System.Drive.Errors_Events.EventMan as EV
+                    EV.NewEvent(event=f'Launch Command Removed', Pol=0)
 
-                with open(f'{cwd}/System/Cache/System/Local/Int.py', 'w') as file:
-                    for lineff in lines55:
-                        if lineff.find(value) != -1:
-                            pass
-                        else:
-                            file.write(lineff)
-
-                import System.Drive.Errors_Events.EventMan as EV
-                EV.NewEvent(event=f'Launch Command Removed', Pol=0)
+                except:
+                    import System.Drive.Errors_Events.EventMan as EV
+                    EV.NewEvent(event=f'Launch Command Failed To Remove', Pol=0)
 
                 try:
                     value1 = value.split(f'-', 1)[0]
@@ -154,19 +158,31 @@ def All():
                     EV.NewEvent(event=f'Failure: {value1}', Pol=1)
 
                 try:
-                    import System.Drive.Errors_Events.EventMan as EV
-                    # Remove all characters before the character '-' from string
-                    listOfWords = value1.split('"', 1)
-                    if len(listOfWords) > 0:
-                        v = listOfWords[1]
-                        EV.NewEvent(event=f'Attempting [!]{v[:-1]}[!]', Pol=0)
-                        import shutil
-                        shutil.rmtree(v[:-1])
-                        EV.NewEvent(event=f'Directory Removed [!]{v[:-1]}[!]', Pol=0)
-                        print('Project Removed')
-
+                    try:
+                        import System.Drive.Errors_Events.EventMan as EV
+                        # Remove all characters before the character '-' from string
+                        listOfWords = value1.split('"', 1)
+                        if len(listOfWords) > 0:
+                            v = listOfWords[1]
+                            EV.NewEvent(event=f'Attempting [!]{v[:-1]}[!]', Pol=0)
+                            import shutil
+                            shutil.rmtree(v[:-1])
+                            EV.NewEvent(event=f'Directory Removed [!]{v[:-1]}[!]', Pol=0)
+                            print('Project Removed')
+                    except:
+                        import System.Drive.Errors_Events.EventMan as EV
+                        # Remove all characters before the character '-' from string
+                        listOfWords = value1.split('+', 1)
+                        if len(listOfWords) > 0:
+                            v = listOfWords[1]
+                            EV.NewEvent(event=f'Attempting [!]{v[:-4]}[!]', Pol=0)
+                            import shutil
+                            shutil.rmtree(v[:-1])
+                            shutil.rmtree(v[:-4])
+                            EV.NewEvent(event=f'Directory Removed [!]{v[:-4]}[!]', Pol=0)
+                            print('Project Removed')
                 except:
-                    print('Project Failed To Removed')
+                    print('Project Failed To Remove')
                     import System.Drive.Errors_Events.EventMan as EV
                     EV.NewEvent(event=f'Dir Removal Canceled', Pol=0)
 
