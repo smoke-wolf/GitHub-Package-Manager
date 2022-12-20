@@ -3,7 +3,7 @@ Your First GitHub Manager!
 
 This is the solution to scattered, disorginized git repos.
 
-# Lauch instructions
+# Launch instructions
 git clone https://github.com/smoke-wolf/SwAT.git \
 cd SwAT\
 python3 Start.py
