@@ -19,8 +19,8 @@
 
 
 ## Downloading & Installing
-    git clone https://github.com/smoke-wolf/SwAT.git
-    cd SwAT
+    git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
+    cd GitHub-Package-Manager
 	python3 Start.py
 **First Use:**
 When you first launch the application, you will be prompted to create a password and username. Once the profile has been created, run the following command.
