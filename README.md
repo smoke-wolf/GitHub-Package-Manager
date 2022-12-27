@@ -8,11 +8,11 @@
  - [->] Link Local Directories To Package
  - [->] Intuitive Configurations Search Package For Potential Launch Scripts
  - [->] Install Complex Applications And Packages
- - [->] Automatic Requirements Installation For Git Packages      *Note Requires pip*
- - [->] Comprehensive Event Tracking      *Note Saved To System/Cache/System/ErrorLog*
+ - [->] Automatic Requirements Installation For Git Packages [!]*Note Requires pip*
+ - [->] Comprehensive Event Tracking  [!]*Note Saved To System/Cache/System/ErrorLog*
  - [->] Fluid Package Launches Using Launch Commands Configured Through Installation
  - [->]  Seamless Uninstallation For GitHub Installs And Local Imports *Note Deletes Directory*
- - [->] Salt & Hash Based Encrypting For Passwords     *Note There Is No Way To Rest Password*
+ - [->] Salt & Hash Based Encrypting For Passwords  [!]*Note There Is No Way To Rest Password*
  - [->] Direct Cache Editing And Altering
  - [->] Control System Settings And Personalization 
 
