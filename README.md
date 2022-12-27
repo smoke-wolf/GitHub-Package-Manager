@@ -67,6 +67,26 @@ the bug does not occur regularly. when it does it is noticed by menus not loadin
 
 # TechInfo
 
+Technical Information #5\
+=====================\
+SwAT Version = v1.2.3\
+GitConnect = v2.1\
+GitComplexConnect = v1.0\
+LocalConnect = v2.0\
+UserPass = v3.0\
+ReturnFunction = v2.1\
+PackageActivator.py = v3.3\
+PackageUnistaller.py = v1.1\
+PackageSettings = v2.1\
+LoginFunction = v1.2\
+CacheConnect = v3.2\
+Menu = 7/8\
+Version Status = Fully Released\
+Version Date = December 27 2022\
+Developer = JDX50S, Smoke-wolf\
+Version Security = Secure\
+
+
 Technical Information #4\
 =====================\
 SwAT Version = v1.2.2\
@@ -109,3 +129,12 @@ Version Status = -BetaRelease\
 Version Date = December 9 2022\
 Developer = JDX50S, Smoke-wolf\
 Version Security = Secure\
+
+
+Technical Information\
+=====================\
+SwAT Version = 0.1\
+Version Status = Development\
+Version Date = Development\
+Developer = JDX50S\
+Version Security = Unsure
