@@ -47,7 +47,7 @@ In the future I will aim to implement a versioning feature to allow for easier u
  8.  Add Third Party Integration
  9.  Update Installed Repos
  10. Install APK & DMG Applications 
- 11.  Allow For CL Installation
+ 11. Allow For CL Installation
 
 ## Known Errors
 
@@ -87,29 +87,34 @@ The presses for **uninstalling** is the same as installing, once a package has b
 # Publication Information 
 **ALL SOURCE CODE IS OBFUSCATED**
 
-**Technical Information #5**\
+**Technical Information #5**
 >=====================\
 SwAT Version = v1.2.3\
-GitConnect = v2.1\
-GitComplexConnect = v1.0\
-PackageInstaller = v3.2\
+GitConnect = v2.2\
+Information File = v2.3\
+GitComplexConnect = v1.1\
+PackageInstaller = v3.3\
 RequirementsInstaller = v1.3\
 LocalConnect = v2.0\
 UserPass = v3.0\
+Password Implementation = v2.1\
+Password Encryption = v2.1\
+Previous Method = Salt & Hash\
 ReturnFunction = v2.1\
+FirstUse = v2.1\
+UserProfile = v3.1\
 PackageActivator.py = v3.3\
-PackageUninstaller.py = v1.1\
-PackageSettings = v2.1\
+PackageUninstaller.py = v2.0\
+PackageSettings = v2.2\
 LoginFunction = v1.2\
 CacheConnect = v3.2\
-Menu = 7/8\
+Menu = 7/7\
 Version Status = Fully Released\
-Version Date = December 27, 2022\
+Version Date = December 27 2022\
 Developer = JDX50S, Smoke-wolf\
-Version Security = Secure\
+Version Security = Secure
 
-
-**Technical Information #4**\
+**Technical Information #4**
 >=====================\
 SwAT Version = v1.2.2\
 GitConnect = v2.0\
@@ -125,7 +130,7 @@ Developer = JDX50S, Smoke-wolf\
 Version Security = Secure\
 
 
-**Technical Information #3**\
+**Technical Information #3**
 >=====================\
 SwAT Version = v1.0.0\
 GitConnect = v1.0\
@@ -140,7 +145,7 @@ Developer = JDX50S, Smoke-wolf\
 Version Security = Secure
 
 
-**Technical Information #2**\
+**Technical Information #2**
 >=====================\
 SwAT Version = v0.3.1\
 GitConnect = v1.0\
@@ -153,7 +158,7 @@ Developer = JDX50S, Smoke-wolf\
 Version Security = Secure
 
 
-**Technical Information #1**\
+**Technical Information #1**
 >=====================\
 SwAT Version = 0.0.1\
 Version Status = Development\
