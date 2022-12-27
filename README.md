@@ -1,3 +1,4 @@
+
 # GitHub Package Manager
 
 **GHPM** is a package manager for GitHub, it effectively manages coding projects, applications, and anything else code-able! **GHPM** does not use any highly advanced coding techniques, much the opposite in fact. it uses basic, straight-forward logic, it is the lack of complication that makes this project the most light-weight Manager available. Not only that, it is the first manager to allow for **Launching** of programs rather than solely installing them. 
@@ -12,8 +13,8 @@
  - [->] Comprehensive Event Tracking  [!]*Note Saved To System/Cache/System/ErrorLog*
  - [->] Fluid Package Launches Using Launch Commands Configured Through Installation
  - [->]  Seamless Uninstallation For GitHub Installs And Local Imports *Note Deletes Directory*
- - [->] Salt & Hash Based Encrypting For Passwords  [!]*Note There Is No Way To Rest Password*
- - [->] Direct Cache Editing And Altering
+ - [->] Salt & Hash Based Encrypting For Passwords  [!]*Note There Is No Way To Reset Password*
+ - [->] Direct Cache Editing And Altering 
  - [->] Control System Settings And Personalization 
 
 
@@ -26,7 +27,7 @@
 When you first launch the application, you will be prompted to create a password and username. Once the profile has been created, run the following command.
 
 	python3 Start.py
-	or pthon Start.py
+	or python Start.py
 
 
 ## Updating Project 
@@ -61,7 +62,7 @@ If any are found, email Maliq.Barnard@gmail.com
 A comprehensive and detailed walk-through for different features
 
 ## Installing Programs
-When installing files from GitHub you will be asked to enter a GitHub repository `Exaple: https://github.com/SomeUser/SomeRepo.git `
+When installing files from GitHub you will be asked to enter a GitHub repository `Example: https://github.com/SomeUser/SomeRepo.git `
 After the package has downloaded, there will be a list of files within the repo
 >*  If the package requires no setup, select the value that corresponds with the Launch file. The interpreter will automatically be selected based on the type of file
 >* If however, the package requires a more comprehensive installation (i.e. Requires a makefile, etc.) select **0** from the list. This will require you to add any special configuration commands.
