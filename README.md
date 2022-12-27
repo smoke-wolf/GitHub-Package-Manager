@@ -72,6 +72,8 @@ Technical Information #5\
 SwAT Version = v1.2.3\
 GitConnect = v2.1\
 GitComplexConnect = v1.0\
+PackageInstaller = v3.2\
+RequirementsInstaller = v1.3\
 LocalConnect = v2.0\
 UserPass = v3.0\
 ReturnFunction = v2.1\
