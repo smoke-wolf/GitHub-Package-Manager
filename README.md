@@ -105,7 +105,7 @@ Version Security = Secure\
 
 Technical Information #3\
 =====================\
-SwAT Version = v1.1.2\
+SwAT Version = v1.0.0\
 GitConnect = v1.0\
 LocalConnect = v1.0\
 UserPass = v2.2\
@@ -118,9 +118,9 @@ Developer = JDX50S, Smoke-wolf\
 Version Security = Secure\
 
 
-Technical Information 0.2\
+Technical Information #2\
 =====================\
-SwAT Version = v1.1\
+SwAT Version = v0.3.1\
 GitConnect = v1.0\
 LocalConnect = v1.0\
 UserPass = v2.2\
@@ -131,9 +131,9 @@ Developer = JDX50S, Smoke-wolf\
 Version Security = Secure\
 
 
-Technical Information\
+Technical Information #1\
 =====================\
-SwAT Version = 0.1\
+SwAT Version = 0.0.1\
 Version Status = Development\
 Version Date = Development\
 Developer = JDX50S\
