@@ -90,7 +90,7 @@ The presses for **uninstalling** is the same as installing, once a package has b
 
 **Technical Information #5**
 >=====================\
-SwAT Version = v1.2.3\
+GHPM Version = v1.2.3\
 GitConnect = v2.2\
 Information File = v2.3\
 GitComplexConnect = v1.1\
