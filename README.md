@@ -1,4 +1,5 @@
 
+
 # GitHub Package Manager
 
 **GHPM** is a package manager for GitHub, it effectively manages coding projects, applications, and anything else code-able! **GHPM** does not use any highly advanced coding techniques, much the opposite in fact. it uses basic, straight-forward logic, it is the lack of complication that makes this project the most light-weight Manager available. Not only that, it is the first manager to allow for **Launching** of programs rather than solely installing them. 
@@ -39,20 +40,24 @@ In the future I will aim to implement a versioning feature to allow for easier u
 ## Goals & To Do
 
  1.  Add **Password** Reset Feature
- 2.  Add Easier Versioning
- 3.  Implement More Personalization settings
- 4.  Allow Separate Profiles
- 5.  Add Better Listing Features
- 6.  Create GUI
- 7.  Improve Password Utilities
- 8.  Add Third Party Integration
- 9.  Update Installed Repos
- 10. Install APK & DMG Applications 
- 11. Allow For CL Installation
+ 2.  Allow Separate Profiles
+ 3.  Add Better Listing Features 
+ 4.  Create GUI
+ 5.  Add Third Party Integration
+ 6.  Update Installed Repos
+ 7. Install APK & DMG Applications 
+ 8. Smoothen Interfaces & Tidy Code
+ 9. Find A Solid Obfuscation Function
+
+### Complete -v1.2.4
+1.  Add Easier Versioning ---ADDED
+2. Implement More Personalization settings ---ADDED
+3. Improve Password Utilities ---ADDED
+4. Allow For CL Installation ---ADDED
 
 ## Known Errors
 
-There are **currently** no known errors. 
+*Watch out for your MAC address being added to the **Blocked** list <User/Blocked>*
 
 HOWEVER, if for whatever reason **Package Installer** errors after checkpoint [3:4] you may end up with a downloaded repo that has no launch command listed.
 
@@ -60,6 +65,25 @@ If any are found, email Maliq.Barnard@gmail.com
 
 # Explanations & Tutorials
 A comprehensive and detailed walk-through for different features
+
+## Command Line Connection
+If you want to use the same features from the package without the hassel of using the main application. It is quite straight forward, within the main menu, you will head into **Settings >User** and select **Enable Command Line Interface**. This will enable the **gh** command:
+
+**examples:**
+> [gh -I https://github.com/SomeUser/Something.git] -> this installs the repo following -I 
+> [gh -IL  /Users/Someone/Something] -> this will import all of the files within the specified directory
+>**Help** 
+=========================
+-I -> Install (arg{repo})  
+-IL -> Install Local (arg{dir})  
+============  ============
+-LA -> List All Installs  
+-LL -> Launch Local Directory  
+-LG -> Launch Git Project  
+-LC -> Launch Advanced Projects  
+ ============ ============
+-UG -> Uninstall GitHub Projects  
+-UL -> Uninstall Local directories
 
 ## Installing Programs
 When installing files from GitHub you will be asked to enter a GitHub repository `Example: https://github.com/SomeUser/SomeRepo.git `
@@ -86,7 +110,35 @@ The presses for **uninstalling** is the same as installing, once a package has b
 
 
 # Publication Information 
-**ALL SOURCE CODE IS OBFUSCATED**
+
+
+**Technial Information #6**
+>GHPM Version = v1.2.4\
+GitConnect = v2.3\
+Information File = v2.3\
+GitComplexConnect = v1.2\
+PackageInstaller = v3.4\
+RequirementsInstaller = v1.3\
+CommandLineConnect = v1.0
+LocalConnect = v2.1\
+UserPass = v3.1\
+Password Implementation = v2.2\
+VersioningUpdator = v1.0\
+Password Encryption = v2.2\
+Previous Method = Salt & Hash & MAC & Login\
+ReturnFunction = v2.1\
+FirstUse = v2.2\
+UserProfile = v3.2\
+PackageActivator.py = v3.4\
+PackageUninstaller.py = v2.1\
+PackageSettings = v2.3\
+LoginFunction = v1.3\
+CacheConnect = v3.3\
+Menu = 7/7\
+Version Status = Fully Released\
+Version Date = January 4th, 2023\
+Developer = Smoke-wolf\
+Version Security = Secure
 
 **Technical Information #5**
 >=====================\
