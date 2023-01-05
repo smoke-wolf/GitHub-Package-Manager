@@ -1,0 +1,120 @@
+
+
+=================================
+IssueID = 0x13
+IssueTime = 2023-01-04 19:17:54.661589
+Critical = True
+=================================
+Script_ID = System.Drive.Login
+LineNumber ~ 19
+KeyWords = ['LoginUserID']
+=================================
+UserException = "None"
+UserID = Jaaon
+=================================
+
+
+
+=================================
+IssueID = 0x13
+IssueTime = 2023-01-04 19:18:07.658856
+Critical = True
+=================================
+Script_ID = System.Drive.Login
+LineNumber ~ 19
+KeyWords = ['LoginUserID']
+=================================
+UserException = "None"
+UserID = Jaaon
+=================================
+
+
+
+=================================
+IssueID = 0x13
+IssueTime = 2023-01-04 21:00:42.705974
+Critical = True
+=================================
+Script_ID = System.Drive.Login
+LineNumber ~ 19
+KeyWords = ['LoginUserID']
+=================================
+UserException = "None"
+UserID = Password
+=================================
+
+
+
+=================================
+IssueID = 0x13
+IssueTime = 2023-01-04 21:09:14.474153
+Critical = True
+=================================
+Script_ID = System.Drive.Login
+LineNumber ~ 19
+KeyWords = ['LoginUserID']
+=================================
+UserException = "None"
+UserID = Password
+=================================
+
+
+
+=================================
+IssueID = 0x29
+IssueTime = 2023-01-04 22:35:51.865536
+Critical = False
+=================================
+Script_ID = System.Drive.FunctionRequest
+LineNumber ~ 41
+KeyWords = ['Settings']
+=================================
+UserException = "None"
+UserID = Password
+=================================
+
+
+
+=================================
+IssueID = 0x1f
+IssueTime = 2023-01-04 22:36:40.800064
+Critical = True
+=================================
+Script_ID = System.Drive.FunctionRequest
+LineNumber ~ 31
+KeyWords = ['CacheRemoval']
+=================================
+UserException = "None"
+UserID = Password
+=================================
+
+
+
+=================================
+IssueID = 0x13
+IssueTime = 2023-01-04 22:40:27.759619
+Critical = True
+=================================
+Script_ID = System.Drive.Login
+LineNumber ~ 19
+KeyWords = ['LoginUserID']
+=================================
+UserException = "None"
+UserID = Jaasowe
+=================================
+
+
+
+=================================
+IssueID = 0x13
+IssueTime = 2023-01-04 22:47:40.488421
+Critical = True
+=================================
+Script_ID = System.Drive.Login
+LineNumber ~ 19
+KeyWords = ['LoginUserID']
+=================================
+UserException = "None"
+UserID = Jaasowe
+=================================
+
