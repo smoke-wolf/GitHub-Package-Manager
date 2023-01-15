@@ -1,2 +1,0 @@
-
-app = "+/Users/maliq/Desktop/VoiceRec -python3 /Users/maliq/Desktop/VoiceRec/app.py*"
