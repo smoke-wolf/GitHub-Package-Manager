@@ -1,5 +1,6 @@
 
 
+
 # GitHub Package Manager
 
 **GHPM** is a package manager for GitHub, it effectively manages coding projects, applications, and anything else code-able! **GHPM** does not use any highly advanced coding techniques, much the opposite in fact. it uses basic, straight-forward logic, it is the lack of complication that makes this project the most light-weight Manager available. Not only that, it is the first manager to allow for **Launching** of programs rather than solely installing them. 
@@ -32,14 +33,17 @@ When you first launch the application, you will be prompted to create a password
 
 
 ## Updating Project 
-When updating the application, you can save the contents of [**User/UserProfile.py**].
-If you want to save the projects and repos installed through GitHub save the contents of [**System/Cache/System/GitHub/Downloads**] && [**Int.txt**] and [**Int2.txt**]. 
+With the new **Versioning** feature as of v1.2.4, you are now able to seamlessly update your version to the newest avalable!
 
-In the future I will aim to implement a versioning feature to allow for easier updates.
+*As of v1.2.5
+Version updates now ensure that your current version is compatable with newer updates.
+
+**The Versioning Feature**
+It is displayed in the Feauture menu and does not require a password. 
 
 ## Goals & To Do
 
- 1.  Add **Password** Reset Feature
+ 1. SHA256 for files related to updates
  2.  Allow Separate Profiles
  3.  Add Better Listing Features 
  4.  Create GUI
@@ -47,17 +51,12 @@ In the future I will aim to implement a versioning feature to allow for easier u
  6.  Update Installed Repos
  7. Install APK & DMG Applications 
  8. Smoothen Interfaces & Tidy Code
- 9. Find A Solid Obfuscation Function
-
-### Complete -v1.2.4
-1.  Add Easier Versioning ---ADDED
-2. Implement More Personalization settings ---ADDED
-3. Improve Password Utilities ---ADDED
-4. Allow For CL Installation ---ADDED
+ 9. Add automatic file additions with new versions -> Version update
+### Complete -v1.2.5
+1.  Add **Password** Reset Feature
+2. Completly updated versioning system
 
 ## Known Errors
-
-*Watch out for your MAC address being added to the **Blocked** list <User/Blocked>*
 
 HOWEVER, if for whatever reason **Package Installer** errors after checkpoint [3:4] you may end up with a downloaded repo that has no launch command listed.
 
@@ -71,7 +70,9 @@ If you want to use the same features from the package without the hassel of usin
 
 **examples:**
 > [gh -I https://github.com/SomeUser/Something.git] -> this installs the repo following -I 
+> 
 > [gh -IL  /Users/Someone/Something] -> this will import all of the files within the specified directory
+> 
 >**Help** 
 =========================
 -I -> Install (arg{repo})  
