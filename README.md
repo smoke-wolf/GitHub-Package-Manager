@@ -110,7 +110,40 @@ The presses for **uninstalling** is the same as installing, once a package has b
 
 
 # Publication Information 
-
+**Technial Information #7**
+>GHPM Version = v1.2.5\
+ChangeUsername = v1.0\
+ChangePassword = v1.0\
+GitConnect = v2.3\
+EventTracker = v2.3\
+ErrorTracker = v1.0\
+EventDataBase = v1.0\
+Information File = v2.4/2.5\
+GitComplexConnect = v1.2\
+PackageInstaller = v3.5\
+RequirementsInstaller = v1.3\
+CommandLineConnect = v1.1
+LocalConnect = v2.1\
+UserPass = v3.2\
+Password Implementation = v2.3\
+VersioningUpdator = v1.1\
+Password Encryption = v2.3\
+Previous Method = Salt & Hash & MAC & Login\
+ReturnFunction = v2.1\
+BlockUntrusted = v1.0\
+BanUntrusted = v1.0\
+FirstUse = v2.2\
+UserProfile = v3.2\
+PackageActivator.py = v3.4\
+PackageUninstaller.py = v2.1\
+PackageSettings = v2.3\
+LoginFunction = v1.4\
+CacheConnect = v3.3\
+Menu = 7/7\
+Version Status = Fully Released\
+Version Date = January 14th, 2023\
+Developer = Smoke-wolf\
+Version Security = Secure
 
 **Technial Information #6**
 >GHPM Version = v1.2.4\
@@ -163,7 +196,7 @@ LoginFunction = v1.2\
 CacheConnect = v3.2\
 Menu = 7/7\
 Version Status = Fully Released\
-Version Date = December 27 2022\
+Version Date = December 27, 2022\
 Developer = JDX50S, Smoke-wolf\
 Version Security = Secure
 
@@ -218,4 +251,3 @@ Version Status = Development\
 Version Date = Development\
 Developer = JDX50S\
 Version Security = Unsure
-
