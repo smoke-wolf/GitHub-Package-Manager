@@ -109,8 +109,42 @@ The previous does not occur with **local** programs
 ## Uninstalling Programs
 The presses for **uninstalling** is the same as installing, once a package has been selected from either **Local** or **GitHub** it will be uninstalled and deleted from your profile. For **GitHub** there is no need to manually set complex or basic, it is all done autonomously. 
 
-
 # Publication Information 
+**Technial Information #8**
+>GHPM Version = v1.2.6\
+ChangeUsername = v1.1\
+ChangePassword = v1.1\
+GitConnect = v2.3\
+EventTracker = v2.4\
+ErrorTracker = v1.0\
+EventDataBase = v1.1\
+Information File = v2.4/2.5\
+GitComplexConnect = v1.2\
+PackageInstaller = v3.6\
+RequirementsInstaller = v1.3\
+CommandLineConnect = v1.2
+LocalConnect = v2.2\
+UserPass = v3.3\
+Password Implementation = v2.4\
+VersioningUpdator = v1.2\
+Password Encryption = v2.4\
+Previous Method = Salt & Hash & MAC & Login & Fernet\
+ReturnFunction = v2.1\
+BlockUntrusted = v1.1\
+BanUntrusted = v1.1\
+FirstUse = v2.3\
+UserProfile = v3.2\
+PackageActivator.py = v3.5\
+PackageUninstaller.py = v2.2\
+PackageSettings = v2.4\
+LoginFunction = v1.5\
+CacheConnect = v3.4\
+Menu = 8/8\
+Version Status = Fully Released 1.2.5>patch>1.2.6\
+Version Date = January 18th, 2023\
+Developer = Smoke-wolf\
+Version Security = Secure
+
 **Technial Information #7**
 >GHPM Version = v1.2.5\
 ChangeUsername = v1.0\
