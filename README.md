@@ -145,4 +145,4 @@ Version Date = January 18th, 2023\
 Developer = Smoke-wolf\
 Version Security = Secure
 
-[MORE INFO](https://link-url-here.org)
+[MORE INFO](https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/ErrorLog/Errors)
