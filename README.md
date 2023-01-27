@@ -5,6 +5,7 @@
 
 **GHPM** is a package manager for GitHub, it effectively manages coding projects, applications, and anything else code-able! **GHPM** does not use any highly advanced coding techniques, much the opposite in fact. it uses basic, straight-forward logic, it is the lack of complication that makes this project the most light-weight Manager available. Not only that, it is the first manager to allow for **Launching** of programs rather than solely installing them. 
 
+Writeup(https://www.publishthis.email/github-package-manager-Bki9Ejbhi) here: 
 # Features
 
  - [->] Install Packages Through GitHub [!] *Note Requires GitClone*
@@ -31,83 +32,6 @@ When you first launch the application, you will be prompted to create a password
 	python3 Start.py
 	or python Start.py
 
-
-## Updating Project 
-With the new **Versioning** feature as of v1.2.4, you are now able to seamlessly update your version to the newest avalable!
-
-*As of v1.2.5
-Version updates now ensure that your current version is compatable with newer updates.
-
-**The Versioning Feature**
-It is displayed in the Feauture menu and does not require a password. 
-
-## Goals & To Do
-
- 1. SHA256 for files related to updates
- 2.  Allow Separate Profiles
- 3.  Add Better Listing Features 
- 4.  Create GUI
- 5.  Add Third Party Integration
- 6.  Update Installed Repos
- 7. Install APK & DMG Applications 
- 8. Smoothen Interfaces & Tidy Code
- 9. Add automatic file additions with new versions -> Version update
-### Complete -v1.2.5
-1.  Add **Password** Reset Feature
-2. Completly updated versioning system
-
-## Known Errors
-
-HOWEVER, if for whatever reason **Package Installer** errors after checkpoint [3:4] you may end up with a downloaded repo that has no launch command listed.
-
-If any are found, email Maliq.Barnard@gmail.com
-
-# Explanations & Tutorials
-A comprehensive and detailed walk-through for different features
-
-## Command Line Connection
-If you want to use the same features from the package without the hassel of using the main application. It is quite straight forward, within the main menu, you will head into **Settings >User** and select **Enable Command Line Interface**. This will enable the **gh** command:
-
-**examples:**
-> [gh -I https://github.com/SomeUser/Something.git] -> this installs the repo following -I 
-> 
-> [gh -IL  /Users/Someone/Something] -> this will import all of the files within the specified directory
-> 
->**Help** 
-=========================
--I -> Install (arg{repo})  
--IL -> Install Local (arg{dir})  
-============  ============
--LA -> List All Installs  
--LL -> Launch Local Directory  
--LG -> Launch Git Project  
--LC -> Launch Advanced Projects  
- ============ ============
--UG -> Uninstall GitHub Projects  
--UL -> Uninstall Local directories
-
-## Installing Programs
-When installing files from GitHub you will be asked to enter a GitHub repository `Example: https://github.com/SomeUser/SomeRepo.git `
-After the package has downloaded, there will be a list of files within the repo
->*  If the package requires no setup, select the value that corresponds with the Launch file. The interpreter will automatically be selected based on the type of file
->* If however, the package requires a more comprehensive installation (i.e. Requires a makefile, etc.) select **0** from the list. This will require you to add any special configuration commands.
-
-After the package has been installed, a launch command will be written to [**System/Cache/System/GitHub/Downloads/Int.txt**] after the installation has been completed you will be free to launch the application through the **Package Activator -> Github or Complex**.
-
-When importing **local packages**, it is the same process, however there is not yet a feature for **complex installations**.
-
-## Launching Programs
-Launching programs is simple, simply select the class from which your program is.
-* If you have downloaded a repo from **GitHub**, it will be displayed in [**Package Activator -> Github**]
-* If it has been installed through a **complex** installation, packages will be displayed in [**Package Activator -> Complex**]
-* Finally, if it has been imported through the **local** installation it will be displayed in [**Package Activator -> Local**]
-
-When a GitHub program has complete there will be a message asking the form of exit, if an error with the program has caused it to exit, enter **2**. if however, the program completed successfully, or you exited purposefully, enter **1**.
-
-The previous does not occur with **local** programs
-
-## Uninstalling Programs
-The presses for **uninstalling** is the same as installing, once a package has been selected from either **Local** or **GitHub** it will be uninstalled and deleted from your profile. For **GitHub** there is no need to manually set complex or basic, it is all done autonomously. 
 
 # Publication Information 
 **Technial Information #8**
