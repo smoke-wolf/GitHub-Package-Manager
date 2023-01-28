@@ -28,12 +28,10 @@ except ValueError:
             EV.NewEvent(event=f'Import_Failed = {Module}', Pol=0)
             try:
                 os.system(f'pip install {Module}')
+                os.system(f'pip3 install {Module}')
             except:
-                try:
-                    os.system(f'pip install {Module}')
-                except:
-                    print('Module failed to install')
-                    sys.exit(0)
+                print('Module failed to install')
+                sys.exit(0)
 
 
     import time
