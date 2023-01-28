@@ -1,11 +1,41 @@
-# Python code obfuscated by www.development-tools.net 
- 
+# Python code obfuscated by www.development-tools.net
+import os
+import sys
 
-import base64, codecs
-magic = 'aW1wb3J0IFN5c3RlbS5SZXF1aXJlbWVudHMuSW5mb3JtYXRpb24KaW1wb3J0IFVzZXIuVXNlclByb2ZpbGUKCnRyeToKICAgIGlmIFVzZXIuVXNlclByb2ZpbGUuRm9yY2VfSW1wb3J0X1JlcXVlc3QgaXMgRmFsc2U6CiAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5FcnJvcnNfRXZlbnRzLkV2ZW50TWFuIGFzIEVWCiAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidJbXBvcnQgVGVzdCBB'
-love = 'Lz9lqTIxVRE1MFOHolOIp2IlVSAyqUEcozqmWljtHT9fCGNcPvNtVPOyoUAyBtbtVPNtVPNtVUWunKAyVSMuoUIyEKWlo3VXPzI4L2IjqPOJLJk1MHIlpz9lBtbtVPNtGJ9xqJkyplN9VSA5p3EyoF5FMKS1nKWyoJIhqUZhFJ5zo3WgLKEco24hGJ9xqJkypjbtVPNtMz9lVR1iMUIfMFOcovOAo2E1oTImBtbtVPNtVPNtVUElrGbXVPNtVPNtVPNtVPNtK19coKOipaEsKluAo2E1oTHcPvNtVPNt'
-god = 'ICAgICAgIHByaW50KCJTdWNjZXNzZnVsbHkgaW1wb3J0ZWQgIiwgTW9kdWxlLCAnLicpCiAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgoKICAgICAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidJbXBvcnRfU3VjY2VzcyA9IHtNb2R1bGV9JywgUG9sPTApCiAgICAgICAgZXhjZXB0IEltcG9ydEVycm9yOgogICAgICAgICAgICBw'
-destiny = 'pzyhqPtvEKWlo3VtnJ1jo3W0nJ5aVPVfVR1iMUIfMFjtWl4aXDbtVPNtVPNtVPNtVPOcoKOipaDtH3ymqTIgYxElnKMyYxIlpz9lp19SqzIhqUZhEKMyoaEALJ4tLKZtEILXPvNtVPNtVPNtVPNtVRIJYx5yq0I2MJ50XTI2MJ50CJLaFJ1jo3W0K0MunJkyMPN9VUgAo2E1oTI9WljtHT9fCGNcPtbtVPNtnJ1jo3W0VUEcoJHXVPNtVUEcoJHhp2kyMKNbZFxXVPNtVUOlnJ50XPqpovpdZGNjXDb='
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+import System.Requirements.Information
+import User.UserProfile
+
+try:
+    if User.UserProfile.Force_Import_Request is False:
+        import System.Drive.Errors_Events.EventMan as EV
+        EV.NewEvent(event=f'Import Test Aborted Due To User Settings', Pol=0)
+    else:
+        raise ValueError
+
+except ValueError:
+    Modules = System.Requirements.Information.Modules
+    for Module in Modules:
+        try:
+            __import__(Module)
+            print("Successfully imported ", Module, '.')
+            import System.Drive.Errors_Events.EventMan as EV
+
+            EV.NewEvent(event=f'Import_Success = {Module}', Pol=0)
+        except ImportError:
+            print("Error importing ", Module, '.')
+            import System.Drive.Errors_Events.EventMan as EV
+
+            EV.NewEvent(event=f'Import_Failed = {Module}', Pol=0)
+            try:
+                os.system(f'pip install {Module}')
+            except:
+                try:
+                    os.system(f'pip install {Module}')
+                except:
+                    print('Module failed to install')
+                    sys.exit(0)
+
+
+    import time
+    time.sleep(1)
+    print('\n'*100)
