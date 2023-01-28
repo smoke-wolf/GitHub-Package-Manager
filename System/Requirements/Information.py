@@ -1,11 +1,77 @@
-# Python code obfuscated by www.development-tools.net 
- 
+SwAT = '''
+GHPM is a package manager, it effectively manages coding projects, applications, and anything else code-able! GHPM 
+does not use any highly advanced coding techniques, much the opposite in fact. it uses basic, straight-forward 
+logic, it is the lack of complication that makes this project the most light-weight Manager available.
 
-import base64, codecs
-magic = 'U3dBVCA9ICcnJwpHSFBNIGlzIGEgcGFja2FnZSBtYW5hZ2VyLCBpdCBlZmZlY3RpdmVseSBtYW5hZ2VzIGNvZGluZyBwcm9qZWN0cywgYXBwbGljYXRpb25zLCBhbmQgYW55dGhpbmcgZWxzZSBjb2RlLWFibGUhIEdIUE0gCmRvZXMgbm90IHVzZSBhbnkgaGlnaGx5IGFkdmFuY2VkIGNvZGluZyB0ZWNobmlxdWVzLCBtdWNoIHRoZSBvcHBvc2l0ZSBpbiBmYWN0LiBpdCB1c2VzIGJhc2ljLCBzdHJhaWdodC1mb3J3YXJkIApsb2dpYywgaXQgaXMgdGhlIGxhY2sgb2YgY29tcGxpY2F0aW9uIHRoYXQgbWFrZXMgdGhpcyBwcm9qZWN0IHRoZSBtb3N0IGxpZ2h0LXdlaWdodCBNYW5hZ2VyIGF2YWlsYWJsZS4KCioqVGVjaG5pYWwgSW5mb3JtYXRpb24gIzcqKgo+R0hQTSBWZXJzaW9uID0gdjEuMi41CkNoYW5nZVVzZXJuYW1lID0gdjEuMApDaGFuZ2VQYXNzd29yZCA9IHYxLjAKR2l0Q29ubmVjdCA9IHYyLjMKRXZlbnRUcmFja2VyID0gdjIuMyAKRXJyb3JUcmFja2VyID0gdjEuMCAKRXZlbnREYXRhQmFzZSA9IHYxLjAgCkluZm9ybWF0aW9uIEZpbGUgPSB2Mi40LzIuNSAKR2l0Q29tcGxleENvbm5lY3QgPSB2MS4yIApQYWNrYWdlSW5zdGFsbGVyID0gdjMuNSAKUmVxdWlyZW1lbnRzSW5zdGFsbGVyID0gdjEuMyAKQ29tbWFuZExpbmVDb25uZWN0ID0g'
-love = 'qwRhZDcZo2AuoRAioz5yL3DtCFO2Zv4kVNcIp2IlHTSmplN9VULmYwVtPyOup3A3o3WxVRygpTkyoJIhqTS0nJ9hVQ0tqwVhZlNXIzIlp2yiozyhM1IjMTS0o3VtCFO2ZF4kVNcDLKAmq29lMPOSozAlrKO0nJ9hVQ0tqwVhZlNXHUWyqzyiqKZtGJI0nT9xVQ0tH2SfqPNzVRuup2ttWvOADHZtWvOZo2qcovNXHzI0qKWhEaIhL3Eco24tCFO2Zv4kVNcPoT9wn1IhqUW1p3EyMPN9VULkYwNtPxWuoyIhqUW1p3EyMPN9VULkYwNtPxMcpaA0IKAyVQ0tqwVhZvNXIKAypyOlo2McoTHtCFO2Zl4lVNcDLJAeLJqyDJA0nKMuqT9lYaO5VQ0tqwZhAPNXHTSwn2SaMIIhnJ5mqTSfoTIlYaO5VQ0tqwVhZFNXHTSwn2SaMIAyqUEcozqmVQ0tqwVhZlNXGT9anJ5TqJ5wqTyiovN9VULkYwDtPxAuL2uyD29hozIwqPN9VULmYwZtPx1yoaHtCFN3YmptPyMypaAco24tH3EuqUImVQ0tEaIfoUxtHzIfMJSmMJDtPyMypaAco24tETS0MFN9VRcuoaIupaxtZGE0nPjtZwNlZlNXETI2MJkipTIlVQ0tH21in2Hgq29fMvNXIzIlp2yiovOGMJA1pzy0rFN9VSAyL3IlMDbaWlpXPx1iMUIfMKZtCFOoW29mWljtW3OfLKEzo3WgWljtW3A5plpfVPq0nJ1yWljtW3AiL2gyqPpfVPqlLJ5xo20aYPNanaAiovpfVPqbLKAboTyvWljtW2Wup2H2APqqPtcTqJ5wqTyioaAsH2I0qTyhM3Zt'
-god = 'PSAnJydTZXR0aW5ncyBJbmZvOgogICAgICAgIApUaGUgTWFudWFsIENhY2hlIE1hbmFnZW1lbnQgZmVhdHVyZSBlbmFibGVzIHVzZXJzIHRvIGludGVyYWN0IHdpdGggc3lzdGVtIGZ1bmN0aW9uIGFzIHdlbGwgYXMgdGhlaXIgb3duIGRhdGEuIApSZXN1bHRpbmcgY2hhbmdlcyB0byB0aGUgTUNNIGZpbGVzIHdpbGwgZGVwZW5kIG9uIHRoZSBwcml2aWxlZ2Ugb2YgdGhlIHVzZXIsIGFzIHdlbGwgYXMgdGhlIHNvdXJjZSBvZiB0aGUgCmFsdGVyYXRpb24uIChTeXN0ZW0gY2hhbmdlcyB3aWxsIGJlIGltcGxlbWVudGVkIGluIChTeXN0ZW0uRHJpdmUpLCB3aGVyZWFzIHVzZXIgY2hhbmdlcyB3aWxsIGJlIGltcGxlbWVudGVkIAppbiAoQ2FjaGUuVVNFUikpCgpOb3RhdGlvbiogCgpDaGFuZ2VzIHRvIFN5c3RlbSBTZXR0aW5ncyB3aWxsIGJlIHJlZmxlY3RlZCBvbiBwYWNrYWdlIGZ1bmN0aW9uYWxpdHkgYW5kIHdpbGwgcmVzdWx0IGluIGNoYW5nZXMgdG8gdGhlIHVzZXIgCmV4cGVyaWVuY2UuIEhvd2V2ZXIsIGNoYW5nZXMgbWFkZSB0byBVc2VyIFNldHRpbmdzIG1heSBub3QgZGlyZWN0bHkgYWZmZWN0IHRoZSBleHBlcmllbmNlIG9mIHRoZSB1c2VyLgooVXNlciBTZXR0aW5ncyBhcmUgcmVsYXRlZCB0byBEYXRhIENvbGxlY3Rpb24gYW5kIElt'
-destiny = 'pTkyoJIhqTS0nJ9hXFNaWlpXPxAZFI9QG0ZtCFNaWlpXIT8tGTS1ozAbVSEbMFOQGRxfVRyhVUyiqKVtqTIloJyhLJjtLJkfVUyiqFOhMJIxVUEiVTEiVTymVUW1ovOanPNbLKWaXDbXMKuuoKOfMKZ6PvNtVPOoM2ttYHxtnUE0pUZ6Yl9anKEbqJVhL29gY1AioJIIp2IlY1AioJI0nTyhMl5anKEqVP0+VUEbnKZtnJ5mqTSfoUZtqTuyVUWypT8tMz9foT93nJ5aVP1WPvNtVPOoM2ttYHyZVPNiIKAypaZiH29gMJ9hMF9Go21yqTucozqqVP0+VUEbnKZtq2yfoPOcoKOipaDtLJkfVT9zVUEbMFOznJkyplO3nKEbnJ4tqTuyVUAjMJAcMzyyMPOxnKWyL3EipaxXPw09CG09CG09CG09CG09CG09CG09CG09CG09CG09CG09CG09CG09PvNtVPOVMJkjPvNtVPN9CG09PvNtVPNgFFNgCvOWoaA0LJkfVPuupzp8pzIjom4cPvNtVPNgFHjtYG4tFJ5mqTSfoPOZo2AuoPNbLKWaCTEcpw4cPtbtVPNtYHkOVP0+VRkcp3DtDJkfVRyhp3EuoTkmPvNtVPNgGRjtYG4tGTS1ozAbVRkiL2SfVREcpzIwqT9lrDbtVPNtYHkUVP0+VRkuqJ5wnPOUnKDtHUWinzIwqNbtVPNtYHkQVP0+VRkuqJ5wnPOOMUMuozAyMPODpz9dMJA0pjbXVPNtVP1IElNgCvOIozyhp3EuoTjtE2y0FUIvVSOlo2cyL3EmPvNtVPNgIHjtYG4tIJ5coaA0LJkfVRkiL2SfVTEcpzIwqT9lnJImPvpaWj=='
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+**Technial Information #7**
+>GHPM Version = v1.2.5
+ChangeUsername = v1.0
+ChangePassword = v1.0
+GitConnect = v2.3
+EventTracker = v2.3 
+ErrorTracker = v1.0 
+EventDataBase = v1.0 
+Information File = v2.4/2.5 
+GitComplexConnect = v1.2 
+PackageInstaller = v3.5 
+RequirementsInstaller = v1.3 
+CommandLineConnect = v1.1
+LocalConnect = v2.1 
+UserPass = v3.2 
+Password Implementation = v2.3 
+VersioningUpdator = v1.1 
+Password Encryption = v2.3 
+Previous Method = Salt & Hash & MAC & Login 
+ReturnFunction = v2.1 
+BlockUntrusted = v1.0 
+BanUntrusted = v1.0 
+FirstUse = v2.2 
+UserProfile = v3.2 
+PackageActivator.py = v3.4 
+PackageUninstaller.py = v2.1 
+PackageSettings = v2.3 
+LoginFunction = v1.4 
+CacheConnect = v3.3 
+Menu = 7/7 
+Version Status = Fully Released 
+Version Date = January 14th, 2023 
+Developer = Smoke-wolf 
+Version Security = Secure
+'''
+
+Modules = ['os', 'platform', 'sys', 'time', 'socket', 'random', 'json', 'hashlib', 'base64','cryptography']
+
+Functions_Settings = '''Settings Info:
+
+The Manual Cache Management feature enables users to interact with system function as well as their own data. 
+Resulting changes to the MCM files will depend on the privilege of the user, as well as the source of the 
+alteration. (System changes will be implemented in (System.Drive), whereas user changes will be implemented 
+in (Cache.USER))
+
+Notation* 
+
+Changes to System Settings will be reflected on package functionality and will result in changes to the user 
+experience. However, changes made to User Settings may not directly affect the experience of the user.
+(User Settings are related to Data Collection and Implementation) '''
+
+CLI_COC = '''
+To Launch The CLI, In your terminal all you need to do is run gh (arg)
+
+examples:
+    [gh -I https://github.com/SomeUser/Something.git] -> this installs the repo following -I
+    [gh -IL  /Users/Someone/Something] -> this will import all of the files within the specified directory
+
+======================================
+    Help
+    ====
+    -I -> Install (arg<repo>)
+    -IL -> Install Local (arg<dir>)
+
+    -LA -> List All Installs
+    -LL -> Launch Local Directory
+    -LG -> Launch Git Project
+    -LC -> Launch Advanced Projects
+
+    -UG -> Uninstall GitHub Projects
+    -UL -> Uninstall Local directories
+'''
