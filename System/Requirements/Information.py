@@ -39,7 +39,7 @@ Developer = Smoke-wolf
 Version Security = Secure
 '''
 
-Modules = ['os', 'platform', 'sys', 'time', 'socket', 'random', 'json', 'hashlib', 'base64','cryptography']
+Modules = ['os', 'platform', 'sys', 'time', 'socket', 'random', 'json', 'hashlib', 'base64','cryptography','tkinter']
 
 Functions_Settings = '''Settings Info:
 
