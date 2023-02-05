@@ -34,10 +34,18 @@ When you first launch the application, you will be prompted to create a password
 
 
 # Publication Information 
-**Technial Information #8**
->GHPM Version = v1.2.6\
-ChangeUsername = v1.1\
-ChangePassword = v1.1\
+**Technial Information #9**
+>GHPM Version = v1.3.0\
+ChangeUsername = v1.2\
+GUI = v1.0\
+GUIInstaller_Local\
+GUIInstaller_GitHub\
+GUIInstaller_Advanced\
+GUIActivator_Local\
+GUIActivator_GitHub\
+GUIUninstaller_Complex\
+GUIUninstaller_GitHub\
+ChangePassword = v1.2\
 GitConnect = v2.3\
 EventTracker = v2.4\
 ErrorTracker = v1.0\
