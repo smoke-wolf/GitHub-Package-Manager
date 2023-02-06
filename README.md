@@ -37,11 +37,9 @@ Writeup(https://www.publishthis.email/github-package-manager-Bki9Ejbhi) here:
 
 ## Downloading & Installing
 
-git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
-
-cd GitHub-Package-Manager
-
-python3 Start.py
+	git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
+	cd GitHub-Package-Manager
+	python3 Start.py
 
 **First Use:**
 
@@ -49,9 +47,8 @@ When you first launch the application, you will be prompted to create a password
 
   
 
-python3 Start.py
-
-or python Start.py
+	python3 Start.py
+	or python Start.py
 
   
 
