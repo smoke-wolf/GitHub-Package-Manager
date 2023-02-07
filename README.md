@@ -86,9 +86,72 @@ HOWEVER, if for whatever reason **Package Installer** errors after checkpoint [3
 
 If any are found, email [Maliq.Barnard@gmail.com](mailto:Maliq.Barnard@gmail.com)
 
-# [](https://github.com/smoke-wolf/GitHub-Package-Manager#explanations--tutorials)Explanations & Tutorials
 
- [explanations-tutorials](https://www.publishthis.email/explanations-tutorials-H1ieZiWhs)
+# Explanations & Tutorials
+
+## Command Line Connection  
+
+If you want to use the same features from the package without the hassle of using the main application. It is quite straightforward, within the main menu, you will head into Settings >User and select Enable Command Line Interface. This will enable the gh command:
+
+examples:
+
+[gh -I [https://github.com/SomeUser/Something.git](https://github.com/SomeUser/Something.git)] -> this installs the repo following -I
+
+[gh -IL /Users/Someone/Something] -> this will import all of the files within the specified directory
+
+Help
+
+========================= 
+-I -> Install (arg{repo})
+-IL -> Install Local (arg{dir})
+============ ============ 
+-LA -> List All Installs
+-LL -> Launch Local Directory
+-LG -> Launch Git Project
+-LC -> Launch Advanced Projects
+============ ============ 
+-UG -> Uninstall GitHub Projects
+-UL -> Uninstall Local directories
+
+## Installing Programs
+
+When installing files from GitHub you will be asked to enter a GitHub repository Example:  [https://github.com/SomeUser/SomeRepo.git](https://github.com/SomeUser/SomeRepo.git)  After the package has downloaded, there will be a list of files within the repo
+
+-   If the package requires no setup, select the value that corresponds with the Launch file. The interpreter will automatically be selected based on the type of file
+    
+-   If however, the package requires a more comprehensive installation (i.e. Requires a makefile, etc.) select 0 from the list. This will require you to add any special configuration commands.
+    
+
+After the package has been installed, a launch command will be written to [System/Cache/System/GitHub/Downloads/Int.txt] after the installation has been completed you will be free to launch the application through the Package Activator -> Github or Complex.
+
+When importing local packages, it is the same process, however there is not yet a feature for complex installations.
+
+## Launching Programs
+
+Launching programs is simple, simply select the class from which your program is.
+
+-   If you have downloaded a repo from GitHub, it will be displayed in [Package Activator -> Github]
+    
+-   If it has been installed through a complex installation, packages will be displayed in [Package Activator -> Complex]
+    
+-   Finally, if it has been imported through the local installation it will be displayed in [Package Activator -> Local]
+    
+
+When a GitHub program has completed there will be a message asking the form of exit, if an error with the program has caused it to exit, enter 2. if however, the program completed successfully, or you exited purposefully, enter 1.
+
+The previous does not occur with local programs
+
+## Uninstalling Programs
+
+The process for uninstalling is the same as installing, once a package has been selected from either Local or GitHub it will be uninstalled and deleted from your profile. For GitHub there is no need to manually set complex or basic, it is all done autonomously.
+
+## Updating
+
+*When updating the file structure your GHPM client stays the same.
+
+The VersionUpdate first retrieves the most recent version. It then compares your version for compatibility. If it is, Current files are erased and then updated with the contents of the previous version.
+
+GHPM V1.2.6
 # Publication Information
 
 **Technical Information #9**
