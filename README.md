@@ -4,7 +4,7 @@
   
 
 ## **update v1.3.2**
-Bug Fixes: Out Of Date Menu and Other Fertures Of Legacy Version.
+Bug Fixes: Out Of Date Menu and Other Fertures Of Legacy Version.\
 Date: Feb 6th 2023
   
 
