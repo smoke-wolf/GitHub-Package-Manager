@@ -55,7 +55,40 @@ When you first launch the application, you will be prompted to create a password
 **GUI**
 
 When you have downloaded a package, or connected a local repository, you will be able to access the GHPM-GUI. Simply enter **9** in the Function List.
+## Updating Project
 
+With the new **Versioning** feature as of v1.2.4, you are now able to seamlessly update your version to the newest avalable!
+
+*As of v1.2.5 Version updates now ensure that your current version is compatable with newer updates.
+
+**The Versioning Feature** It is displayed in the Feauture menu and does not require a password.
+
+## [](https://github.com/smoke-wolf/GitHub-Package-Manager#goals--to-do)Goals & To Do
+
+1.  SHA256 for files related to updates
+2.  Allow Separate Profiles
+3.  Add Better Listing Features
+4.  Create GUI
+5.  Add Third Party Integration
+6.  Update Installed Repos
+7.  Install APK & DMG Applications
+8.  Smoothen Interfaces & Tidy Code
+9.  Add automatic file additions with new versions -> Version update
+
+### [](https://github.com/smoke-wolf/GitHub-Package-Manager#complete--v125)Complete -v1.2.6
+
+1.  Add **Password** Reset Feature
+2.  Completely updated versioning system
+
+## [](https://github.com/smoke-wolf/GitHub-Package-Manager#known-errors)Known Errors
+
+HOWEVER, if for whatever reason **Package Installer** errors after checkpoint [3:4] you may end up with a downloaded repo that has no launch command listed.
+
+If any are found, email [Maliq.Barnard@gmail.com](mailto:Maliq.Barnard@gmail.com)
+
+# [](https://github.com/smoke-wolf/GitHub-Package-Manager#explanations--tutorials)Explanations & Tutorials
+
+ [explanations-tutorials](https://www.publishthis.email/explanations-tutorials-H1ieZiWhs)
 # Publication Information
 
 **Technical Information #9**
