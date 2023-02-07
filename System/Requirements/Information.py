@@ -3,43 +3,54 @@ GHPM is a package manager, it effectively manages coding projects, applications,
 does not use any highly advanced coding techniques, much the opposite in fact. it uses basic, straight-forward 
 logic, it is the lack of complication that makes this project the most light-weight Manager available.
 
-**Technial Information #7**
->GHPM Version = v1.2.5
-ChangeUsername = v1.0
-ChangePassword = v1.0
+Technical Information #9
+
+GHPM Version = v1.3.0
+ChangeUsername = v1.2
+ChangePassword = v1.3
 GitConnect = v2.3
-EventTracker = v2.3 
-ErrorTracker = v1.0 
-EventDataBase = v1.0 
-Information File = v2.4/2.5 
-GitComplexConnect = v1.2 
-PackageInstaller = v3.5 
-RequirementsInstaller = v1.3 
-CommandLineConnect = v1.1
-LocalConnect = v2.1 
-UserPass = v3.2 
-Password Implementation = v2.3 
-VersioningUpdator = v1.1 
-Password Encryption = v2.3 
-Previous Method = Salt & Hash & MAC & Login 
-ReturnFunction = v2.1 
-BlockUntrusted = v1.0 
-BanUntrusted = v1.0 
-FirstUse = v2.2 
-UserProfile = v3.2 
-PackageActivator.py = v3.4 
-PackageUninstaller.py = v2.1 
-PackageSettings = v2.3 
-LoginFunction = v1.4 
-CacheConnect = v3.3 
-Menu = 7/7 
-Version Status = Fully Released 
-Version Date = January 14th, 2023 
-Developer = Smoke-wolf 
+EventTracker = v2.5
+ErrorTracker = v1.0
+EventDataBase = v1.1
+Information File = v2.4/2.5
+GitComplexConnect = v1.2
+PackageInstaller = v3.6
+RequirementsInstaller = v1.3
+CommandLineConnect = v1.2 LocalConnect = v2.2
+UserPass = v3.3
+Password Implementation = v2.4
+VersioningUpdator = v1.3
+Password Encryption = v2.4
+Previous Method = Salt & Hash & MAC & Login & Fernet
+ReturnFunction = v2.1
+BlockUntrusted = v1.1
+BanUntrusted = v1.1
+FirstUse = v2.3
+UserProfile = v3.2
+PackageActivator.py = v3.5
+PackageUninstaller.py = v2.2
+PackageSettings = v2.4
+LoginFunction = v1.5
+CacheConnect = v3.5
+Menu = 8/8
+Version Status = Fully Released v1.3.0
+Version Date = February 5th, 2023
+Developer = Smoke-wolf
 Version Security = Secure
+
+GUI -> v1.0
+
+GUI = v1.1
+GUIInstaller_Local = v1.0
+GUIInstaller_GitHub = v1.0
+GUIInstaller_Advanced = v1.0
+GUIActivator_Local = v1.0
+GUIActivator_GitHub = v1.0
+GUIUninstaller_Complex = v1.0
+GUIUninstaller_GitHub = v1.0
 '''
 
-Modules = ['os', 'platform', 'sys', 'time', 'socket', 'random', 'json', 'hashlib', 'base64','cryptography','tkinter']
+Modules = ['os', 'platform', 'sys', 'time', 'socket', 'random', 'json', 'hashlib', 'base64','cryptography','tkinter','requests']
 
 Functions_Settings = '''Settings Info:
 
