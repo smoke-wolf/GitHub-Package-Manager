@@ -3,14 +3,16 @@
 
   
 
-## **update v1.3.0**
-
-You now have access to the GUI, currently it is only available through the Function List. However, it will be linked in a separate repository.
-
+## **update v1.3.2**
+Bug Fixes: Out Of Date Menu and Other Fertures Of Legacy Version.
+Date: Feb 6th 2023
   
 
 ## Information
 **GHPM** is a package manager for GitHub, it effectively manages coding projects, applications, and anything else code-able! **GHPM** does not use any highly advanced coding techniques, much the opposite in fact. it uses basic, straight-forward logic, it is the lack of complication that makes this project the most light-weight Manager available. Not only that, it is the first manager to allow for **Launching** of programs rather than solely installing them.
+
+You now have access to the GUI, currently it is only available through the Function List. However, it will be linked in a separate repository.
+
 
   
 
