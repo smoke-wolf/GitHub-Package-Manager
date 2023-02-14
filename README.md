@@ -69,7 +69,7 @@ When you first launch the application, you will be prompted to create a password
 
 	python3 Start.py
 
-###GUI
+### GUI
 The build for a GUI has been embedded under **9** in the Function List. Activating the GUI gives the user a backend-connected interface with all features found within the CLI. 
 
 *IF* 
