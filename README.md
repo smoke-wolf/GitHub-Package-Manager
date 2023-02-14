@@ -128,23 +128,23 @@ If you want to use the same features from the package without the hassle of usin
 
 examples:
 
-[gh -I [https://github.com/SomeUser/Something.git](https://github.com/SomeUser/Something.git)] -> this installs the repo following -I
+[gh -I [https://github.com/SomeUser/Something.git](https://github.com/SomeUser/Something.git)] -> this installs the repo following -I\
 
-[gh -IL /Users/Someone/Something] -> this will import all of the files within the specified directory
+[gh -IL /Users/Someone/Something] -> this will import all of the files within the specified directory\
 
-Help
+Help\
 
-========================= 
--I -> Install (arg{repo})
--IL -> Install Local (arg{dir})
+========================= \
+-I -> Install (arg{repo})\
+-IL -> Install Local (arg{dir})\
 ============ ============ 
--LA -> List All Installs
--LL -> Launch Local Directory
--LG -> Launch Git Project
--LC -> Launch Advanced Projects
-============ ============ 
--UG -> Uninstall GitHub Projects
--UL -> Uninstall Local directories
+-LA -> List All Installs\
+-LL -> Launch Local Directory\
+-LG -> Launch Git Project\
+-LC -> Launch Advanced Projects\
+============ ============ \
+-UG -> Uninstall GitHub Projects\
+-UL -> Uninstall Local directories\
 
 ## Installing Programs
 
