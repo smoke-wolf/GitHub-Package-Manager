@@ -137,12 +137,12 @@ Help\
 ========================= \
 -I -> Install (arg{repo})\
 -IL -> Install Local (arg{dir})\
-============ ============ 
+========================= \
 -LA -> List All Installs\
 -LL -> Launch Local Directory\
 -LG -> Launch Git Project\
 -LC -> Launch Advanced Projects\
-============ ============ \
+========================= \
 -UG -> Uninstall GitHub Projects\
 -UL -> Uninstall Local directories\
 
