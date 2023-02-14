@@ -3,24 +3,42 @@
 
   
 
-## **update v1.3.2**
-Bug Fixes: Out Of Date Menu and Other Fertures Of Legacy Version.\
-Date: Feb 6th 2023
+## **update v1.3.3**
+Bug Fixes:
+- Complex / Advanced Programs failed to install through GUI
+- Programs also fail to launch after installation. 
+- Settings Returning null/unavailable status
+
+Resolve: 
+- GUI Settings Updated 
+- Settings / CLI access channelling
+- Project restructuring for stand-alone gui compatibility
+- Advanced Application Support (GitHub stand-alone)
+- Gui simple installation optimized for complex installations
+
+Date: Feb 13th 2023
   
 
 ## Information
-**GHPM** is a package manager for GitHub, it effectively manages coding projects, applications, and anything else code-able! **GHPM** does not use any highly advanced coding techniques, much the opposite in fact. it uses basic, straight-forward logic, it is the lack of complication that makes this project the most light-weight Manager available. Not only that, it is the first manager to allow for **Launching** of programs rather than solely installing them.
+**GHPM** is a package manager for GitHub, it effectively manages GitHub packages and local directories and file paths. **GHPM** uses strategic logic to install packages with the intent of organising, compiling, and recalling in the future. Packages downloaded are passed through our system to allow for the most user-friendly interface, whereafter the downloaded package can be compiled with minimal struggle. Requirements and other prereqs are handled automatically through GitHub Installations to mitigate preventable exits and errors.
 
-You now have access to the GUI, currently it is only available through the Function List. However, it will be linked in a separate repository.
+GHPM stands unparalleled to other currently available GitHub PMs, with the primary differentiating feature being the seamlessly user-free installation of applications and projects. With GHPM, all packages are handled with intent and are contained to allow for simple execution in future instances. Other package managers such as ***Huber*** which handles and lists installed packages still have fundamental limitations such as using free installation on large ranges of applications. 
+
+This project *used* to be the most lightweight gh Manager available. Not only that, it is the first manager to allow for cross-instance reference of programs rather.
 
 
-  
 
-Writeup(https://www.publishthis.email/github-package-manager-Bki9Ejbhi) here:
+*You now have access to the GUI, currently it is only available through the Function List. However, it will be linked to a separate repository.*
 
-# Features
+
+# Features 1.3.3
+ - [->] Cross Version Support *Post v1.2.4*
+ - [->] Systematic Application Scraping
+ - [->] Password Reset & Account flexibility
+ - [->] Structures and Skeletons (*Allow Compileable Application*)
 - [->] Install Packages Through GitHub [!] *Note Requires GitClone*
 - [->] Link Local Directories To Package
+- [->] Embedded DataLogic Prevents Cross UU?D (*User / Device*)
 - [->] Beta Data Lock // Encrypted Storage
 - [->] Intuitive Configurations Search Package For Potential Launch Scripts
 - [->] Install Complex Applications And Packages
@@ -28,7 +46,7 @@ Writeup(https://www.publishthis.email/github-package-manager-Bki9Ejbhi) here:
 - [->] Comprehensive Event Tracking [!]*Note Saved To System/Cache/System/ErrorLog*
 - [->] Fluid Package Launches Using Launch Commands Configured Through Installation
 - [->] Seamless Uninstallation For GitHub Installs And Local Imports *Note Deletes Directory*
-- [->] Salt & Hash Based Encryption For Passwords [!]*Note There Is No Way To Reset Password*
+- [->] Salt & Hash-Based Encryption For Passwords 
 - [->] Direct Cache Editing And Altering
 - [->] Control System Settings And Personalization
 - [->] All Of The Previous Are Now Doable Through The GUI
@@ -37,7 +55,7 @@ Writeup(https://www.publishthis.email/github-package-manager-Bki9Ejbhi) here:
   
   
 
-## Downloading & Installing
+## Downloading & Installing 
 
 	git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
 	cd GitHub-Package-Manager
@@ -50,41 +68,54 @@ When you first launch the application, you will be prompted to create a password
   
 
 	python3 Start.py
-	or python Start.py
-
-  
 
 **GUI**
+The build for a GUI has been embedded under **9** in the Function List. Activating the GUI gives the user a backend-connected interface with all features found within the CLI. 
 
-When you have downloaded a package, or connected a local repository, you will be able to access the GHPM-GUI. Simply enter **9** in the Function List.
+*IF* 
+	
+	./ghpm -> Command Not Found
+			
+-> GUI will only be accessible within option **9**
+
+*ELSE*
+	./ghpm -> Succsesful
+			
+-> The created **ghpm** executable will be movable everywhere regardless of whether or not it is within the GitHub-Package-Manager directory. 
 ## Updating Project
 
-With the new **Versioning** feature as of v1.2.4, you are now able to seamlessly update your version to the newest avalable!
+**The Versioning Feature**  is displayed in the Feature menu and does not require a password.
 
-*As of v1.2.5 Version updates now ensure that your current version is compatable with newer updates.
+With the new **Versioning** feature as of v1.2.4, you are now able to seamlessly update your version to the newest available! 
 
-**The Versioning Feature** It is displayed in the Feauture menu and does not require a password.
+*As of v1.2.5 Version updates now ensure that your current version is compatible with newer updates.
 
-## [](https://github.com/smoke-wolf/GitHub-Package-Manager#goals--to-do)Goals & To Do
+
+
+## Goals & To Do -<Up#v3.3>
 
 1.  SHA256 for files related to updates
-2.  Allow Separate Profiles
-3.  Add Better Listing Features
-4.  Create GUI
+2. Cross-Platform Compatability *Requires Windows Update*
+3.  Logging and Monitoring (*Solve Errors Intuitivly*)
+4.  API account connection and development
 5.  Add Third Party Integration
 6.  Update Installed Repos
 7.  Install APK & DMG Applications
-8.  Smoothen Interfaces & Tidy Code
-9.  Add automatic file additions with new versions -> Version update
+8.  Handle requirements within Local Installations
+9.  Reconfigure File Security / Storage with *pyminizip*
+10. Patch Null Install / Failed Cleanup for Installations 
 
-### [](https://github.com/smoke-wolf/GitHub-Package-Manager#complete--v125)Complete -v1.2.6
+### Complete -v1.3.3
+1. Allow Separate Profiles (*Profile Locking Built-In*)
+2. Create GUI (*v1.1.0*)
+3. Smoothen Interfaces & Tidy Code (*Patches and Corrections*)
+4. automatic file additions with new versions (*Version Updates facilitate new data*)
+5. Add Better Listing Features (*Patched in GUI*)
 
-1.  Add **Password** Reset Feature
-2.  Completely updated versioning system
+## Known Errors
+If **Package Installer** errors after checkpoint [3:4] you may end up with a downloaded repo that has no launch command listed.
 
-## [](https://github.com/smoke-wolf/GitHub-Package-Manager#known-errors)Known Errors
-
-HOWEVER, if for whatever reason **Package Installer** errors after checkpoint [3:4] you may end up with a downloaded repo that has no launch command listed.
+* URGENT -> Support for windows (/ -> \ ) EXIT COMMAND IN PYTHON
 
 If any are found, email [Maliq.Barnard@gmail.com](mailto:Maliq.Barnard@gmail.com)
 
@@ -126,7 +157,7 @@ When installing files from GitHub you will be asked to enter a GitHub repository
 
 After the package has been installed, a launch command will be written to [System/Cache/System/GitHub/Downloads/Int.txt] after the installation has been completed you will be free to launch the application through the Package Activator -> Github or Complex.
 
-When importing local packages, it is the same process, however there is not yet a feature for complex installations.
+When importing local packages, it is the same process, however, there is not yet a feature for complex installations.
 
 ## Launching Programs
 
@@ -139,7 +170,7 @@ Launching programs is simple, simply select the class from which your program is
 -   Finally, if it has been imported through the local installation it will be displayed in [Package Activator -> Local]
     
 
-When a GitHub program has completed there will be a message asking the form of exit, if an error with the program has caused it to exit, enter 2. if however, the program completed successfully, or you exited purposefully, enter 1.
+When a GitHub program has been completed there will be a message asking for the form of exit, if an error with the program has caused it to exit, enter 2. if however, the program completed successfully, or you exited purposefully, enter 1.
 
 The previous does not occur with local programs
 
@@ -153,16 +184,31 @@ The process for uninstalling is the same as installing, once a package has been 
 
 The VersionUpdate first retrieves the most recent version. It then compares your version for compatibility. If it is, Current files are erased and then updated with the contents of the previous version.
 
-GHPM V1.2.6
+## GUI
+The build for a GUI has been embedded under **9** in the Function List. Activating the GUI gives the user a backend-connected interface with all features found within the CLI. 
+
+*IF* 
+	
+	./ghpm -> Command Not Found
+			
+-> GUI will only be accessible within option **9**
+
+*ELSE*
+	./ghpm -> Succsesful
+			
+-> The created **ghpm** executable will be movable everywhere regardless of whether or not it is within the GitHub-Package-Manager directory. 
+
+### Aditional Support
+ *Will be added later*
 # Publication Information
 
-**Technical Information #9**
->GHPM Version = v1.3.0\
+**Technical Information #10**
+>GHPM Version = v1.3.3\
 ChangeUsername = v1.2\
 ChangePassword = v1.3\
 GitConnect = v2.3\
 EventTracker = v2.5\
-ErrorTracker = v1.0\
+ErrorTracker = v1.1\
 EventDataBase = v1.1\
 Information File = v2.4/2.5\
 GitComplexConnect = v1.2\
@@ -186,28 +232,28 @@ PackageSettings = v2.4\
 LoginFunction = v1.5\
 CacheConnect = v3.5\
 Menu = 8/8\
-Version Status = Fully Released v1.3.0\
-Version Date = February 5th, 2023\
+Version Status = Fully Released v1.3.3\
+Version Date = February 13th, 2023\
 Developer = Smoke-wolf\
 Version Security = Secure
 
   
 
-*GUI -> v1.0*
+*GUI -> v1.2*
 
->GUI = v1.1\
+>GUI = v1.2\
 GUIInstaller_Local = v1.0\
 GUIInstaller_GitHub = v1.0\
-GUIInstaller_Advanced = v1.0\
+GUIInstaller_Advanced = v1.1\
 GUIActivator_Local = v1.0\
 GUIActivator_GitHub = v1.0\
-GUIUninstaller_Complex = v1.0\
-GUIUninstaller_GitHub = v1.0
+GUIUninstaller_Complex = v1.1\
+GUIUninstaller_GitHub = v1.0\
+GUISettings = v1.6\
 
   
 
 *Crypt-> v1.1*
-
 >Write_Data = v.1.0
 Read_Data = v1.1
 Delete_Data =v1.0
@@ -215,5 +261,6 @@ Read_File = v.1.0
 
   
   
+_________
 
 [MORE INFO](https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/ErrorLog/Errors)
