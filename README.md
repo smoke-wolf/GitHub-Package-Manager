@@ -180,7 +180,7 @@ The process for uninstalling is the same as installing, once a package has been 
 
 ## Updating
 
-*When updating the file structure your GHPM client stays the same.
+*When updating your GHPM client stays the same.
 
 The VersionUpdate first retrieves the most recent version. It then compares your version for compatibility. If it is, Current files are erased and then updated with the contents of the previous version.
 
