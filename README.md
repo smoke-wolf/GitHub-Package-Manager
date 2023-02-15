@@ -249,14 +249,14 @@ GUIActivator_Local = v1.0\
 GUIActivator_GitHub = v1.0\
 GUIUninstaller_Complex = v1.1\
 GUIUninstaller_GitHub = v1.0\
-GUISettings = v1.6\
+GUISettings = v1.6
 
   
 
-*Crypt-> v1.1*
->Write_Data = v.1.0
-Read_Data = v1.1
-Delete_Data =v1.0
+*Crypt-> v1.1*\
+>Write_Data = v.1.0\
+Read_Data = v1.1\
+Delete_Data =v1.0\
 Read_File = v.1.0
 
   
