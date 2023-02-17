@@ -117,8 +117,9 @@ If **Package Installer** errors after checkpoint [3:4] you may end up with a dow
 
 * URGENT -> Support for windows (/ -> \ ) EXIT COMMAND IN PYTHON
 
-If any are found, email [Maliq.Barnard@gmail.com](mailto:Maliq.Barnard@gmail.com)
 
+If any are found, email [Maliq.Barnard@gmail.com](mailto:Maliq.Barnard@gmail.com)
+or checkout out docs on [contributing](https://github.com/smoke-wolf/GitHub-Package-Manager/blob/main/CONTRIBUTING.md)
 
 # Explanations & Tutorials
 
