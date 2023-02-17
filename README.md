@@ -7,8 +7,8 @@
 	cd GitHub-Package-Manager
 	python3 Start.py
 ### Windows
-	git clone https://github.com/smoke-wolf/GitHub-Package-Manager-Windows.git
-	cd GitHub-Package-Manager-Windows
+	git clone https://github.com/smoke-wolf/GitHub-Package-Manager-Windows-.git
+	cd GitHub-Package-Manager-Windows-
 	python3 Start.py
 	
 **First Use:**
