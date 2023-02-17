@@ -1,7 +1,23 @@
 
 # GitHub Package Manager
 
+## quick install
+### MacOS and Linux
+	git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
+	cd GitHub-Package-Manager
+	python3 Start.py
+### Windows
+	git clone https://github.com/smoke-wolf/GitHub-Package-Manager-Windows.git
+	cd GitHub-Package-Manager-Windows
+	python3 Start.py
+	
+**First Use:**
+
+When you first launch the application, you will be prompted to create a password and username. Once the profile has been created, run the following command.
+
   
+
+	python3 Start.py
 
 ## **update v1.3.3**
 Bug Fixes:
@@ -55,20 +71,7 @@ This project *used* to be the most lightweight gh Manager available. Not only th
   
   
 
-## Downloading & Installing 
-
-	git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
-	cd GitHub-Package-Manager
-	python3 Start.py
-
-**First Use:**
-
-When you first launch the application, you will be prompted to create a password and username. Once the profile has been created, run the following command.
-
-  
-
-	python3 Start.py
-
+## Installing 
 ### GUI
 The build for a GUI has been embedded under **9** in the Function List. Activating the GUI gives the user a backend-connected interface with all features found within the CLI. 
 
