@@ -1,6 +1,12 @@
 
 # GitHub Package Manager
-GHPM is a powerful package manager for GitHub that helps users to organize, compile, and recall packages with ease. It offers a user-friendly interface, and packages are downloaded and compiled with minimal struggle. GHPM automatically handles requirements and other prerequisites, making it easier for users to install applications and projects. Compared to other GitHub package managers, GHPM offers unparalleled features such as cross-instance reference of programs, and it's the most lightweight manager available. Whether you're a beginner or an experienced programmer, GHPM offers the tools you need to take your programming experience to the next level.
+GHPM is a powerful package manager for GitHub that helps users to organize, compile, and recall packages with ease.
+
+It offers a user-friendly interface, and packages are downloaded and compiled with minimal struggle. GHPM automatically handles requirements and other prerequisites, making it easier for users to install applications and projects.
+
+Compared to other GitHub package managers, GHPM offers unparalleled features such as cross-instance reference of programs, and it's the most lightweight manager available.
+
+Whether you're a beginner or an experienced programmer, GHPM offers the tools you need to take your programming experience to the next level.
 
 ## quick install
 ### MacOS and Linux
@@ -14,6 +20,7 @@ GHPM is a powerful package manager for GitHub that helps users to organize, comp
 	
 **First Use:**
 
+#### *Recomended to checkout this [documentation](https://github.com/smoke-wolf/GitHub-Package-Manager/wiki)*
 When you first launch the application, you will be prompted to create a password and username. Once the profile has been created, run the following command.
 
  
