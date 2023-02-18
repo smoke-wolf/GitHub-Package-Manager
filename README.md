@@ -118,7 +118,7 @@ With the new **Versioning** feature as of v1.2.4, you are now able to seamlessly
 ## Known Errors
 If **Package Installer** errors after checkpoint [3:4] you may end up with a downloaded repo that has no launch command listed.
 
-* URGENT -> Support for windows (/ -> \ ) EXIT COMMAND IN PYTHON
+if there is an error being raised in the Windows version: head to the User/UserProfile.py and make sure that the backslashes are doubled up in the SourceDirectory.
 
 
 If any are found, email [Maliq.Barnard@gmail.com](mailto:Maliq.Barnard@gmail.com)
