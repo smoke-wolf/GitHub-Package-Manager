@@ -1,11 +1,289 @@
-# Python code obfuscated by www.development-tools.net 
- 
+import os
+import sys
 
-import base64, codecs
-magic = 'aW1wb3J0IG9zCmltcG9ydCBzeXMKCgpkZWYgQWxsKCk6CiAgICBjd2QgPSBvcy5nZXRjd2QoKQoKICAgIHNwYWNlciA9ICcnJz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0nJycKCiAgICBwcmludCgnPT09PT09PT09PT09PT09PT1BdmFpbGFibGVfUGFja2FnZXM9PT09PT09PT09PT09PT09PScpCiAgICBwcmludCgnR2l0SHViIDogMScpCiAgICBwcmludCgnTG9jYWwgOiAyJykKICAgIHByaW50KCdHaXRIdWItQ29tcGxleCA6IDMnKQogICAgaW5wID0gTm9uZQogICAgaW5wID0gaW5wdXQoJ0VudGVyIHZhbHVlIHRvIGNvbnRpbnVlOiAnKQoKICAgIHRyeToKICAgICAgICBpbnAgPSBpbnQoaW5wKQogICAgZXhjZXB0OgogICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgogICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYnaW5wdXQgZXJyb3InLCBQb2w9MSkKCiAgICBpZiBpbnAgPT0gMToKCiAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5FcnJvcnNfRXZlbnRzLkV2ZW50TWFuIGFzIEVWCiAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidJbnAgPSBHaXRIdWInLCBQb2w9MSkKCiAgICAgICAgd2l0aCBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvaW50LnR4dCcsICdyJykgYXMgciwgb3BlbigKICAgICAgICAgICAgICAgIGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvaW50Mi50eHQnLCAndycpIGFzIG86CiAgICAgICAgICAgIGZvciBsaW5lIGluIHI6CiAgICAgICAgICAgICAgICBpZiBsaW5lLnN0cmlwKCk6CiAgICAgICAgICAgICAgICAgICAgby53cml0ZShsaW5lKQoKICAgICAgICBmID0gb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL2ludDIudHh0JywgInIiKQoKICAgICAgICBsaW5lcyA9IGYucmVhZGxpbmVzKCkKICAgICAgICBjb3VudCA9IDAKICAgICAgICBmb3IgbGluZSBpbiBsaW5lczoKICAgICAgICAgICAgY291bnQgKz0gMQoKICAgICAgICBjb3VudDEgPSAwCiAgICAgICAgZm9yIGxpbmUgaW4gbGluZXM6CiAgICAgICAgICAgIHZhbHVlNCA9IGxpbmUuc3RyaXAoKQogICAgICAgICAgICBWYWwgPSB2YWx1ZTQuc3BsaXQoJyYnLCAxKQogICAgICAgICAgICBpZiBsZW4oVmFsKSA+IDA6CiAgICAgICAgICAgICAgICB2YWx1ZTQgPSBWYWxbMV0KICAgICAgICAgICAgY291bnQxICs9IDEKCiAgICAgICAgICAgIHByaW50KCJ7fSB8IHt9Ii5mb3JtYXQoY291bnQxLCB2YWx1ZTQpKQogICAgICAgICAgICBwcmludChzcGFjZXIpCiAgICAgICAgICAgIGlmIGNvdW50IGlzIE5vbmU6CiAgICAgICAgICAgICAgICBwcmludCgnTm8gUGFja2FnZXMgWWV0JykKICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgIHBhc3MKCiAgICAgICAgICAgIGlmIGNvdW50MSA9PSBjb3VudDoKICAgICAgICAgICAgICAgIHZhbHVlZSA9IGlucHV0KCdFbnRlciBhIHZhbHVlIHRvIGNvbnRpbnVlOiAnKQogICAgICAgICAgICAgICAgdmFsdWUgPSBsaW5lc1tpbnQodmFsdWVlKSAtIDFdCiAgICAgICAgICAgICAgICBjYyA9IHZhbHVlCiAgICAgICAgICAgICAgICBsaXN0T2ZXb3JkcyA9IHZhbHVlLnNwbGl0KCcmJywgMSkKICAgICAgICAgICAgICAgIGlmIGxlbihsaXN0T2ZXb3JkcykgPiAwOgogICAgICAgICAgICAgICAgICAgIHZhbHVlID0gbGlzdE9mV29yZHNbMV0KCiAgICAgICAgICAgICAgICB2YWx1ZSA9IHZhbHVlLnNwbGl0KCctJywgMSlbMF0KCiAgICAgICAgICAgICAgICBjYyA9IGNjLnNwbGl0KCdAJywgMSlbMF0KICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgogICAgICAgICAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidDaGFuZ2UgRGlyZWN0b3J5OiB7Y2N9ICcsIFBvbD0wKQogICAgICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgICAgIG9zLmNoZGlyKGNjKQogICAgICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgogICAgICAgICAgICAgICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYnRGlyQ2hhbmdlID0gU3VjY2VzcyEgJywgUG9sPTApCiAgICAgICAgICAgICAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidvcyBleGVjdXRlZCBjb21tYW5kIFshXXt2YWx1ZX1bIV0gJywgUG9sPTApCiAgICAgICAgICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgICAgICAgICBvcy5zeXN0ZW0oZid7dmFsdWV9JykKICAgICAgICAgICAgICAgICAgICAgICAgc3lzLmV4aXQoMCkKICAgICAgICAgICAgICA'
-love = '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'
-god = 'AgICAgICAgICAgICAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5FcnJvcnNfRXZlbnRzLkV2ZW50TWFuIGFzIEVWCiAgICAgICAgICAgICAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidGYWlsdXJlOiB7dmFsdWUxfScsIFBvbD0xKQoKICAgICAgICAgICAgICAgIHRyeToKICAgICAgICAgICAgICAgICAgICBvcy5zeXN0ZW0oZid7dmFsdWVnfScpCgogICAgICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgoKICAgICAgICAgICAgICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ0RpcmVjdG9yeSBjaGFuZ2VkIFshXXt2YWx1ZTF9WyFdJywgUG9sPTApCgogICAgICAgICAgICAgICAgZXhjZXB0OgogICAgICAgICAgICAgICAgICAgIHByaW50KCdvcyBlcnJvcicpCgogICAgICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgoKICAgICAgICAgICAgICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ0RpciBDaGFuZ2UgQ2FuY2VsZWQnLCBQb2w9MCkKCiAgICAgICAgICAgICAgICBsaXN0T2ZXb3JkcyA9IHZhbHVlLnNwbGl0KCctJywgMSkKICAgICAgICAgICAgICAgIGlmIGxlbihsaXN0T2ZXb3JkcykgPiAwOgogICAgICAgICAgICAgICAgICAgIHZhbHVlID0gbGlzdE9mV29yZHNbMV0KCiAgICAgICAgICAgICAgICB2YWx1ZSA9IHZhbHVlLnNwbGl0KCcqJywgMSlbMF0KCiAgICAgICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICAgICAgb3Muc3lzdGVtKGYne3ZhbHVlfScpCgogICAgICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgoKICAgICAgICAgICAgICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ0NvbW1hbmQgRXhlY3V0ZWQgWyFde3ZhbHVlfVshXScsIFBvbD0wKQogICAgICAgICAgICAgICAgZXhjZXB0OgogICAgICAgICAgICAgICAgICAgIGltcG9ydCBVc2VyLlVzZXJQcm9maWxlCiAgICAgICAgICAgICAgICAgICAgb3MuY2hkaXIoVXNlci5Vc2VyUHJvZmlsZS5Tb3VyY2VEaXJlY3RvcnkpCiAgICAgICAgICAgICAgICAgICAgcHJpbnQoJzEgOiBQdXJwb3NlZnVsIGV4aXQnKQogICAgICAgICAgICAgICAgICAgIHByaW50KHNwYWNlcikKICAgICAgICAgICAgICAgICAgICBwcmludCgnMiA6IFByb2dyYW0gZXJyb3InKQogICAgICAgICAgICAgICAgICAgIGlucG8gPSBpbnB1dCgnRW50ZXIgYSB2YWx1ZTogJykKICAgICAgICAgICAgICAgICAgICBpZiBpbnBvID09ICcxJzoKICAgICAgICAgICAgICAgICAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5FcnJvcnNfRXZlbnRzLkV2ZW50TWFuIGFzIEVWCiAgICAgICAgICAgICAgICAgICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYnUHJvZ3JhbSBleGl0ZWQgYnkgdXNlcicsIFBvbD0xKQogICAgICAgICAgICAgICAgICAgIGVsaWYgaW5wbyA9PSAnMic6CiAgICAgICAgICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgogICAgICAgICAgICAgICAgICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ1Byb2dyYW0gZXhpdGVkIGJ5IHN5c3RlbScsIFBvbD0wKQoKICAgIGlmIGlucCA9PSAzOgogICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgogICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYnSW5wID0gR2l0SHViX2NvbXBsZXgnLCBQb2w9MSkKCiAgICAgICAgd2l0aCBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleCcsICdyJykgYXMgciwgb3BlbigKICAgICAgICAgICAgICAgIGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleDInLCAndycpIGFzIG86CiAgICAgICAgICAgIGZvciBsaW5lIGluIHI6CiAgICAgICAgICAgICAgICBpZiBsaW5lLnN0cmlwKCk6CiAgICAgICAgICAgICAgICAgICAgby53cml0ZShsaW5lKQoKICAgICAgICBmID0gb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL0NvbXBsZXgyJywgInIiKQoKICAgICAgICBsaW5lcyA9IGYucmVhZGxpbmVzKCkKICAgICAgICBjb3VudCA9IDAKICAgICAgICBmb3IgbGluZSBpbiBsaW5lczoKICAgICAgICAgICAgY291bnQgKz0gMQoKICAgICAgICBjb3VudDEgPSAwCiAgICAgICAgZm9yIGxpbmUgaW4gbGluZXM6CiAgICAgICAgICAgIHZhbHVlNCA9IGxpbmUuc3RyaXAoKQogICAgICAgICAgICBjb3VudDEgKz0gMQogICAgICAgICAgICBwcmludCgie30gfCB7fSIuZm9ybWF0KGNvdW50MSwgdmFsdWU0KSkKI'
-destiny = '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'
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+
+def All():
+    cwd = os.getcwd()
+
+    spacer = """===================================================="""
+
+    print('=================Available_Packages=================')
+    print('GitHub : 1')
+    print('Local : 2')
+    print('GitHub-Complex : 3')
+    inp = None
+    inp = input('Enter value to continue: ')
+
+    try:
+        inp = int(inp)
+    except:
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'input error', Pol=1)
+
+    if inp == 1:
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'Inp = GitHub', Pol=1)
+
+        with open(f'{cwd}/System/Cache/System/GitHub/int.txt', 'r') as r, open(
+            f'{cwd}/System/Cache/System/GitHub/int2.txt', 'w'
+        ) as o:
+            for line in r:
+                if line.strip():
+                    o.write(line)
+
+        f = open(f'{cwd}/System/Cache/System/GitHub/int2.txt', 'r')
+
+        lines = f.readlines()
+        count = 0
+        for line in lines:
+            count += 1
+
+        count1 = 0
+        for line in lines:
+            value4 = line.strip()
+            Val = value4.split('&', 1)
+            if len(Val) > 0:
+                value4 = Val[1]
+            count1 += 1
+
+            print('{} | {}'.format(count1, value4))
+            print(spacer)
+            if count is None:
+                print('No Packages Yet')
+            else:
+                pass
+
+            if count1 == count:
+                valuee = input('Enter a value to continue: ')
+                value = lines[int(valuee) - 1]
+                cc = value
+                listOfWords = value.split('&', 1)
+                if len(listOfWords) > 0:
+                    value = listOfWords[1]
+
+                value = value.split('-', 1)[0]
+
+                cc = cc.split('@', 1)[0]
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'Change Directory: {cc} ', Pol=0)
+                try:
+                    os.chdir(cc)
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'DirChange = Success! ', Pol=0)
+                    EV.NewEvent(
+                        event=f'os executed command [!]{value}[!] ', Pol=0
+                    )
+                    try:
+                        os.system(f'{value}')
+                        sys.exit(0)
+                    except:
+                        print('1 : Purposeful exit')
+                        print(spacer)
+                        print('2 : Program error')
+                        inpo = input('Enter a value: ')
+                        if inpo == '1':
+                            import System.Drive.Errors_Events.EventMan as EV
+
+                            EV.NewEvent(event=f'Program exited by user', Pol=1)
+                        elif inpo == '2':
+                            import System.Drive.Errors_Events.EventMan as EV
+
+                            EV.NewEvent(
+                                event=f'Program exited by system', Pol=0
+                            )
+
+                except:
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'DirChange = Failed ', Pol=0)
+
+    elif inp == 2:
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'Inp = Local', Pol=1)
+
+        with open(f'{cwd}/System/Cache/System/Local/Int.txt', 'r') as r, open(
+            f'{cwd}/System/Cache/System/Local/Int2.txt', 'w'
+        ) as o:
+            for line in r:
+                if line.strip():
+                    o.write(line)
+        f = open(f'{cwd}/System/Cache/System/Local/Int2.txt', 'r')
+
+        lines = f.readlines()
+        count = 0
+        for line in lines:
+            count += 1
+
+        count1 = 0
+        for line in lines:
+            count1 += 1
+            print('{} | {}'.format(count1, line.strip()))
+            print(spacer)
+            if count1 == count:
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'{count1}={count}', Pol=0)
+                valuee = input('Enter a value to continue: ')
+                value = lines[int(valuee) - 1]
+                listOfWords = value.split('-', 1)
+                if len(listOfWords) > 0:
+                    valueg = listOfWords[1]
+
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'Creating value1', Pol=0)
+                try:
+                    value1 = value.split(f'@', 1)[0]
+                    Str = value1[: len(value1) - 1]
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Success: {Str}', Pol=0)
+                except:
+                    value1 = value.split(f'@', 1)[0]
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Failure: {value1}', Pol=1)
+
+                try:
+                    os.system(f'{valueg}')
+
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(
+                        event=f'Directory changed [!]{value1}[!]', Pol=0
+                    )
+
+                except:
+                    print('os error')
+
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Dir Change Canceled', Pol=0)
+
+                listOfWords = value.split('-', 1)
+                if len(listOfWords) > 0:
+                    value = listOfWords[1]
+
+                value = value.split('*', 1)[0]
+
+                try:
+                    os.system(f'{value}')
+
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Command Executed [!]{value}[!]', Pol=0)
+                except:
+                    import User.UserProfile
+
+                    os.chdir(User.UserProfile.SourceDirectory)
+                    print('1 : Purposeful exit')
+                    print(spacer)
+                    print('2 : Program error')
+                    inpo = input('Enter a value: ')
+                    if inpo == '1':
+                        import System.Drive.Errors_Events.EventMan as EV
+
+                        EV.NewEvent(event=f'Program exited by user', Pol=1)
+                    elif inpo == '2':
+                        import System.Drive.Errors_Events.EventMan as EV
+
+                        EV.NewEvent(event=f'Program exited by system', Pol=0)
+
+    if inp == 3:
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'Inp = GitHub_complex', Pol=1)
+
+        with open(f'{cwd}/System/Cache/System/GitHub/Complex', 'r') as r, open(
+            f'{cwd}/System/Cache/System/GitHub/Complex2', 'w'
+        ) as o:
+            for line in r:
+                if line.strip():
+                    o.write(line)
+
+        f = open(f'{cwd}/System/Cache/System/GitHub/Complex2', 'r')
+
+        lines = f.readlines()
+        count = 0
+        for line in lines:
+            count += 1
+
+        count1 = 0
+        for line in lines:
+            value4 = line.strip()
+            count1 += 1
+            print('{} | {}'.format(count1, value4))
+            print(spacer)
+
+            if count1 == count:
+                valuee = input('Enter a value to continue: ')
+                value = lines[int(valuee) - 1]
+
+                Arges = input('Any Launch Arguments: ')
+                B = value.split('$', 1)[0]
+
+                # Remove all characters before the character '-' from string
+                lis = value.split('$', 1)
+                if len(lis) > 0:
+                    lis = lis[1]
+
+                A = f'{lis} {Arges}'
+
+                os.chdir(B)
+                print('Directory changed')
+
+                r = open(
+                    f'{cwd}/System/Cache/System/GitHub/Complex_install', 'r'
+                )
+                lines = r.readlines()
+                try:
+                    for line in lines:
+                        try:
+                            import System.Drive.Errors_Events.EventMan as EV
+
+                            EV.NewEvent(event=f'Command {line}', Pol=0)
+                            os.system(line)
+                        except:
+                            import System.Drive.Errors_Events.EventMan as EV
+
+                            EV.NewEvent(event=f'Command failed ', Pol=0)
+                            exit(0)
+
+                    open(
+                        f'{cwd}/System/Cache/System/GitHub/Complex_install',
+                        'w',
+                    )
+
+                except:
+                    pass
+
+                try:
+                    os.system(A)
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Launch Success! ', Pol=0)
+                    EV.NewEvent(event=f'os executed command [!]{A}[!] ', Pol=0)
+                    sys.exit(0)
+                except:
+                    import User.UserProfile
+
+                    os.chdir(User.UserProfile.SourceDirectory)
+                    print('1 : Purposeful exit')
+                    print(spacer)
+                    print('2 : Program error')
+                    inpo = input('Enter a value: ')
+                    if inpo == '1':
+                        import System.Drive.Errors_Events.EventMan as EV
+
+                        EV.NewEvent(event=f'Program exited by user', Pol=1)
+                    elif inpo == '2':
+                        import System.Drive.Errors_Events.EventMan as EV
+
+                        EV.NewEvent(event=f'Program exited by system', Pol=0)
+            else:
+                pass

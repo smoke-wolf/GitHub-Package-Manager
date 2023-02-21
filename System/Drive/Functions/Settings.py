@@ -1,11 +1,172 @@
-# Python code obfuscated by www.development-tools.net 
- 
+import os
+import sys
 
-import base64, codecs
-magic = 'aW1wb3J0IG9zCmltcG9ydCBzeXMKCgpkZWYgbWFpbigpOgogICAgaW1wb3J0IFN5c3RlbS5SZXF1aXJlbWVudHMuSW5mb3JtYXRpb24KICAgIFZhbHVlID0gaW5wdXQoJ0VudGVyIGEgdmFsdWUgdG8gY29udGludWU6ICcpCiAgICBjd2QgPSBvcy5nZXRjd2QoKQogICAgdHJ5OgogICAgICAgIFZhbHVlID0gaW50KFZhbHVlKQogICAgZXhjZXB0OgogICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgogICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYnSW5wdXQgRXJyb3InLCBQb2w9MSkKCiAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYnTGF1bmNoaW5nIFNldHRpbmdzJywgUG9sPTApCiAgICBpZiBWYWx1ZSA9PSAxOiAgIyBJbmZvCiAgICAgICAgcHJpbnQoU3lzdGVtLlJlcXVpcmVtZW50cy5JbmZvcm1hdGlvbi5GdW5jdGlvbnNfU2V0dGluZ3MpCiAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5FcnJvcnNfRXZlbnRzLkV2ZW50TWFuIGFzIEVWCgogICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYnU2V0dGluZ3MgSW5mbycsIFBvbD0xKQoKICAgIGVsaWYgVmFsdWUgPT0gMjogICAgIyBVc2VyIFNldHRpbmdzCiAgICAgICAgcHJpbnQoJycnCiAgICAgICAgMSB8IFRvZ2dsZSBGb3JjZWQgTW9kdWxlIEltcG9ydAogICAgICAgIDIgfCBUb2dnbGUgRm9yY2VkIExvZ2luCiAgICAgICAgMyB8IFRvZ2dsZSBTeXN0ZW0gRXZlbnQgZGlzcGxheSAKICAgICAgICA0IHwgRW5hYmxlIENvbW1hbmQgTGluZSBJbnRlcmZhY2UKICAgICAgICA1IHwgQ2hhbmdlIFVzZXJOYW1lCiAgICAgICAgLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLQogICAgICAgIDYgfCBDaGFuZ2UgUGFzc3dvcmQKICAgICAgICAnJycpCiAgICAgICAgaW5wID0gaW5wdXQoJ0VudGVyIGEgdmFsdWUgdG8gY29udGludWU6JykKICAgICAgICB0cnk6CiAgICAgICAgICAgIGlucCA9IGludChpbnApCiAgICAgICAgZXhjZXB0OgoKICAgICAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidJbnB1dCBFcnJvcicsIFBvbD0xKQogICAgICAgICAgICBzeXMuZXhpdCgwKQoKICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKCiAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidTeXN0ZW0gU2V0dGluZ3MnLCBQb2w9MSkKCiAgICAgICAgaWYgaW5wID09IDE6CiAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRnVuY3Rpb25zLkZvcmNlZE1vZHVsZUltcG9ydAogICAgICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHM'
-love = 'hEKMyoaEALJ4tLKZtEILXPvNtVPNtVPNtVPNtVRIJYx5yq0I2MJ50XTI2MJ50CJLaGTS1ozAbnJ5aVRMipzAyMR1iMUIfMHygpT9lqPpfVSOioQ0kXDbtVPNtVPNtVPNtVPOyrTIwXPqGrKA0MJ0hEUWcqzHhEaIhL3Eco25mYxMipzAyMR1iMUIfMHygpT9lqPpcPtbtVPNtVPNtVTIfnJLtnJ5jVQ09VQV6PvNtVPNtVPNtVPNtVTygpT9lqPOGrKA0MJ0hEUWcqzHhEKWlo3WmK0I2MJ50pl5SqzIhqR1uovOuplOSItbXVPNtVPNtVPNtVPNtEILhGzI3EKMyoaDbMKMyoaD9MvqZLKIhL2ucozptEz9lL2IxGT9anJ4aYPODo2j9ZFxXVPNtVPNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5TqJ5wqTyioaZhEz9lL2IxGT9anJ4XVPNtVPNtVPNtVPNtMKuyLltaH3ymqTIgYxElnKMyYxM1ozA0nJ9hpl5To3WwMJEZo2qcovpcPtbtVPNtVPNtVTIfnJLtnJ5jVQ09VQZ6PvNtVPNtVPNtVPNtVRIJYx5yq0I2MJ50XTI2MJ50CJLaGTS1ozAbnJ5aVRI2MJ50VREcp3OfLKxaYPODo2j9ZFxXVPNtVPNtVPNtVPNtqTSlM2I0VQ0to3OyovuzW3gwq2E9Y1ImMKViIKAypyOlo2McoTHhpUxaYPNaLFpcPvNtVPNtVPNtVPNtVTygpT9lqPOIp2IlPvNtVPNtVPNtVPNtVRAmqTS0VQ0tIKAypv5Ip2IlHUWiMzyfMF5RnKAjoTS5EKMyoaEmPvNtVPNtVPNtVPNtVTyzVRAmqTS0VTymVSElqJH6PvNtVPNtVPNtVPNtVPNtVPOmqTS0qKZtCFOTLJkmMDbtVPNtVPNtVPNtVPOyoUAyBtbtVPNtVPNtVPNtVPNtVPNtp3EuqUImVQ0tEzSfp2HXPvNtVPNtVPNtVPNtVUEupzqyqP53pzy0MFuzW1khETympTkurHI2MJ50plN9VUgmqTS0qKA9WlxXVPNtVPNtVPNtVPNtpUWcoaDbMvqRnKAjoTS5EKMyoaEmVUAyqPO0olO7p3EuqUImsFpcPtbtVPNtVPNtVPNtVPOSIv5BMKqSqzIhqPuyqzIhqQ1zW0Ecp3OfLKySqzIhqUZtCFO7p3EuqUImsFpfVSOioQ0jXDbXVPNtVPNtVPOyoTyzVTyhpPN9CFN0BtbtVPNtVPNtVPNtVPOSIv5BMKqSqzIhqPuyqzIhqQ0aD3WyLKEcozptE2kiLzSfVRSfnJSmWljtHT9fCGRjXDbtVPNtVPNtVPNtVPOcoKOipaDtIKAyptbtVPNtVPNtVPNtVPOuoTyuplN9VTLaWlqyL2uiVPquoTyuplOanQ0vL2Dtr1ImMKVhIKAypyOlo2McoTHhH291pzAyETylMJA0o3W5sFNzWaO5qTuiowZtM2thpUxvWlN+CvO+Yl56p2ulLlNzWvOyrTIwVUcmnPNgoPpaWjbtVPNtVPNtVPNtVPO0pax6PvNtVPNtVPNtVPNtVPNtVPOipl5mrKA0MJ0bLJkcLKZcPvNtVPNtVPNtVPNtVPNtVPOSIv5BMKqSqzIhqPuyqzIhqQ0aFJ5mqTSfoTyhMlOUoT9vLJjtDJkcLKZgVRAioKOfMKEyWljtHT9fCGVjXDbtVPNtVPNtVPNtVPOyrTAypUD6PvNtVPNtVPNtVPNtVPNtVPOSIv5BMKqSqzIhqPuyqzIhqQ0aEKWlo3VtFJ5mqTSfoTyhMlOUoT9vLJ'
-god = 'wgQWxpYXMnLCBQb2w9MjApCgogICAgICAgICAgICBwcmludChTeXN0ZW0uUmVxdWlyZW1lbnRzLkluZm9ybWF0aW9uLkNMSV9ET0MpCgogICAgICAgIGVsaWYgaW5wID09IDU6CiAgICAgICAgICAgIElucHV0ID0gaW5wdXQoJ0VudGVyIFBhc3N3b3JkIHRvIGNoYW5nZSB1c2VybmFtZTogJykKICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5QYXNzd29yZCBhcyBQUwogICAgICAgICAgICAgICAgUFMuUGFzc3dvcmQoRXZlbnQ9J1VzZXJuYW1lJywgSW5wdXQ9SW5wdXQpCiAgICAgICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICAgICAgUFMuVXBkYXRlVXNlcigpCiAgICAgICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICAgICAgcGFzcwogICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICBJbnB1dCA9IGlucHV0KCdFbnRlciBQYXNzd29yZCB0byBjaGFuZ2UgdXNlcm5hbWU6ICcpCiAgICAgICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5QYXNzd29yZCBhcyBQUwogICAgICAgICAgICAgICAgICAgIFBTLlBhc3N3b3JkKEV2ZW50PSdVc2VybmFtZScsIElucHV0PUlucHV0KQogICAgICAgICAgICAgICAgICAgIHRyeToKICAgICAgICAgICAgICAgICAgICAgICAgUFMuVXBkYXRlVXNlcigpCiAgICAgICAgICAgICAgICAgICAgZXhjZXB0OgogICAgICAgICAgICAgICAgICAgICAgICBwYXNzCiAgICAgICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICAgICAgSW5wdXQgPSBpbnB1dCgnRmluYWwgdHJ5IHRvIGNoYW5nZSB1c2VybmFtZTogJykKICAgICAgICAgICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuUGFzc3dvcmQgYXMgUFMKICAgICAgICAgICAgICAgICAgICAgICAgUFMuUGFzc3dvcmQoRXZlbnQ9J1VzZXJuYW1lJywgSW5wdXQ9SW5wdXQpCiAgICAgICAgICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuUGFzc3dvcmQgYXMgcHMKICAgICAgICAgICAgICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgICAgICAgICAgICAgcHMuVXBkYXRlVXNlcigpCiAgICAgICAgICAgICAgICAgICAgICAgIGV4Y2VwdDoKICAgICAgICAgICAgICAgICAgICAgICAgICAgIHBhc3MKICAgICAgICAgICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICAgICAgICAgIHByaW50KCdVc2VybmFtZSBmYWlsZWQgdG8gY2hhbmdlJykKICAgICAgICAgICAgICAgICAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9J3VzZXJuYW1lIGNoYW5nZSBjYW5jZWxlZCBwYXNzd29yZCBlcnJvcicsI'
-destiny = 'SOioQ0kXDbXVPNtVPNtVPOyoTyzVTyhpPN9CFN2BtbtVPNtVPNtVPNtVPOWoaO1qPN9VTyhpUI0XPqSoaEypvOQqKWlMJ50VSOup3A3o3WxVUEiVTAbLJ5aMFOjLKAmq29lMQbtWlxXVPNtVPNtVPNtVPNtqUW5BtbtVPNtVPNtVPNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5DLKAmq29lMPOuplODHjbtVPNtVPNtVPNtVPNtVPNtHSZhHTSmp3qipzDbEKMyoaD9W1Oup3A3o3WxVSIjMTS0MFpfVRyhpUI0CHyhpUI0XDbtVPNtVPNtVPNtVPNtVPNtqUW5BtbtVPNtVPNtVPNtVPNtVPNtVPNtVTygpT9lqPOGrKA0MJ0hEUWcqzHhHTSmp3qipzDtLKZtpUZXVPNtVPNtVPNtVPNtVPNtVPNtVPOjpl5QpzIuqTHbXDbtVPNtVPNtVPNtVPNtVPNtMKuwMKO0BtbtVPNtVPNtVPNtVPNtVPNtVPNtVUOup3ZXVPNtVPNtVPNtVPNtMKuwMKO0BtbtVPNtVPNtVPNtVPNtVPNtFJ5jqKDtCFOcoaO1qPtaEJ50MKVtD3IlpzIhqPODLKAmq29lMPO0olOwnTShM2HtpTSmp3qipzD6VPpcPvNtVPNtVPNtVPNtVPNtVPO0pax6PvNtVPNtVPNtVPNtVPNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5DLKAmq29lMPOuplODHjbtVPNtVPNtVPNtVPNtVPNtVPNtVSOGYyOup3A3o3WxXRI2MJ50CFqDLKAmq29lMPOIpTEuqTHaYPOWoaO1qQ1WoaO1qPxXVPNtVPNtVPNtVPNtVPNtVPNtVPO0pax6PvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVTygpT9lqPOGrKA0MJ0hEUWcqzHhHTSmp3qipzDtLKZtpUZXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtpUZhD3WyLKEyXPxXVPNtVPNtVPNtVPNtVPNtVPNtVPOyrTAypUD6PvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVUOup3ZXVPNtVPNtVPNtVPNtVPNtVTI4L2IjqQbXVPNtVPNtVPNtVPNtVPNtVPNtVPOWoaO1qPN9VTyhpUI0XPqTnJ5uoPO0paxtqT8tL2uuozqyVUOup3A3o3WxBvNaXDbtVPNtVPNtVPNtVPNtVPNtVPNtVUElrGbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5DLKAmq29lMPOuplODHjbtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPODHl5DLKAmq29lMPuSqzIhqQ0aHTSmp3qipzDtIKOxLKEyWljtFJ5jqKD9FJ5jqKDcPvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVUElrGbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVTygpT9lqPOGrKA0MJ0hEUWcqzHhHTSmp3qipzDtLKZtpUZXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVUOmYxAlMJS0MFtcPvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVTI4L2IjqQbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVUOup3ZXVPNtVPNtVPNtVPNtVPNtVPNtVPOyrTAypUD6PvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVUOup3ZXPtbtVPNtMJkcMvOJLJk1MFN9CFNmBtbtVPNtVPNtVUOlnJ50XPxXPt=='
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+
+def main():
+    import System.Requirements.Information
+
+    Value = input('Enter a value to continue: ')
+    cwd = os.getcwd()
+    try:
+        Value = int(Value)
+    except:
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'Input Error', Pol=1)
+
+    import System.Drive.Errors_Events.EventMan as EV
+
+    EV.NewEvent(event=f'Launching Settings', Pol=0)
+    if Value == 1:  # Info
+        print(System.Requirements.Information.Functions_Settings)
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'Settings Info', Pol=1)
+
+    elif Value == 2:  # User Settings
+        print(
+            """
+        1 | Toggle Forced Module Import
+        2 | Toggle Forced Login
+        3 | Toggle System Event display 
+        4 | Enable Command Line Interface
+        5 | Change UserName
+        ----------------------------------
+        6 | Change Password
+        """
+        )
+        inp = input('Enter a value to continue:')
+        try:
+            inp = int(inp)
+        except:
+            EV.NewEvent(event=f'Input Error', Pol=1)
+            sys.exit(0)
+
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'System Settings', Pol=1)
+
+        if inp == 1:
+            import System.Drive.Functions.ForcedModuleImport
+            import System.Drive.Errors_Events.EventMan as EV
+
+            EV.NewEvent(event=f'Launching ForcedModuleImport', Pol=1)
+            exec('System.Drive.Functions.ForcedModuleImport')
+
+        elif inp == 2:
+            import System.Drive.Errors_Events.EventMan as EV
+
+            EV.NewEvent(event=f'Launching ForcedLogin', Pol=1)
+            import System.Drive.Functions.ForcedLogin
+
+            exec('System.Drive.Functions.ForcedLogin')
+
+        elif inp == 3:
+            EV.NewEvent(event=f'Launching Event Display', Pol=1)
+            target = open(f'{cwd}/User/UserProfile.py', 'a')
+            import User
+
+            Cstat = User.UserProfile.DisplayEvents
+            if Cstat is True:
+                status = False
+            else:
+                status = False
+
+            target.write(f'\nDisplayEvents = {status}')
+            print(f'DisplayEvents set to {status}')
+
+            EV.NewEvent(event=f'DisplayEvents = {status}', Pol=0)
+
+        elif inp == 4:
+            EV.NewEvent(event='Creating Global Alias', Pol=10)
+            import User
+
+            alias = f"""echo 'alias gh="cd {User.UserProfile.SourceDirectory} &&python3 gh.py"' >> ~/.zshrc && exec zsh -l"""
+            try:
+                os.system(alias)
+                EV.NewEvent(event='Installing Global Alias- Complete', Pol=20)
+            except:
+                EV.NewEvent(event='Error Installing Global Alias', Pol=20)
+
+            print(System.Requirements.Information.CLI_DOC)
+
+        elif inp == 5:
+            Input = input('Enter Password to change username: ')
+            try:
+                import System.Drive.Password as PS
+
+                PS.Password(Event='Username', Input=Input)
+                try:
+                    PS.UpdateUser()
+                except:
+                    pass
+            except:
+                Input = input('Enter Password to change username: ')
+                try:
+                    import System.Drive.Password as PS
+
+                    PS.Password(Event='Username', Input=Input)
+                    try:
+                        PS.UpdateUser()
+                    except:
+                        pass
+                except:
+                    Input = input('Final try to change username: ')
+                    try:
+                        import System.Drive.Password as PS
+
+                        PS.Password(Event='Username', Input=Input)
+                        import System.Drive.Password as ps
+
+                        try:
+                            ps.UpdateUser()
+                        except:
+                            pass
+                    except:
+                        print('Username failed to change')
+                        EV.NewEvent(
+                            event='username change canceled password error',
+                            Pol=1,
+                        )
+
+        elif inp == 6:
+            Input = input('Enter Current Password to change password: ')
+            try:
+                import System.Drive.Password as PS
+
+                PS.Password(Event='Password Update', Input=Input)
+                try:
+                    import System.Drive.Password as ps
+
+                    ps.Create()
+                except:
+                    pass
+            except:
+                Input = input('Enter Current Password to change password: ')
+                try:
+                    import System.Drive.Password as PS
+
+                    PS.Password(Event='Password Update', Input=Input)
+                    try:
+                        import System.Drive.Password as ps
+
+                        ps.Create()
+                    except:
+                        pass
+                except:
+                    Input = input('Final try to change password: ')
+                    try:
+                        import System.Drive.Password as PS
+
+                        PS.Password(Event='Password Update', Input=Input)
+                        try:
+                            import System.Drive.Password as ps
+
+                            ps.Create()
+                        except:
+                            pass
+                    except:
+                        pass
+
+    elif Value == 3:
+        print()

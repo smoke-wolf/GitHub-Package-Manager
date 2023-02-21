@@ -1,7 +1,7 @@
-# Python code obfuscated by www.development-tools.net 
- 
+# Python code obfuscated by www.development-tools.net
 
-dev_message = '''
+
+dev_message = """
 Features
 [->] Install Packages Through GitHub [!] Note Requires GitClone
 [->] Link Local Directories To Package
@@ -16,6 +16,7 @@ Features
 [->] Direct Cache Editing And Altering
 [->] Control System Settings And Personalization
 [->] All Of The Previous Are Now Doable Through The GUI
-'''
+"""
 import System.Cache.System.Version as Ver
+
 Version = f'i3 : {Ver.version}'

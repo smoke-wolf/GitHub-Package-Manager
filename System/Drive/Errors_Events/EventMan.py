@@ -1,11 +1,91 @@
-# Python code obfuscated by www.development-tools.net 
- 
+try:
+    import User.UserProfile
+except:
+    pass
+import os
 
-import base64, codecs
-magic = 'CnRyeToKICAgIGltcG9ydCBVc2VyLlVzZXJQcm9maWxlCmV4Y2VwdDoKICAgIHBhc3MKaW1wb3J0IG9zCnRyeToKCiAgICBjd2QgPSBVc2VyLlVzZXJQcm9maWxlLlNvdXJjZURpcmVjdG9yeQpleGNlcHQ6CiAgICBjd2QgPSBvcy5nZXRjd2QoKQogICAgcGFzcwoKCmRlZiBJc3N1ZUlEKExpbmUpOgogICAgTGluZSA9IGludChMaW5lKQogICAgSXNzdWVJRCA9IGhleChMaW5lKQogICAgZ2xvYmFsIElzSUQKICAgIElzSUQgPSBJc3N1ZUlECgoKZGVmIE5ld0V2ZW50KGV2ZW50LCBQb2wpOgoKICAgIGltcG9ydCBzcWxpdGUzIGFzIHNsCiAgICB0cnk6CiAgICAgICAgY29uID0gc2wuY29ubmVjdChmJ3tvcy5nZXRjd2QoKX0vU3lzdGVtL0NhY2hlL1N5c3RlbS9FcnJvckxvZy9FdmVudC5kYicpCiAgICAgICAgd2l0aCBjb246CiAgICAgICAgICAgIGNvbi5leGVjdXRlKCIiIgogICAgICAgICAgI'
-love = 'PNtVPNtVPNtVRAFEHSHEFOHDHWZEFOSqzIhqPNbPvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVRI2MJ50VSESJSDfPvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVSEcoJHtIRILIPjXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtIUyjMFOHEIuHPvNtVPNtVPNtVPNtVPNtVPNtVPNtXGfXVPNtVPNtVPNtVPNtVPNtVPVvVvxXVPNtVTI4L2IjqQbXVPNtVPNtVPOjLKAmPtbtVPNtEKMyoaEFMKOipaDtCFOipTIhXTLar2A3MU0iH3ymqTIgY0AuL2uyY1A5p3EyoF9SpaWipxkiMl9SqzIhqUZaYPNaLFpcPvNtVPOcoKOipaDtMTS0MKEcoJHXPvNtVPOcMvODo2jtCG0tZGN6PvNtVPNtVPNtpUWcoaDbMKMyoaDcPvNtVPOyoTyzVSOioPN9CFNlZQbXVPNtVPNtVPOjpzyhqPuyqzIhqPxXVPNtVTIfp2H6PvNtVPNtVPNtpTSmpjbtVPNtqUW5BtbtVPNtVPNtVTyzVSImMKVhIKAypyOlo2McoTHhETympTkurHI2MJ'
-god = '50cyBpcyBUcnVlOgogICAgICAgICAgICBpZiBQb2wgPT0gMToKICAgICAgICAgICAgICAgIHByaW50KGV2ZW50KQogICAgICAgICAgICBlbHNlOgogICAgICAgICAgICAgICAgcGFzcwogICAgICAgIGVsc2U6CiAgICAgICAgICAgIHBhc3MKICAgIGV4Y2VwdDoKICAgICAgICBwYXNzCgogICAgRXZlbnRUaW1lID0gZGF0ZXRpbWUuZGF0ZXRpbWUubm93KCkKICAgIEVyTm8gPSBpbnQoUG9sKQogICAgQ1JJUyA9IEZhbHNlCiAgICBpZiBFck5vID09IDE6CiAgICAgICAgQ1JJUyA9ICdVc2VyJwogICAgZWxpZiBFck5vID09IDA6CiAgICAgICAgQ1JJUyA9ICdTeXN0ZW0nCiAgICBlbHNlOgogICAgICAgIENSSVMgPSBOb25lCgogICAgZGVmIFVwZGF0ZShkYXRhKToKCiAgICAgICAgc3FsID0gJ0lOU0VSVCBJTlRPIEV2ZW50IChFdmVudCwgVGltZSwgVHlwZSkgdmFsdWVzKD8sID8sID8pJwoKICA'
-destiny = 'tVPNtVPO3nKEbVTAiowbXVPNtVPNtVPNtVPNtL29hYzI4MJA1qTIgLJ55XUAkoPjtMTS0LFxXPvNtVPOSqPN9VUA0pvuSqzIhqSEcoJHcJmbgA10XVPNtVUElrGbXVPNtVPNtVPOIpTEuqTHbMTS0LG1oXTLar2I2MJ50sFpfVTLar0I0sFpfVTLar0AFFIA9WlyqXDbtVPNtMKuwMKO0BtbtVPNtVPNtVUOup3ZXVPNtVTyzVRAFFIZtnKZtGz9hMGbXVPNtVPNtVPO0pax6PvNtVPNtVPNtVPNtVTI4MJZbMKMyoaDcPvNtVPNtVPNtMKuwMKO0BtbtVPNtVPNtVPNtVPOjLKAmPvNtVPOyoUAyBtbtVPNtVPNtVRI2MJ50ITygMFN9VUA0pvuSqzIhqSEcoJHcJmbgA10XVPNtVPNtVPOFMKOipaDtCFOzWlpaEKMyoaDtLKDtr0I2MJ50ITygMK06r0AFFIA9VP0gCvO7MKMyoaE9WlpaPvNtVPNtVPNtEKMyoaEFMKOipaDhq3WcqTHbMvqpoagFMKOipaE9WlxXVPNtVPNtVPOSqzIhqSWypT9lqP5woT9mMFtcPt=='
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+try:
+    cwd = User.UserProfile.SourceDirectory
+except:
+    cwd = os.getcwd()
+    pass
+
+
+def IssueID(Line):
+    Line = int(Line)
+    IssueID = hex(Line)
+    global IsID
+    IsID = IssueID
+
+
+def NewEvent(event, Pol):
+    import sqlite3 as sl
+
+    try:
+        con = sl.connect(
+            f'{os.getcwd()}/System/Cache/System/ErrorLog/Event.db'
+        )
+        with con:
+            con.execute(
+                """
+                    CREATE TABLE Event (
+                        Event TEXT,
+                        Time TEXT,
+                        Type TEXT
+                    );
+                """
+            )
+    except:
+        pass
+
+    EventReport = open(f'{cwd}/System/Cache/System/ErrorLog/Events', 'a')
+    import datetime
+
+    if Pol == 10:
+        print(event)
+    elif Pol == 20:
+        print(event)
+    else:
+        pass
+    try:
+        if User.UserProfile.DisplayEvents is True:
+            if Pol == 1:
+                print(event)
+            else:
+                pass
+        else:
+            pass
+    except:
+        pass
+
+    EventTime = datetime.datetime.now()
+    ErNo = int(Pol)
+    CRIS = False
+    if ErNo == 1:
+        CRIS = 'User'
+    elif ErNo == 0:
+        CRIS = 'System'
+    else:
+        CRIS = None
+
+    def Update(data):
+        sql = 'INSERT INTO Event (Event, Time, Type) values(?, ?, ?)'
+
+        with con:
+            con.executemany(sql, data)
+
+    Et = str(EventTime)[:-7]
+    try:
+        Update(data=[(f'{event}', f'{Et}', f'{CRIS}')])
+    except:
+        pass
+    if CRIS is None:
+        try:
+            exec(event)
+        except:
+            pass
+    else:
+        EventTime = str(EventTime)[:-7]
+        Report = f"""Event at {EventTime}:{CRIS} --> {event}"""
+        EventReport.write(f'\n{Report}')
+        EventReport.close()

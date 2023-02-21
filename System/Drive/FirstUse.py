@@ -1,11 +1,130 @@
-# Python code obfuscated by www.development-tools.net 
- 
+import os
+import sys
+import time
 
-import base64, codecs
-magic = 'aW1wb3J0IG9zCmltcG9ydCBzeXMKaW1wb3J0IHRpbWUKCgpjd2QgPSBvcy5nZXRjd2QoKQoKRmlyc3RVc2UgPSBvcy5wYXRoLmV4aXN0cyhmJ3tjd2R9L1N5c3RlbS9DYWNoZS9Vc2VyL0ZpcnN0VXNlVG9rZW4udHh0JykgICMgY2hlY2tzIGlmIHRoaXMgaXMgdGhlIGZpcnN0IHVzZQoKCmlmIEZpcnN0VXNlIGlzIFRydWU6ICAjIElzIGZpcnN0IHVzZQogICAgcHJpbnQoY3dkKQogICAgI1N5c3RlbS5Ecml2ZS5QYXNzd29yZC53cml0ZV9rZXkoKQogICAgVXNlclByb2ZpbGUgPSBvcGVuKGYne2N3ZH0vVXNlci9Vc2VyUHJvZmlsZS5weScsICd3JykKCiAgICAjaW1wb3J0IFN5c3RlbS5Ecml2ZS5FcnJvcnNfRXZlbnRzLkV2ZW50TWFuIGFzIEVWCiAgICAjRVYuTmV3RXZlbnQoZXZlbnQ9ZidTdGFydGluZyBGaXJzdFVzZScsIFBvbD0xKQogICAgcHJpbnQoJ1xuJyAqIDEwMCkKICAgIHByaW50KCJIZXkgdGhlcmUsIGFzIHRoaXMgaXMgdGhlIGZpcnN0IHVzZSB3ZSBhcmUgZ29pbmcgdG8gY29uZmlndXJlIGEgZmV3IHRoaW5ncy4gVGhpcyBzaG91bGRuJ3QgdGFrZSBsb25nLiIpCiAgICB0aW1lLnNsZWVwKDEpCgogICAgcHJpbnQoIkRldmVsb3BpbmcgVXNlciBQcm9maWxlIikKICAgIHByaW50KCI9PT09PT09PT09PT09PT09PT09PT09PSIpCgoKICAgIGRlZiBVc2VyTmFtZSgpOgogICAgICAgIHByaW50KCdFbnRlciBUaGUgVXNlcm5hbWUgWW91IFdvdWxkIExpa2UgVG8gR28gQnkuJykKICAgICAgICBVc2VybmFtZSA9IGlucHV0KCdVc2VybmFtZTogJykKCiAgICAgICAgaWYgVXNlcm5hbWUgaXMgTm9uZToKICAgICAgICAg'
-love = 'VPNtIKAypx5uoJHbXDbtVPNtVPNtVTIfp2H6PvNtVPNtVPNtVPNtVSImMKWDpz9znJkyYaqlnKEyXTLvIKAypz5uoJHtCFNar1ImMKWhLJ1ysFpvXDbtVPNtVPNtVPNtVPNwnJ1jo3W0VSA5p3EyoF5Rpzy2MF5SpaWipaAsEKMyoaEmYxI2MJ50GJShVTSmVRIJPtbtVPNtVPNtVPNtVPNwEILhGzI3EKMyoaDbMKMyoaD9MvqIp2IlozSgMFOOMTEyMPpfVSOioQ0kXDbtVPNtqUW5BtbtVPNtVPNtVSImMKWBLJ1yXPxXVPNtVTI4L2IjqQbXVPNtVPNtVPOjLKAmPvNtVPNtVPNtVPZtEIVhGzI3FKAmqJHbGTyhMG0mZFjtEKWBom0jYPOGD1V9W0McpaA0IKAyWljtF2ITqG1oW1ImMKWhLJ1yCH5iozHiFJ5wo3WlMJA0IzSfqJHaKFjtIKAypxyhpQ1Bo25yXDbXPvNtVPOxMJLtHTSmp3qipzDbXGbXVPNtVPNtVPOjpzyhqPtaD3WyLKEyVTRtHTSmp3qipzDtEz9lVSOlo3EyL3EyMPOTqJ5wqTyioaZhWlxXVPNtVPNtVPOjLKAmq29lMPN9VTyhpUI0XPqDLKAmq29lMQbtWlxXVPNtVPNtVPOcoKOipaDtIKAypv5Ip2IlHUWiMzyfMDbtVPNtVPNtVTygpT9lqPObLKAboTyvPvNtVPNtVPNtnJ1jo3W0VUI1nJDXVPNtVPNtVPOcoKOipaDtp3ymPtbtVPNtVPNtVSIIFHDtCFO1qJyxYaI1nJDkXPxXPvNtVPNtVPNtIKAypxyRVQ0to3ZhM2I0oT9anJ4bXDbXVPNtVPNtVPOmLJk0VQ0tVwyfnlVXPvNtVPNtVPNtIIIWEPN9VUA0pvuzW3gIIHyRsFpcPtbtVPNtVPNtVUI1nJEHo2gyovN9VSIIFHEoZmN6KDbXVPNtVPNtVPODLKAmq29lMPN9VTLar3Oup3A3o3WxsKg1qJyxIT9eMJ59r1ImMKWWEU0aPtbtVPNtVPNtVUOup3A3o3WxVQ0tHTSmp3qipzDt'
-god = 'KyBzYWx0CiAgICAgICAgaGFzaGVkID0gaGFzaGxpYi5tZDUocGFzc3dvcmQuZW5jb2RlKCkpCiAgICAgICAgUGFzc3dvcmQgPSBoYXNoZWQuaGV4ZGlnZXN0KCkKCiAgICAgICAgVXNlclByb2ZpbGUud3JpdGUoZiJcblBhc3N3b3JkID0gJ3tQYXNzd29yZH0nIikKICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKCiAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidQYXNzd29yZCBjcmVhdGVkJywgUG9sPTEpCgogICAgdHJ5OgogICAgICAgIFBhc3N3b3JkKCkKICAgIGV4Y2VwdDoKICAgICAgICBwYXNzCiAgICAgICAgICMgRVIuTmV3SXNzdWUoTGluZT00NiwgRXJObz0wLCBTQ1I9J0ZpcnN0VXNlJywgS2VGdT1bJ1Bhc3N3b3JkPUluY29ycmVjdEVudHJ5J10sIFVzZXJJbnA9Tm9uZSkKCiAgICBwcmludCgiPT09PT09PT09PT09PT09PT09PT09PT0iKQoKICAgIFNvdXJjZURpcmVjdG9yeSA9IG9zLmdldGN3ZCgpICAjIEdldHRpbmcgdGhlIHdvcmtpbmcgZGlyZWN0b3J5IGZvciBleGVjdXRpbmcgc3lzdGVtIGNhbGxzCgogICAgVXNlclByaXZpbGVnZXMgPSBvcy5nZXRsb2dpbigpICAjIENoZWNrcyBpZiB1c2VyIGlzIHJvb3Qgb3Igbm90CgogICAgaW1wb3J0IHV1aWQKCiAgICB1dWlkMSA9IHV1aWQudXVpZDEoKS5oZXgKICAgIHV1aWQ0ID0gdXVpZC51dWlkNCgpLmhleAoKICAgIHRyeToKICAgICAgICBVc2VyUHJvZmlsZS53cml0ZShmIlxuVXNlclByaXZpbGVnZXMgPSAne1VzZXJQcml2aWxlZ2VzfSdcblNvdXJjZURpcmVjdG9yeSA9ICd7U291cmNlRGlyZWN0b3J5'
-destiny = 'sF8aKT5To3WwMI9WoKOipaEsHzIkqJImqPN9VSElqJHtKT5To3WwMJEsGT9anJ4tCFOHpaIyKT51qJyxZFN9VPq7qKIcMQS9W1khqKIcMQDtCFNar3I1nJD0sFqpoxEcp3OfLKySqzIhqUZtCFOHpaIyVvxXVPNtVPNtVPOIp2IlHUWiMzyfMF5woT9mMFtcPtbXVPNtVTI4L2IjqQbXVPNtVPNtVPOjLKAmPvNtVPNtVPNtVPZtEIVhGzI3FKAmqJHbGTyhMG01AvjtEKWBom0jYPOGD1V9W0McpaA0IKAyWljtF2ITqG1oW1ImMKWDpz9znJkyGz90D29hMzyaqKWyMPqqYPOIp2IlFJ5jCH5iozHcPtbtVPNtpUWcoaDbMvqIp2IlVSOlo2McoTHtFTSmVRWyMJ4tD3WyLKEyMP4aXDbtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5SpaWipaAsEKMyoaEmYxI2MJ50GJShVTSmVRIJPtbtVPNtEILhGzI3EKMyoaDbMKMyoaD9MvqOL2AiqJ50VRAlMJS0MJDaYPODo2j9ZPxXPvNtVPOipl5lMJ1iqzHbMvW7L3qxsF9GrKA0MJ0iD2SwnTHiIKAypv9TnKWmqSImMIEin2IhYaE4qPVcPtbtVPNtpUWcoaDbW0I4nKEcozptH3ymqTIgVSfkp10tYFOFMF1fLKIhL2taXDbtVPNtqTygMF5moTIypPtkXDbXVPNtVTygpT9lqPOipjbXVPNtVTMcoTIhLJ1yVQ0tVv5GEP5bnJExMJ4vPvNtVPOznJkyK3OuqTttCFOipl5jLKEbYzcinJ4bo3ZhpTS0nP5yrUOuozE1p2IlXPW+VvxfVTMcoTIhLJ1yXDbXVPNtVUqcqTtto3OyovuznJkyK3OuqTtfVPW3VvxtLKZtMzyfMGbXVPNtVPNtVPOznJkyYaqlnKEyXTLvr1AiqKWwMHEcpzIwqT9lrK0vXDbtVPNtpUWcoaDbMvqHo2gyovOGLKMyMPONVUgznJkyK3OuqTu9WlxXVPNtVUA5pl5yrTy0XPxXMJkmMGbXVPNtVUOup3Z='
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+cwd = os.getcwd()
+
+FirstUse = os.path.exists(
+    f'{cwd}/System/Cache/User/FirstUseToken.txt'
+)  # checks if this is the first use
+
+if FirstUse is True:  # Is first use
+    print(cwd)
+    # System.Drive.Password.write_key()
+    UserProfile = open(f'{cwd}/User/UserProfile.py', 'w')
+
+    # import System.Drive.Errors_Events.EventMan as EV
+    # EV.NewEvent(event=f'Starting FirstUse', Pol=1)
+    print('\n' * 100)
+    print(
+        "Hey there, as this is the first use we are going to configure a few things. This shouldn't take long."
+    )
+    time.sleep(1)
+
+    print('Developing User Profile')
+    print('=======================')
+
+    def UserName():
+        print('Enter The Username You Would Like To Go By.')
+        Username = input('Username: ')
+
+        if Username is None:
+            UserName()
+        else:
+            UserProfile.write(f"Username = '{Username}'")
+            # import System.Drive.Errors_Events.EventMan as EV
+
+            # EV.NewEvent(event=f'Username Added', Pol=1)
+
+    try:
+        UserName()
+    except:
+        pass
+        # ER.NewIssue(Line=31, ErNo=0, SCR='FirstUse', KeFu=['Username=None/IncorrectValue'], UserInp=None)
+
+    def Password():
+        print('Create a Password For Protected Functions.')
+        password = input('Password: ')
+        import hashlib
+        import uuid
+        import sys
+
+        UUID = uuid.uuid1()
+
+        UserID = os.getlogin()
+
+        salt = '9lk'
+
+        UUID = str(f'{UUID}')
+
+        uuidToken = UUID[30:]
+
+        Password = f'{password}{uuidToken}{UserID}'
+
+        password = Password + salt
+        hashed = hashlib.md5(password.encode())
+        Password = hashed.hexdigest()
+
+        UserProfile.write(f"\nPassword = '{Password}'")
+        import System.Drive.Errors_Events.EventMan as EV
+
+        with open(f'{cwd}/System/Cache/User/local', 'w') as bl:
+            bl.write(hashed.hexdigest()[:16])
+
+        EV.NewEvent(event=f'Password created', Pol=1)
+
+    try:
+        Password()
+    except:
+        pass
+        # ER.NewIssue(Line=46, ErNo=0, SCR='FirstUse', KeFu=['Password=IncorrectEntry'], UserInp=None)
+
+    print('=======================')
+
+    SourceDirectory = (
+        os.getcwd()
+    )  # Getting the working directory for executing system calls
+
+    UserPrivileges = os.getlogin()  # Checks if user is root or not
+
+    import uuid
+
+    uuid1 = uuid.uuid1().hex
+    uuid4 = uuid.uuid4().hex
+
+    try:
+        UserProfile.write(
+            f"\nUserPrivileges = '{UserPrivileges}'\nSourceDirectory = '{SourceDirectory}/'\nForce_Import_Request = True \nForced_Login = True\nuuid1 = '{uuid1}'\nuuid4 = '{uuid4}'\nDisplayEvents = True"
+        )
+        UserProfile.close()
+
+    except:
+        pass
+        # ER.NewIssue(Line=56, ErNo=0, SCR='FirstUse', KeFu=['UserProfileNotConfigured'], UserInp=None)
+
+    print(f'User Profile Has Been Created.')
+    import System.Drive.Errors_Events.EventMan as EV
+
+    EV.NewEvent(event=f'Account Created', Pol=0)
+
+    try:
+        os.remove(f'{os.getcwd()}/System/Cache/User/FirstUseToken.txt')
+    except:
+        print('Token Error')
+        sys.exit(0)
+
+    print('Exiting System [1s] - Re-launch')
+    time.sleep(1)
+
+    import os
+
+    filename = '.SD.hidden'
+    file_path = os.path.join(os.path.expanduser('~'), filename)
+
+    with open(file_path, 'w') as file:
+        file.write(f'{SourceDirectory}')
+    print(f'Token Saved @ {file_path}')
+
+    sys.exit()
+else:
+    pass

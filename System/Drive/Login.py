@@ -1,11 +1,61 @@
-# Python code obfuscated by www.development-tools.net 
- 
+import sys
 
-import base64, codecs
-magic = 'aW1wb3J0IHN5cwoKaW1wb3J0IFVzZXIuVXNlclByb2ZpbGUKCgpkZWYgTG9naW4oKToKICAgIGltcG9ydCB0aW1lCiAgICBJbnB1dCA9IGlucHV0KCdFbnRlciBQYXNzd29yZDogJykKICAgIHRyeToKICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLlBhc3N3b3JkIGFzIFBTCiAgICAgICAgUFMuUGFzc3dvcmQoRXZlbnQ9J0xvZ2luJywgSW5wdXQ9SW5wdXQpCiAgICAgICAgcHJpbnQoJ0xvZ2dlZCBJbiBTdWNjZXNzZnVsbHkhJykKICAgICAgICB0aW1lLnNsZWVwKDEuNTQpCiAgICAgICAgcHJpbnQoJ1xuJyoxMDApCiAgICBleGNlcHQ6CiAgICAgICAgSW5wdXQgPSBpbnB1dCgnRW50ZXIgUGFzc3dvcmQ6ICcpCiAgICAgICAgdHJ5OgogICAgICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLlBhc3N3b3JkIGFzIFBTCiA'
-love = 'tVPNtVPNtVPNtVSOGYyOup3A3o3WxXRI2MJ50CFqZo2qcovpfVRyhpUI0CHyhpUI0XDbtVPNtVPNtVPNtVPOjpzyhqPtaGT9aM2IxVRyhVSA1L2Ayp3AzqJkfrFRaXDbtVPNtVPNtVPNtVPO0nJ1yYaAfMJIjXQRhAGDcPvNtVPNtVPNtVPNtVUOlnJ50XPqpovptXvNkZQNcPvNtVPNtVPNtMKuwMKO0BtbtVPNtVPNtVPNtVPOjpzyhqPtaEzyhLJjtIUW5WlxXVPNtVPNtVPNtVPNtFJ5jqKDtCFOcoaO1qPtaEJ50MKVtHTSmp3qipzD6VPpcPvNtVPNtVPNtVPNtVUElrGbXVPNtVPNtVPNtVPNtVPNtVTygpT9lqPOGrKA0MJ0hEUWcqzHhHTSmp3qipzDtLKZtHSZXVPNtVPNtVPNtVPNtVPNtVSOGYyOup3A3o3WxXRI2MJ50CFqZo2qcovpfVRyhpUI0CHyhpUI0XDbtVPNtVPNtVPNtVPNtVPNtpUWcoaDbW0kiM2qyMPOWovOGqJAwMK'
-god = 'NzZnVsbHkhJykKICAgICAgICAgICAgICAgIHRpbWUuc2xlZXAoMS41NCkKICAgICAgICAgICAgICAgIHByaW50KCdcbicgKiAxMDApCiAgICAgICAgICAgIGV4Y2VwdDoKICAgICAgICAgICAgICAgIGltcG9ydCBFVgogICAgICAgICAgICAgICAgRVYuTmV3RXZlbnQoRXZlbnQ9J0xvZ2luIEVycm9yIER1ZSBUbyBJbmNvcnJlY3QgUGFzc3dvcmQnLFBvbD0xKQogICAgICAgICAgICAgICAgc3lzLmV4aXQoMCkKCgpCbG9ja2VkID0gb3BlbihmJ3tVc2VyLlVzZXJQcm9maWxlLlNvdXJjZURpcmVjdG9yeX1Vc2VyL0Jsb2NrZWQnLCAncicpCkJsb2NrZWQgPSBCbG9ja2VkLnJlYWQoKQppbXBvcnQgdXVpZApVVUlEID0gdXVpZC51dWlkMSgpClVVSUQgPSBzdHIoZid7VVVJRH0nKQp1dWlkVG9rZW4gPSBVVUlEWzMwOl0KaWYgd'
-destiny = 'KIcMSEin2IhVTyhVRWfo2AeMJD6PvNtVPOcoKOipaDtH3ymqTIgYxElnKMyYxIlpz9lp19SqzIhqUZhEKMyoaEALJ4tLKZtEILXVPNtVRIJYx5yq0I2MJ50XTI2MJ50CFqRMKMcL2HtHzImqUWcL3EyMPORqJHtIT8tGz9hG3WcM2yhETI2nJAyWljtHT9fCGNcPvNtVPOjpzyhqPtvITucplORMKMcL2HtFTSmVRWyMJ4tHzImqUWcL3EyMPVcPvNtVPOmrKZhMKucqPtjXDcyoUAyBtbtVPNtpTSmpjbXnJLtIKAypv5Ip2IlHUWiMzyfMF5To3WwMJEsGT9anJ4tCG0tEzSfp2H6PvNtVPOcoKOipaDtH3ymqTIgYxElnKMyYxIlpz9lp19SqzIhqUZhEKMyoaEALJ4tLKZtEILXPvNtVPOSIv5BMKqSqzIhqPuyqzIhqQ1zW1Oup3A3o3WxVRSvo3W0MJDtEUIyVUEiVSImMKVtH2I0qTyhM3ZaYPODo2j9ZPxXMJkmMGbXVPNtVRkiM2yhXPxX'
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+import User.UserProfile
+
+
+def Login():
+    import time
+
+    Input = input('Enter Password: ')
+    try:
+        import System.Drive.Password as PS
+
+        PS.Password(Event='Login', Input=Input)
+        print('Logged In Successfully!')
+        time.sleep(1.54)
+        print('\n' * 100)
+    except:
+        Input = input('Enter Password: ')
+        try:
+            import System.Drive.Password as PS
+
+            PS.Password(Event='Login', Input=Input)
+            print('Logged In Successfully!')
+            time.sleep(1.54)
+            print('\n' * 100)
+        except:
+            print('Final Try')
+            Input = input('Enter Password: ')
+            try:
+                import System.Drive.Password as PS
+
+                PS.Password(Event='Login', Input=Input)
+                print('Logged In Successfully!')
+                time.sleep(1.54)
+                print('\n' * 100)
+            except:
+                sys.exit(0)
+
+
+Blocked = open(f'{User.UserProfile.SourceDirectory}User/Blocked', 'r')
+Blocked = Blocked.read()
+import uuid
+
+UUID = uuid.uuid1()
+UUID = str(f'{UUID}')
+uuidToken = UUID[30:]
+if uuidToken in Blocked:
+    import System.Drive.Errors_Events.EventMan as EV
+
+    EV.NewEvent(event='Device Restricted Due To NonOriginDevice', Pol=0)
+    print('This Device Has Been Restricted')
+    sys.exit(0)
+else:
+    pass
+
+if User.UserProfile.Forced_Login == False:
+    import System.Drive.Errors_Events.EventMan as EV
+
+    EV.NewEvent(event=f'Password Aborted Due to User Settings', Pol=0)
+else:
+    Login()

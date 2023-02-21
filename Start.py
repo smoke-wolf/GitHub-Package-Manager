@@ -1,11 +1,209 @@
-# Python code obfuscated by www.development-tools.net 
- 
+# Main Launch File
+import sys
+import os
+import venv
 
-import base64, codecs
-magic = 'IyBNYWluIExhdW5jaCBGaWxlCmltcG9ydCBzeXMKCnRyeToKICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRmlyc3RVc2UKICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuTW9kdWxlVmVyaWZpZXIKICAgIGltcG9ydCBvcwpleGNlcHQgSW1wb3J0RXJyb3I6CiAgICBwYXNzCgpjd2QgPSBvcy5nZXRjd2QoKQppbXBvcnQgU3lzdGVtCnRyeToKICAgIHByaW50KFN5c3RlbS5SZXF1aXJlbWVudHMuQmFubmVyLkxhdW5jaGVyKQpleGNlcHQ6CiAgICBwcmludCgnJycgICAgCiBfICAgICAgICAgICAgICAgIC'
-love = 'NtVPNtVPNtVPNtVS8tVPNtVPNtVPNtVPNtVPNXsPO8VPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPO8VUjtVPNtVPNtVPNtVPNtVNc8VUjtVPNtVS9sVS8tKlNtVS8tKlOsKlNtVS9sK3jtsS9sVPNtK19sVS8tK18tPajtsPNtVPNiVS9tVUjtsPO8VUjtW18tKPNiVS9ssPNaKlOpVP8tKlOpsPOsK3jXsPO8K19ssPNbK3jtsPO8K3jtsPO8VUjtsPNbK198VUjtsPO8VPOsKl8tsPNtVNcpK19sK18iKS9sYS98KS9sYS98K3jtsS98KS9sK3kssPO8K3kpK19ssS98VPNtVNb9CG09CG09CG09CG09CG09'
-god = 'PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT0nJycpCnRyeTogICAgIyBMb2FkcyBiYW5uZXIKICAgIGV4ZWMoJ1N5c3RlbS5Ecml2ZS5GaXJzdFVzZScpCmV4Y2VwdDoKICAgIHBhc3MKCmV4ZWMoJ1N5c3RlbS5Ecml2ZS5Nb2R1bGVWZXJpZmllcicpCgoKdHJ5OgogICAgaW1wb3J0IFVzZXIKICAgIHByaW50KGYnV2VsY29tZSBCYWNrIHtVc2VyLlVzZXJQcm9maWxlLlVzZXJuYW1lfSEnKSAgIyBmb3JjZXMgdXNlckxvZ2luCiAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkxvZ2luCgogIC'
-destiny = 'NtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5SpaWipaAsEKMyoaEmYxI2MJ50GJShVTSmVRIJPvNtVPOSIv5BMKqSqzIhqPuyqzIhqQ1zW3gIp2IlYyImMKWDpz9znJkyYyImMKWhLJ1ysFOZo2qaMJDtFJ5povpfVSOioQ0kXDcyrTAypUD6PtbtVPOjLKAmPtc0pax6PvNtVPOyrTIwXPqGrKA0MJ0hEUWcqzHhGT9anJ4aXDcyrTAypUD6PvNtVPOmrKZhMKucqPtjXDbXnJ1jo3W0VSA5p3EyoF5Rpzy2MF5TqJ5wqTyioyWypKIyp3DXH3ymqTIgYxElnKMyYxM1ozA0nJ9hHzIkqJImqP5wnTIwn3OinJ50XPx='
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+# Set the name and location of the virtual environment
+venv_dir = os.path.join(os.getcwd(), 'venv')
+
+# If the virtual environment doesn't exist, create it
+if not os.path.exists(venv_dir):
+    print('Creating new virtual environment...')
+    venv.create(venv_dir, with_pip=True)
+else:
+    print('Activating existing virtual environment...')
+    os.system('source venv/bin/activate')
+
+
+import System
+import System.Drive.ModuleVerifier
+
+try:
+    exec('System.Drive.ModuleVerifier')
+except:
+    pass
+
+
+try:
+    import System.Drive.FirstUse
+
+    exec('System.Drive.FirstUse')
+except:
+    print('First Use Failed')
+    sys.exit(0)
+
+import System.Drive.Errors_Events.EventMan as EV
+
+import User
+
+try:
+
+    def gui():
+        #   Code to handel GUI function if launch arguments contain '-gui'
+        import System.Drive.FunctionRequest as fr
+
+        fr.GUI()
+
+    try:
+        try:
+            if sys.argv[1] == '-gui':
+                try:
+                    gui()
+                except:
+                    pass
+            else:
+                sys.exit(0)
+        except:
+            sys.exit(0)
+    except:
+        try:
+            #   Do rest of code for CLI launcher
+            # Print launcher banner
+            try:
+                print(System.Requirements.Banner.Launcher)
+            except:
+                print(
+                    """    
+     _                            _               
+    | |                          | |              
+    | |     __ _ _   _ _ __   ___| |__   ___ _ __ 
+    | |    / _` | | | | '_ \ / __| '_ \ / _ \| __|
+    | |___| (_| | |_| | | | | (__| | | |  __/ |   
+    \_____/\__,_|\__,_|_| |_|\___|_| |_|\___|_|    
+    ================================================"""
+                )
+
+            # Print welcome message for logged in user
+            try:
+                print(f'Welcome Back {User.UserProfile.Username}!')
+                import System.Drive.Login
+                import importlib
+                import os
+
+                EV.NewEvent(
+                    event=f'{User.UserProfile.Username} Logged In\n', Pol=1
+                )
+            except:
+                sys.exit(0)
+        except:
+            sys.exit(0)
+
+        import System.Drive
+        import System.Drive.FunctionRequest as fr
+
+        # Run function requests and checkpoint
+        System.Drive.FunctionRequest.checkpoint()
+
+    import os
+
+    cwd = os.getcwd()
+
+    FirstUse = os.path.exists(
+        f'{cwd}/System/Cache/User/FirstUseToken.txt'
+    )  # checks if this is the first use
+    if FirstUse is True:
+        pass
+    else:
+        import os
+        import glob
+        import struct
+        from Crypto.Cipher import AES
+
+        # Set the directory to encrypt
+        directory = f'{User.UserProfile.SourceDirectory}System/Cache'
+
+        with open(
+            f'{User.UserProfile.SourceDirectory}System/Cache/User/local', 'r'
+        ) as lc:
+            password = lc.read()
+
+        # Remove any unnecessary whitespaces from the password
+        password = password.strip()
+
+        # Pad the password to a multiple of 16 bytes
+        password = password.encode('utf-8') + b' ' * (
+            16 - (len(password) % 16)
+        )
+
+        # Print out the padded password
+        print(f'Padded password: {password}')
+
+        # Iterate over all files in the directory and subdirectories and encrypt them
+        for root, dirs, files in os.walk(directory):
+            for filename in files:
+                filepath = os.path.join(root, filename)
+                with open(filepath, 'rb') as f_in:
+                    data = f_in.read()
+                    # Create a new AES cipher with a new nonce and the password
+                    cipher = AES.new(password, AES.MODE_EAX)
+                    # Encrypt the data with the cipher
+                    encrypted_data, tag = cipher.encrypt_and_digest(data)
+                with open(filepath + '.enc', 'wb') as f_out:
+                    # Write the nonce, tag and encrypted data to a new file with the same name plus the .enc extension
+                    f_out.write(cipher.nonce)
+                    f_out.write(tag)
+                    f_out.write(encrypted_data)
+                # Remove the unencrypted file
+                os.remove(filepath)
+
+        # Print a message indicating the encryption is complete
+        print('Encryption complete')
+
+
+except:
+
+    import os
+
+    cwd = os.getcwd()
+
+    FirstUse = os.path.exists(
+        f'{cwd}/System/Cache/User/FirstUseToken.txt'
+    )  # checks if this is the first use
+
+    if FirstUse is True:
+        pass
+    else:
+        import os
+        import glob
+        import struct
+        from Crypto.Cipher import AES
+
+        # Set the directory to encrypt
+        directory = f'{User.UserProfile.SourceDirectory}System/Cache'
+
+        with open(
+            f'{User.UserProfile.SourceDirectory}System/Cache/User/local', 'r'
+        ) as lc:
+            password = lc.read()
+
+        # Remove any unnecessary whitespaces from the password
+        password = password.strip()
+
+        # Pad the password to a multiple of 16 bytes
+        password = password.encode('utf-8') + b' ' * (
+            16 - (len(password) % 16)
+        )
+
+        # Print out the padded password
+        print(f'Padded password: {password}')
+
+        # Iterate over all files in the directory and subdirectories and encrypt them
+        for root, dirs, files in os.walk(directory):
+            for filename in files:
+                filepath = os.path.join(root, filename)
+                with open(filepath, 'rb') as f_in:
+                    data = f_in.read()
+                    # Create a new AES cipher with a new nonce and the password
+                    cipher = AES.new(password, AES.MODE_EAX)
+                    # Encrypt the data with the cipher
+                    encrypted_data, tag = cipher.encrypt_and_digest(data)
+                with open(filepath + '.enc', 'wb') as f_out:
+                    # Write the nonce, tag and encrypted data to a new file with the same name plus the .enc extension
+                    f_out.write(cipher.nonce)
+                    f_out.write(tag)
+                    f_out.write(encrypted_data)
+                # Remove the unencrypted file
+                os.remove(filepath)
+
+        # Print a message indicating the encryption is complete
+        print('Encryption complete')

@@ -1,11 +1,426 @@
-# Python code obfuscated by www.development-tools.net 
- 
+print(
+    """\n|  |                |============Cache===========|
+|  |                |1 | Remove All Git Downloads|
+|  |                |2 | Reset Events / Log      |
+|  |                |3 | Reset All To Defaults   |
+|  |                |4 | Display Logs / Events   |
+|  |                |============================|"""
+)
+inp = input('|  |                Enter a value: ')
 
-import base64, codecs
-magic = 'cHJpbnQoJycnXG58ICB8ICAgICAgICAgICAgICAgIHw9PT09PT09PT09PT1DYWNoZT09PT09PT09PT09fAp8ICB8ICAgICAgICAgICAgICAgIHwxIHwgUmVtb3ZlIEFsbCBHaXQgRG93bmxvYWRzfAp8ICB8ICAgICAgICAgICAgICAgIHwyIHwgUmVzZXQgRXZlbnRzIC8gTG9nICAgICAgfAp8ICB8ICAgICAgICAgICAgICAgIHwzIHwgUmVzZXQgQWxsIFRvIERlZmF1bHRzICAgfAp8ICB8ICAgICAgICAgICAgICAgIHw0IHwgRGlzcGxheSBMb2dzIC8gRXZlbnRzICAgfAp8ICB8ICAgICAgICAgICAgICAgIHw9PT09PT09PT09PT09PT09PT09PT09PT09PT09fCcnJykKaW5wID0gaW5wdXQoJ3wgIHwgICAgICAgICAgICAgICAgRW50ZXIgYSB2YWx1ZTogJykKCgppZiBpbnAgPT0gJzEnOgogICAgaW1wb3J0IFVzZXIKCiAgICBpbXBvcnQgVXNlci5Vc2VyUHJvZmlsZQogICAgI3JlcXVpcmUgVVNFUl9QQVNTCiAgICBpbXBvcnQgb3MsIHRpbWUKICAgIGN3ZCA9IG9zLmdldGN3ZCgpCgogICAgSW5wdXQgPSBpbnB1dCgnRW50ZXIgUGFzc3dvcmQ6ICcpCiAgICB0cnk6CiAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5QYXNzd29yZCBhcyBQUwoKICAgICAgICBQUy5QYXNzd29yZChFdmVudD0nQ2FjaGUnLCBJbnB1dD1JbnB1dCkKCiAgICAgICAgb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL0ludC50eHQnLCAndycpLmNsb3NlKCkKICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleCcsICJ3IikuY2xvc2UoKQogICAgICAgIG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0dpdEh1Yi9Db21wbGV4X2luc3RhbGwnLCAidyIpLmNsb3NlKCkKICAgICAgICBpbXBvcnQgc2h1dGlsCgogICAgICAgIHRyeToKICAgICAgICAgICAgc2h1dGlsLnJtdHJlZShmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL0Rvd25sb2FkcycpCiAgICAgICAgICAgIHByaW50KCd8ICB8ICAgICAgICAgICAgICAgIFVwZGF0ZSBSZWNvcmRlZCcpCiAgICAgICAgZXhjZXB0OgogICAgICAgICAgICByYWlzZSBleGl0KDApCgogICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgoKICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ0dpdENhY2hlIGNsZWFyZWQnLCBQb2w9MSkKCiAgICAgICAgdGltZS5zbGVlcCgyKQogICAgICAgIHByaW50KGYnXG4nICogNjApCgogICAgZXhjZXB0OgogICAgICAgIElucHV0ID0gaW5wdXQoJ0VudGVyIFBhc3N3b3JkOiAnKQogICAgICAgIHRyeToKICAgICAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5QYXNzd29yZCBhcyBQUwoKICAgICAgICAgICAgUFMuUGFzc3dvcmQoRXZlbnQ9J0NhY2hlJywgSW5wdXQ9SW5wdXQpCgogICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvSW50LnR4dCcsICd3JykuY2xvc2UoKQogICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleCcsICJ3IikuY2xvc2UoKQogICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleF9pbnN0YWxsJywgInciKS5jbG9zZSgpCiAgICAgICAgICAgIGltcG9ydCBzaHV0aWwKCiAgICAgICAgICAgIHRyeToKICAgICAgICAgICAgICAgIHNodXRpbC5ybXRyZWUoZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0dpdEh1Yi9Eb3dubG9hZHMnKQogICAgICAgICAgICAgICAgcHJpbnQoJ3wgIHwgICAgICAgICAgICAgICAgVXBkYXRlIFJlY29yZGVkJykKICAgICAgICAgICAgZXhjZXB0OgogICAgICAgICAgICAgICAgcmFpc2UgZXhpdCgwKQoKICAgICAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5FcnJvcnNfRXZlbnRzLkV2ZW50TWFuIGFzIEVWCgogICAgICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ0dpdENhY2hlIGNsZWFyZWQnLCBQb2w9MSkKCiAgICAgICAgICAgIHRpbWUuc2xlZXAoMikKICAgICAgICAgICAgcHJpbnQoZidcbicgKiA2MCkKCiAgICAgICAgZXhjZXB0OgogICAgICAgICAgICBwcmludCgnRmluYWwgQXR0ZW1wdCcpCiAgICAgICAgICAgIElucHV0ID0gaW5wdXQoJ0VudGVyIFBhc3N3b3JkOiAnKQogICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLlBhc3N3b3JkIGFzIFBTCgogICAgICAgICAgICAgICAgUFMuUGFzc3dvcmQoRXZlbnQ9J0NhY2hlJywgSW5wdXQ9SW5wdXQpCgogICAgICAgICAgICAgICAgb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL0ludC50eHQnLCAndycpLmNsb3NlKCkKICAgICAgICAgICAgICAgIG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0dpdEh1Yi9Db21wbGV4JywgInciKS5jbG9zZSgpCiAgICAgICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleF9pbnN0YWxsJywgInciKS5jbG9zZSgpCiAgICAgICAgICAgICAgICBpbXBvcnQgc2h1dGlsCgogICAgICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgICAgIHNodXRpbC5ybXRyZWUoZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0dpdEh1Yi9Eb3dubG9hZHMnKQogICAgICAgICAgICAgICAgICAgIHByaW50KCd8ICB8ICAgICAgICAgICAgICAgIFVwZGF0ZSBSZWNvcmRlZCcpCiAgICAgICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICAgICAgcmFpc2UgZXhpdCgwKQoKICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgoKICAgICAgICAgICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYnR2l0Q2FjaGUgY2xlYXJlZCcsIFBvbD0xKQoKICAgICAgICAgICAgICAgIHRpbWUuc2xlZXAoMikKICAgICAgICAgICAgICAgIHByaW50KGYnXG4nICogNjApCgogICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKCiAgICAgICAgICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ0dpdENhY2hlIGNsZWFyIGF0dGVtcHQgZmFpbGVkIGR1ZSB0byB1c2VyIHBhc3MnLCBQb2w9MSkKCgplbGlmIGlucCA9PSAnMic6CiAgICBpbXBvcnQgVXNlcgogICAgaW1wb3J0IFVzZXIuVXNlclByb2ZpbGUKICAgICMgcmVxdWlyZSBVU0VSX1BBU1MKICAgIGltcG9ydCBvcywgdGltZQoKICAgIGN3ZCA9IG9zLmdldGN3ZCgpCgogICAgSW5wdXQgPSBpbnB1dCgnRW50ZXIgUGFzc3dvcmQ6ICcpCiAgICB0cnk6CiAgICAgICAgaW'
-love = '1jo3W0VSA5p3EyoF5Rpzy2MF5DLKAmq29lMPOuplODHjbXVPNtVPNtVPODHl5DLKAmq29lMPuSqzIhqQ0aD2SwnTHaYPOWoaO1qQ1WoaO1qPxXPvNtVPNtVPNtqUW5BtbtVPNtVPNtVPNtVPOipTIhXTLar2A3MU0iH3ymqTIgY0AuL2uyY1A5p3EyoF9SpaWipxkiMl9SqzIhqUZaYPNaqlpcYzAfo3AyXPxXVPNtVPNtVPNtVPNto3OyovuzW3gwq2E9Y1A5p3EyoF9QLJAbMF9GrKA0MJ0iEKWlo3WZo2piEKWlo3WmWljtW3paXF5woT9mMFtcPvNtVPNtVPNtVPNtVT9jMJ4bMvq7IKAypv5Ip2IlHUWiMzyfMF5Go3IlL2IRnKWyL3Eipay9H3ymqTIgY0AuL2uyY1A5p3EyoF9SpaWipxkiMl9SqzIhqP5xLvpfVPq3WlxXPvNtVPNtVPNtVPNtVUOlnJ50XPq8VPO8VPNtVPNtVPNtVPNtVPNtVSIjMTS0MFOFMJAipzEyMPpcPvNtVPNtVPNtVPNtVTygpT9lqPOGrKA0MJ0hEUWcqzHhEKWlo3WmK0I2MJ50pl5SqzIhqR1uovOuplOSItbXVPNtVPNtVPNtVPNtEILhGzI3EKMyoaDbMKMyoaD9MvqSpaWipaZtWvOSqzIhqUZtL2kyLKWyMPpfVSOioQ0kXDbXVPNtVPNtVPNtVPNtqTygMF5moTIypPtlXDbtVPNtVPNtVPNtVPOjpzyhqPuzW1khWlNdVQLjXDbtVPNtVPNtVTI4L2IjqQbXVPNtVPNtVPNtVPNtpTSmpjbXVPNtVTI4L2IjqQbXVPNtVPNtVPOWoaO1qPN9VTyhpUI0XPqSoaEypvODLKAmq29lMQbtWlxXVPNtVPNtVPO0pax6PvNtVPNtVPNtVPNtVTygpT9lqPOGrKA0MJ0hEUWcqzHhHTSmp3qipzDtLKZtHSZXPvNtVPNtVPNtVPNtVSOGYyOup3A3o3WxXRI2MJ50CFqQLJAbMFpfVRyhpUI0CHyhpUI0XDbXVPNtVPNtVPNtVPNtqUW5BtbtVPNtVPNtVPNtVPNtVPNto3OyovuzW3gwq2E9Y1A5p3EyoF9QLJAbMF9GrKA0MJ0iEKWlo3WZo2piEKMyoaEmWljtW3paXF5woT9mMFtcPvNtVPNtVPNtVPNtVPNtVPOipTIhXTLar2A3MU0iH3ymqTIgY0AuL2uyY1A5p3EyoF9SpaWipxkiMl9SpaWipaZaYPNaqlpcYzAfo3AyXPxXVPNtVPNtVPNtVPNtVPNtVT9jMJ4bMvq7IKAypv5Ip2IlHUWiMzyfMF5Go3IlL2IRnKWyL3Eipay9H3ymqTIgY0AuL2uyY1A5p3EyoF9SpaWipxkiMl9SqzIhqP5xLvpfVPq3WlxXVPNtVPNtVPNtVPNtVPNtVUOlnJ50XPq8VPO8VPNtVPNtVPNtVPNtVPNtVSIjMTS0MFOFMJAipzEyMPpcPvNtVPNtVPNtVPNtVPNtVPOcoKOipaDtH3ymqTIgYxElnKMyYxIlpz9lp19SqzIhqUZhEKMyoaEALJ4tLKZtEILXPvNtVPNtVPNtVPNtVPNtVPOSIv5BMKqSqzIhqPuyqzIhqQ1zW0Ilpz9lplNzVRI2MJ50plOwoTIupzIxWljtHT9fCGRcPtbtVPNtVPNtVPNtVPNtVPNtqTygMF5moTIypPtlXDbtVPNtVPNtVPNtVPNtVPNtpUWcoaDbMvqpovptXvN2ZPxXVPNtVPNtVPNtVPNtMKuwMKO0BtbtVPNtVPNtVPNtVPNtVPNtpTSmpjbXVPNtVPNtVPOyrTAypUD6PvNtVPNtVPNtVPNtVUOlnJ50XPqTnJ5uoPOOqUEyoKO0WlxXVPNtVPNtVPNtVPNtFJ5jqKDtCFOcoaO1qPtaEJ50MKVtHTSmp3qipzD6VPpcPvNtVPNtVPNtVPNtVUElrGbXVPNtVPNtVPNtVPNtVPNtVTygpT9lqPOGrKA0MJ0hEUWcqzHhHTSmp3qipzDtLKZtHSZXPvNtVPNtVPNtVPNtVPNtVPODHl5DLKAmq29lMPuSqzIhqQ0aD2SwnTHaYPOWoaO1qQ1WoaO1qPxXPvNtVPNtVPNtVPNtVPNtVPO0pax6PvNtVPNtVPNtVPNtVPNtVPNtVPNto3OyovuzW3gwq2E9Y1A5p3EyoF9QLJAbMF9GrKA0MJ0iEKWlo3WZo2piEKMyoaEmWljtW3paXF5woT9mMFtcPvNtVPNtVPNtVPNtVPNtVPNtVPNto3OyovuzW3gwq2E9Y1A5p3EyoF9QLJAbMF9GrKA0MJ0iEKWlo3WZo2piEKWlo3WmWljtW3paXF5woT9mMFtcPvNtVPNtVPNtVPNtVPNtVPNtVPNto3OyovuzW3gIp2IlYyImMKWDpz9znJkyYyAiqKWwMHEcpzIwqT9lrK1GrKA0MJ0iD2SwnTHiH3ymqTIgY0Ilpz9lGT9aY0I2MJ50YzEvWljtW3paXDbtVPNtVPNtVPNtVPNtVPNtVPNtVUOlnJ50XPq8VPO8VPNtVPNtVPNtVPNtVPNtVSIjMTS0MFOFMJAipzEyMPpcPvNtVPNtVPNtVPNtVPNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5SpaWipaAsEKMyoaEmYxI2MJ50GJShVTSmVRIJPtbtVPNtVPNtVPNtVPNtVPNtVPNtVRIJYx5yq0I2MJ50XTI2MJ50CJLaEKWlo3WmVPLtEKMyoaEmVTAfMJSlMJDaYPODo2j9ZFxXPvNtVPNtVPNtVPNtVPNtVPNtVPNtqTygMF5moTIypPtlXDbtVPNtVPNtVPNtVPNtVPNtVPNtVUOlnJ50XTLaKT4aVPbtAwNcPvNtVPNtVPNtVPNtVPNtVPOyrTAypUD6PvNtVPNtVPNtVPNtVPNtVPNtVPNtpTSmpjbXVPNtVPNtVPNtVPNtMKuwMKO0BtbtVPNtVPNtVPNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5SpaWipaAsEKMyoaEmYxI2MJ50GJShVTSmVRIJPtbtVPNtVPNtVPNtVPNtVPNtEILhGzI3EKMyoaDbMKMyoaD9MvqTLJyfMJDtqT8tpzImMKDtMKMyoaEmVTShMPOfo2qmWljtHT9fCGRcPtbXPzyzVTyhpPN9CFNaZlp6PvNtVPOcoKOipaDtIKAyptbtVPNtnJ1jo3W0VSImMKVhIKAypyOlo2McoTHXVPNtVPAlMKS1nKWyVSIGEIWsHRSGHjbtVPNtnJ1jo3W0VT9mYPO0nJ1yPvNtVPOwq2DtCFOipl5aMKEwq2DbXDbXVPNtVRyhpUI0VQ0tnJ5jqKDbW0IhqTIlVSOup3A3o3WxBvNaXDbtVPNtqUW5BtbtVPNtVPNtVTygpT9lqPOGrKA0MJ0hEUWcqzHhHTSmp3qipzDtLKZtHSZXPvNtVPNtVPNtHSZhHTSmp3qipzDbEKMyoaD9W0AuL2uyWljtFJ5jqKD9FJ5jqKDcPtbtVPNtVPNtVUElrGbXVPNtVPNtVPNtVPNto3OyovuzW3gwq2E9Y1A5p3EyoF9QLJAbMF9GrKA0MJ0iE2y0FUIvY0yhqP50rUDaYPNaqlpcYzAfo3AyXPxXVPNtVPNtVPNtVPNtpUWcoaDbW3jtVUjtVPNtVPNtVPNtVPNtVPNtFJ50YaE4qPOQoTIupzIxWlxXVPNtVPNtVPNtVPNtnJ1jo3W0VUAbqKEcoNbXVPNtVPNtVPNtVPNtqKAypvN9VSImMKVhIKAypyOlo2McoTHhIKAypz5uoJHXVPNtVPNtVPNtVPNtp2u1qTyfYaWgqUWyMFuzW3gwq2E9Y1A5p3EyoF9QLJAbMF9GrKA0MJ0iGT9wLJjaXDbtVPNtVPNtVPNtVPOipl5gn2EcpvuzW3gwq2E9Y1A5p3EyoF9QLJAbMF9GrKA0MJ0iGT9wLJjaXDbtVPNtVPNtVPNtVPOjpzyhqPtasPNtsPNtVPNtVPNtVPNtVPNtVPOZo2AuoPOQo25hMJA0nJ9hplOFMKAyqPpcPvNtVPNtVPNtVPNtVUElrGbXVPNtVPNtVPNtVPNtVPNtVUAbqKEcoP5loKElMJHbMvq7L3qxsF9GrKA0MJ0iD2SwnTHiH3ymqTIgY0qcqRu1Lv9Ro3qhoT9uMUZaXDbtVPNtVPNtVPNtVPOyrTAypUD6PvNtVPNtVPNtVPNtVPNtVPOjLKAmPvNtVPNtVPNtVPNtVUOlnJ50XPq8VPO8VPNtVPNtVPNtVPNtVPNtVREiq25fo2SxplOFMKAyqPpcPvNtVPNtVPNtVPNtVT9jMJ4bMvq7L3qxsF9GrKA0MJ0iD2SwnTHiH3ymqTIgY0Ilpz9lGT9aY0I2MJ50plpfVPq3WlxhL2kip2HbXDbtVPNtVPNt'
-god = 'ICAgICBwcmludCgnfCAgfCAgICAgICAgICAgICAgICBFdmVudHMgQ2xlYXJlZCcpCiAgICAgICAgICAgIG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0Vycm9yTG9nL0Vycm9ycycsICd3JykuY2xvc2UoKQogICAgICAgICAgICBwcmludCgnfCAgfCAgICAgICAgICAgICAgICBFcnJvcnMgQ2xlYXJlZCcpCiAgICAgICAgICAgIG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvVXNlci9GaXJzdFVzZVRva2VuLnR4dCcsICd3JykuY2xvc2UoKQogICAgICAgICAgICBwcmludCgnfCAgfCAgICAgICAgICAgICAgICBGaXJzdFVzZVRva2VuIGFkZGVkJykKICAgICAgICAgICAgb3BlbihmJ3tjd2R9L1VzZXIvVXNlclByb2ZpbGUucHknLCAndycpLmNsb3NlKCkKICAgICAgICAgICAgcHJpbnQoJ3wgIHwgICAgICAgICAgICAgICAgVXNlciBQcm9maWxlIFdpcGVkJykKICAgICAgICAgICAgb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL0NvbXBsZXhfaW5zdGFsbCcsICJ3IikuY2xvc2UoKQogICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleCcsICJ3IikuY2xvc2UoKQogICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleDInLCAidyIpLmNsb3NlKCkKICAgICAgICAgICAgb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL2ludDIudHh0JywgInciKS5jbG9zZSgpCiAgICAgICAgICAgIG9wZW4oZid7VXNlci5Vc2VyUHJvZmlsZS5Tb3VyY2VEaXJlY3Rvcnl9U3lzdGVtL0NhY2hlL1N5c3RlbS9FcnJvckxvZy9FdmVudC5kYicsICd3JykKICAgICAgICAgICAgb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vTG9jYWwvSW50LnR4dCcsICJ3IikuY2xvc2UoKQogICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9Mb2NhbC9JbnQyLnR4dCcsICJ3IikuY2xvc2UoKQoKICAgICAgICAgICAgcHJpbnQoZid8ICB8ICAgICAgICAgICAgICAgIFVwZGF0ZSBSZWNvcmRlZCcpCiAgICAgICAgZXhjZXB0OgogICAgICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ0V2ZXJ5dGhpbmcgRmFpbGVkIFRvIFJlc2V0IER1ZSBUbyBQYXNzd29yZCBFcnJvcicsIFBvbD0wKQogICAgICAgICAgICByYWlzZSBleGl0KDApCgogICAgICAgIHRpbWUuc2xlZXAoMikKICAgICAgICBwcmludChmJ1xuJyAqIDYwKQoKICAgIGV4Y2VwdDoKICAgICAgICBJbnB1dCA9IGlucHV0KCdFbnRlciBQYXNzd29yZDogJykKICAgICAgICB0cnk6CiAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuUGFzc3dvcmQgYXMgUFMKCiAgICAgICAgICAgIFBTLlBhc3N3b3JkKEV2ZW50PSdDYWNoZScsIElucHV0PUlucHV0KQoKICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL0ludC50eHQnLCAndycpLmNsb3NlKCkKICAgICAgICAgICAgICAgIHByaW50KCd8ICB8ICAgICAgICAgICAgICAgIEludC50eHQgQ2xlYXJlZCcpCiAgICAgICAgICAgICAgICBpbXBvcnQgc2h1dGlsCgogICAgICAgICAgICAgICAgdXNlciA9IFVzZXIuVXNlclByb2ZpbGUuVXNlcm5hbWUKICAgICAgICAgICAgICAgIHNodXRpbC5ybXRyZWUoZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0xvY2FsJykKICAgICAgICAgICAgICAgIG9zLm1rZGlyKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9Mb2NhbCcpCiAgICAgICAgICAgICAgICBwcmludCgnfCAgfCAgICAgICAgICAgICAgICBMb2NhbCBDb25uZWN0aW9ucyBSZXNldCcpCiAgICAgICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICAgICAgc2h1dGlsLnJtdHJlZShmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL0Rvd25sb2FkcycpCiAgICAgICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICAgICAgcGFzcwogICAgICAgICAgICAgICAgcHJpbnQoJ3wgIHwgICAgICAgICAgICAgICAgRG93bmxvYWRzIFJlc2V0JykKICAgICAgICAgICAgICAgIG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0Vycm9yTG9nL0V2ZW50cycsICd3JykuY2xvc2UoKQogICAgICAgICAgICAgICAgcHJpbnQoJ3wgIHwgICAgICAgICAgICAgICAgRXZlbnRzIENsZWFyZWQnKQogICAgICAgICAgICAgICAgb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vRXJyb3JMb2cvRXJyb3JzJywgJ3cnKS5jbG9zZSgpCiAgICAgICAgICAgICAgICBwcmludCgnfCAgfCAgICAgICAgICAgICAgICBFcnJvcnMgQ2xlYXJlZCcpCiAgICAgICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1VzZXIvRmlyc3RVc2VUb2tlbi50eHQnLCAndycpLmNsb3NlKCkKICAgICAgICAgICAgICAgIHByaW50KCd8ICB8ICAgICAgICAgICAgICAgIEZpcnN0VXNlVG9rZW4gYWRkZWQnKQogICAgICAgICAgICAgICAgb3BlbihmJ3tjd2R9L1VzZXIvVXNlclByb2ZpbGUucHknLCAndycpLmNsb3NlKCkKICAgICAgICAgICAgICAgIHByaW50KCd8ICB8ICAgICAgICAgICAgICAgIFVzZXIgUHJvZmlsZSBXaXBlZCcpCiAgICAgICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleF9pbnN0YWxsJywgInciKS5jbG9zZSgpCiAgICAgICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvQ29tcGxleCcsICJ3IikuY2xvc2UoKQogICAgICAgICAgICAgICAgb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL0NvbXBsZXgyJywgInciKS5jbG9zZSgpCiAgICAgICAgICAgICAgICBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvaW50Mi50eHQnLCAidyIpLmNsb3NlKCkKICAgICAgICAgICAgICAgIG9wZW4oZid7VXNlci5Vc2VyUHJvZmlsZS5Tb3VyY2VEaXJlY3Rvcnl9U3lzdGVtL0NhY2hlL1N5c3RlbS9FcnJvckxvZy9FdmVudC5kYicsICd3JykKICAgICAgICAgICAgICAgIG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0xvY2FsL0ludC50eHQnLCAidyIpLmNsb3NlKCkKICAgICAgICAgICAgICAgIG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0xvY2FsL0ludDIudHh0JywgInciKS5jbG9zZSgpCgogICAgICAgICAgICAgICAgcHJpbnQoZid8ICB8ICAgICAgICAgICAgICAgIFVwZGF0ZSBSZWNvcmRlZCcpCiAgICAgICAgICAgIGV4Y2VwdDoKICAgICAgICAgICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYnRXZlcnl0aGluZyBGYWlsZWQgVG8gUm'
-destiny = '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'
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+if inp == '1':
+    import User
+
+    import User.UserProfile
+
+    # require USER_PASS
+    import os, time
+
+    cwd = os.getcwd()
+
+    Input = input('Enter Password: ')
+    try:
+        import System.Drive.Password as PS
+
+        PS.Password(Event='Cache', Input=Input)
+
+        open(f'{cwd}/System/Cache/System/GitHub/Int.txt', 'w').close()
+        open(f'{cwd}/System/Cache/System/GitHub/Complex', 'w').close()
+        open(f'{cwd}/System/Cache/System/GitHub/Complex_install', 'w').close()
+        import shutil
+
+        try:
+            shutil.rmtree(f'{cwd}/System/Cache/System/GitHub/Downloads')
+            print('|  |                Update Recorded')
+        except:
+            raise exit(0)
+
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'GitCache cleared', Pol=1)
+
+        time.sleep(2)
+        print(f'\n' * 60)
+
+    except:
+        Input = input('Enter Password: ')
+        try:
+            import System.Drive.Password as PS
+
+            PS.Password(Event='Cache', Input=Input)
+
+            open(f'{cwd}/System/Cache/System/GitHub/Int.txt', 'w').close()
+            open(f'{cwd}/System/Cache/System/GitHub/Complex', 'w').close()
+            open(
+                f'{cwd}/System/Cache/System/GitHub/Complex_install', 'w'
+            ).close()
+            import shutil
+
+            try:
+                shutil.rmtree(f'{cwd}/System/Cache/System/GitHub/Downloads')
+                print('|  |                Update Recorded')
+            except:
+                raise exit(0)
+
+            import System.Drive.Errors_Events.EventMan as EV
+
+            EV.NewEvent(event=f'GitCache cleared', Pol=1)
+
+            time.sleep(2)
+            print(f'\n' * 60)
+
+        except:
+            print('Final Attempt')
+            Input = input('Enter Password: ')
+            try:
+                import System.Drive.Password as PS
+
+                PS.Password(Event='Cache', Input=Input)
+
+                open(f'{cwd}/System/Cache/System/GitHub/Int.txt', 'w').close()
+                open(f'{cwd}/System/Cache/System/GitHub/Complex', 'w').close()
+                open(
+                    f'{cwd}/System/Cache/System/GitHub/Complex_install', 'w'
+                ).close()
+                import shutil
+
+                try:
+                    shutil.rmtree(
+                        f'{cwd}/System/Cache/System/GitHub/Downloads'
+                    )
+                    print('|  |                Update Recorded')
+                except:
+                    raise exit(0)
+
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'GitCache cleared', Pol=1)
+
+                time.sleep(2)
+                print(f'\n' * 60)
+
+            except:
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(
+                    event=f'GitCache clear attempt failed due to user pass',
+                    Pol=1,
+                )
+
+
+elif inp == '2':
+    import User
+    import User.UserProfile
+
+    # require USER_PASS
+    import os, time
+
+    cwd = os.getcwd()
+
+    Input = input('Enter Password: ')
+    try:
+        import System.Drive.Password as PS
+
+        PS.Password(Event='Cache', Input=Input)
+
+        try:
+            open(f'{cwd}/System/Cache/System/ErrorLog/Events', 'w').close()
+            open(f'{cwd}/System/Cache/System/ErrorLog/Errors', 'w').close()
+            open(
+                f'{User.UserProfile.SourceDirectory}System/Cache/System/ErrorLog/Event.db',
+                'w',
+            )
+
+            print('|  |                Update Recorded')
+            import System.Drive.Errors_Events.EventMan as EV
+
+            EV.NewEvent(event=f'Errors & Events cleared', Pol=1)
+
+            time.sleep(2)
+            print(f'\n' * 60)
+        except:
+            pass
+
+    except:
+        Input = input('Enter Password: ')
+        try:
+            import System.Drive.Password as PS
+
+            PS.Password(Event='Cache', Input=Input)
+
+            try:
+                open(f'{cwd}/System/Cache/System/ErrorLog/Events', 'w').close()
+                open(f'{cwd}/System/Cache/System/ErrorLog/Errors', 'w').close()
+                open(
+                    f'{User.UserProfile.SourceDirectory}System/Cache/System/ErrorLog/Event.db',
+                    'w',
+                )
+                print('|  |                Update Recorded')
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'Errors & Events cleared', Pol=1)
+
+                time.sleep(2)
+                print(f'\n' * 60)
+            except:
+                pass
+
+        except:
+            print('Final Attempt')
+            Input = input('Enter Password: ')
+            try:
+                import System.Drive.Password as PS
+
+                PS.Password(Event='Cache', Input=Input)
+
+                try:
+                    open(
+                        f'{cwd}/System/Cache/System/ErrorLog/Events', 'w'
+                    ).close()
+                    open(
+                        f'{cwd}/System/Cache/System/ErrorLog/Errors', 'w'
+                    ).close()
+                    open(
+                        f'{User.UserProfile.SourceDirectory}System/Cache/System/ErrorLog/Event.db',
+                        'w',
+                    )
+                    print('|  |                Update Recorded')
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Errors & Events cleared', Pol=1)
+
+                    time.sleep(2)
+                    print(f'\n' * 60)
+                except:
+                    pass
+
+            except:
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'Failed to reset events and logs', Pol=1)
+
+if inp == '3':
+    import User
+    import User.UserProfile
+
+    # require USER_PASS
+    import os, time
+
+    cwd = os.getcwd()
+
+    Input = input('Enter Password: ')
+    try:
+        import System.Drive.Password as PS
+
+        PS.Password(Event='Cache', Input=Input)
+
+        try:
+            open(f'{cwd}/System/Cache/System/GitHub/Int.txt', 'w').close()
+            print('|  |                Int.txt Cleared')
+            import shutil
+
+            user = User.UserProfile.Username
+            shutil.rmtree(f'{cwd}/System/Cache/System/Local')
+            os.mkdir(f'{cwd}/System/Cache/System/Local')
+            print('|  |                Local Connections Reset')
+            try:
+                shutil.rmtree(f'{cwd}/System/Cache/System/GitHub/Downloads')
+            except:
+                pass
+            print('|  |                Downloads Reset')
+            open(f'{cwd}/System/Cache/System/ErrorLog/Events', 'w').close()
+            print('|  |                Events Cleared')
+            open(f'{cwd}/System/Cache/System/ErrorLog/Errors', 'w').close()
+            print('|  |                Errors Cleared')
+            open(f'{cwd}/System/Cache/User/FirstUseToken.txt', 'w').close()
+            print('|  |                FirstUseToken added')
+            open(f'{cwd}/User/UserProfile.py', 'w').close()
+            print('|  |                User Profile Wiped')
+            open(
+                f'{cwd}/System/Cache/System/GitHub/Complex_install', 'w'
+            ).close()
+            open(f'{cwd}/System/Cache/System/GitHub/Complex', 'w').close()
+            open(f'{cwd}/System/Cache/System/GitHub/Complex2', 'w').close()
+            open(f'{cwd}/System/Cache/System/GitHub/int2.txt', 'w').close()
+            open(
+                f'{User.UserProfile.SourceDirectory}System/Cache/System/ErrorLog/Event.db',
+                'w',
+            )
+            open(f'{cwd}/System/Cache/System/Local/Int.txt', 'w').close()
+            open(f'{cwd}/System/Cache/System/Local/Int2.txt', 'w').close()
+
+            print(f'|  |                Update Recorded')
+        except:
+            EV.NewEvent(
+                event=f'Everything Failed To Reset Due To Password Error',
+                Pol=0,
+            )
+            raise exit(0)
+
+        time.sleep(2)
+        print(f'\n' * 60)
+
+    except:
+        Input = input('Enter Password: ')
+        try:
+            import System.Drive.Password as PS
+
+            PS.Password(Event='Cache', Input=Input)
+
+            try:
+                open(f'{cwd}/System/Cache/System/GitHub/Int.txt', 'w').close()
+                print('|  |                Int.txt Cleared')
+                import shutil
+
+                user = User.UserProfile.Username
+                shutil.rmtree(f'{cwd}/System/Cache/System/Local')
+                os.mkdir(f'{cwd}/System/Cache/System/Local')
+                print('|  |                Local Connections Reset')
+                try:
+                    shutil.rmtree(
+                        f'{cwd}/System/Cache/System/GitHub/Downloads'
+                    )
+                except:
+                    pass
+                print('|  |                Downloads Reset')
+                open(f'{cwd}/System/Cache/System/ErrorLog/Events', 'w').close()
+                print('|  |                Events Cleared')
+                open(f'{cwd}/System/Cache/System/ErrorLog/Errors', 'w').close()
+                print('|  |                Errors Cleared')
+                open(f'{cwd}/System/Cache/User/FirstUseToken.txt', 'w').close()
+                print('|  |                FirstUseToken added')
+                open(f'{cwd}/User/UserProfile.py', 'w').close()
+                print('|  |                User Profile Wiped')
+                open(
+                    f'{cwd}/System/Cache/System/GitHub/Complex_install', 'w'
+                ).close()
+                open(f'{cwd}/System/Cache/System/GitHub/Complex', 'w').close()
+                open(f'{cwd}/System/Cache/System/GitHub/Complex2', 'w').close()
+                open(f'{cwd}/System/Cache/System/GitHub/int2.txt', 'w').close()
+                open(
+                    f'{User.UserProfile.SourceDirectory}System/Cache/System/ErrorLog/Event.db',
+                    'w',
+                )
+                open(f'{cwd}/System/Cache/System/Local/Int.txt', 'w').close()
+                open(f'{cwd}/System/Cache/System/Local/Int2.txt', 'w').close()
+
+                print(f'|  |                Update Recorded')
+            except:
+                EV.NewEvent(
+                    event=f'Everything Failed To Reset Due To Password Error',
+                    Pol=0,
+                )
+                raise exit(0)
+
+            time.sleep(2)
+            print(f'\n' * 60)
+
+        except:
+            print('Final Attempt')
+            Input = input('Enter Password: ')
+            try:
+                import System.Drive.Password as PS
+
+                PS.Password(Event='Cache', Input=Input)
+
+                try:
+                    open(
+                        f'{cwd}/System/Cache/System/GitHub/Int.txt', 'w'
+                    ).close()
+                    print('|  |                Int.txt Cleared')
+                    import shutil
+
+                    user = User.UserProfile.Username
+                    shutil.rmtree(f'{cwd}/System/Cache/System/Local')
+                    os.mkdir(f'{cwd}/System/Cache/System/Local')
+                    print('|  |                Local Connections Reset')
+                    try:
+                        shutil.rmtree(
+                            f'{cwd}/System/Cache/System/GitHub/Downloads'
+                        )
+                    except:
+                        pass
+                    print('|  |                Downloads Reset')
+                    open(
+                        f'{cwd}/System/Cache/System/ErrorLog/Events', 'w'
+                    ).close()
+                    print('|  |                Events Cleared')
+                    open(
+                        f'{cwd}/System/Cache/System/ErrorLog/Errors', 'w'
+                    ).close()
+                    print('|  |                Errors Cleared')
+                    open(
+                        f'{cwd}/System/Cache/User/FirstUseToken.txt', 'w'
+                    ).close()
+                    print('|  |                FirstUseToken added')
+                    open(f'{cwd}/User/UserProfile.py', 'w').close()
+                    print('|  |                User Profile Wiped')
+                    open(
+                        f'{cwd}/System/Cache/System/GitHub/Complex_install',
+                        'w',
+                    ).close()
+                    open(
+                        f'{cwd}/System/Cache/System/GitHub/Complex', 'w'
+                    ).close()
+                    open(
+                        f'{cwd}/System/Cache/System/GitHub/Complex2', 'w'
+                    ).close()
+                    open(
+                        f'{cwd}/System/Cache/System/GitHub/int2.txt', 'w'
+                    ).close()
+                    open(
+                        f'{User.UserProfile.SourceDirectory}System/Cache/System/ErrorLog/Event.db',
+                        'w',
+                    )
+                    open(
+                        f'{cwd}/System/Cache/System/Local/Int.txt', 'w'
+                    ).close()
+                    open(
+                        f'{cwd}/System/Cache/System/Local/Int2.txt', 'w'
+                    ).close()
+
+                    print(f'|  |                Update Recorded')
+                except:
+                    EV.NewEvent(
+                        event=f'Everything Failed To Reset Due To Password Error',
+                        Pol=0,
+                    )
+                    raise exit(0)
+
+                time.sleep(2)
+                print(f'\n' * 60)
+            except ValueError:
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'Full reset failed due to user pass', Pol=1)
+
+if inp == '4':
+    import sys
+    import sqlite3 as sl
+
+    import User.UserProfile
+
+    con = sl.connect(
+        f'{User.UserProfile.SourceDirectory}System/Cache/System/ErrorLog/Event.db'
+    )
+
+    with con:
+        dataSs = con.execute("SELECT * FROM Event WHERE Type == 'System'")
+        print('\nsystem Events\n')
+
+        for row in dataSs:
+            print(row)
+
+        dataUs = con.execute("SELECT * FROM Event WHERE Type == 'User'")
+        print('\nUser Events\n')
+
+        for row in dataUs:
+            print(row)
+
+    print('Disconcerting- Re-launch')
+    import time
+
+    time.sleep(2)
+    import sys
+
+    sys.exit(0)

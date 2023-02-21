@@ -1,11 +1,258 @@
-# Python code obfuscated by www.development-tools.net 
- 
+#
 
-import base64, codecs
-magic = 'IwoKaW1wb3J0IG9zCmltcG9ydCBzeXMKCgpkZWYgQWxsKCk6CiAgICBpbXBvcnQgVXNlci5Vc2VyUHJvZmlsZQogICAgb3MuY2hkaXIoVXNlci5Vc2VyUHJvZmlsZS5Tb3VyY2VEaXJlY3RvcnkpCiAgICBjd2QgPSBvcy5nZXRjd2QoKQoKICAgIHNwYWNlciA9ICc9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09JwoKICAgIHByaW50KCc9PT09PT09PT09PT09PT09PUF2YWlsYWJsZV9QYWNrYWdlcz09PT09PT09PT09PT09PT09JykKICAgIHByaW50KCdMb2NhbCA6IDEnKQogICAgcHJpbnQoJ0dpdEh1YiA6IDInKQogICAgaW5wID0gTm9uZQogICAgaW5wID0gaW50KGlucHV0KCdFbnRlciB2YWx1ZSB0byBjb250aW51ZTogJykpCgoKICAgIGlmIGlucCA9PSAyOgoKICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ0lucCA9IEdpdEh1YicsIFBvbD0xKQoKICAgICAgICB3aXRoIG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0dpdEh1Yi9pbnQudHh0JywgJ3InKSBhcyByLCBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9HaXRIdWIvaW50Mi50eHQnLCAndycpIGFzIG86CiAgICAgICAgICAgIGZvciBsaW5lIGluIHI6CiAgICAgICAgICAgICAgICBpZiBsaW5lLnN0cmlwKCk6CiAgICAgICAgICAgICAgICAgICAgby53cml0ZShsaW5lKQoKCiAgICAgICAgZiA9IG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0dpdEh1Yi9pbnQyLnR4dCcsICJyIikKICAgICAgICBlID0gb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vR2l0SHViL0NvbXBsZXgyJywgInIiKQogICAgICAgIGxpbmVzID0gZi5yZWFkbGluZXMoKQogICAgICAgIGNvdW50ID0gMAogICAgICAgIGZvciBsaW5lIGluIGxpbmVzOgogICAgICAgICAgICBjb3VudCArPSAxCgogICAgICAgIGNvdW50MSA9IDAKICAgICAgICBmb3IgbGluZSBpbiBsaW5lczoKICAgICAgICAgICAgdmFsdWU0ID0gbGluZS5zdHJpcCgpCiAgICAgICAgICAgIFZhbCA9IHZhbHVlNC5zcGxpdCgnJicsIDEpCiAgICAgICAgICAgIGlmIGxlbihWYWwpID4gMDoKICAgICAgICAgICAgICAgIHZhbHVlNCA9IFZhbFsxXQogICAgICAgICAgICBjb3VudDEgKz0gMQoKICAgICAgICAgICAgcHJpbnQoInt9IHwge30iLmZvcm1hdChjb3VudDEsIHZhbHVlNCkpCiAgICAgICAgICAgIHByaW50KHNwYWNlcikKCiAgICAgICAgbGluZXMyID0gZS5yZWFkbGluZXMoKQogICAgICAgIGZvciBsaW5lMiBpbiBsaW5lczI6CiAgICAgICAgICAgIGNvdW50MSArPSAxCiAgICAgICAgICAgIHByaW50KCJ7fSB8IHt9Ii5mb3JtYXQoY291bnQxLCBsaW5lMikpCgogICAgICAgIHZhbHVlZSA9IGlucHV0KCdFbnRlciBhIHZhbHVlIHRvIGNvbnRpbnVlOiAnKQogICAgICAgICMgcmVtb3ZlIGEgbGluZSBjb250YWluaW5nIGEgc3RyaW5nCgogICAgICAgIHRyeToKICAgICAgICAgICAgdmFsdWVlID0gaW50KHZhbHVlZSkKICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PSdJbnB1dCBFcnJvcicsIFBvbD0xKQoKICAgICAgICBpZiB2YWx1ZWUgPiBjb3VudDoKICAgICAgICAgICAgZHIgPSBpbnQodmFsdWVlKS1jb3VudAogICAgICAgICAgICBjb21tYW5kID0gbGluZXMyW2RyLTFdCiAgICAgICAgICAgIHByaW50KGNvbW1hbmQpCiAgICAgICAgICAgIGNvID0gY29tbWFuZC5zcGxpdCgnJCcsIDEpWzBdCiAgICAgICAgICAgIHByaW50KGNvKQogICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKICAgICAgICAgICAgICAgIGltcG9ydCBzaHV0aWwKCiAgICAgICAgICAgICAgICBzaHV0aWwucm10cmVlKGNvKQoKICAgICAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgogICAg'
-love = 'VPNtVPNtVPNtVPNtpUWcoaDbMvqDpz9dMJA0VSWyoJ92MJDtr2AisFpcPvNtVPNtVPNtVPNtVPNtVPOSIv5BMKqSqzIhqPuyqzIhqQ1zW0EcpyWyoJ92LJjtCFOGqJAwMKAmVFO7L299WljtHT9fCGNcPtbtVPNtVPNtVPNtVPOyrTAypUD6PvNtVPNtVPNtVPNtVPNtVPOjpzyhqPtaHUWinzIwqPOTLJyfMJDtIT8tHzIgo3MyMPpcPvNtVPNtVPNtVPNtVPNtVPOcoKOipaDtH3ymqTIgYxElnKMyYxIlpz9lp19SqzIhqUZhEKMyoaEALJ4tLKZtEILXVPNtVPNtVPNtVPNtVPNtVRIJYx5yq0I2MJ50XTI2MJ50CJLaETylHzIgo3MuoPN9VRMunJkyMPNaYPODo2j9ZPxXPvNtVPNtVPNtMJkmMGbXVPNtVPNtVPNtVPNtq2y0nPOipTIhXTLar2A3MU0iH3ymqTIgY0AuL2uyY1A5p3EyoF9UnKEVqJVinJ50YaE4qPpfVPqlWlxtLKZtMzyfMGbXVPNtVPNtVPNtVPNtVPNtVTkcozImAFN9VTMcoTHhpzIuMTkcozImXPxXPvNtVPNtVPNtVPNtVUqcqTtto3OyovuzW3gwq2E9Y1A5p3EyoF9QLJAbMF9GrKA0MJ0iE2y0FUIvY2yhqP50rUDaYPNaqlpcVTSmVTMcoTH6PvNtVPNtVPNtVPNtVPNtVPOzo3VtoTyhMJLtnJ4toTyhMKZ1BtbtVPNtVPNtVPNtVPNtVPNtVPNtVPZtMzyhMPtcVUWyqUIloaZtYGRtnJLtoz8toJS0L2ttnKZtMz91ozDXVPNtVPNtVPNtVPNtVPNtVPNtVPOcMvOfnJ5yMv5znJ5xXUMuoUIyAPxtVG0tYGR6PvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVUOup3ZXVPNtVPNtVPNtVPNtVPNtVPNtVPOyoUAyBtbtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOznJkyYaqlnKEyXTkcozIzXDbXPtbtVPNtVPNtVPNtVPO2LJk1MFN9VTkcozImJ2yhqPu2LJk1MJHcVP0tZI0XVPNtVPNtVPNtVPNtL2ZtCFO2LJk1MDbtVPNtVPNtVPNtVPOfnKA0G2MKo3WxplN9VUMuoUIyYaAjoTy0XPpzWljtZFxXVPNtVPNtVPNtVPNtnJLtoTIhXTkcp3ECMyqipzEmXFN+VQN6PvNtVPNtVPNtVPNtVPNtVPO2LJk1MFN9VTkcp3ECMyqipzEmJmSqPtbtVPNtVPNtVPNtVPO2LJk1MFN9VUMuoUIyYaAjoTy0XPpgWljtZFyoZS0XPvNtVPNtVPNtVPNtVTAwVQ0tL2Zhp3OfnKDbW0NaYPNkXIfjKDbXVPNtVPNtVPNtVPNtoTymqR9zI29lMUZtCFOwLl5mpTkcqPtaY0Eiq25fo2SxplpfVQRcPtbtVPNtVPNtVPNtVPOcMvOfMJ4boTymqR9zI29lMUZcVQ4tZQbXVPNtVPNtVPNtVPNtVPNtVTAiVQ0toTymqR9zI29lMUAoZI0XPtbtVPNtVPNtVPNtVPOcoKOipaDtH3ymqTIgYxElnKMyYxIlpz9lp19SqzIhqUZhEKMyoaEALJ4tLKZtEILXVPNtVPNtVPNtVPNtEILhGzI3EKMyoaDbMKMyoaD9MvqFMJ1iqzyhMlORnKWyL3Eipax6VUgwL30aYPODo2j9ZPxXVPNtVPNtVPNtVPNtqUW5BtbtVPNtVPNtVPNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5SpaWipaAsEKMyoaEmYxI2MJ50GJShVTSmVRIJPvNtVPNtVPNtVPNtVPNtVPOcoKOipaDtp2u1qTyfPtbtVPNtVPNtVPNtVPNtVPNtp2u1qTyfYaWgqUWyMFuzW3gipl5aMKEwq2DbXK0iH3ymqTIgY0AuL2uyY1A5p3EyoF9UnKEVqJViET93ozkiLJEmr2AisFpcPtbtVPNtVPNtVPNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5SpaWipaAsEKMyoaEmYxI2MJ50GJShVTSmVRIJPvNtVPNtVPNtVPNtVPNtVPOjpzyhqPtaHUWinzIwqPOFMJ1iqzIxWlxXVPNtVPNtVPNtVPNtVPNtVRIJYx5yq0I2MJ50XTI2MJ50CJLaETylHzIgo3MuoPN9VSA1L2Ayp3ZuVPpfVSOioQ0jXDbXVPNtVPNtVPNtVPNtMKuwMKO0BtbtVPNtVPNtVPNtVPNtVPNtpUWcoaDbW1Olo2cyL3DtEzScoTIxVSEiVSWyoJ92MJDaXDbtVPNtVPNtVPNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5SpaWipaAsEKMyoaEmYxI2MJ50GJShVTSmVRIJPvNtVPNtVPNtVPNtVPNtVPOSIv5BMKqSqzIhqPuyqzIhqQ1zW0EcpyWyoJ92LJjtCFOTLJyfMJDtWljtHT9fCGNcPtbtVPNtMJkcMvOcoaNtCG0tZGbXPvNtVPNtVPNtnJ1jo3W0VSA5p3EyoF5Rpzy2MF5SpaWipaAsEKMyoaEmYxI2MJ50GJShVTSmVRIJPvNtVPNtVPNtEILhGzI3EKMyoaDbMKMyoaD9MvqWoaNtCFOZo2AuoPpfVSOioQ0k'
-god = 'KQoKICAgICAgICBmID0gb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vTG9jYWwvSW50Mi50eHQnLCAncicpCgogICAgICAgIHdpdGggb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vTG9jYWwvSW50LnR4dCcsICdyJykgYXMgciwgb3BlbihmJ3tjd2R9L1N5c3RlbS9DYWNoZS9TeXN0ZW0vTG9jYWwvSW50Mi50eHQnLCd3JykgYXMgbzoKICAgICAgICAgICAgZm9yIGxpbmUgaW4gcjoKICAgICAgICAgICAgICAgIGlmIGxpbmUuc3RyaXAoKToKICAgICAgICAgICAgICAgICAgICBvLndyaXRlKGxpbmUpCiAgICAgICAgZiA9IG9wZW4oZid7Y3dkfS9TeXN0ZW0vQ2FjaGUvU3lzdGVtL0xvY2FsL0ludDIudHh0JywgInIiKQoKICAgICAgICBsaW5lcyA9IGYucmVhZGxpbmVzKCkKICAgICAgICBjb3VudCA9IDAKICAgICAgICBmb3IgbGluZSBpbiBsaW5lczoKICAgICAgICAgICAgY291bnQgKz0gMQoKICAgICAgICBjb3VudDEgPSAwCiAgICAgICAgZm9yIGxpbmUgaW4gbGluZXM6CiAgICAgICAgICAgIGNvdW50MSArPSAxCiAgICAgICAgICAgIHByaW50KCJ7fSB8IHt9Ii5mb3JtYXQoY291bnQxLCBsaW5lLnN0cmlwKCkpKQogICAgICAgICAgICBwcmludChzcGFjZXIpCiAgICAgICAgICAgIGlmIGNvdW50MSA9PSBjb3VudDoKCiAgICAgICAgICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKCiAgICAgICAgICAgICAgICB2YWx1ZWUgPSBpbnB1dCgnRW50ZXIgYSB2YWx1ZSB0byBjb250aW51ZTogJykKICAgICAgICAgICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PWYndmFsdWVlID17dmFsdWVlfScsIFBvbD0xKQogICAgICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgICAgIHZhbHVlZSA9IGludCh2YWx1ZWUpCiAgICAgICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidJbnB1dCBlcnJvcicsIFBvbD0xKQoKICAgICAgICAgICAgICAgIHZhbHVlID0gbGluZXNbdmFsdWVlIC0gMV0KICAgICAgICAgICAgICAgIGxpc3RPZldvcmRzID0gdmFsdWUuc3BsaXQoJy0nLCAxKQoKICAgICAgICAgICAgICAgIGlmIGxlbihsaXN0T2ZXb3JkcykgPiAwOgogICAgICAgICAgICAgICAgICAgIHZhbHVlZyA9IGxpc3RPZldvcmRzWzFdCgogICAgICAgICAgICAgICAgd2l0aCBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9Mb2NhbC9JbnQudHh0JywgJ3InKSBhcyBmaWxlOgogICAgICAgICAgICAgICAgICAgIGxpbmVzNTUgPSBmaWxlLnJlYWRsaW5lcygpCiAgICAgICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICAgICAgd2l0aCBvcGVuKGYne2N3ZH0vU3lzdGVtL0NhY2hlL1N5c3RlbS9Mb2NhbC9JbnQudHh0JywgJ3cnKSBhcyBmaWxlOgogICAgICAgICAgICAgICAgICAgICAgICBmb3IgbGluZWZmIGluIGxpbmVzNTU6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZiBsaW5lZmYuZmluZCh2YWx1ZSkgIT0gLTE6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcGFzcwogICAgICAgICAgICAgICAgICAgICAgICAgICAgZWxzZToKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmaWxlLndyaXRlKGxpbmVmZikKICAgICAgICAgICAgICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKICAgICAgICAgICAgICAgICAgICBFVi5OZXdFdmVudChldmVudD1mJ0xhdW5jaCBDb21tYW5kIFJlbW92ZWQnLCBQb2w9MCkKCiAgICAgICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5FcnJvcnNfRXZlbnRzLkV2ZW50TWFuIGFzIEVWCiAgICAgICAgICAgICAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidMYXVuY2ggQ29tbWFuZCBGYWlsZWQgVG8gUmVtb3ZlJywgUG9sPTApCgogICAgICAgICAgICAgICAgdHJ5OgogICAgICAgICAgICAgICAgICAgIHZhbHVlMSA9IHZhbHVlLnNwbGl0KGYn'
-destiny = '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'
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+import os
+
+
+def All():
+    import User.UserProfile
+
+    os.chdir(User.UserProfile.SourceDirectory)
+    cwd = os.getcwd()
+
+    spacer = '===================================================='
+
+    print('=================Available_Packages=================')
+    print('Local : 1')
+    print('GitHub : 2')
+    inp = None
+    inp = int(input('Enter value to continue: '))
+
+    if inp == 2:
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'Inp = GitHub', Pol=1)
+
+        with open(f'{cwd}/System/Cache/System/GitHub/int.txt', 'r') as r, open(
+            f'{cwd}/System/Cache/System/GitHub/int2.txt', 'w'
+        ) as o:
+            for line in r:
+                if line.strip():
+                    o.write(line)
+
+        f = open(f'{cwd}/System/Cache/System/GitHub/int2.txt', 'r')
+        e = open(f'{cwd}/System/Cache/System/GitHub/Complex2', 'r')
+        lines = f.readlines()
+        count = 0
+        for line in lines:
+            count += 1
+
+        count1 = 0
+        for line in lines:
+            value4 = line.strip()
+            Val = value4.split('&', 1)
+            if len(Val) > 0:
+                value4 = Val[1]
+            count1 += 1
+
+            print('{} | {}'.format(count1, value4))
+            print(spacer)
+
+        lines2 = e.readlines()
+        for line2 in lines2:
+            count1 += 1
+            print('{} | {}'.format(count1, line2))
+
+        valuee = input('Enter a value to continue: ')
+        # remove a line containing a string
+
+        try:
+            valuee = int(valuee)
+        except:
+            EV.NewEvent(event='Input Error', Pol=1)
+
+        if valuee > count:
+            dr = int(valuee) - count
+            command = lines2[dr - 1]
+            print(command)
+            co = command.split('$', 1)[0]
+            print(co)
+            try:
+                import System.Drive.Errors_Events.EventMan as EV
+                import shutil
+
+                shutil.rmtree(co)
+
+                import System.Drive.Errors_Events.EventMan as EV
+
+                print(f'Project Removed {co}')
+                EV.NewEvent(event=f'DirRemoval = Success! {co}', Pol=0)
+
+            except:
+                print('Project Failed To Removed')
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'DirRemoval = Failed ', Pol=0)
+
+        else:
+            with open(
+                f'{cwd}/System/Cache/System/GitHub/int.txt', 'r'
+            ) as file:
+                lines5 = file.readlines()
+
+            with open(
+                f'{cwd}/System/Cache/System/GitHub/int.txt', 'w'
+            ) as file:
+                for linef in lines5:
+                    # find() returns -1 if no match is found
+                    if linef.find(value4) != -1:
+                        pass
+                    else:
+                        file.write(linef)
+
+            value = lines[int(valuee) - 1]
+            cc = value
+            listOfWords = value.split('&', 1)
+            if len(listOfWords) > 0:
+                value = listOfWords[1]
+
+            value = value.split('-', 1)[0]
+
+            cc = cc.split('@', 1)[0]
+
+            listOfWords = cc.split('/Downloads', 1)
+
+            if len(listOfWords) > 0:
+                co = listOfWords[1]
+
+            import System.Drive.Errors_Events.EventMan as EV
+
+            EV.NewEvent(event=f'Removing Directory: {cc}', Pol=0)
+            try:
+                import System.Drive.Errors_Events.EventMan as EV
+                import shutil
+
+                shutil.rmtree(
+                    f'{os.getcwd()}/System/Cache/System/GitHub/Downloads{co}'
+                )
+
+                import System.Drive.Errors_Events.EventMan as EV
+
+                print('Project Removed')
+                EV.NewEvent(event=f'DirRemoval = Success! ', Pol=0)
+
+            except:
+                print('Project Failed To Removed')
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'DirRemoval = Failed ', Pol=0)
+
+    elif inp == 1:
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'Inp = Local', Pol=1)
+
+        f = open(f'{cwd}/System/Cache/System/Local/Int2.txt', 'r')
+
+        with open(f'{cwd}/System/Cache/System/Local/Int.txt', 'r') as r, open(
+            f'{cwd}/System/Cache/System/Local/Int2.txt', 'w'
+        ) as o:
+            for line in r:
+                if line.strip():
+                    o.write(line)
+        f = open(f'{cwd}/System/Cache/System/Local/Int2.txt', 'r')
+
+        lines = f.readlines()
+        count = 0
+        for line in lines:
+            count += 1
+
+        count1 = 0
+        for line in lines:
+            count1 += 1
+            print('{} | {}'.format(count1, line.strip()))
+            print(spacer)
+            if count1 == count:
+                import System.Drive.Errors_Events.EventMan as EV
+
+                valuee = input('Enter a value to continue: ')
+                EV.NewEvent(event=f'valuee ={valuee}', Pol=1)
+                try:
+                    valuee = int(valuee)
+                except:
+                    EV.NewEvent(event=f'Input error', Pol=1)
+
+                value = lines[valuee - 1]
+                listOfWords = value.split('-', 1)
+
+                if len(listOfWords) > 0:
+                    valueg = listOfWords[1]
+
+                with open(
+                    f'{cwd}/System/Cache/System/Local/Int.txt', 'r'
+                ) as file:
+                    lines55 = file.readlines()
+                try:
+                    with open(
+                        f'{cwd}/System/Cache/System/Local/Int.txt', 'w'
+                    ) as file:
+                        for lineff in lines55:
+                            if lineff.find(value) != -1:
+                                pass
+                            else:
+                                file.write(lineff)
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Launch Command Removed', Pol=0)
+
+                except:
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(
+                        event=f'Launch Command Failed To Remove', Pol=0
+                    )
+
+                try:
+                    value1 = value.split(f'-', 1)[0]
+                    Str = value1[: len(value1) - 1]
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Success: {Str}', Pol=0)
+                except:
+                    value1 = value.split(f'@', 1)[0]
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Failure: {value1}', Pol=1)
+
+                try:
+                    try:
+                        import System.Drive.Errors_Events.EventMan as EV
+
+                        # Remove all characters before the character '-' from string
+                        listOfWords = value1.split('"', 1)
+                        if len(listOfWords) > 0:
+                            v = listOfWords[1]
+                            EV.NewEvent(
+                                event=f'Attempting [!]{v[1:-1]}[!]', Pol=0
+                            )
+                            import shutil
+
+                            shutil.rmtree(v[1:-1])
+                            EV.NewEvent(
+                                event=f'Directory Removed [!]{v[1:-1]}[!]',
+                                Pol=0,
+                            )
+                            print('Project Removed')
+                    except:
+                        import System.Drive.Errors_Events.EventMan as EV
+
+                        # Remove all characters before the character '-' from string
+                        listOfWords = value1.split('+', 1)
+                        if len(listOfWords) > 0:
+                            v = listOfWords[1]
+                            EV.NewEvent(
+                                event=f'Attempting [!]{v[:-4]}[!]', Pol=0
+                            )
+                            import shutil
+
+                            shutil.rmtree(v[:-1])
+                            shutil.rmtree(v[:-4])
+                            EV.NewEvent(
+                                event=f'Directory Removed [!]{v[:-4]}[!]',
+                                Pol=0,
+                            )
+                            print('Project Removed')
+                except:
+                    print('Project Failed To Remove')
+                    import System.Drive.Errors_Events.EventMan as EV
+
+                    EV.NewEvent(event=f'Dir Removal Canceled', Pol=0)

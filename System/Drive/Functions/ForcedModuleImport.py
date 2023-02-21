@@ -1,11 +1,84 @@
-# Python code obfuscated by www.development-tools.net 
- 
+def ForceImport_removal():
+    # require USER_PASS
+    import os, time
 
-import base64, codecs
-magic = 'ZGVmIEZvcmNlSW1wb3J0X3JlbW92YWwoKToKICAgICNyZXF1aXJlIFVTRVJfUEFTUwogICAgaW1wb3J0IG9zLCB0aW1lCiAgICBjd2QgPSBvcy5nZXRjd2QoKQoKICAgIElucHV0ID0gaW5wdXQoJ0VudGVyIFBhc3N3b3JkOiAnKQogICAgdHJ5OgogICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuUGFzc3dvcmQgYXMgUFMKICAgICAgICBQUy5QYXNzd29yZChFdmVudD0nRm9yY2VkIExvZ2luJywgSW5wdXQ9SW5wdXQpCgogICAgICAgIGltcG9ydF90b2tlbiA9IG9wZW4oZid7Y3dkfS9Vc2VyL1VzZXJQcm9maWxlLnB5JywgJ2EnKQogICAgICAgIGltcG9ydCBVc2VyLlVzZXJQcm9maWxlCiAgICAgICAgaWYgVXNlci5Vc2VyUHJvZmlsZS5Gb3JjZV9JbXBvcnRfUmVxdWVzdCBpcyBUcnVlOgogICAgICAgICAgICBTdGF0dXMgPSBGYWxzZQogICAgICAgIGVsc2U6CiAgICAgICAgICAgIFN0YXR1cyA9IFRydWUKCiAgICAgICAgaW1wb3J0X3Rva2VuLndyaXRlKGYnXG5Gb3JjZV9JbXBvcnRfUmVxdWVzdCA9IHtTdGF0dXN9JykKICAgICAgICBpbXBvcnRfdG9rZW4uY2xvc2UoKQoKICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKCiA'
-love = 'tVPNtVPNtEILhGzI3EKMyoaDbMKMyoaD9Mvqzo3WwMJDtGJ9xqJkyVRygpT9lqPN9VUgGqTS0qKA9WljtHT9fCGNcPvNtVPNtVPNtpUWcoaDbW1IjMTS0MFOFMJAipzEyMPpcPvNtVPNtVPNtqTygMF5moTIypPtlXDbtVPNtVPNtVUOlnJ50XTLaKT4aVPbtAwNcPvNtVPOyrTAypUD6PvNtVPNtVPNtFJ5jqKDtCFOcoaO1qPtaEJ50MKVtHTSmp3qipzD6VPpcPvNtVPNtVPNtqUW5BtbtVPNtVPNtVPNtVPOcoKOipaDtH3ymqTIgYxElnKMyYyOup3A3o3WxVTSmVSOGPvNtVPNtVPNtVPNtVSOGYyOup3A3o3WxXRI2MJ50CFqTo3WwMJDtGT9anJ4aYPOWoaO1qQ1WoaO1qPxXPvNtVPNtVPNtVPNtVTygpT9lqS90o2gyovN9VT9jMJ4bMvq7L3qxsF9Ip2IlY1ImMKWDpz9znJkyYaO5WljtW2RaXDbtVPNtVPNtVPNtVPOcoKOipaDtIKAypv5Ip2IlHUWiMzyfMDbtVPNtVPNtVPNtVPOcMvOIp2IlYyImMKWDpz9znJkyYxMipzAyK0ygpT9lqS9FMKS1MKA0VTymVSElqJH6PvNtVPNtVPNtVPNtVPNtVPOGqTS0qKZtCFOTLJkmMDbtVPNtVPNtVPNtVPOyoUAyBtbtVPNtVPNtVPNtVPNtVPNtH3EuqUImVQ0tIUW1MDbXVPNtVPNtVPNtVPNtnJ1jo3W0K3Ein2IhYaqlnKEyXTLaKT5To3WwMI9WoKOipa'
-god = 'RfUmVxdWVzdCA9IHtTdGF0dXN9JykKICAgICAgICAgICAgaW1wb3J0X3Rva2VuLmNsb3NlKCkKCiAgICAgICAgICAgIGltcG9ydCBTeXN0ZW0uRHJpdmUuRXJyb3JzX0V2ZW50cy5FdmVudE1hbiBhcyBFVgoKICAgICAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9Zidmb3JjZWQgTW9kdWxlIEltcG9ydCA9IHtTdGF0dXN9JywgUG9sPTApCiAgICAgICAgICAgIHByaW50KCdVcGRhdGUgUmVjb3JkZWQnKQogICAgICAgICAgICB0aW1lLnNsZWVwKDIpCiAgICAgICAgICAgIHByaW50KGYnXG4nICogNjApCiAgICAgICAgZXhjZXB0OgogICAgICAgICAgICBwcmludCgnRmluYWwgQXR0ZW1wdCcpCiAgICAgICAgICAgIElucHV0ID0gaW5wdXQoJ0VudGVyIFBhc3N3b3JkOiAnKQogICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLlBhc3N3b3JkIGFzIFBTCiAgICAgICAgICAgICAgICBQUy5QYXNzd29yZChFdmVudD0nRm9yY2VkIExvZ2luJywgSW5wdXQ9SW5wdXQpCgogICAgICAgICAgICAgICAgaW1wb3J0X3Rva2VuID0gb3BlbihmJ3tjd2R9L1VzZXIvVXNlclByb2ZpbGUucHknLCAnYScpCiAgICAgICAgICAgICAgICBpbXBvcnQgVXNlci5Vc'
-destiny = '2IlHUWiMzyfMDbtVPNtVPNtVPNtVPNtVPNtnJLtIKAypv5Ip2IlHUWiMzyfMF5To3WwMI9WoKOipaEsHzIkqJImqPOcplOHpaIyBtbtVPNtVPNtVPNtVPNtVPNtVPNtVSA0LKE1plN9VRMuoUAyPvNtVPNtVPNtVPNtVPNtVPOyoUAyBtbtVPNtVPNtVPNtVPNtVPNtVPNtVSA0LKE1plN9VSElqJHXPvNtVPNtVPNtVPNtVPNtVPOcoKOipaEsqT9eMJ4hq3WcqTHbMvqpoxMipzAyK0ygpT9lqS9FMKS1MKA0VQ0tr1A0LKE1p30aXDbtVPNtVPNtVPNtVPNtVPNtnJ1jo3W0K3Ein2IhYzAfo3AyXPxXPvNtVPNtVPNtVPNtVPNtVPOcoKOipaDtH3ymqTIgYxElnKMyYxIlpz9lp19SqzIhqUZhEKMyoaEALJ4tLKZtEILXPvNtVPNtVPNtVPNtVPNtVPOSIv5BMKqSqzIhqPuyqzIhqQ1zW2MipzAyMPOAo2E1oTHtFJ1jo3W0VQ0tr1A0LKE1p30aYPODo2j9ZPxXVPNtVPNtVPNtVPNtVPNtVUOlnJ50XPqIpTEuqTHtHzIwo3WxMJDaXDbtVPNtVPNtVPNtVPNtVPNtqTygMF5moTIypPtlXDbtVPNtVPNtVPNtVPNtVPNtpUWcoaDbMvqpovptXvN2ZPxXPvNtVPNtVPNtVPNtVTI4L2IjqQbXVPNtVPNtVPNtVPNtVPNtVUOlnJ50XPqWozAipaWyL3DtHTSmp3qipzDaXDbXEz9lL2IWoKOipaEspzIgo3MuoPtc'
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+    cwd = os.getcwd()
+
+    Input = input('Enter Password: ')
+    try:
+        import System.Drive.Password as PS
+
+        PS.Password(Event='Forced Login', Input=Input)
+
+        import_token = open(f'{cwd}/User/UserProfile.py', 'a')
+        import User.UserProfile
+
+        if User.UserProfile.Force_Import_Request is True:
+            Status = False
+        else:
+            Status = True
+
+        import_token.write(f'\nForce_Import_Request = {Status}')
+        import_token.close()
+
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'forced Module Import = {Status}', Pol=0)
+        print('Update Recorded')
+        time.sleep(2)
+        print(f'\n' * 60)
+    except:
+        Input = input('Enter Password: ')
+        try:
+            import System.Drive.Password as PS
+
+            PS.Password(Event='Forced Login', Input=Input)
+
+            import_token = open(f'{cwd}/User/UserProfile.py', 'a')
+            import User.UserProfile
+
+            if User.UserProfile.Force_Import_Request is True:
+                Status = False
+            else:
+                Status = True
+
+            import_token.write(f'\nForce_Import_Request = {Status}')
+            import_token.close()
+
+            import System.Drive.Errors_Events.EventMan as EV
+
+            EV.NewEvent(event=f'forced Module Import = {Status}', Pol=0)
+            print('Update Recorded')
+            time.sleep(2)
+            print(f'\n' * 60)
+        except:
+            print('Final Attempt')
+            Input = input('Enter Password: ')
+            try:
+                import System.Drive.Password as PS
+
+                PS.Password(Event='Forced Login', Input=Input)
+
+                import_token = open(f'{cwd}/User/UserProfile.py', 'a')
+                import User.UserProfile
+
+                if User.UserProfile.Force_Import_Request is True:
+                    Status = False
+                else:
+                    Status = True
+
+                import_token.write(f'\nForce_Import_Request = {Status}')
+                import_token.close()
+
+                import System.Drive.Errors_Events.EventMan as EV
+
+                EV.NewEvent(event=f'forced Module Import = {Status}', Pol=0)
+                print('Update Recorded')
+                time.sleep(2)
+                print(f'\n' * 60)
+
+            except:
+                print('Incorrect Password')
+
+
+ForceImport_removal()

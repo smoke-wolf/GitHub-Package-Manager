@@ -1,11 +1,239 @@
-# Python code obfuscated by www.development-tools.net 
- 
+#   Try to download System/Cache/System/Version.py to notify for new versions
+import sys
+import time
+import requests
 
-import base64, codecs
-magic = 'IyAgIFRyeSB0byBkb3dubG9hZCBTeXN0ZW0vQ2FjaGUvU3lzdGVtL1ZlcnNpb24ucHkgdG8gbm90aWZ5IGZvciBuZXcgdmVyc2lvbnMKaW1wb3J0IHN5cwppbXBvcnQgdGltZQppbXBvcnQgcmVxdWVzdHMKIyB0aGlzIHdvcmt3ZWQKCiMgICBMaWJyYXJpZXMKaW1wb3J0IG9zCmltcG9ydCBTeXN0ZW0KCiMgICBMb2NhbCBGaWxlIEltcG9ydHMKZ2xvYmFsIFZlcnNpb24KCmltcG9ydCBTeXN0ZW0uQ2FjaGUuU3lzdGVtLlZlcnNpb24gYXMgVmVyc2lvbgppbXBvcnQgVXNlci5Vc2VyUHJvZmlsZSBhcyBVc2VyUHJvZmlsZQoKIyAgIERlZmluZSBWYXJpYWJsZXMKQ3VycmVudFZlcnNpb24gPSBWZXJzaW9uLnZlcnNpb24KQ3VycmVudERpcmVjdG9yeSA9IG9zLmdldGN3ZCgpClNvdXJjZURpcmVjdG9yeSA9IFVzZXJQcm9maWxlLlNvdXJjZURpcmVjdG9yeQpVcGRhdGVGb2xkZXJEaXIgPSBmJ3tTb3VyY2VEaXJlY3Rvcnl9U3lzdGVtL0NhY2hlL1N5c3RlbS9VcGRhdGUnCgoKIyAgIFVwZGF0YWJsZSBGaWxlcwoKZGVmIHBhcmlzaCgpOgogICAgaW1wb3J0IHNodXRpbAogICAgcHJpbnQoZidVcGRhdGUgQ29tcGxldGUhIFlvdSBhcmUgbm93IG9uIHZlcnNpb24ge1N5c3RlbS5DYWNoZS5TeXN0ZW0uVmVyc2lvbn0hJykKICAgIHRva2VuTCA9IG9wZW4oZid7U291cmNlRGlyZWN0b3J5fVN5c3RlbS9DYWNoZS9TeXN0ZW0vVXBkYXRlL1Rva2VuJywgJ2EnKQogICAgdG9rZW5MLndyaXRlKGYne0N1cnJlbnRWZXJzaW9ufSAtPiB7U3lzdGVtLkNhY2hlLlN5c3RlbS5WZXJzaW9ufScpCiAgICB0b2tlbkwuY2xvc2UoKQogICAgc2h1dGlsLnJtdHJlZShmJ3tVcGRhdGVGb2xkZXJEaXJ9L0dpdEh1Yi1QYWNrYWdlLU1hbmFnZXInKQoKCiMgICBTdGFydCBVcGRhdGUKZGVmIGRsKCk6CiAgICB0cnk6CiAgICAgICAgb3MuY2hkaXIoVXBkYXRlRm9sZGVyRGlyKSAgIyBDaGFuZ2UgZGlyZWN0b3J5IHRvIGRvd25sb2FkIHVwZGF0ZQogICAgICAgIHBhc3MKICAgIGV4Y2VwdDoKICAgICAgICBwcmludCgnVXBkYXRlIEZvbGRlciBEb2VzIE5vdCBFeGlzdCcpCiAgICAgICAgcmFpc2UgZXhpdCgwKSAgIyBSYWlzZSBhbiBleGl0IGJlY2F1c2Ugbm8gc291cmNlIHRvIHVwZGF0ZQoKICAgIHRyeToKICAgICAgICBvcy5zeXN0ZW0oJ2dpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vc21va2Utd29sZi9HaXRIdWItUGFja2FnZS1NYW5hZ2VyLmdpdCcpICAjIERvd25sb2FkIFVwZGF0ZWQgVmVyc2lvbgogICAgZXhjZXB0OgogICAgICAgIHByaW50KCdOZXR3b3JrIG1heSBoYXZlIHRpbWVkIG91dC0gUGxlYXNlIGVuc3VyZSB5b3UgYXJlIGNvbm5lY3RlZCB0byB0aGUgaW50ZXJuZXQnKQogICAgICAgIHJhaXNlIGV4aXQoMCkgICMgRXhpdGluZyBkdWUgdG8gYSBOb25lIHJlc3BvbnNlIGZyb20gR2l0SHViCgogICAgVXBkYXRlKCkKICAgIHBhcmlzaCgpCgoKZGVmIFVwZGF0ZSgpOgogICAgQWxsQ29udGVudHNfRG93bmxvYWRlZCA9IG9zLmxpc3RkaXIoZid7U291cmNlRGlyZWN0b3J5fVN5c3RlbS9DYWNoZS9TeXN0ZW0vVXBkYXRlL0dpdEh1Yi1QYWNrYWdlLU1hbmFnZXInKQogICAgQWxsQ29udGVudHMgPSBvcy5saXN0ZGlyKFNvdXJjZURpcmVjdG9yeSkKCiAgICB0cnk6CiAgICAgICAgdmVyMiA9IG9wZW4oCiAgICAgICAgICAgIGYne1NvdXJjZURpcmVjdG9yeX1TeXN0ZW0vQ2FjaGUvU3lzdGVtL1VwZGF0ZS9HaXRIdWItUGFja2FnZS1NYW5hZ2VyL1N5c3RlbS9DYWNoZS9TeXN0ZW0vVmVyc2lvbi5weScsICdyJykKICAgICAgICB2ZXI0ID0gdmVyMi5yZWFkKCkKICAgICAgICBwcmludChmJycnCiAgICAgICAgQ3VycmVudCBWZXJzaW9uPSB7Q3VycmVudFZlcnNpb259CiAgICAgICAgVXBkYXRlZCB7dmVyNH0nJycpCiAgICAgICAgdGltZS5zbGVlcCgyKQogICAgZXhjZXB0OgogICAgICAgIHBhc3MKCiAgICBmb3IgQXR0ZW1wdCBpbiBBbGxDb250ZW50czoKCiAgICAgICAgaWYgQXR0ZW1wdCBpbiBBbGxDb250ZW50c19Eb3dubG9hZGVkOgoKICAg'
-love = 'VPNtVPNtVPNtpUWcoaDbMvqQo21go24tEz91ozDtr0S0qTIgpUE9WlxXPvNtVPNtVPNtVPNtVUElrGbXPvNtVPNtVPNtVPNtVPNtVPOipTIhXTLar1AiqKWwMHEcpzIwqT9lrK17DKE0MJ1jqU0aYPNaqlpcYzAfo3AyXPxXPvNtVPNtVPNtVPNtVPNtVPOGo3IlL2IQoTIuovN9VT9jMJ4bMvq7H291pzAyETylMJA0o3W5sKgOqUEyoKO0sFpfVPquWlxXPvNtVPNtVPNtVPNtVPNtVPOIpTEuqTHtCFOipTIhXTLar1AiqKWwMHEcpzIwqT9lrK1GrKA0MJ0iD2SwnTHiH3ymqTIgY1IjMTS0MF9UnKEVqJVgHTSwn2SaMF1ALJ5uM2IlY3gOqUEyoKO0sFpfVPqlWlxXVPNtVPNtVPNtVPNtVPNtVSIjMTS0MHEuqTRtCFOIpTEuqTHhpzIuMPtcPvNtVPNtVPNtVPNtVPNtVPOGo3IlL2IQoTIuov53pzy0MFuIpTEuqTIRLKEuXDbtVPNtVPNtVPNtVPOyrTAypUD6PvNtVPNtVPNtVPNtVPNtVPOGo3IlL2ITo2kxMKVtCFOipl5fnKA0MTylXTLar1AiqKWwMHEcpzIwqT9lrK17DKE0MJ1jqU0aXDbtVPNtVPNtVPNtVPNtVPNtIKOxLKEyEz9fMTIlVQ0to3ZhoTymqTEcpvtXVPNtVPNtVPNtVPNtVPNtVPNtVPOzW3gGo3IlL2IRnKWyL3Eipay9H3ymqTIgY0AuL2uyY1A5p3EyoF9IpTEuqTHiE2y0FUIvYIOuL2guM2HgGJShLJqypv97DKE0MJ1jqU0aXDbXVPNtVPNtVPNtVPNtVPNtVTMipvOOqUEyoKO0K2xtnJ4tH291pzAyEz9fMTIlBtbtVPNtVPNtVPNtVPNtVPNtVPNtVTyzVRS0qTIgpUEsnFOcovOIpTEuqTITo2kxMKV6PvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVUOlnJ50XTLaD29goJ9hVRMiqJ5xVUgOqUEyoKO0K2y9WlxXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtnJLtDKE0MJ1jqS9cVQ09VPqcozEyrPp6PvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOjLKAmPvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVTIfp2H6PvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPO0pax6PvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNto3OyovuzW3gGo3IlL2IRnKWyL3Eipay9r0S0qTIgpUE9Y3gOqUEyoKO0K2y9WljtW3paXF5woT9mMFtcPtbtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVSAiqKWwMHAfMJShVQ0to3OyovuzW3gGo3IlL2IRnKWyL3Eipay9r0S0qTIgpUE9Y3gOqUEyoKO0K2y9WljtW2RaXDbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOIpTEuqTHtCFOipTIhXNbtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOzW3gGo3IlL2IRnKWyL3Eipay9H3ymqTIgY0AuL2uyY1A5p3EyoF9IpTEuqTHiE2y0FUIvYIOuL2guM2HgGJShLJqypv97DKE0MJ1jqU0ir0S0qTIgpUEsnK0aYNbtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNapvpcPvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtIKOxLKEyETS0LFN9VSIjMTS0MF5lMJSxXPxXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOGo3IlL2IQoTIuov53pzy0MFuIpTEuqTIRLKEuXDbtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtMKuwMKO0BtbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOGo3IlL2ITo2kxMKWsnFN9VT9mYzkcp3ExnKVbMvq7H291pzAyETylMJA0o3W5sKgOqUEyoKO0sF97DKE0MJ1jqS9csFpcPvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtIKOxLKEyEz9fMTIlK2xtCFOipl5fnKA0MTylXNbtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOzW3gGo3IlL2IRnKWyL3Eipay9H3ymqTIgY0AuL2uyY1A5p3EyoF9IpTEuqTHiE2y0FUIvYIOuL2guM2HgGJShLJqypv97DKE0MJ1jqU0ir0S0qTIgpUEsnK0aXDbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOzo3VtDKE0MJ1jqS9cnFOcovOGo3IlL2ITo2kxMKWsnGbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtnJLtDKE0MJ1jqS9cnFOcovOIpTEuqTITo2kxMKWsnGbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVUOlnJ50XTLaD29goJ9hVRMiqJ5xVUgOqUEy'
-god = 'bXB0X2lpfScpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0cnk6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgb3BlbihmJ3tTb3VyY2VEaXJlY3Rvcnl9e0F0dGVtcHR9L3tBdHRlbXB0X2l9L3tBdHRlbXB0X2lpfScsICd3JykuY2xvc2UoKQoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBTb3VyY2VDbGVhbiA9IG9wZW4oZid7U291cmNlRGlyZWN0b3J5fXtBdHRlbXB0fS97QXR0ZW1wdF9pfS97QXR0ZW1wdF9paX0nLCAnYScpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgVXBkYXRlID0gb3BlbigKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZid7U291cmNlRGlyZWN0b3J5fVN5c3RlbS9DYWNoZS9TeXN0ZW0vVXBkYXRlL0dpdEh1Yi1QYWNrYWdlLU1hbmFnZXIve0F0dGVtcHR9L3tBdHRlbXB0X2l9L3tBdHRlbXB0X2lpfScsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdyJykKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBVcGRhdGVEYXRhID0gVXBkYXRlLnJlYWQoKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNvdXJjZUNsZWFuLndyaXRlKFVwZGF0ZURhdGEpCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBleGNlcHQ6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgU291cmNlRm9sZGVyX2lpID0gb3MubGlzdGRpcigKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZid7U291cmNlRGlyZWN0b3J5fXtBdHRlbXB0fS97QXR0ZW1wdF9pfS97QXR0ZW1wdF9paX0nKQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFVwZGF0ZUZvbGRlcl9paSA9IG9zLmxpc3RkaXIoCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGYne1NvdXJjZURpcmVjdG9yeX1TeXN0ZW0vQ2FjaGUvU3lzdGVtL1VwZGF0ZS9HaXRIdWItUGFja2FnZS1NYW5hZ2VyL3tBdHRlbXB0fS97QXR0ZW1wdF9pfS97QXR0ZW1wdF9paX0nKQoKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmb3IgQXR0ZW1wdF9paWkgaW4gU291cmNlRm9sZGVyX2lpOgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpZiBBdHRlbXB0X2lpaSBpbiBVcGRhdGVGb2xkZXJfaWk6CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBwcmludChmJ0NvbW1vbiBGb3VuZCB7QXR0ZW1wdF9paWl9JykKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHRyeToKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBvcGVuKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBmJ3tTb3VyY2VEaXJlY3Rvcnl9e0F0dGVtcHR9L3tBdHRlbXB0X2l9L3tBdHRlbXB0X2lpfS97QXR0ZW1wdF9paWl9JywKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ3cnKS5jbG9zZSgpCgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFNvdXJjZUNsZWFuID0gb3BlbigKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZid7U291cmNlRGlyZWN0b3J5fXtBdHRlbXB0fS97QXR0ZW1wdF9pfS97QXR0ZW1wdF9paX0ve0F0dGVtcHRfaWlpfScsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICdh'
-destiny = 'WlxXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOIpTEuqTHtCFOipTIhXNbtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOzW3gGo3IlL2IRnKWyL3Eipay9H3ymqTIgY0AuL2uyY1A5p3EyoF9IpTEuqTHiE2y0FUIvYIOuL2guM2HgGJShLJqypv97DKE0MJ1jqU0ir0S0qTIgpUEsnK0ir0S0qTIgpUEsnJy9Y3gOqUEyoKO0K2ycnK0aYNbtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNapvpcPvNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtIKOxLKEyETS0LFN9VSIjMTS0MF5lMJSxXPxXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOGo3IlL2IQoTIuov53pzy0MFuIpTEuqTIRLKEuXDbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVTI4L2IjqQbXVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPNtVPOjLKAmPtbXqUW5BtbtVPNtpzImpT9hp2HtCFOlMKS1MKA0pl5aMKDbPvNtVPNtVPNtW2u0qUOmBv8ipzS3YzqcqTu1LaImMKWwo250MJ50YzAioF9moJ9eMF13o2kzY0qcqRu1Lv1DLJAeLJqyYH1uozSaMKVioJScov9GrKA0MJ0iD2SwnTHiH3ymqTIgY1MypaAco24hpUxaYNbtVPNtVPNtVUA0pzIuoG1HpaIyXDbtVPNtqvN9VUWyp3OioaAyYzAioaEyoaDXVPNtVUMypaAco24lVQ0tqv5xMJAiMTHbVaI0Mv04VvxXVPNtVTyzVRA1paWyoaEJMKWmnJ9hVTyhVUMypaAco24lBtbtVPNtVPNtVUA5pl5yrTy0XQNcPvNtVPO0pax6PvNtVPNtVPNtpzImpT9hp2HtCFOlMKS1MKA0pl5aMKDbPvNtVPNtVPNtVPNtVPqbqUEjpmbiY3Wuql5anKEbqJW1p2IlL29hqTIhqP5wo20ip21in2Hgq29fMv9UnKEVqJVgHTSwn2SaMF1ALJ5uM2IlY21unJ4iH3ymqTIgY0AuL2uyY1A5p3EyoF9QG01DDIEODxkSWljXVPNtVPNtVPNtVPNtp3ElMJSgCIElqJHcPvNtVPNtVPNtqvN9VUWyp3OioaAyYzAioaEyoaDXVPNtVPNtVPO2MKWmnJ9hVQ0tqv5xMJAiMTHbVaI0Mv04VvxXPvNtVPNtVPNtqaVtCFOipTIhXTLar1AiqKWwMHEcpzIwqT9lrK10MJ1jWljtW3paXDbtVPNtVPNtVUMlYaqlnKEyXUMypaAco24cPvNtVPNtVPNtqaVhL2kip2HbXDbtVPNtVPNtVUMlZvN9VT9jMJ4bMvq7H291pzAyETylMJA0o3W5sKEyoKNaYPNapvpcPvNtVPNtVPNtqaWfVQ0tqaVlYaWyLJDbXDbtVPNtVPNtVUMypaAco24tCFO2pzjXVPNtVPNtVPOjpzyhqPu2MKWmnJ9hXDbtVPNtVPNtVTyzVUA0pvuQqKWlMJ50IzIlp2yiovxtnJ4tp3ElXUMloPx6PvNtVPNtVPNtVPNtVUOlnJ50XPqIpTEuqTHtFKZtHUWyp2IhqPpcPvNtVPNtVPNtVPNtVTHmVQ0tnJ5jqKDbW1OlMKAmVTIhqTIlVUEiVRAiozMcpz0tqKOxLKEyVSfjVUEiVTAuozAyoS06VPpcPvNtVPNtVPNtVPNtVTyzVPpjWlOcovOyZmbXVPNtVPNtVPNtVPNtVPNtVUOlnJ50XPqCpTIlLKEco24tMaWirzIhWlxXVPNtVPNtVPNtVPNtVPNtVUOup3ZXVPNtVPNtVPNtVPNtMJkmMGbXVPNtVPNtVPNtVPNtVPNtVTEfXPxXVPNtVPNtVPOyoUAyBtbtVPNtVPNtVPNtVPOjpzyhqPuzW1MypaAco24tr0A1paWyoaEJMKWmnJ9hsFjtnKZtMJy0nTIlVTSfpzIuMUxtqKOxLKEyMPOipvOcplOho3DtpzIwMJ50VTIho3IanPO0olOvMFOwo21jLKEcLzkyWlxXPvNtVPNtVPNtqaVtCFOipTIhXTLar1AiqKWwMHEcpzIwqT9lrK10MJ1jWljtW3paXDbtVPNtMKuwMKO0BtbtVPNtVPNtVUMlVQ0to3OyovuzW3gGo3IlL2IRnKWyL3Eipay9qTIgpPpfVPq3WlxXVPNtVPNtVPOjpzyhqPtaIKAypvOWp05iqPOQo25hMJA0MJDtIT8tFJ50MKWhMKDaXDcyrTAypUD6PvNtVPOjpzyhqPtap29lpaxuWlxXVPNtVUOlnJ50XPqMo3HtLJklMJSxrFObLKMyVUEbnKZtqzIlp2yiovpcPt=='
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+# this workwed
+
+#   Libraries
+import os
+import System
+
+#   Local File Imports
+global Version
+
+import System.Cache.System.Version as Version
+import User.UserProfile as UserProfile
+
+#   Define Variables
+CurrentVersion = Version.version
+CurrentDirectory = os.getcwd()
+SourceDirectory = UserProfile.SourceDirectory
+UpdateFolderDir = f'{SourceDirectory}System/Cache/System/Update'
+
+
+#   Updatable Files
+
+
+def parish():
+    import shutil
+
+    print(
+        f'Update Complete! You are now on version {System.Cache.System.Version}!'
+    )
+    tokenL = open(f'{SourceDirectory}System/Cache/System/Update/Token', 'a')
+    tokenL.write(f'{CurrentVersion} -> {System.Cache.System.Version}')
+    tokenL.close()
+    shutil.rmtree(f'{UpdateFolderDir}/GitHub-Package-Manager')
+
+
+#   Start Update
+def dl():
+    try:
+        os.chdir(UpdateFolderDir)  # Change directory to download update
+        pass
+    except:
+        print('Update Folder Does Not Exist')
+        raise exit(0)  # Raise an exit because no source to update
+
+    try:
+        os.system(
+            'git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git'
+        )  # Download Updated Version
+    except:
+        print(
+            'Network may have timed out- Please ensure you are connected to the internet'
+        )
+        raise exit(0)  # Exiting due to a None response from GitHub
+
+    Update()
+    parish()
+
+
+def Update():
+    AllContents_Downloaded = os.listdir(
+        f'{SourceDirectory}System/Cache/System/Update/GitHub-Package-Manager'
+    )
+    AllContents = os.listdir(SourceDirectory)
+
+    try:
+        ver2 = open(
+            f'{SourceDirectory}System/Cache/System/Update/GitHub-Package-Manager/System/Cache/System/Version.py',
+            'r',
+        )
+        ver4 = ver2.read()
+        print(
+            f"""
+        Current Version= {CurrentVersion}
+        Updated {ver4}"""
+        )
+        time.sleep(2)
+    except:
+        pass
+
+    for Attempt in AllContents:
+        if Attempt in AllContents_Downloaded:
+            print(f'Common Found {Attempt}')
+
+            try:
+                open(f'{SourceDirectory}{Attempt}', 'w').close()
+
+                SourceClean = open(f'{SourceDirectory}{Attempt}', 'a')
+
+                Update = open(
+                    f'{SourceDirectory}System/Cache/System/Update/GitHub-Package-Manager/{Attempt}',
+                    'r',
+                )
+                UpdateData = Update.read()
+                SourceClean.write(UpdateData)
+            except:
+                SourceFolder = os.listdir(f'{SourceDirectory}{Attempt}')
+                UpdateFolder = os.listdir(
+                    f'{SourceDirectory}System/Cache/System/Update/GitHub-Package-Manager/{Attempt}'
+                )
+
+                for Attempt_i in SourceFolder:
+                    if Attempt_i in UpdateFolder:
+                        print(f'Common Found {Attempt_i}')
+                        if Attempt_i == 'index':
+                            pass
+                        else:
+                            try:
+                                open(
+                                    f'{SourceDirectory}{Attempt}/{Attempt_i}',
+                                    'w',
+                                ).close()
+
+                                SourceClean = open(
+                                    f'{SourceDirectory}{Attempt}/{Attempt_i}',
+                                    'a',
+                                )
+
+                                Update = open(
+                                    f'{SourceDirectory}System/Cache/System/Update/GitHub-Package-Manager/{Attempt}/{Attempt_i}',
+                                    'r',
+                                )
+                                UpdateData = Update.read()
+                                SourceClean.write(UpdateData)
+                            except:
+                                SourceFolder_i = os.listdir(
+                                    f'{SourceDirectory}{Attempt}/{Attempt_i}'
+                                )
+                                UpdateFolder_i = os.listdir(
+                                    f'{SourceDirectory}System/Cache/System/Update/GitHub-Package-Manager/{Attempt}/{Attempt_i}'
+                                )
+
+                                for Attempt_ii in SourceFolder_i:
+                                    if Attempt_ii in UpdateFolder_i:
+                                        print(f'Common Found {Attempt_ii}')
+                                        try:
+                                            open(
+                                                f'{SourceDirectory}{Attempt}/{Attempt_i}/{Attempt_ii}',
+                                                'w',
+                                            ).close()
+
+                                            SourceClean = open(
+                                                f'{SourceDirectory}{Attempt}/{Attempt_i}/{Attempt_ii}',
+                                                'a',
+                                            )
+                                            Update = open(
+                                                f'{SourceDirectory}System/Cache/System/Update/GitHub-Package-Manager/{Attempt}/{Attempt_i}/{Attempt_ii}',
+                                                'r',
+                                            )
+                                            UpdateData = Update.read()
+                                            SourceClean.write(UpdateData)
+                                        except:
+                                            SourceFolder_ii = os.listdir(
+                                                f'{SourceDirectory}{Attempt}/{Attempt_i}/{Attempt_ii}'
+                                            )
+                                            UpdateFolder_ii = os.listdir(
+                                                f'{SourceDirectory}System/Cache/System/Update/GitHub-Package-Manager/{Attempt}/{Attempt_i}/{Attempt_ii}'
+                                            )
+
+                                            for Attempt_iii in SourceFolder_ii:
+                                                if (
+                                                    Attempt_iii
+                                                    in UpdateFolder_ii
+                                                ):
+                                                    print(
+                                                        f'Common Found {Attempt_iii}'
+                                                    )
+                                                    try:
+                                                        open(
+                                                            f'{SourceDirectory}{Attempt}/{Attempt_i}/{Attempt_ii}/{Attempt_iii}',
+                                                            'w',
+                                                        ).close()
+
+                                                        SourceClean = open(
+                                                            f'{SourceDirectory}{Attempt}/{Attempt_i}/{Attempt_ii}/{Attempt_iii}',
+                                                            'a',
+                                                        )
+                                                        Update = open(
+                                                            f'{SourceDirectory}System/Cache/System/Update/GitHub-Package-Manager/{Attempt}/{Attempt_i}/{Attempt_ii}/{Attempt_iii}',
+                                                            'r',
+                                                        )
+                                                        UpdateData = (
+                                                            Update.read()
+                                                        )
+                                                        SourceClean.write(
+                                                            UpdateData
+                                                        )
+
+                                                    except:
+                                                        pass
+
+
+try:
+    response = requests.get(
+        'https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/Version.py',
+        stream=True,
+    )
+    v = response.content
+    version2 = v.decode('utf-8')
+    if CurrentVersion in version2:
+        sys.exit(0)
+    try:
+        response = requests.get(
+            'https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/COMPATABLE',
+            stream=True,
+        )
+        v = response.content
+        version = v.decode('utf-8')
+
+        vr = open(f'{SourceDirectory}temp', 'w')
+        vr.write(version)
+        vr.close()
+        vr2 = open(f'{SourceDirectory}temp', 'r')
+        vrl = vr2.read()
+        version = vrl
+        print(version)
+        if str(CurrentVersion) in str(vrl):
+            print('Update Is Present')
+            e3 = input('Press enter to Confirm update [0 to cancel]: ')
+            if '0' in e3:
+                print('Operation frozen')
+                pass
+            else:
+                dl()
+        else:
+            print(
+                f'Version {CurrentVersion}, is either already updated or is not recent enough to be compatible'
+            )
+
+        vr = open(f'{SourceDirectory}temp', 'w')
+    except:
+        vr = open(f'{SourceDirectory}temp', 'w')
+        print('User IsNot Connected To Internet')
+except:
+    print('sorry!')
+    print('You already have this version')

@@ -1,11 +1,355 @@
-# Python code obfuscated by www.development-tools.net 
- 
+import os
+import time
 
-import base64, codecs
-magic = 'CmltcG9ydCBvcwppbXBvcnQgdGltZQoKZnJvbSBjcnlwdG9ncmFwaHkuZmVybmV0IGltcG9ydCBGZXJuZXQKaW1wb3J0IGhhc2hsaWIKCmltcG9ydCBVc2VyLlVzZXJQcm9maWxlCgoKZGVmIFBhc3N3b3JkKEV2ZW50LCBJbnB1dCk6CiAgICBwcmludCgnXDAzM1swOzMxbScpCiAgICBpbXBvcnQgVXNlci5Vc2VyUHJvZmlsZQogICAgaW1wb3J0IGhhc2hsaWIKICAgIGltcG9ydCB1dWlkCiAgICBpbXBvcnQgc3lzCiAgICBpbXBvcnQgU3lzdGVtLkRyaXZlLkVycm9yc19FdmVudHMuRXZlbnRNYW4gYXMgRVYKICAgIFVVSUQgPSB1dWlkLnV1aWQxKCkKCiAgICBVc2VySUQgPSBvcy5nZXRsb2dpbigpCgogICAgc2FsdCA9ICI5bGsiCgogICAgVVVJRCA9IHN0cihmJ3tVVUlEfScpCgogICAgdXVpZFRva2VuID0gVVVJRFszMDpdCiAgICBEZWZhdWx0VGtuID0gVXNlci5Vc2VyUHJvZmlsZS51dWlkMQoKICAgIGlmIHV1aWRUb2tlbiBpbiBEZWZhdWx0VGtuOgogICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PSdTYW1lIERldmljZSBBcyBDcmVhdGVkIE9uID0gVHJ1ZScsIFBvbD0wKQogICAgZWxpZiB1dWlkVG9rZW4gPT0gRGVmYXVsdFRrbjoKICAgICAgICBFVi5OZXdFdmVudChldmVudD0nU2FtZSBEZXZpY2UgQXMgQ3JlYXRlZCBPbiA9IFRydWUnLCBQb2w9MCkKICAgIGVsc2U6CiAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9J1NhbWUgRGV2aWNlIEFzIENyZWF0ZWQgT24gPSBGYWxzZSEgLT4+IFdBUk5JTkcgU2VwYXJhdGUgRGV2aWNlJywgUG9sPTApCiAgICAgICAgVXNyID0gb3BlbihmJ3tVc2VyLlVzZXJQcm9maWxlLlNvdXJjZURpcmVjdG9yeX1Vc2VyL0Jsb2NrZWQnLCAnYScpCiAgICAgICAgVXNyLndyaXRlKGYnXG57dXVpZFRva2VufScpCiAgICAgICAgVXNyLmNsb3NlKCkKCiAgICBpZiBVc2VySUQgPT0gVXNlci5Vc2VyUHJvZmlsZS5Vc2VyUHJpdmlsZWdlczoKICAgICAgICBFVi5OZXdFdmVudChldmVudD0nU2FtZSBVc2VyIEFzIENvbmZpZ3VyZWQgPSBUcnVlJywgUG9sPTApCiAgICBlbHNlOgogICAgICAgIEVWLk5ld0V2ZW50KGV2ZW50PSdTYW1lIFVzZXIgQXMgQ29uZmlndXJlZCA9IEZhbHNlISAtPj4gV0FSTklORyBOb3QgT3JpZ2luYWwgVXNlcicsIFBvbD0wKQoKICAgIFBhc3N3b3JkID0gZid7SW5wdXR9e3V1aWRUb2tlbn17VXNlcklEfScKCiAgICBwYXNzd29yZCA9IFBhc3N3b3JkICsgc2FsdAogICAgaGFzaGVkID0gaGFzaGxpYi5tZDUocGFzc3dvcmQuZW5jb2RlKCkpCiAgICBQYXNzd29yZCA9IGhhc2hlZC5oZXhkaWdlc3QoKQoKICAgIGlmIFBhc3N3b3JkID09IFVzZXIuVXNlclByb2ZpbGUuUGFzc3dvcmQ6CiAgICAgICAgaW1wb3J0IFN5c3RlbS5Ecml2ZS5FcnJvcnNfRXZlbnRzLkV2ZW50TWFuIGFzIEVWCiAgICAgICAgRVYuTmV3RXZlbnQoZXZlbnQ9ZidQYXNzd29yZCBDb3JyZWN0IHtFdmVudH1cMDMzWzA7MzVtJywgUG9sPTEpCgogICAgZWxzZToKICAgICAgICBwcmludCgnUGFzc3dvcmQgaW5jb3JyZWN0LiBUcnkgYWdhaW5cMDMzWzA7MzVtJykKICAgICAgICBzeXMuZXhpdCgpCgoKZGVmIENyZWF0ZSgpOgogICAgaW1wb3J0IFVzZXIuVXNlclByb2ZpbGUKICAgIGltcG9ydCBoYXNobGliCiAgICBpbXBvcnQgdXVpZAoKICAgIElucHV0ID0gaW5wdXQoJ0VudGVyIFlvdXIgTmV3IFBhc3N3b3JkOiAnKQogICAgVVVJRCA9IHV1aWQudXVpZDEoKQoKICAgIFVzZXJJRCA9IG9zLmdldGxvZ2luKCkKCiAgICBzYWx0ID0gIjlsayIKCiAgICBVVUlEID0gc3RyKGYne1VVSUR9JykKCiAgICB1dWlkVG9rZW4gPSBVVUlEWzMwOl0KICAgIERlZmF1bHRUa24gPSBVc2VyLlVzZXJQcm9maWxlLnV1aWQxCgogICAgUGFzc3dvcmQgPSBmJ'
-love = '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'
-god = 'xlLnJlYWQoKQogICAgIyBkZWNyeXB0IGRhdGEKICAgIGRlY3J5cHRlZF9kYXRhID0gZi5kZWNyeXB0KGVuY3J5cHRlZF9kYXRhKQogICAgIyB3cml0ZSB0aGUgb3JpZ2luYWwgZmlsZQogICAgd2l0aCBvcGVuKGZpbGVuYW1lLCAid2IiKSBhcyBmaWxlOgogICAgICAgIGZpbGUud3JpdGUoZGVjcnlwdGVkX2RhdGEpCgoKZGVmIExBVU5DSChQYXNzd29yZCk6CiAgICAiIiIKICAgIEdlbmVyYXRlcyBhIGtleSBhbmQgc2F2ZSBpdCBpbnRvIGEgZmlsZQogICAgIiIiCiAgICBpbXBvcnQgVXNlci5Vc2VyUHJvZmlsZQogICAgZXIgPSBvcGVuKGYne1VzZXIuVXNlclByb2ZpbGUuU291cmNlRGlyZWN0b3J5fVVzZXIvVXNlcktleS5rZXknLCAncicpCiAgICBrZXkgPSBlci5yZWFkKCkKICAgIFVzZXJLZXkgPSBmJ3trZXl9e1Bhc3N3b3JkfScKCiAgICBpbXBvcnQgaGFzaGxpYgogICAgaW1wb3J0IHV1aWQKCiAgICBVVUlEID0gdXVpZC51dWlkMSgpCgogICAgVXNlcklEID0gb3MuZ2V0bG9naW4oKQoKICAgIHNhbHQgPSAiNjlkaWNrcyIKCiAgICBVVUlEID0gc3RyKGYne1VVSUR9JykKCiAgICB1dWlkVG9rZW4gPSBVVUlEWzMwOl0KICAgIERlZmF1bHRUa24gPSBVc2VyLlVzZXJQcm9maWxlLnV1aWQxCgogICAgUGFzc3dvcmQgPSBmJ3tVc2VyS2V5fXt1dWlkVG9rZW59e1VzZXJJRH0nCgogICAgcGFzc3dvcmQgPSBQYXNzd29yZCArIHNhbHQKICAgIGhhc2hlZCA9IGhhc2hsaWIubWQ1KHBhc3N3b3JkLmVuY29kZSgpKQogICAgUGFzc3dvcmQgPSBoYXNoZWQuaGV4ZGlnZXN0KCkKCiAgICBpZiBQYXNzd29yZCBpbiBVc2VyLlVzZXJQcm9maWxlLlVzZXJLZXk6CiAgICAgICAgZGVjcnlwdChmJ3tVc2VyLlVzZXJQcm9maWxlLlNvdXJjZURpcmVjdG9yeX1TeXN0ZW0vQ2FjaGUvU3lzdGVtL0Vycm9yTG9nL0V2ZW50LmRiJykKICAgICAgICBwcmludCgnREFUQUJBU0UgRU5BQkxFRCcpCiAgICBlbHNlOgogICAgICAgIHByaW50KCdEQVRBQkFTRSBMT0NLRUQtIFNVR0dFU1RFRCBVUERBVEUnKQoKZGVmIHdyaXRlX2tleSgpOgogICAga2V5ID0gRmVybmV0LmdlbmVyYXRlX2tleSgpCiAgICBpbXBvcnQgVXNlcgogICAgd2l0aCBvcGVuKGYie1VzZXIuVXNlclByb2ZpbGUuU291cmNlRGlyZWN0b3J5fS9Vc2VyL1VzZXJLZXkua2V5IiwgIndiIikgYXMga2V5X2ZpbGU6CiAgICAgICAga2V5X2ZpbGUud3JpdGUoa2V5KQoKICAgIENyeXB0KGtleSwgUGFzc3dvcmQ9aW5wdXQoJ1BsZWFzZSBFbnRlciBZb3VyIFBhc3N3b3JkIFRvIEFkZCBFbmNyeXB0aW9uOiAnKSkKCgoKZGVmIG1haW4obWVzc2FnZSwgcGFzc3dvcmQsIGYsIGFkZHJlc3MpOgoKCiAgICBpbXBvcnQgc2VjcmV0cwogICAgZnJvbSBiYXNlNjQgaW1wb3J0IHVybHNhZmVfYjY0ZW5jb2RlIGFzIGI2NGUsIHVybHNhZmVfYjY0ZGVjb2RlIGFzIGI2NGQKCiAgICBmcm9tIGNyeXB0b2dyYXBoeS5mZXJuZXQgaW1wb3J0IEZlcm5ldAogICAgZnJvbSBjcnlwdG9ncmFwaHkuaGF6bWF0LmJhY2tlbmRzIGltcG9ydCBkZWZhdWx0X2JhY2tlbmQKICAgIGZyb20gY3J5cHRvZ3JhcGh5Lmhhem1hdC5wcmltaXRpdmVzIGltcG9ydCBoYXNoZXMKICAgIGZyb20gY3J5cHRvZ3JhcGh5Lmhhem1hdC5wcmltaXRpdmVzLmtkZi5wYmtkZjIgaW1wb3J0IFBCS0RGMkhNQUMKCiAgICBiYWNrZW5kID0gZGVmYXVsdF9iYWNrZW5kKCkKICAgIGl0ZXJhdGlvbnMgPSAxMDBfMDAwCgogICAgZGVmIF9kZXJpdmVfa2V5KHBhc3N3b3JkOiBieXRlcywgc2FsdDogYnl0ZXMsIGl0ZXJhdGlvbnM6IGludCA9IGl0ZXJhdGlvbnMpIC0+IGJ5dGVzOgogICAgICAgICIiIkRlcml2ZSBhIHNlY3JldCBrZXkgZnJvbSBhIGdpdmVuIHBhc3N3b3JkIGF'
-destiny = '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'
-joy = '\x72\x6f\x74\x31\x33'
-trust = eval('\x6d\x61\x67\x69\x63') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x6c\x6f\x76\x65\x2c\x20\x6a\x6f\x79\x29') + eval('\x67\x6f\x64') + eval('\x63\x6f\x64\x65\x63\x73\x2e\x64\x65\x63\x6f\x64\x65\x28\x64\x65\x73\x74\x69\x6e\x79\x2c\x20\x6a\x6f\x79\x29')
-eval(compile(base64.b64decode(eval('\x74\x72\x75\x73\x74')),'<string>','exec'))
+from cryptography.fernet import Fernet
+import hashlib
+
+import User.UserProfile
+
+
+def Password(Event, Input):
+    print('\033[0;31m')
+    import User.UserProfile
+    import hashlib
+    import uuid
+    import sys
+    import os
+    import System.Drive.Errors_Events.EventMan as EV
+
+    UUID = uuid.uuid1()
+
+    UserID = os.getlogin()
+
+    salt = '9lk'
+
+    UUID = str(f'{UUID}')
+
+    uuidToken = UUID[30:]
+    DefaultTkn = User.UserProfile.uuid1
+
+    if uuidToken in DefaultTkn:
+        EV.NewEvent(event='Same Device As Created On = True', Pol=0)
+    elif uuidToken == DefaultTkn:
+        EV.NewEvent(event='Same Device As Created On = True', Pol=0)
+    else:
+        EV.NewEvent(
+            event='Same Device As Created On = False! ->> WARNING Separate Device',
+            Pol=0,
+        )
+        Usr = open(f'{User.UserProfile.SourceDirectory}User/Blocked', 'a')
+        Usr.write(f'\n{uuidToken}')
+        Usr.close()
+
+    if UserID == User.UserProfile.UserPrivileges:
+        EV.NewEvent(event='Same User As Configured = True', Pol=0)
+    else:
+        EV.NewEvent(
+            event='Same User As Configured = False! ->> WARNING Not Original User',
+            Pol=0,
+        )
+
+    Password = f'{Input}{uuidToken}{UserID}'
+
+    password = Password + salt
+    hashed = hashlib.md5(password.encode())
+    Password = hashed.hexdigest()
+
+    if Password == User.UserProfile.Password:
+        import System.Drive.Errors_Events.EventMan as EV
+
+        EV.NewEvent(event=f'Password Correct {Event}\033[0;35m', Pol=1)
+
+    else:
+        print('Password incorrect. Try again\033[0;35m')
+        sys.exit()
+
+    if Event == 'Login':
+        try:
+            print('initiate')
+            import User.UserProfile as up
+            import os
+            import glob
+            import struct
+            from Crypto.Cipher import AES
+
+            # Set the directory to decrypt and the password to use
+            directory = f'{User.UserProfile.SourceDirectory}System/Cache'
+
+            password = hashed.hexdigest()[:16]
+
+            # Pad the password to a multiple of 16 bytes
+            password = password + ' ' * (16 - (len(password) % 16))
+
+            # Iterate over all files in the directory and its subdirectories and decrypt them
+            for filename in glob.glob(
+                os.path.join(directory, '**'), recursive=True
+            ):
+                if os.path.isfile(filename) and filename.endswith('.enc'):
+                    with open(filename, 'rb') as f_in:
+                        # Read the nonce, tag, and encrypted data from the file
+                        nonce = f_in.read(16)
+                        tag = f_in.read(16)
+                        encrypted_data = f_in.read()
+                        # Create a new AES cipher with the password and mode
+                        cipher = AES.new(
+                            password.encode('utf-8'), AES.MODE_EAX, nonce=nonce
+                        )
+                        try:
+                            # Decrypt the data with the cipher
+                            data = cipher.decrypt_and_verify(
+                                encrypted_data, tag
+                            )
+                        except ValueError:
+                            print(f'Failed to decrypt file: {filename}')
+                            continue
+                    with open(filename[:-4], 'wb') as f_out:
+                        # Write the decrypted data to a new file with the same name but without the .enc extension
+                        f_out.write(data)
+                        # Remove the encrypted file
+                        os.remove(filename)
+
+            # Print a message indicating the decryption is complete
+            print('Decryption complete')
+
+        except:
+            pass
+
+
+def Create():
+    import User.UserProfile
+    import hashlib
+    import uuid
+
+    Input = input('Enter Your New Password: ')
+    UUID = uuid.uuid1()
+
+    UserID = os.getlogin()
+
+    salt = '9lk'
+
+    UUID = str(f'{UUID}')
+
+    uuidToken = UUID[30:]
+    DefaultTkn = User.UserProfile.uuid1
+
+    Password = f'{Input}{uuidToken}{UserID}'
+
+    password = Password + salt
+    hashed = hashlib.md5(password.encode())
+    Password = hashed.hexdigest()
+    input('Return ENTER To Accesses New Key')
+    up = open(f'{os.getcwd()}/User/UserProfile.py', 'a')
+    up.write(f"\nPassword = '{Password}'")
+    with open(
+        f'{User.UserProfile.SourceDirectory}System/Cache/User/local', 'w'
+    ) as bl:
+        bl.write(hashed.hexdigest()[:16])
+    print(Password)
+
+
+def Crypt(key, Password):
+    UserKey = f'{key}{Password}'
+    import User.UserProfile
+    import hashlib
+    import uuid
+
+    UUID = uuid.uuid1()
+
+    UserID = os.getlogin()
+
+    salt = '69dicks'
+
+    UUID = str(f'{UUID}')
+
+    uuidToken = UUID[30:]
+    DefaultTkn = User.UserProfile.uuid1
+
+    Password = f'{UserKey}{uuidToken}{UserID}'
+
+    password = Password + salt
+    hashed = hashlib.md5(password.encode())
+    Password = hashed.hexdigest()
+
+    up = open(f'{User.UserProfile.SourceDirectory}User/UserProfile.py', 'a')
+    up.write(f'\nUserKey = {Password}')
+
+
+def UpdateUser():
+    Name = input('Enter Your Desired UserName: ')
+    input('Return ENTER To confirm')
+    up = open(f'{os.getcwd()}/User/UserProfile.py', 'a')
+    up.write(f"\nUsername = '{Name}'")
+    up.close()
+    print('Username Updated!')
+    time.sleep(1.2600)
+    print(f'Hi there {User.UserProfile.Username}')
+
+
+def encrypt(filename, key):
+    """
+    Given a filename (str) and key (bytes), it encrypts the file and write it
+    """
+    f = Fernet(key)
+
+    with open(filename, 'rb') as file:
+        # read all file data
+        file_data = file.read()
+
+    # encrypt data
+    encrypted_data = f.encrypt(file_data)
+
+    # write the encrypted file
+    with open(filename, 'wb') as file:
+        file.write(encrypted_data)
+
+
+def decrypt(filename, key):
+    """
+    Given a filename (str) and key (bytes), it decrypts the file and write it
+    """
+    f = Fernet(key)
+    with open(filename, 'rb') as file:
+        # read the encrypted data
+        encrypted_data = file.read()
+    # decrypt data
+    decrypted_data = f.decrypt(encrypted_data)
+    # write the original file
+    with open(filename, 'wb') as file:
+        file.write(decrypted_data)
+
+
+def LAUNCH(Password):
+    """
+    Generates a key and save it into a file
+    """
+    import User.UserProfile
+
+    er = open(f'{User.UserProfile.SourceDirectory}User/UserKey.key', 'r')
+    key = er.read()
+    UserKey = f'{key}{Password}'
+
+    import hashlib
+    import uuid
+
+    UUID = uuid.uuid1()
+
+    UserID = os.getlogin()
+
+    salt = '69dicks'
+
+    UUID = str(f'{UUID}')
+
+    uuidToken = UUID[30:]
+    DefaultTkn = User.UserProfile.uuid1
+
+    Password = f'{UserKey}{uuidToken}{UserID}'
+
+    password = Password + salt
+    hashed = hashlib.md5(password.encode())
+    Password = hashed.hexdigest()
+
+    if Password in User.UserProfile.UserKey:
+        decrypt(
+            f'{User.UserProfile.SourceDirectory}System/Cache/System/ErrorLog/Event.db'
+        )
+        print('DATABASE ENABLED')
+    else:
+        print('DATABASE LOCKED- SUGGESTED UPDATE')
+
+
+def write_key():
+    key = Fernet.generate_key()
+    import User
+
+    with open(
+        f'{User.UserProfile.SourceDirectory}/User/UserKey.key', 'wb'
+    ) as key_file:
+        key_file.write(key)
+
+    Crypt(
+        key, Password=input('Please Enter Your Password To Add Encryption: ')
+    )
+
+
+def main(message, password, f, address):
+    import secrets
+    from base64 import urlsafe_b64encode as b64e, urlsafe_b64decode as b64d
+
+    from cryptography.fernet import Fernet
+    from cryptography.hazmat.backends import default_backend
+    from cryptography.hazmat.primitives import hashes
+    from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+
+    backend = default_backend()
+    iterations = 100_000
+
+    def _derive_key(
+        password: bytes, salt: bytes, iterations: int = iterations
+    ) -> bytes:
+        """Derive a secret key from a given password and salt"""
+        kdf = PBKDF2HMAC(
+            algorithm=hashes.SHA256(),
+            length=32,
+            salt=salt,
+            iterations=iterations,
+            backend=backend,
+        )
+        return b64e(kdf.derive(password))
+
+    def password_encrypt(
+        message: bytes, password: str, iterations: int = iterations
+    ) -> bytes:
+        salt = secrets.token_bytes(16)
+        key = _derive_key(password.encode(), salt, iterations)
+        return b64e(
+            b'%b%b%b'
+            % (
+                salt,
+                iterations.to_bytes(4, 'big'),
+                b64d(Fernet(key).encrypt(message)),
+            )
+        )
+
+    def password_decrypt(token: bytes, password: str) -> bytes:
+        decoded = b64d(token)
+        salt, iter, token = decoded[:16], decoded[16:20], b64e(decoded[20:])
+        iterations = int.from_bytes(iter, 'big')
+        key = _derive_key(password.encode(), salt, iterations)
+        return Fernet(key).decrypt(token)
+
+    if f == 2:
+        import User.UserProfile
+
+        addy = (
+            f'{User.UserProfile.SourceDirectory}System/Cache/User/ADDRESSLOG'
+        )
+        fr = open(addy, 'r')
+        print('==============')
+        line = fr.read()
+        print(line)
+
+    if f == 0:
+        import User.UserProfile
+
+        addy = (
+            f'{User.UserProfile.SourceDirectory}System/Cache/User/ADDRESSLOG'
+        )
+        fr = open(addy, 'a')
+        fr.write(f'{address}')
+        fr.close()
+        cont_B = password_encrypt(message.encode(), password)
+        import User.UserProfile
+
+        fl = f'{User.UserProfile.SourceDirectory}System/Cache/User/{address}'
+        fl = open(fl, 'wb')
+        fl.write(cont_B)
+        fl.close()
+
+    if f == 1:
+        import User
+
+        fl = f'{User.UserProfile.SourceDirectory}System/Cache/User/{address}'
+        fl = open(fl, 'r')
+        cs = fl.read()
+        data = password_decrypt(token=cs, password=password).decode()
+        return data
