@@ -4,7 +4,14 @@ import os
 import time
 
 import venv
+try:
+    old_folder_name = f"{os.getcwd()}/System/Cache"
+    new_folder_name = f"{os.getcwd()}/System/.Cache"
 
+    os.rename(old_folder_name, new_folder_name)
+    print('Hidden!')
+except:
+    pass
 # Set the name and location of the virtual environment
 venv_dir = os.path.join(os.getcwd(), 'venv')
 
