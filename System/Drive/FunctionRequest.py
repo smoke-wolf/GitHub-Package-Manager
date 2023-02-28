@@ -937,7 +937,7 @@ def GUI():
         hashed = hashlib.md5(password.encode())
         Password = hashed.hexdigest()
         messagebox.showinfo('Update', "Click 'Ok' To Accesses New Key")
-        up = open(f'{os.getsd()}/User/UserProfile.py', 'a')
+        up = open(f'{os.getcwd()}/User/UserProfile.py', 'a')
         up.write(f"\nPassword = '{Password}'")
         print(Password)
 
@@ -1060,7 +1060,7 @@ def GUI():
 
                     PS.Password(Event='Forced Login', Input=Input)
 
-                    import_token = open(f'{sd}/User/UserProfile.py', 'a')
+                    import_token = open(f'{os.getcwd()}/User/UserProfile.py', 'a')
                     import User.UserProfile
 
                     if User.UserProfile.Forced_Login is True:
@@ -1084,7 +1084,7 @@ def GUI():
 
                         PS.Password(Event='Forced Login', Input=Input)
 
-                        import_token = open(f'{sd}/User/UserProfile.py', 'a')
+                        import_token = open(f'{os.getcwd()}/User/UserProfile.py', 'a')
                         import User.UserProfile
 
                         if User.UserProfile.Forced_Login is True:
@@ -1111,7 +1111,7 @@ def GUI():
                             PS.Password(Event='Forced Login', Input=Input)
 
                             import_token = open(
-                                f'{sd}/User/UserProfile.py', 'a'
+                                f'{os.getcwd()}/User/UserProfile.py', 'a'
                             )
                             import User.UserProfile
 
@@ -1141,7 +1141,7 @@ def GUI():
 
             elif index == 2:
                 pass  # event=f'Launching Event Display', Pol=1)
-                target = open(f'{sd}/User/UserProfile.py', 'a')
+                target = open(f'{os.getcwd()}/User/UserProfile.py', 'a')
                 import User
 
                 Cstat = User.UserProfile.DisplayEvents
@@ -1161,7 +1161,7 @@ def GUI():
 
                 alias = f"""echo 'alias gh="cd {User.UserProfile.SourceDirectory} &&python3 gh.py"' >> ~/.zshrc && exec zsh -l"""
                 try:
-                    print(alais)
+                    print(alias)
                     os.system(alias)
                     pass  # event='Installing Global Alias- Complete', Pol=20)
                 except:
@@ -1196,7 +1196,7 @@ examples:
                 Name = simpledialog.askstring(
                     'GHPM', 'Enter Your Desired UserName: '
                 )
-                up = open(f'{sd}/User/UserProfile.py', 'a')
+                up = open(f'{os.getcwd()}/User/UserProfile.py', 'a')
                 up.write(f"\nUsername = '{Name}'")
                 up.close()
                 messagebox.showinfo('Update', 'UserName Updated')
@@ -1238,7 +1238,6 @@ examples:
 
                             PS.Password(Event='Password Update', Input=Input)
                             try:
-                                import System.Drive.Password as ps
 
                                 Create()
                             except:
@@ -1270,7 +1269,7 @@ examples:
 
     def show_install():
         try:
-            os.mkdir(f'{sd}/System/.Cache/System/GitHub/Downloads')
+            os.mkdir(f'{os.getcwd()}/System/.Cache/System/GitHub/Downloads')
         except:
             pass
         close_windows()
