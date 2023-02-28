@@ -195,7 +195,7 @@ def Update():
 
 try:
     response = requests.get(
-        'https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/.Cache/System/Version.py',
+        'https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/Version.py',
         stream=True,
     )
     v = response.content
@@ -204,7 +204,7 @@ try:
         sys.exit(0)
     try:
         response = requests.get(
-            'https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/.Cache/System/COMPATABLE',
+            'https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/COMPATABLE',
             stream=True,
         )
         v = response.content
