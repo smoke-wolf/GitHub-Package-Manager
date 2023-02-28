@@ -288,15 +288,15 @@ def Activate():
             if result3:
                 options = []
                 with open(
-                        f'{cwd}/System/.Cache/System/GitHub/Complex', 'r'
+                        f'{cwd}System/.Cache/System/GitHub/Complex', 'r'
                 ) as r, open(
-                    f'{cwd}/System/.Cache/System/GitHub/Complex2', 'w'
+                    f'{cwd}System/.Cache/System/GitHub/Complex2', 'w'
                 ) as o:
                     for line in r:
                         if line.strip():
                             o.write(line)
 
-                f = open(f'{cwd}/System/.Cache/System/GitHub/Complex2', 'r')
+                f = open(f'{cwd}System/.Cache/System/GitHub/Complex2', 'r')
 
                 linesd = f.readlines()
                 count = 0
@@ -333,7 +333,7 @@ def Activate():
                         A = f'{lis} {Arges}'
 
                         r = open(
-                            f'{cwd}/System/.Cache/System/GitHub/Complex_install',
+                            f'{cwd}System/.Cache/System/GitHub/Complex_install',
                             'r',
                         )
                         lines = r.readlines()
@@ -349,7 +349,7 @@ def Activate():
                                     exit(0)
 
                             open(
-                                f'{cwd}/System/.Cache/System/GitHub/Complex_install',
+                                f'{cwd}System/.Cache/System/GitHub/Complex_install',
                                 'w',
                             )
 
@@ -1481,16 +1481,21 @@ examples:
         list.pack()
         global items
         items = []
+        try:
+            with open(f'{cwd}System/.Cache/System/GitHub/int.txt', 'r') as r, open(
+                    f'{cwd}System/.Cache/System/GitHub/int2.txt', 'w'
+            ) as o:
+                for line in r:
+                    if line.strip():
+                        o.write(line)
+        except:
+            pass
+        try:
+            f = open(f'{cwd}System/.Cache/System/GitHub/int2.txt', 'r')
+            e = open(f'{cwd}System/.Cache/System/GitHub/Complex2', 'r')
+        except:
+            pass
 
-        with open(f'{cwd}/System/.Cache/System/GitHub/int.txt', 'r') as r, open(
-                f'{cwd}/System/.Cache/System/GitHub/int2.txt', 'w'
-        ) as o:
-            for line in r:
-                if line.strip():
-                    o.write(line)
-
-        f = open(f'{cwd}/System/.Cache/System/GitHub/int2.txt', 'r')
-        e = open(f'{cwd}/System/.Cache/System/GitHub/Complex2', 'r')
         global lines
         lines = f.readlines()
         global count
@@ -1507,12 +1512,14 @@ examples:
             items.append(value4)
             count1 += 1
 
-        global lines2
-        lines2 = e.readlines()
-        for line2 in lines2:
-            count1 += 1
-            items.append(line2)
-
+        try:
+            global lines2
+            lines2 = e.readlines()
+            for line2 in lines2:
+                count1 += 1
+                items.append(line2)
+        except:
+            pass
         for item in items:
             list.insert(tk.END, item)
         confirm_button = tk.Button(
@@ -1611,7 +1618,3 @@ examples:
     )
     button.grid(row=4, column=1, padx=10, pady=10)
     root.mainloop()
-
-
-
-
