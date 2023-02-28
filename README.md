@@ -27,78 +27,73 @@ When you first launch the application, you will be prompted to create a password
 
 	python3 Start.py
 
-## **update v1.3.3**
+
+## **update v1.3.5**
 Bug Fixes:
-- Complex / Advanced Programs failed to install through GUI
-- Programs also fail to launch after installation. 
-- Settings Returning null/unavailable status
+- Segmentation Faults
+- Crypto error
+ - 
 
 Resolve: 
-- GUI Settings Updated 
-- Settings / CLI access channelling
-- Project restructuring for stand-alone gui compatibility
-- Advanced Application Support (GitHub stand-alone)
-- Gui simple installation optimized for complex installations
+- Password Authentication updated
+- CLI Authorisation Through gui
+- Deep Grained Encryption
+- Installing from GitHub has been reconfigured
+- 
 
-Date: Feb 13th 2023
+Date: Feb 27th 2023
+
 
 ## Publication Info
-**Technical Information #10**
->GHPM Version = v1.3.3\
-ChangeUsername = v1.2\
-ChangePassword = v1.3\
-GitConnect = v2.3\
+**Technical Information #11**
+>GHPM Version = v1.3.5\
+ChangeUsername = v1.3\
+ChangePassword = v1.4\
+GitConnect = v2.4\
 EventTracker = v2.5\
-ErrorTracker = v1.1\
 EventDataBase = v1.1\
 Information File = v2.4/2.5\
-GitComplexConnect = v1.2\
-PackageInstaller = v3.6\
-RequirementsInstaller = v1.3\
-CommandLineConnect = v1.2
-LocalConnect = v2.2\
-UserPass = v3.3\
-Password Implementation = v2.4\
+GitComplexConnect = v1.3\
+PackageInstaller = v3.7\
+RequirementsInstaller = v1.4\
+CommandLineConnect = v1.3\
+LocalConnect = v2.3\
+UserPass = v3.4\
+Password Implementation = v3.0\
 VersioningUpdator = v1.3\
 Password Encryption = v2.4\
 Previous Method = Salt & Hash & MAC & Login & Fernet\
+Global DataLock = v1.0\
 ReturnFunction = v2.1\
 BlockUntrusted = v1.1\
 BanUntrusted = v1.1\
-FirstUse = v2.3\
-UserProfile = v3.2\
-PackageActivator.py = v3.5\
-PackageUninstaller.py = v2.2\
-PackageSettings = v2.4\
-LoginFunction = v1.5\
-CacheConnect = v3.5\
+FirstUse = v2.4\
+UserProfile = v3.3\
+PackageActivator.py = v3.6\
+PackageUninstaller.py = v2.3\
+PackageSettings = v2.5\
+LoginFunction = v2.0\
+CacheConnect = v3.6\
 Menu = 8/8\
-Version Status = Fully Released v1.3.3\
-Version Date = February 13th, 2023\
+Version Status = Fully Released v1.3.5\
+Version Date = February 27th, 2023\
 Developer = Smoke-wolf\
 Version Security = Secure
 
   
 
-*GUI -> v1.2*
-
->GUI = v1.2\
-GUIInstaller_Local = v1.0\
-GUIInstaller_GitHub = v1.0\
-GUIInstaller_Advanced = v1.1\
-GUIActivator_Local = v1.0\
-GUIActivator_GitHub = v1.0\
-GUIUninstaller_Complex = v1.1\
-GUIUninstaller_GitHub = v1.0\
-GUISettings = v1.6
-
-  
-
-*Crypt-> v1.1*\
->Write_Data = v.1.0\
-Read_Data = v1.1\
-Delete_Data =v1.0\
-Read_File = v.1.0
+*GUI -> v1.3*
+>GUI = v1.3\
+GUIInstaller_Local = v1.1\
+GUIInstaller_GitHub = v1.1\
+GUIInstaller_Advanced = v1.2\
+GUIActivator_Local = v1.1\
+GUIActivator_GitHub = v1.1\
+GUIUninstaller_Complex = v1.2\
+GUIUninstaller_GitHub = v1.1\
+GUICommand_LineConnet = v1.0\
+GUIUser_Authentication = v1.0\
+GUISettings = v1.7
 
   
   
