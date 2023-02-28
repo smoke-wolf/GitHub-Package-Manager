@@ -1,8 +1,10 @@
 import os
 import time
-
-from cryptography.fernet import Fernet
-import hashlib
+try:
+    from cryptography.fernet import Fernet
+    import hashlib
+except:
+    pass
 
 import User.UserProfile
 
