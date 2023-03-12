@@ -34,7 +34,7 @@ When you first launch the application, you will be prompted to create a password
     -   **Patch:** Dependent implementation of 'os.getcwd()' was replaced with User.UserProfile.SourceDirectory.
 -   Critical Launch Issue #FMGHH: The user could log in even if the password was entered incorrectly. However, if the password was entered incorrectly and then correctly, the GUI failed to launch.
     -   **Description:** If the password was entered correctly the first time, the GUI launched without issue. If the password was entered incorrectly and then correctly, the GUI failed.
-    -    Systemic Installer Issue #SBDSS: An installer error occurred after extensive use of the package.
+-    Systemic Installer Issue #SBDSS: An installer error occurred after extensive use of the package.\
     -   **Patch:** When installing, the program would `os.chdir` into the installed application, thus making any more `os.getcwd()` calls incorrect in regards to the current location. Dependent implementation of 'os.getcwd()' was replaced with User.UserProfile.SourceDirectory.
 -   Uninstaller Issue #CRKAJ: The uninstaller failed to remove the directory, but successfully removed the address within Int.txt.
     -   **Patch:** Dependent implementation of 'os.getcwd()' was replaced with User.UserProfile.SourceDirectory.
