@@ -3,7 +3,6 @@ import sys
 import os
 import time
 
-import venv
 try:
     old_folder_name = f"{os.getcwd()}/System/Cache"
     new_folder_name = f"{os.getcwd()}/System/.Cache"
@@ -12,6 +11,9 @@ try:
     print('Hidden!')
 except:
     pass
+
+import venv
+
 # Set the name and location of the virtual environment
 venv_dir = os.path.join(os.getcwd(), 'venv')
 
@@ -51,7 +53,8 @@ def check_password(password):
         print('Logged In Successfully!')
         return True
     except:
-        sys.exit(0)
+        print('Invalid Password')
+        return False
 
 
 def show_password_popup():
@@ -83,6 +86,7 @@ def show_password_popup():
             popup.destroy()
             import System.Drive.FunctionRequest as fr
             popup.destroy()
+
             fr.GUI()
 
     submit_button = ttk.Button(mainframe, text="Submit", command=on_submit)
@@ -100,10 +104,6 @@ def show_password_popup():
 
 
 def auth():
-    #   Code to handel GUI function if launch arguments contain '-gui'
-    import System.Drive.FunctionRequest as fr
-    import sys
-
     show_password_popup()
 
 try:
@@ -187,44 +187,45 @@ except:
 
         # Set the directory to encrypt
         directory = f'{User.UserProfile.SourceDirectory}System/.Cache'
+        try:
+            with open(
+                    f'{User.UserProfile.SourceDirectory}System/.Cache/User/local', 'r'
+            ) as lc:
+                password = lc.read()
 
-        with open(
-                f'{User.UserProfile.SourceDirectory}System/.Cache/User/local', 'r'
-        ) as lc:
-            password = lc.read()
+            # Remove any unnecessary whitespaces from the password
+            password = password.strip()
 
-        # Remove any unnecessary whitespaces from the password
-        password = password.strip()
+            # Pad the password to a multiple of 16 bytes
+            password = password.encode('utf-8') + b' ' * (
+                    16 - (len(password) % 16)
+            )
 
-        # Pad the password to a multiple of 16 bytes
-        password = password.encode('utf-8') + b' ' * (
-                16 - (len(password) % 16)
-        )
+            # Print out the padded password
+            print(f'Padded password: {password}')
 
-        # Print out the padded password
-        print(f'Padded password: {password}')
+            # Iterate over all files in the directory and subdirectories and encrypt them
+            for root, dirs, files in os.walk(directory):
+                for filename in files:
+                    filepath = os.path.join(root, filename)
+                    with open(filepath, 'rb') as f_in:
+                        data = f_in.read()
+                        # Create a new AES cipher with a new nonce and the password
+                        cipher = AES.new(password, AES.MODE_EAX)
+                        # Encrypt the data with the cipher
+                        encrypted_data, tag = cipher.encrypt_and_digest(data)
+                    with open(filepath + '.enc', 'wb') as f_out:
+                        # Write the nonce, tag and encrypted data to a new file with the same name plus the .enc extension
+                        f_out.write(cipher.nonce)
+                        f_out.write(tag)
+                        f_out.write(encrypted_data)
+                    # Remove the unencrypted file
+                    os.remove(filepath)
 
-        # Iterate over all files in the directory and subdirectories and encrypt them
-        for root, dirs, files in os.walk(directory):
-            for filename in files:
-                filepath = os.path.join(root, filename)
-                with open(filepath, 'rb') as f_in:
-                    data = f_in.read()
-                    # Create a new AES cipher with a new nonce and the password
-                    cipher = AES.new(password, AES.MODE_EAX)
-                    # Encrypt the data with the cipher
-                    encrypted_data, tag = cipher.encrypt_and_digest(data)
-                with open(filepath + '.enc', 'wb') as f_out:
-                    # Write the nonce, tag and encrypted data to a new file with the same name plus the .enc extension
-                    f_out.write(cipher.nonce)
-                    f_out.write(tag)
-                    f_out.write(encrypted_data)
-                # Remove the unencrypted file
-                os.remove(filepath)
-
-        # Print a message indicating the encryption is complete
-        print('Encryption complete')
-
+            # Print a message indicating the encryption is complete
+            print('Encryption complete')
+        except:
+            pass
 try:
     print('Encryption error: Re-trying')
     import os
