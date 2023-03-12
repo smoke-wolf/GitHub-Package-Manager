@@ -9,7 +9,7 @@ import os
 try:
     cwd = User.UserProfile.SourceDirectory
 except:
-    pass
+    cwd = os.getcwd()
 
 
 def IssueID(Line):
