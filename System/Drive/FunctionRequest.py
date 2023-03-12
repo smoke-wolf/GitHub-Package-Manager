@@ -420,9 +420,9 @@ def GUI():
 
     cwd = User.UserProfile.SourceDirectory
 
-    #os.system(
-    #    """osascript -e 'tell application "Terminal" to set visible of window 1 to false' """
-    #)
+    os.system(
+       """osascript -e 'tell application "Terminal" to set visible of window 1 to false' """
+    )
 
     def Installer(value):
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
