@@ -40,6 +40,7 @@ if FirstUse is True:
     import System.Drive.FirstUse
 
     exec('System.Drive.FirstUse')
+    sys.exit(0)
 
 
 import User
