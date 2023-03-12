@@ -1,8 +1,12 @@
 SwAT = """
-GHPM is a package manager, it effectively manages coding projects, applications, and anything else code-able! GHPM 
-does not use any highly advanced coding techniques, much the opposite in fact. it uses basic, straight-forward 
-logic, it is the lack of complication that makes this project the most light-weight Manager available.
+GHPM is a powerful package manager for GitHub that helps users to organize, compile, and recall packages with ease.
 
+It offers a user-friendly interface, and packages are downloaded and compiled with minimal struggle. 
+GHPM automatically handles requirements and other prerequisites, making it easier for users to install applications and projects.
+
+Compared to other GitHub package managers, GHPM offers unparalleled features such as cross-instance reference of programs, and it's the most lightweight manager available.
+
+Whether you're a beginner or an experienced programmer, GHPM offers the tools you need to take your programming experience to the next level.
 
 GHPM Version = v1.3.5
 """
