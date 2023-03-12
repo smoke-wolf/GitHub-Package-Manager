@@ -230,7 +230,7 @@ if inp == '3':
             open(f'{cwd}/System/.Cache/System/ErrorLog/Events', 'w').close()
             open(f'{cwd}/System/.Cache/System/ErrorLog/Event.db', 'w').close()
             open(f'{cwd}/System/.Cache/System/ErrorLog/Errors', 'w').close()
-
+            open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'w')
             open(f'{cwd}/System/.Cache/User/FirstUseToken.txt', 'w').close()
             open(f'{cwd}/User/UserProfile.py', 'w').close()
             open(f'{cwd}/System/.Cache/User/local', 'w').close()
@@ -266,7 +266,7 @@ if inp == '3':
                 open(f'{cwd}/System/.Cache/System/ErrorLog/Events', 'w').close()
                 open(f'{cwd}/System/.Cache/System/ErrorLog/Event.db', 'w').close()
                 open(f'{cwd}/System/.Cache/System/ErrorLog/Errors', 'w').close()
-
+                open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'w')
                 open(f'{cwd}/System/.Cache/User/FirstUseToken.txt', 'w').close()
                 open(f'{cwd}/User/UserProfile.py', 'w').close()
                 open(f'{cwd}/System/.Cache/User/local', 'w').close()
@@ -303,7 +303,7 @@ if inp == '3':
                     open(f'{cwd}/System/.Cache/System/ErrorLog/Events', 'w').close()
                     open(f'{cwd}/System/.Cache/System/ErrorLog/Event.db', 'w').close()
                     open(f'{cwd}/System/.Cache/System/ErrorLog/Errors', 'w').close()
-
+                    open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'w')
                     open(f'{cwd}/System/.Cache/User/FirstUseToken.txt', 'w').close()
                     open(f'{cwd}/User/UserProfile.py', 'w').close()
                     open(f'{cwd}/System/.Cache/User/local', 'w').close()
@@ -354,13 +354,17 @@ if inp == '4':
     sys.exit(0)
 
 elif inp == '5':
-    with open(f'{User.UserProfile.SourceDirectoy}cleansource/System/.Cache/System/ErrorLog/Events','r') as ev:
+    print('_Loading_')
+    import User.UserProfile
+    with open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/Events','r') as ev:
         print(ev.read())
         input('hit enter to continue: ')
         sys.exit(0)
 
 elif inp == '6':
-    with open(f'{User.UserProfile.SourceDirectoy}cleansource/System/.Cache/System/ErrorLog/GUIevents','r') as ev:
+    print('_Loading_')
+    import User.UserProfile
+    with open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents','r') as ev:
         print(ev.read())
         input('hit enter to continue: ')
         sys.exit(0)
