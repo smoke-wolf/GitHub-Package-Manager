@@ -12,7 +12,6 @@ import System
 #   Local File Imports
 global Version
 
-
 import User.UserProfile as UserProfile
 
 #   Define Variables
@@ -39,6 +38,19 @@ def parish():
     print(
         f'Update Complete! You are now on a new version!'
     )
+    try:
+        vp = f'{UserProfile.SourceDirectory}/System/.Cache/System/Version.py'
+        with open(vp, 'w') as vpp:
+            response = requests.get(
+                'https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/Version.py',
+                stream=True,
+            )
+            v = response.content
+            vpp.write(v.decode('utf-8'))
+            print('updated')
+    except:
+        pass
+
     tokenL = open(f'{SourceDirectory}System/.Cache/System/Update/Token', 'a')
     tokenL.write(f'{CurrentVersion} -> ')
     tokenL.close()
@@ -170,8 +182,8 @@ def Update():
 
                                             for Attempt_iii in SourceFolder_ii:
                                                 if (
-                                                    Attempt_iii
-                                                    in UpdateFolder_ii
+                                                        Attempt_iii
+                                                        in UpdateFolder_ii
                                                 ):
                                                     print(
                                                         f'Common Found {Attempt_iii}'
@@ -223,20 +235,28 @@ try:
         vr.close()
         vr2 = open(f'{SourceDirectory}temp', 'r')
         vrl = vr2.read()
-        version = vrl
-        print(version)
-        if str(CurrentVersion) in str(vrl):
-            print('Update Is Present')
-            e3 = input('Press enter to Confirm update [0 to cancel]: ')
-            if '0' in e3:
-                print('Operation frozen')
-                pass
-            else:
-                dl()
-        else:
-            print(
-                f'Version {CurrentVersion}, is either already updated or is not recent enough to be compatible'
-            )
+
+        print('-----------------')
+        print(version.split('\n'))
+        print('-----------------')
+        cont = True
+        for version in version.split('\n'):
+            if cont is True:
+                if version in str(CurrentVersion):
+
+                    print(f'{version} in {CurrentVersion}')
+                    print('Update Is Present')
+                    e3 = input('Press enter to Confirm update [0 to cancel]: ')
+                    if '0' in e3:
+                        print('Operation frozen')
+                        pass
+                    else:
+                        dl()
+                        cont = False
+                else:
+                    print(
+                        f'Version {CurrentVersion}, is either already updated or is not recent enough to be compatible'
+                    )
 
         vr = open(f'{SourceDirectory}temp', 'w')
     except:
