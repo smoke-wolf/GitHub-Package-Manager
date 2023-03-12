@@ -420,9 +420,9 @@ def GUI():
 
     cwd = User.UserProfile.SourceDirectory
 
-    os.system(
-        """osascript -e 'tell application "Terminal" to set visible of window 1 to false' """
-    )
+    #os.system(
+    #    """osascript -e 'tell application "Terminal" to set visible of window 1 to false' """
+    #)
 
     def Installer(value):
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
@@ -846,7 +846,7 @@ def GUI():
                 open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'w').close()
                 open(f'{cwd}System/.Cache/System/ErrorLog/Event.db', 'w').close()
                 open(f'{cwd}System/.Cache/System/ErrorLog/Errors', 'w').close()
-
+                open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'w')
                 open(f'{cwd}System/.Cache/User/FirstUseToken.txt', 'w').close()
                 open(f'{cwd}User/UserProfile.py', 'w').close()
                 open(f'{cwd}System/.Cache/User/local', 'w').close()
@@ -895,7 +895,7 @@ def GUI():
                     open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'w').close()
                     open(f'{cwd}System/.Cache/System/ErrorLog/Event.db', 'w').close()
                     open(f'{cwd}System/.Cache/System/ErrorLog/Errors', 'w').close()
-
+                    open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'w')
                     open(f'{cwd}System/.Cache/User/FirstUseToken.txt', 'w').close()
                     open(f'{cwd}User/UserProfile.py', 'w').close()
                     open(f'{cwd}System/.Cache/User/local', 'w').close()
@@ -944,7 +944,7 @@ def GUI():
                         open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'w').close()
                         open(f'{cwd}System/.Cache/System/ErrorLog/Event.db', 'w').close()
                         open(f'{cwd}System/.Cache/System/ErrorLog/Errors', 'w').close()
-
+                        open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'w')
                         open(f'{cwd}System/.Cache/User/FirstUseToken.txt', 'w').close()
                         open(f'{cwd}User/UserProfile.py', 'w').close()
                         open(f'{cwd}System/.Cache/User/local', 'w').close()
