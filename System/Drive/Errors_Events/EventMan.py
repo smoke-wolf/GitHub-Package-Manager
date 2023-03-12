@@ -39,7 +39,11 @@ def NewEvent(event, Pol):
     except:
         pass
     #
-    EventReport = open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'a')
+    try:
+        EventReport = open(f'{cwd}/System/.Cache/System/ErrorLog/Events', 'a')
+    except:
+        EventReport = open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'a')
+        
     import datetime
 
     if Pol == 10:
