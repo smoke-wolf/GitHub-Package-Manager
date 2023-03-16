@@ -836,19 +836,25 @@ def GUI():
                 open(f'{cwd}System/.Cache/System/GitHub/Int.txt', 'w').close()
                 print('|  |                Int.txt Cleared')
                 import shutil
-
-                user = User.UserProfile.Username
-                shutil.rmtree(f'{cwd}System/.Cache/System/Local')
-                os.mkdir(f'{cwd}System/.Cache/System/Local')
-                shutil.rmtree(f'{cwd}System/.Cache/System/GitHub')
-                os.mkdir(f'{cwd}System/.Cache/System/GitHub')
-
+                try:
+                    shutil.rmtree(f'{cwd}System/.Cache/System/Local')
+                    os.mkdir(f'{cwd}System/.Cache/System/Local')
+                except:
+                    pass
+                try:
+                    shutil.rmtree(f'{cwd}System/.Cache/System/GitHub')
+                    os.mkdir(f'{cwd}System/.Cache/System/GitHub')
+                except:
+                    pass
+                print('|  |              dirs made & Cleared')
+                open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w').close()
                 open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'w').close()
                 open(f'{cwd}System/.Cache/System/ErrorLog/Event.db', 'w').close()
-                open(f'{cwd}System/.Cache/System/ErrorLog/Errors', 'w').close()
-                open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'w')
+
+                open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w')
                 open(f'{cwd}System/.Cache/User/FirstUseToken.txt', 'w').close()
                 open(f'{cwd}User/UserProfile.py', 'w').close()
+                print('|  |                Int.txt Cleared')
                 open(f'{cwd}System/.Cache/User/local', 'w').close()
 
                 print(f'|  |                Update Recorded')
@@ -885,20 +891,27 @@ def GUI():
                     open(f'{cwd}System/.Cache/System/GitHub/Int.txt', 'w').close()
                     print('|  |                Int.txt Cleared')
                     import shutil
-
-                    user = User.UserProfile.Username
-                    shutil.rmtree(f'{cwd}System/.Cache/System/Local')
-                    os.mkdir(f'{cwd}System/.Cache/System/Local')
-                    shutil.rmtree(f'{cwd}System/.Cache/System/GitHub')
-                    os.mkdir(f'{cwd}System/.Cache/System/GitHub')
-
+                    try:
+                        shutil.rmtree(f'{cwd}System/.Cache/System/Local')
+                        os.mkdir(f'{cwd}System/.Cache/System/Local')
+                    except:
+                        pass
+                    try:
+                        shutil.rmtree(f'{cwd}System/.Cache/System/GitHub')
+                        os.mkdir(f'{cwd}System/.Cache/System/GitHub')
+                    except:
+                        pass
+                    print('|  |              dirs made & Cleared')
+                    open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w').close()
                     open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'w').close()
                     open(f'{cwd}System/.Cache/System/ErrorLog/Event.db', 'w').close()
-                    open(f'{cwd}System/.Cache/System/ErrorLog/Errors', 'w').close()
-                    open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'w')
+
+                    open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w')
                     open(f'{cwd}System/.Cache/User/FirstUseToken.txt', 'w').close()
                     open(f'{cwd}User/UserProfile.py', 'w').close()
+                    print('|  |                Int.txt Cleared')
                     open(f'{cwd}System/.Cache/User/local', 'w').close()
+
                     print(f'|  |                Update Recorded')
                 except:
                     EV.guiEvent(1,
@@ -934,20 +947,27 @@ def GUI():
                         open(f'{cwd}System/.Cache/System/GitHub/Int.txt', 'w').close()
                         print('|  |                Int.txt Cleared')
                         import shutil
-
-                        user = User.UserProfile.Username
-                        shutil.rmtree(f'{cwd}System/.Cache/System/Local')
-                        os.mkdir(f'{cwd}System/.Cache/System/Local')
-                        shutil.rmtree(f'{cwd}System/.Cache/System/GitHub')
-                        os.mkdir(f'{cwd}System/.Cache/System/GitHub')
-
+                        try:
+                            shutil.rmtree(f'{cwd}System/.Cache/System/Local')
+                            os.mkdir(f'{cwd}System/.Cache/System/Local')
+                        except:
+                            pass
+                        try:
+                            shutil.rmtree(f'{cwd}System/.Cache/System/GitHub')
+                            os.mkdir(f'{cwd}System/.Cache/System/GitHub')
+                        except:
+                            pass
+                        print('|  |              dirs made & Cleared')
+                        open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w').close()
                         open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'w').close()
                         open(f'{cwd}System/.Cache/System/ErrorLog/Event.db', 'w').close()
-                        open(f'{cwd}System/.Cache/System/ErrorLog/Errors', 'w').close()
-                        open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'w')
+
+                        open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w')
                         open(f'{cwd}System/.Cache/User/FirstUseToken.txt', 'w').close()
                         open(f'{cwd}User/UserProfile.py', 'w').close()
+                        print('|  |                Int.txt Cleared')
                         open(f'{cwd}System/.Cache/User/local', 'w').close()
+
                         print(f'|  |                Update Recorded')
                     except:
                         EV.guiEvent(1,
@@ -1571,47 +1591,26 @@ examples:
                 for linef in lines5:
                     # find() returns -1 if no match is found
                     if linef.find(selected_item) != -1:
-                        pass
+                        rmdir = linef.split('@')[0]
+                        try:
+                            import shutil
+                            shutil.rmtree(rmdir)
+                            tk.messagebox.showinfo(
+                                'Success', rmdir+ ' has been uninstalled.'
+                            )
+                        except:
+                            EV.guiEvent(0,
+                                        f'{get_current_function()} Error: Failed TO remove {rmdir}',
+                                        inspect.currentframe().f_lineno,
+                                        os.path.abspath(__file__), False, True,
+                                        3)
                     else:
                         file.write(linef)
 
-            value = lines[int(valuee) - 1]
-            cc = value
-            listOfWords = value.split('&', 1)
-            if len(listOfWords) > 0:
-                value = listOfWords[1]
 
-            value = value.split('-', 1)[0]
 
-            cc = cc.split('@', 1)[0]
 
-            listOfWords = cc.split('/Downloads', 1)
-
-            if len(listOfWords) > 0:
-                co = listOfWords[1]
-
-            try:
-                #
-                import shutil
-
-                shutil.rmtree(
-                    f'{User.UserProfile.SourceDirectory}System/.Cache/System/GitHub/Downloads{co}'
-                )
-
-                #
-                print('Project Removed')
-
-            except:
-                EV.guiEvent(0,
-                            f'{get_current_function()} Error: Failed TO remove {co}',
-                            inspect.currentframe().f_lineno,
-                            os.path.abspath(__file__), False, True,
-                            3)
-
-        tk.messagebox.showinfo(
-            'Success', selected_item + ' has been uninstalled.'
-        )
-        return selected_item
+        return rmdir
 
     def show_list_window():
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
