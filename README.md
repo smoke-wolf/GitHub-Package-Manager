@@ -1,5 +1,10 @@
 
 # GitHub Package Manager
+
+
+## Bug Fixes v1.3.7
+issues with uninstaller and settings, installer bug patched as well.
+
 GHPM is a powerful package manager for GitHub that helps users to organize, compile, and recall packages with ease.
 
 It offers a user-friendly interface, and packages are downloaded and compiled with minimal struggle. GHPM automatically handles requirements and other prerequisites, making it easier for users to install applications and projects.
