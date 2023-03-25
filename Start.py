@@ -45,7 +45,12 @@ if FirstUse is True:
 
 import User
 
+try:
+    import System.Drive.VersionUpdate
 
+    exec('System.Drive.VersionUpdate')
+except:
+    pass
 def check_password(password):
     try:
         import System.Drive.Password as ps
