@@ -1,3 +1,19 @@
+# GitHub-Package-Manager
+## Urgent Security Update
+
+We have recently become aware of a security vulnerability in our code that poses a serious risk to the security of user data. The original code included hardcoded keys and passwords, a weak encryption algorithm (RC4), and stored encrypted data in plain text files, making it easy for bad actors to gain access to sensitive information.
+
+### Risk/Threat Rating: 10/10
+
+We take this vulnerability very seriously and are urgently addressing the issue to enhance the security of our code. We will be implementing new security protocols, including strong encryption methods, secure password storage, and restricted access to sensitive functions.
+
+To ensure the security of our code, we will also be conducting regular code reviews and penetration testing. We recommend that all users of our code update to the latest version as soon as it becomes available, which will include these new security protocols.
+
+We apologize for any inconvenience caused and appreciate your understanding and cooperation in helping to keep our code secure.
+
+Sincerely, JDX50S (Apr 16, 2023)
+
+
 
 # GitHub Package Manager
 
