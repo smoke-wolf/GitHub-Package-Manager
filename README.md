@@ -9,7 +9,7 @@ Compared to other GitHub package managers, GHPM offers unparalleled features suc
 Whether you're a beginner or an experienced programmer, GHPM offers the tools you need to take your programming experience to the next level.
 
 ## quick install
-### MacOS & Linux & Windows-(Untested) *v1.4.1*
+### MacOS & Linux *v1.4.1*
 	git clone -b v1.4.1 https://github.com/smoke-wolf/GitHub-Package-Manager.git
 	cd GitHub-Package-Manager
 	python3 Start.py
