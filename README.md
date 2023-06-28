@@ -1,4 +1,4 @@
-# GitHub Package Manager 1.4.1
+# GitHub Package Manager 1.4.4
 
 GHPM is a powerful package manager for GitHub that helps users to organize, compile, and recall packages with ease.
 
