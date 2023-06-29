@@ -13,7 +13,7 @@ Whether you're a beginner or an experienced programmer, GHPM offers the tools yo
 	git clone -b v1.4.4 https://github.com/smoke-wolf/GitHub-Package-Manager.git
 	cd GitHub-Package-Manager
 	python3 Start.py
- ### Windows *v1.4.4*
+ ### Windows *v1.4.4* [WinInstalls](https://github.com/smoke-wolf/GitHub-Package-Manager/wiki/Windows-Installation)
 	git clone -b v1.4.1 https://github.com/smoke-wolf/GitHubPackageManager-W.git
 	cd GithubPackageManager-W
 	python3 Start.py
