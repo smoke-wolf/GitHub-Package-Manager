@@ -13,6 +13,7 @@ import os
 import sys
 import time
 import User.UserProfile
+sd = User.UserProfile.SourceDirectory
 import System.Drive.Errors_Events.EventMan as EV
 from tkinter import messagebox
 import tkinter as tk
@@ -271,37 +272,21 @@ def Create():
     up.close()
     print(Password)
 
+def create_custom_style():
+    style = ttk.Style()
+    style.configure(
+        "Custom.TButton",
+        foreground="#2471ed",
+        background="#3498db",
+        relief="flat",
+        padding=10,
+        font=("Helvetica", 18, "bold")
+    )
+
+
+
 def settings_window():
-    EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
-    import User
-    settings_win = tk.Tk()
-    settings_win.title('Settings')
-    # Set window size and position
-    screen_width = settings_win.winfo_screenwidth()
-    screen_height = settings_win.winfo_screenheight()
-    window_width = 440
-    window_height = 460
-    settings_win.config(bg='#C5E0DC')
-    x_coordinate = (screen_width // 2) - (window_width // 2)
-    y_coordinate = (screen_height // 2) - (window_height // 2)
-    settings_win.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
-
-    sd = User.UserProfile.SourceDirectory[:-1]
-    options = [
-        'Toggle Forced Module Import',
-        'Toggle Forced Login',
-        'Toggle System Event display',
-        'Enable Command Line Interface',
-        'Change UserName',
-        'Change Password',
-        'reset all',
-        'Send Logs',
-        'Toggle Push Logs',
-        'Toggle Auto Update',
-        'Toggle Advanced Logging',
-        'Exit Settings',
-
-    ]
+    print()
 
     def do_something(index):
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
@@ -570,23 +555,23 @@ def settings_window():
                 'GHPM',
                 f"""To Launch The CLI, In your terminal all you need to do is run gh (arg)
 
-examples:
-[gh -I https://github.com/SomeUser/Something.git] -> this installs the repo following -I
-[gh -IL  /Users/Someone/Something] -> this will import all of the files within the specified directory
+    examples:
+    [gh -I https://github.com/SomeUser/Something.git] -> this installs the repo following -I
+    [gh -IL  /Users/Someone/Something] -> this will import all of the files within the specified directory
 
-======================================
-Help
-====
--I -> Install (arg<repo>)
--IL -> Install Local (arg<dir>)
+    ======================================
+    Help
+    ====
+    -I -> Install (arg<repo>)
+    -IL -> Install Local (arg<dir>)
 
--LA -> List All Installs
--LL -> Launch Local Directory
--LG -> Launch Git Project
--LC -> Launch Advanced Projects
+    -LA -> List All Installs
+    -LL -> Launch Local Directory
+    -LG -> Launch Git Project
+    -LC -> Launch Advanced Projects
 
--UG -> Uninstall GitHub Projects
--UL -> Uninstall Local directories""",
+    -UG -> Uninstall GitHub Projects
+    -UL -> Uninstall Local directories""",
             )
             messagebox.showinfo('CLI', 'now available')
         elif index == 4:
@@ -731,23 +716,59 @@ Help
         elif index == 11:
             settings_win.destroy()
 
-    try:
-        for i, option in enumerate(options):
-            button = ttk.Button(
-                settings_win,
-                text=option,
-                command=lambda i=i: do_something(i),
-                style="Custom.TButton",  # Apply custom style
-            )
-            button.pack(pady=5, padx=10, fill=tk.X)
+    EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
+    import User
+    from tkinter import ttk
+    settings_win = tk.Tk()
+    settings_win.title('Settings')
 
-        # Create a custom style for the buttons
-        style = ttk.Style()
-        style.configure("Custom.TButton", foreground="#23a60c", background="#3498db", padding=10)
-        settings_win.mainloop()
-    except:
-        EV.guiEvent(0,
-                    f'{get_current_function()} Error: Settings List Failed',
-                    inspect.currentframe().f_lineno,
-                    os.path.abspath(__file__), False, True,
-                    3)
+    # Set window size and position
+    screen_width = settings_win.winfo_screenwidth()
+    screen_height = settings_win.winfo_screenheight()
+    window_width = 440
+    window_height = 460
+    settings_win.config(bg='#C5E0DC')
+    x_coordinate = (screen_width // 2) - (window_width // 2)
+    y_coordinate = (screen_height // 2) - (window_height // 2)
+    settings_win.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
+
+    options = [
+        'Toggle Forced Module Import',
+        'Toggle Forced Login',
+        'Toggle System Event display',
+        'Enable Command Line Interface',
+        'Change UserName',
+        'Change Password',
+        'reset all',
+        'Send Logs',
+        'Toggle Push Logs',
+        'Toggle Auto Update',
+        'Toggle Advanced Logging',
+        'Exit Settings',
+    ]
+
+    button_color = "#3498db"
+    hover_color = "#2980b9"
+
+    for i, option in enumerate(options):
+        button = tk.Button(
+            settings_win,
+            text=option,
+            command=lambda i=i: do_something(i),
+            bg=button_color,
+            fg="#a8138a",
+            activebackground=hover_color,
+            activeforeground="white",
+            padx=10,
+            pady=4,
+            font=("Helvetica", 14, "bold"),
+            borderwidth=0,  # Remove border
+            highlightthickness=0  # Remove highlight
+        )
+        button.pack(pady=5, padx=10, fill=tk.X)
+
+    settings_win.mainloop()
+
+
+
+
