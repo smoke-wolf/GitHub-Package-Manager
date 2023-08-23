@@ -19,7 +19,7 @@ def replace_and_remove(directory_a, directory_b):
     shutil.rmtree(directory_b)
 
 
-url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/INFO/System/Cache/System/COMPATABLE"
+url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/COMPATABLE"
 
 response = requests.get(url)
 if response.status_code == 200:
@@ -44,7 +44,7 @@ else:
 
 #   Try Update
 
-url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/INFO/System/Cache/System/Version.py"
+url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/Version.py"
 
 response = requests.get(url)
 if response.status_code == 200:
