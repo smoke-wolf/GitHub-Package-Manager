@@ -251,6 +251,13 @@ def GUI():
             "description": "Find and run all Git Repos on device",
         },
         {
+            "repo_name": "Craft",
+            "repo_url": "https://github.com/fogleman/Craft.git",
+            '''description": "Minecraft clone for Windows, Mac OS X and Linux.
+            Just a few thousand lines of C using modern OpenGL (shaders). Online 
+            multiplayer support is included using a Python-based server.''',
+        },
+        {
             "repo_name": "Requirement-Scanner",
             "repo_url": "https://github.com/smoke-wolf/ReqScanner",
             "description": "Compile a list of all pip packages used in a python application",
@@ -272,6 +279,14 @@ def GUI():
             "repo_url": "https://github.com/smoke-wolf/GpLock",
             "description": "Compile a list of all pip packages used in a python application",
         },
+        {
+            "repo_name": "Waron",
+            "repo_url": "https://github.com/iniridwanul/Waron",
+            "description": '''Waron is a framework that can be used to generate DDOS Attack, 
+            Bombing, Text Repeat, Strong Password. This framework has been created for 
+            educational purposes only.''',
+        },
+        
     ]
 
     for git_row in git_rows:
