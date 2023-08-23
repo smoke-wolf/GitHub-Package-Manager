@@ -5,7 +5,7 @@ GHPM Is coming along, with some key new features as of version 1.5.x. *Find more
 There are also a few main goals I am aiming to achieve in this version as well.  I plan on integrating a number of suggestions from the discussions.  As well as making it as useful as possible.
 
  
-## :part_alternation_mark quick install :part_alternation_mark: :computer:
+## quick install :part_alternation_mark: :computer:
 
 ### MacOS / Linux *v1.5.x*
 	git clone -b v1.5.0 https://github.com/smoke-wolf/GitHub-Package-Manager.git
