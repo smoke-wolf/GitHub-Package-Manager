@@ -48,4 +48,4 @@ When you first launch the application, you will be prompted to create a password
  - [ ] Better Error Tracking And Predictive Prevention
  - [ ] Multi Version Support 
  - [ ] More Options For General Application Functioning
- - [ ] More App Redesign
+ - [x] More App Redesign
