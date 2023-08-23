@@ -52,7 +52,6 @@ if response.status_code == 200:
     # Now, the content of the URL is stored in the 'content' variable
     print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
     with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py','w') as w:
-        input('Enter to Continue with update.')
         w.write(content)
 
 else:
