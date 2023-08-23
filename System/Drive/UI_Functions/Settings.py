@@ -6,6 +6,8 @@ import socket
 import subprocess
 from tkinter import ttk, simpledialog
 
+import requests
+
 global os
 import os
 import sys
@@ -293,7 +295,10 @@ def settings_window():
         'Change UserName',
         'Change Password',
         'reset all',
+        'Send Logs',
+        'Toggle Push Logs',
         'Exit Settings',
+
     ]
 
     def do_something(index):
@@ -672,7 +677,27 @@ Help
 
         elif index == 6:
             reset_all()
+
         elif index == 7:
+            import User.UserProfile
+            with open(f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents', 'r') as ev:
+                log = f'https://priv-mu.vercel.app/{ev.read()}'
+
+                print(requests.get(log))
+        elif index == 8:
+            target = open(f'{sd}/User/UserProfile.py', 'a')
+            import User
+
+            Cstat = User.UserProfile.PushLogs
+            if Cstat is True:
+                status = False
+            else:
+                status = True
+
+            target.write(f'\nPushLogs = {status}')
+            target.close()
+            messagebox.showinfo('Update', f'PushLogs set to {status}')
+        elif index == 9:
             settings_win.destroy()
 
     try:
