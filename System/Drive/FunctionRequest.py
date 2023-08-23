@@ -270,6 +270,11 @@ def GUI():
             "description": "Hope you enjoy using GHPM",
         },
         {
+            "repo_name": "alfred",
+            "repo_url": "https://github.com/Alfredredbird/alfred",
+            "description": "Alfred is a advanced OSINT information gathering tool",
+        },
+        {
             "repo_name": "Requirement-Scanner",
             "repo_url": "https://github.com/smoke-wolf/ReqScanner",
             "description": "Compile a list of all pip packages used in a python application",
