@@ -5,7 +5,9 @@ from tkinter import ttk
 import User.UserProfile
 import System.Drive.Errors_Events.EventMan as EV
 import System.Drive.UI_Functions.Install
+
 cwd = User.UserProfile.SourceDirectory
+
 
 def get_current_function():
     stack = inspect.stack()
@@ -33,7 +35,6 @@ def GUI():
 
     import tkinter as tk
 
-
     def show_information():
         import System.Drive.UI_Functions.Information as IF
         IF.show_information()
@@ -45,7 +46,8 @@ def GUI():
     def crypt():
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
         try:
-            os.system(f'''osascript -e 'tell application "Terminal" to do script "cd {User.UserProfile.SourceDirectory[:-1]}&&python3 CLI.py"'
+            os.system(
+                f'''osascript -e 'tell application "Terminal" to do script "cd {User.UserProfile.SourceDirectory[:-1]}&&python3 CLI.py"'
 ''')
         except:
             EV.guiEvent(0, f'{get_current_function()} Error: CLI.py may not exist',
@@ -79,7 +81,6 @@ def GUI():
         CS.start_server()
 
     global root
-
 
     root = tk.Tk()
     root.title('GHp Manager')
@@ -223,7 +224,6 @@ def GUI():
     # Generate git rows function
     def generate_git_row(repo_name, repo_url, description):
 
-
         git_row_frame = ttk.Frame(content_frame)
 
         repo_name_label = tk.Label(
@@ -236,7 +236,7 @@ def GUI():
             pady=5,
         )
         repo_name_label.pack(side="left")
-
+        import System.Drive.UI_Functions
         download_button = tk.Button(
             git_row_frame,
             text="Download",
@@ -244,7 +244,7 @@ def GUI():
             fg=text_color,
             padx=10,
             pady=5,
-            command=lambda: (System.Drive.UI_Functions.Install.Installer(value=repo_url), System.Drive.Errors_Events.EventMan.PushAnalytics(a1=uuid.uuid1().hex, a2='addinstall', a3=f'{repo_url}')),
+            command=lambda: (System.Drive.UI_Functions.Install.Installer(value=repo_url)),
         )
         download_button.pack(side="right")
 
@@ -263,6 +263,7 @@ def GUI():
 
         spacer_frame = tk.Frame(content_frame, bg=bg_color, height=10)
         spacer_frame.pack()
+
     git_rows = [
         {
             "repo_name": "Thank You For Downloading!",
@@ -318,13 +319,13 @@ def GUI():
             if User.UserProfile.Forced_Login:
                 import System.Drive.Login
                 exec('System.Drive.Login')
+
             root.mainloop()
     else:
         if User.UserProfile.Forced_Login:
             import System.Drive.Login
             exec('System.Drive.Login')
         root.mainloop()
-    
 
 
 
