@@ -55,6 +55,13 @@ def GUI():
         import System.Drive.UI_Functions.KillServer as KS
         KS.kill_server()
 
+    def kill_r():
+        import System.Drive.VersionUpdate
+        try:
+            exec('System.Drive.VersionUpdate')
+        except:
+            pass
+
     def show_install():
         import System.Drive.UI_Functions.Install as IN
         IN.show_install()
@@ -119,7 +126,7 @@ def GUI():
         bg=button_color,
         fg='#006b73',
         height=3,
-        width=12,
+        width=7,
         font=button_font,
         command=start_server
     )
@@ -131,11 +138,23 @@ def GUI():
         bg=button_color,
         fg='#006b73',
         height=3,
-        width=12,
+        width=7,
         font=button_font,
         command=kill_server
     )
     kill_server_button.pack(side='left', padx=10)
+
+    kill_server_butto3n = tk.Button(
+        server_buttons_frame,
+        text='Update',
+        bg=button_color,
+        fg='#006b73',
+        height=3,
+        width=7,
+        font=button_font,
+        command=kill_r
+    )
+    kill_server_butto3n.pack(side='left', padx=10)
 
     buttons = []
 
@@ -158,7 +177,7 @@ def GUI():
 
     bottom_button = tk.Button(
         root,
-        text='CML',
+        text='CLI',
         bg='#C54034',
         fg='white',
         height=3,
@@ -251,13 +270,6 @@ def GUI():
             "description": "Find and run all Git Repos on device",
         },
         {
-            "repo_name": "Craft",
-            "repo_url": "https://github.com/fogleman/Craft.git",
-            "description": '''Minecraft clone for Windows, Mac OS X and Linux.
-            Just a few thousand lines of C using modern OpenGL (shaders). Online 
-            multiplayer support is included using a Python-based server.''',
-        },
-        {
             "repo_name": "Requirement-Scanner",
             "repo_url": "https://github.com/smoke-wolf/ReqScanner",
             "description": "Compile a list of all pip packages used in a python application",
@@ -279,14 +291,6 @@ def GUI():
             "repo_url": "https://github.com/smoke-wolf/GpLock",
             "description": "Compile a list of all pip packages used in a python application",
         },
-        {
-            "repo_name": "Waron",
-            "repo_url": "https://github.com/iniridwanul/Waron",
-            "description": '''Waron is a framework that can be used to generate DDOS Attack, 
-            Bombing, Text Repeat, Strong Password. This framework has been created for 
-            educational purposes only.''',
-        },
-        
     ]
 
     for git_row in git_rows:
