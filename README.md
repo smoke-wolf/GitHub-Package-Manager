@@ -1,11 +1,11 @@
-# GitHub Package Manager 1.5.0
+# GitHub Package Manager  1.5.0 :low_brightness:
 
 GHPM Is coming along, with some key new features as of version 1.5.x. *Find more on that later on.*
 
 There are also a few main goals I am aiming to achieve in this version as well.  I plan on integrating a number of suggestions from the discussions.  As well as making it as useful as possible.
 
  
-## quick install
+## :part_alternation_mark quick install :part_alternation_mark: :computer:
 
 ### MacOS / Linux *v1.5.x*
 	git clone -b v1.5.0 https://github.com/smoke-wolf/GitHub-Package-Manager.git
@@ -19,12 +19,12 @@ I aim to address suggestions and am activly woking on improving the app.
 
 
 
-### Change Notes:
+### :currency_exchange: Change Notes: :currency_exchange:
 
  
 
  1. Updated UI
- 2. Easier Support with **Send Logs** 
+ 2. Easier Support with **Send Logs**  :sparkle:
  3. Faster & More Reliable Updates
  4. Small Bugs Fixed In Settings
 
