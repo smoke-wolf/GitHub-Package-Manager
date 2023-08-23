@@ -308,10 +308,16 @@ def GUI():
         try:
             import System.Drive.VersionUpdate
             System.Drive.VersionUpdate
-            
+
         except:
+            if User.UserProfile.Forced_Update:
+                import System.Drive.Login
+                exec('System.Drive.Login')
             root.mainloop()
     else:
+        if User.UserProfile.Forced_Login:
+            import System.Drive.Login
+            exec('System.Drive.Login')
         root.mainloop()
     
 
