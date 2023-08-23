@@ -94,7 +94,7 @@ if FirstUse is True:  # Is first use
 
     try:
         UserProfile.write(
-            f"\nUserPrivileges = '{UserPrivileges}'\nSourceDirectory = '{SourceDirectory}/'\nForce_Import_Request = True \nuuid1 = '{uuid1}'\nuuid4 = '{uuid4}'\nDisplayEvents = True \nPushLogs = True"
+            f"\nUserPrivileges = '{UserPrivileges}'\nSourceDirectory = '{SourceDirectory}/'\nForce_Import_Request = True \nuuid1 = '{uuid1}'\nuuid4 = '{uuid4}'\nDisplayEvents = True \nPushLogs = True \nAdvancedL = True \nAutoUpdate = True"
         )
         UserProfile.close()
 
