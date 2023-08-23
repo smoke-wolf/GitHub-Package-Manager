@@ -300,7 +300,18 @@ def GUI():
 
     # Define the custom style for the frame border
     style.configure("My.TFrame", bordercolor=border_color)
-    root.mainloop()
+
+    import User.UserProfile
+    EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Login', a3='None')
+    if User.UserProfile.AutoUpdate:
+        import System.Drive.VersionUpdate
+        try:
+            exec('System.Drive.VersionUpdate')
+        except:
+            pass
+    else:
+        root.mainloop()
+    
 
 
 
