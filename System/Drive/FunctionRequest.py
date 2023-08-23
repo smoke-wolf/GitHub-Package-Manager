@@ -307,8 +307,9 @@ def GUI():
         import System.Drive.VersionUpdate
         try:
             exec('System.Drive.VersionUpdate')
+            
         except:
-            pass
+            root.mainloop()
     else:
         root.mainloop()
     
