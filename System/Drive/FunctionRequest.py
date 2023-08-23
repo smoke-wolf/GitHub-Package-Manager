@@ -265,9 +265,9 @@ def GUI():
         spacer_frame.pack()
     git_rows = [
         {
-            "repo_name": "NexusPM",
-            "repo_url": "https://github.com/smoke-wolf/Nexus-PM",
-            "description": "Find and run all Git Repos on device",
+            "repo_name": "Thank You For Downloading!",
+            "repo_url": "",
+            "description": "Hope you enjoy using GHPM",
         },
         {
             "repo_name": "Requirement-Scanner",
