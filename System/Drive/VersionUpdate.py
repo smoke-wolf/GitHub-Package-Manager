@@ -5,7 +5,10 @@ import sys
 import User.UserProfile as UserProfile
 
 import requests
-
+try:
+    shutil.rmtree(f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager')
+except:
+    pass
 
 def replace_and_remove(directory_a, directory_b):
     # Copy the content of directory B to directory A
