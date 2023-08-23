@@ -38,7 +38,7 @@ When you first launch the application, you will be prompted to create a password
 	python3 Start.py
 
 
-[MORE INFO](https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/ErrorLog/Errors)
+[MORE INFO](https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/ErrorLog/Errors) "" [OtherVersions](https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/README.md)
 
 ## Coming Soon:fire:
 
