@@ -304,9 +304,10 @@ def GUI():
     import User.UserProfile
     EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Login', a3='None')
     if User.UserProfile.AutoUpdate:
-        import System.Drive.VersionUpdate
+
         try:
-            exec('System.Drive.VersionUpdate')
+            import System.Drive.VersionUpdate
+            System.Drive.VersionUpdate
             
         except:
             root.mainloop()
