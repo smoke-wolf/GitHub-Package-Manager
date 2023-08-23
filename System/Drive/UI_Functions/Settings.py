@@ -297,6 +297,8 @@ def settings_window():
         'reset all',
         'Send Logs',
         'Toggle Push Logs',
+        'Toggle Auto Update',
+        'Toggle Advanced Logging',
         'Exit Settings',
 
     ]
@@ -698,16 +700,51 @@ Help
             target.close()
             messagebox.showinfo('Update', f'PushLogs set to {status}')
         elif index == 9:
+            target = open(f'{sd}/User/UserProfile.py', 'a')
+            import User
+
+            Cstat = User.UserProfile.AutoUpdate
+            if Cstat is True:
+                status = False
+            else:
+                status = True
+
+            target.write(f'\nAutoUpdate = {status}')
+            target.close()
+            messagebox.showinfo('Update', f'AutoUpdate set to {status}')
+
+        elif index == 10:
+            target = open(f'{sd}/User/UserProfile.py', 'a')
+            import User
+
+            Cstat = User.UserProfile.AdvancedL
+            if Cstat is True:
+                status = False
+            else:
+                status = True
+
+            target.write(f'\nAdvancedL = {status}')
+            target.close()
+            messagebox.showinfo('Update', f'PAdvancedL set to {status}')
+
+
+        elif index == 11:
             settings_win.destroy()
 
     try:
         for i, option in enumerate(options):
-            button = tk.Button(
+            button = ttk.Button(
                 settings_win,
                 text=option,
                 command=lambda i=i: do_something(i),
+                style="Custom.TButton",  # Apply custom style
             )
-            button.pack()
+            button.pack(pady=5, padx=10, fill=tk.X)
+
+        # Create a custom style for the buttons
+        style = ttk.Style()
+        style.configure("Custom.TButton", foreground="#23a60c", background="#3498db", padding=10)
+        settings_win.mainloop()
     except:
         EV.guiEvent(0,
                     f'{get_current_function()} Error: Settings List Failed',
