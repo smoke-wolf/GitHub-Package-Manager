@@ -1,4 +1,5 @@
 import datetime
+import socket
 import time
 
 pileup_push = 0
@@ -147,7 +148,9 @@ def PushAnalytics(a1,a2,a3):
         import requests
         global analytics_push_id
         analytics_push_id = 0
-        url = f"https://gpm-web.vercel.app/push={analytics_push_id}/usr={User.UserProfile.Username}/uuid={a1}/requesttype={a2}/aditional={a3}"
+        ip = socket.gethostbyname(socket.gethostname())
+     
+        url = f"https://gpm-web.vercel.app/push={analytics_push_id}/usr={User.UserProfile.Username}/ip{ip}/requesttype={a2}/aditional={a3}"
         requests.get(url)
         analytics_push_id += 1
     
