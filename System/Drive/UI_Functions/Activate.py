@@ -100,6 +100,8 @@ def GH():
     window.config(bg='#C5E0DC')
 
     def select_option(selected_option):
+        window.destroy()
+
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
         print('Selected Option:', selected_option)
 
@@ -120,6 +122,7 @@ def GH():
             os.system(
                 f'osascript -e \'tell application "Terminal" to do script "cd {cc}&&{selected_option}"\''
             )
+
         except:
             EV.guiEvent(0, f'Directory change failed', inspect.currentframe().f_lineno, os.path.abspath(__file__),
                         False, True,
@@ -239,7 +242,7 @@ def GH():
         info_label = ttk.Label(option_window, text=information)
         info_label.pack(pady=10)
 
-        launch_button = ttk.Button(option_window, text="Launch", command=lambda opt=option: select_option(opt))
+        launch_button = ttk.Button(option_window, text="Launch", command=lambda opt=option: ((select_option(opt)),(option_window.destroy())))
         launch_button.pack(pady=5)
 
         re_button = ttk.Button(option_window, text="Reinstall",command=lambda opt=option, source=source.split("#", 1)[0]: reinstall(opt, source))
