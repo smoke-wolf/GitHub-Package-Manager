@@ -83,12 +83,12 @@ def GUI():
     global root
 
     root = tk.Tk()
-    root.title('GHp Manager')
+    root.title('GHpm')
     root.config(bg='#C5E0DC')
 
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
-
+    root.resizable(False, False)
     window_width = 526
     window_height = 460
     x_coordinate = (screen_width - window_width) // 2
@@ -199,7 +199,7 @@ def GUI():
     # Apply Peppermint theme to canvas and scrollbar
     style = ttk.Style()
     style.theme_use("clam")  # Using the "clam" theme for a modern look
-    style.configure("Vertical.TScrollbar", gripcount=0, background=bg_color, troughcolor=bg_color, bordercolor=bg_color)
+    style.configure("Vertical.TScrollbar", gripcount=0, background=bg_color, troughcolor=bg_color, bordercolor=bg_color, borderwidth=1)
     style.map("Vertical.TScrollbar", background=[("active", button_color), ("disabled", bg_color)])
 
     # Create a canvas and add a scrollbar
