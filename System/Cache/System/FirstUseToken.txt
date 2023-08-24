@@ -10,7 +10,7 @@
     "index": 5,
     "name": "Touch Script",
     "description": ".touch is a lightweight and user-friendly scripting language designed to automate common tasks on your computer.",
-    "image": "https://example.com/touchscript_image.png",
+    "image": "https://github.com/smoke-wolf/TouchScript/blob/main/169290725663027850.png?raw=true",
     "githubUrl": "https://github.com/smoke-wolf/TouchScript"
   },
   {
