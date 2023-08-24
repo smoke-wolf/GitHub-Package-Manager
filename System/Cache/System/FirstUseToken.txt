@@ -10,7 +10,7 @@
     "index": 3,
     "name": "Requirement-Scanner",
     "description": "Compile a list of all pip packages used in a python application",
-    "image": "https://example.com/reqscanner_image.png",
+    "image": "https://github.com/smoke-wolf/GitHub-Package-Manager/blob/v1.5.0/System/Drive/Icon.png?raw=true",
     "githubUrl": "https://github.com/smoke-wolf/ReqScanner"
   },
   {
