@@ -1,9 +1,9 @@
 [
   {
     "index": 1,
-    "name": "Tungsten Client",
-    "description": "An advanced client with powerful features for game enhancement.",
-    "image": "https://www.911metallurgist.com/blog/wp-content/uploads/2015/07/Tungsten.png",
+    "name": "Requirement-Scanner",
+    "description": "something",
+    "image": "https://github.com/smoke-wolf/TouchScript/blob/main/Screen%20Shot%202023-08-24%20at%2011.58.32%20AM.png?raw=true",
     "githubUrl": "https://github.com/smoke-wolf"
   },
   {
