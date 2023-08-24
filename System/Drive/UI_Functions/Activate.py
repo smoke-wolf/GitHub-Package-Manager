@@ -19,6 +19,23 @@ cwd = User.UserProfile.SourceDirectory
 import uuid
 EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Activation', a3='None')
 
+
+def remove_line_by_content(file_path, content_to_remove):
+    try:
+        with open(file_path, 'r') as file:
+            lines = file.readlines()
+
+        with open(file_path, 'w') as file:
+            for line in lines:
+                if content_to_remove not in line:
+                    file.write(line)
+
+        print(f"Lines containing '{content_to_remove}' removed from {file_path}")
+    except FileNotFoundError:
+        print(f"File '{file_path}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
 def is_safe_input(input_str):
     EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
     # Regular expression pattern for command injection detection
@@ -107,6 +124,31 @@ def GH():
             EV.guiEvent(0, f'Directory change failed', inspect.currentframe().f_lineno, os.path.abspath(__file__),
                         False, True,
                         1)
+    def reinstall(opt, source):
+        import System.Drive.UI_Functions.Install
+        value = lines[int(options.index(opt))]
+        print(value)
+        cc = value
+        listOfWords = value.split('&', 1)
+        if len(listOfWords) > 0:
+            value = listOfWords[1]
+
+        value = value.split('-', 1)[0]
+
+        cc = cc.split('@', 1)[0]
+        cc = cc.split("%", 1)[0]
+
+
+        import tkinter as tk
+        from tkinter import messagebox
+        import shutil
+        shutil.rmtree(cc)
+        remove_line_by_content(file_path=f'{User.UserProfile.SourceDirectory}System/.Cache/System/GitHub/int2.txt',
+                               content_to_remove=opt)
+        remove_line_by_content(file_path=f'{User.UserProfile.SourceDirectory}System/.Cache/System/GitHub/Int.txt', content_to_remove=opt)
+        System.Drive.UI_Functions.Install.Installer(value= source)
+
+
 
     def updated(selected_option, source):
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
@@ -199,6 +241,9 @@ def GH():
 
         launch_button = ttk.Button(option_window, text="Launch", command=lambda opt=option: select_option(opt))
         launch_button.pack(pady=5)
+
+        re_button = ttk.Button(option_window, text="Reinstall",command=lambda opt=option, source=source.split("#", 1)[0]: reinstall(opt, source))
+        re_button.pack(pady=5)
 
         update_button = ttk.Button(option_window, text="Update",
                                    command=lambda opt=option, source=source.split("#", 1)[0]: updated(opt, source))
