@@ -3,7 +3,7 @@
     "index": 4,
     "name": "Local Weather",
     "description": "Get a Local Weather Report",
-    "image": "https://example.com/weather_image.png",
+    "image": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vhv.rs%2Fviewpic%2FTihR_cartoon-thunder-and-lightning-hd-png-download%2F&psig=AOvVaw34mwL-RQQ1lJ28vmprV5PY&ust=1692999307716000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCOju1ISg9oADFQAAAAAdAAAAABAE",
     "githubUrl": "https://github.com/smoke-wolf/weather"
   },
   {
