@@ -1,0 +1,44 @@
+[
+  {
+    "index": 1,
+    "name": "Tungsten Client",
+    "description": "An advanced client with powerful features for game enhancement.",
+    "image": "https://www.911metallurgist.com/blog/wp-content/uploads/2015/07/Tungsten.png",
+    "githubUrl": "https://github.com/smoke-wolf"
+  },
+  {
+    "index": 2,
+    "name": "Alfred",
+    "description": "Alfred is an advanced OSINT information gathering tool",
+    "image": "https://example.com/alfred_image.png",
+    "githubUrl": "https://github.com/Alfredredbird/alfred"
+  },
+  {
+    "index": 3,
+    "name": "Requirement-Scanner",
+    "description": "Compile a list of all pip packages used in a python application",
+    "image": "https://example.com/reqscanner_image.png",
+    "githubUrl": "https://github.com/smoke-wolf/ReqScanner"
+  },
+  {
+    "index": 4,
+    "name": "Local Weather",
+    "description": "Get a Local Weather Report",
+    "image": "https://example.com/weather_image.png",
+    "githubUrl": "https://github.com/smoke-wolf/weather"
+  },
+  {
+    "index": 5,
+    "name": "Touch Script",
+    "description": ".touch is a lightweight and user-friendly scripting language designed to automate common tasks on your computer.",
+    "image": "https://example.com/touchscript_image.png",
+    "githubUrl": "https://github.com/smoke-wolf/TouchScript"
+  },
+  {
+    "index": 6,
+    "name": "GPlock",
+    "description": "Compile a list of all pip packages used in a python application",
+    "image": "https://example.com/gplock_image.png",
+    "githubUrl": "https://github.com/smoke-wolf/GpLock"
+  }
+]
