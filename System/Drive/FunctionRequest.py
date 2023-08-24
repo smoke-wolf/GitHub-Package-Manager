@@ -90,7 +90,7 @@ def GUI():
     screen_height = root.winfo_screenheight()
     root.resizable(False, False)
     window_width = 526
-    window_height = 460
+    window_height = 505
     x_coordinate = (screen_width - window_width) // 2
     y_coordinate = (screen_height - window_height) // 2
     root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
@@ -159,8 +159,8 @@ def GUI():
 
     buttons = []
 
-    button_texts = ['Information', 'Settings', 'Install', 'Activate', 'Uninstall']
-    button_commands = [show_information, settings_window, show_install, Activate, show_list_window]
+    button_texts = ['Information', 'Settings', 'Install', 'Activate', 'Uninstall','CommandL']
+    button_commands = [show_information, settings_window, show_install, Activate, show_list_window,crypt]
 
     for text, command in zip(button_texts, button_commands):
         button = tk.Button(
@@ -175,16 +175,16 @@ def GUI():
         )
         button.pack(side='top', padx=15, pady=15)
         buttons.append(button)
-
+    import System.Drive.templates.main
     bottom_button = tk.Button(
         root,
-        text='CLI',
+        text='GhPm Recommended',
         bg='#C54034',
         fg='white',
         height=3,
-        width=12,
+        width=15,
         font=button_font,
-        command=crypt,
+        command=System.Drive.templates.main.main,
     )
     bottom_button.pack(side='bottom', padx=10, pady=15)
 
