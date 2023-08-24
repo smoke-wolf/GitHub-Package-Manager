@@ -1,12 +1,5 @@
 [
   {
-    "index": 1,
-    "name": "Requirement-Scanner",
-    "description": "something",
-    "image": "https://github.com/smoke-wolf/TouchScript/blob/main/169290725663027850.png?raw=true",
-    "githubUrl": "https://github.com/smoke-wolf"
-  },
-  {
     "index": 2,
     "name": "Alfred",
     "description": "Alfred is an advanced OSINT information gathering tool",
