@@ -5,9 +5,7 @@ from tkinter import ttk
 import User.UserProfile
 import System.Drive.Errors_Events.EventMan as EV
 import System.Drive.UI_Functions.Install
-
 cwd = User.UserProfile.SourceDirectory
-
 
 def get_current_function():
     stack = inspect.stack()
@@ -35,6 +33,7 @@ def GUI():
 
     import tkinter as tk
 
+
     def show_information():
         import System.Drive.UI_Functions.Information as IF
         IF.show_information()
@@ -46,8 +45,7 @@ def GUI():
     def crypt():
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
         try:
-            os.system(
-                f'''osascript -e 'tell application "Terminal" to do script "cd {User.UserProfile.SourceDirectory[:-1]}&&python3 CLI.py"'
+            os.system(f'''osascript -e 'tell application "Terminal" to do script "cd {User.UserProfile.SourceDirectory[:-1]}&&python3 CLI.py"'
 ''')
         except:
             EV.guiEvent(0, f'{get_current_function()} Error: CLI.py may not exist',
@@ -56,13 +54,6 @@ def GUI():
     def kill_server():
         import System.Drive.UI_Functions.KillServer as KS
         KS.kill_server()
-
-    def kill_r():
-        import System.Drive.VersionUpdate
-        try:
-            exec('System.Drive.VersionUpdate')
-        except:
-            pass
 
     def show_install():
         import System.Drive.UI_Functions.Install as IN
@@ -81,6 +72,7 @@ def GUI():
         CS.start_server()
 
     global root
+
 
     root = tk.Tk()
     root.title('GHp Manager')
@@ -127,7 +119,7 @@ def GUI():
         bg=button_color,
         fg='#006b73',
         height=3,
-        width=7,
+        width=12,
         font=button_font,
         command=start_server
     )
@@ -139,23 +131,11 @@ def GUI():
         bg=button_color,
         fg='#006b73',
         height=3,
-        width=7,
+        width=12,
         font=button_font,
         command=kill_server
     )
     kill_server_button.pack(side='left', padx=10)
-
-    kill_server_butto3n = tk.Button(
-        server_buttons_frame,
-        text='Update',
-        bg=button_color,
-        fg='#006b73',
-        height=3,
-        width=7,
-        font=button_font,
-        command=kill_r
-    )
-    kill_server_butto3n.pack(side='left', padx=10)
 
     buttons = []
 
@@ -178,7 +158,7 @@ def GUI():
 
     bottom_button = tk.Button(
         root,
-        text='CLI',
+        text='CML',
         bg='#C54034',
         fg='white',
         height=3,
@@ -224,6 +204,7 @@ def GUI():
     # Generate git rows function
     def generate_git_row(repo_name, repo_url, description):
 
+
         git_row_frame = ttk.Frame(content_frame)
 
         repo_name_label = tk.Label(
@@ -236,7 +217,7 @@ def GUI():
             pady=5,
         )
         repo_name_label.pack(side="left")
-        import System.Drive.UI_Functions
+
         download_button = tk.Button(
             git_row_frame,
             text="Download",
@@ -244,7 +225,7 @@ def GUI():
             fg=text_color,
             padx=10,
             pady=5,
-            command=lambda: (System.Drive.UI_Functions.Install.Installer(value=repo_url)),
+            command=lambda: (System.Drive.UI_Functions.Install.Installer(value=repo_url), System.Drive.Errors_Events.EventMan.PushAnalytics(a1=uuid.uuid1().hex, a2='addinstall', a3=f'{repo_url}')),
         )
         download_button.pack(side="right")
 
@@ -263,17 +244,11 @@ def GUI():
 
         spacer_frame = tk.Frame(content_frame, bg=bg_color, height=10)
         spacer_frame.pack()
-
     git_rows = [
         {
-            "repo_name": "Thank You For Downloading!",
-            "repo_url": "",
-            "description": "Hope you enjoy using GHPM",
-        },
-        {
-            "repo_name": "alfred",
-            "repo_url": "https://github.com/Alfredredbird/alfred",
-            "description": "Alfred is a advanced OSINT information gathering tool",
+            "repo_name": "NexusPM",
+            "repo_url": "https://github.com/smoke-wolf/Nexus-PM",
+            "description": "Find and run all Git Repos on device",
         },
         {
             "repo_name": "Requirement-Scanner",
@@ -306,26 +281,7 @@ def GUI():
 
     # Define the custom style for the frame border
     style.configure("My.TFrame", bordercolor=border_color)
-
-    import User.UserProfile
-    EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Login', a3='None')
-    if User.UserProfile.AutoUpdate:
-
-        try:
-            import System.Drive.VersionUpdate
-            System.Drive.VersionUpdate
-
-        except:
-            if User.UserProfile.Forced_Login:
-                import System.Drive.Login
-                exec('System.Drive.Login')
-
-            root.mainloop()
-    else:
-        if User.UserProfile.Forced_Login:
-            import System.Drive.Login
-            exec('System.Drive.Login')
-        root.mainloop()
+    root.mainloop()
 
 
 
