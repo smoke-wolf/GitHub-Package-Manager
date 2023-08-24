@@ -15,9 +15,9 @@
   },
   {
     "index": 6,
-    "name": "GPlock",
+    "name": "ReqScanner",
     "description": "Compile a list of all pip packages used in a python application",
     "image": "https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/System/Screen%20Shot%202023-08-24%20at%202.25.51%20PM.png",
-    "githubUrl": "https://github.com/smoke-wolf/GpLock"
+    "githubUrl": "https://github.com/smoke-wolf/ReqScanner"
   }
 ]
