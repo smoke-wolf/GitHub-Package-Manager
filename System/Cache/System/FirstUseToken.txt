@@ -4,7 +4,7 @@
     "name": "Alfred",
     "description": "Alfred is an advanced OSINT information gathering tool",
     "image": "https://example.com/alfred_image.png",
-    "githubUrl": "https://github.com/Alfredredbird/alfred"
+    "githubUrl": "https://user-images.githubusercontent.com/105014217/263033253-04eb051d-15c3-4a32-b10b-dcdb12fee881.PNG"
   },
   {
     "index": 3,
