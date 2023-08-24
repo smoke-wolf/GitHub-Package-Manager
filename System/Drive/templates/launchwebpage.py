@@ -20,7 +20,7 @@ class WebWindow(QMainWindow):
 
         current_directory = os.getcwd()
 
-        self.web_view.setUrl(QUrl.fromLocalFile(f"{current_directory}/message.html"))  # Replace with the actual file path
+        self.web_view.setUrl(QUrl.fromLocalFile(f"{current_directory}/index.html"))  # Replace with the actual file path
 
         self.web_view.urlChanged.connect(self.handleUrlChanged)
 
