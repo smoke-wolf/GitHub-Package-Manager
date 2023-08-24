@@ -6,6 +6,13 @@
     "image": "https://www.vhv.rs/dpng/d/0-3482_cartoon-thunder-and-lightning-hd-png-download.png",
     "githubUrl": "https://github.com/smoke-wolf/weather"
   },
+{
+    "index": 2,
+    "name": "Alfred",
+    "description": "Alfred is a advanced OSINT information gathering tool",
+    "image": "https://user-images.githubusercontent.com/105014217/263033253-04eb051d-15c3-4a32-b10b-dcdb12fee881.PNG",
+    "githubUrl": "https://github.com/Alfredredbird/alfred"
+  },
   {
     "index": 5,
     "name": "Touch Script",
