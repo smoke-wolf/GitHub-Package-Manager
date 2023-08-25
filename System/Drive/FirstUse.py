@@ -2,7 +2,12 @@ import os
 import sys
 import time
 
-cwd = os.getcwd()
+import platform
+
+def is_mac_os():
+    return platform.system() == "Darwin"
+
+
 
 FirstUse = os.path.exists(
     f'{cwd}/System/.Cache/User/FirstUseToken.txt'
@@ -50,8 +55,10 @@ if FirstUse is True:  # Is first use
         import sys
 
         UUID = uuid.uuid1()
-
-        UserID = os.getlogin()
+        if is_mac_os() is not True:
+            UserID = 'root'
+        else:
+            UserID = os.getlogin()
 
         salt = '9lk'
 
@@ -85,8 +92,12 @@ if FirstUse is True:  # Is first use
         os.getcwd()
     )  # Getting the working directory for executing system calls
 
-    UserPrivileges = os.getlogin()  # Checks if user is root or not
-
+      # Checks if user is root or not
+    if is_mac_os() is not True:
+        UserPrivileges = 'root'
+    else:
+        UserPrivileges = os.getlogin()
+            
     import uuid
 
     uuid1 = uuid.uuid1().hex
