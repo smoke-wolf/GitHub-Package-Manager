@@ -10,7 +10,7 @@ There are also a few main goals I am aiming to achieve in this version as well. 
 ## quick install :part_alternation_mark: :computer:
 
 ### MacOS / Linux *v1.5.x*
-	git clone -b v1.5.0 https://github.com/smoke-wolf/GitHub-Package-Manager.git
+	git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
 	cd GitHub-Package-Manager
 	python3 Start.py
 	
