@@ -1,5 +1,13 @@
 [
 {
+    "index": 3,
+    "name": "Craft",
+    "description": "About
+A simple Minecraft clone written in C using modern OpenGL (shaders).",
+    "image": "https://camo.githubusercontent.com/90a37ca2eec8d3171fa2d6baf4be1ebf2a4fee6a2c16f5df7eefa03fc2171dfd/68747470733a2f2f692e696d6775722e636f6d2f666f597a33614e2e706e67",
+    "githubUrl": "https://github.com/fogleman/Craft"
+  },
+{
     "index": 2,
     "name": "Alfred",
     "description": "Alfred is a advanced OSINT information gathering tool",
