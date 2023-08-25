@@ -3,7 +3,7 @@ import sys
 import time
 
 import platform
-
+cwd = os.getcwd()
 def is_mac_os():
     return platform.system() == "Darwin"
 
