@@ -183,7 +183,7 @@ def AnalyticsRecord(a1):
         with open(f'{User.UserProfile.SourceDirectory}System/.Cache/User/analytics', 'r') as file:
             data = file.read()
             if is_same_date_as_today(f'{User.UserProfile.SourceDirectory}System/.Cache/User/analytics'):
-                url = f'''analytics={data}'''
+                url = f'''https://gpm-web.vercel.app/analytics={data}'''
                 requests.get(url)
 
 
