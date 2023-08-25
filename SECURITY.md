@@ -4,8 +4,10 @@ The creator of this project is not to blame for any data leaks or damage caused.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 1.2.X   | :white_check_mark: |
-| 1.1.x   | :x:                |
+| 1.5.x   | :white_check_mark: |
+| 1.4.X   | :white_check_mark: |
+| 1.3.x   | :x:                |
+
 
 ## Reporting a Vulnerability
 
