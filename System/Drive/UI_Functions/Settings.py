@@ -7,7 +7,7 @@ import subprocess
 from tkinter import ttk, simpledialog
 
 import requests
-
+import System.Drive.Errors_Events.EventMan as AR
 global os
 import os
 import sys
@@ -19,6 +19,7 @@ from tkinter import messagebox
 import tkinter as tk
 cwd = User.UserProfile.SourceDirectory
 
+AR.AnalyticsRecord(8)
 
 
 import uuid
