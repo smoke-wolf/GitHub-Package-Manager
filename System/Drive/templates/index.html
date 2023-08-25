@@ -31,18 +31,20 @@
         <p>Experience the services that set us apart.</p>
       </div>
       <div class="placeholder-info">
-        <a href="https://discord.gg/6fUH7QjpBq" target="_blank">Discord For Consumers</a>
+        <a href="" target="_blank">Coming Soon</a>
       </div>
 
       <div class="placeholder-info">
-         <a href="https://discord.gg/yP8AABKn" target="_blank">Discord For Ads</a>
+         <a href="https://vercel.com/smoke-wolf/gpm-web/logs?page=1&timeline=past30Minutes" target="_blank">Moderation Board</a>
 
       </div>
     </div>
   </div>
 
 <!-- Place this script block just before the closing </body> tag -->
+<!-- Place this script block just before the closing </body> tag -->
 <script>
+document.addEventListener("DOMContentLoaded", function() {
   const clientList = document.getElementById("clientList");
 
   async function fetchAndDisplayData() {
@@ -90,7 +92,7 @@
   // Fetch and display data every 30 seconds
   setInterval(fetchAndDisplayData, 30000); // 30 seconds in milliseconds
 
-  // Redirect to GitHub when the link is clicked
+  // Redirect to GitHub when the "Visit GitHub" link is clicked
   clientList.addEventListener("click", event => {
     const target = event.target;
     if (target.tagName === "A" && target.textContent === "Visit GitHub") {
@@ -98,7 +100,25 @@
       window.location.href = target.href;
     }
   });
-</script>
 
+  // Redirect to the Discord link when the "Discord For Consumers" link is clicked
+  const discordLink = document.querySelector("a[href='https://discord.gg/6fUH7QjpBq']");
+  if (discordLink) {
+    discordLink.addEventListener("click", event => {
+      event.preventDefault();
+      window.location.href = discordLink.href;
+    });
+  }
+
+  // Redirect to the Moderation Board link when the "Moderation Board" link is clicked
+  const moderationLink = document.querySelector("a[href='https://vercel.com/smoke-wolf/gpm-web/logs?page=1&timeline=past30Minutes']");
+  if (moderationLink) {
+    moderationLink.addEventListener("click", event => {
+      event.preventDefault();
+      window.location.href = moderationLink.href;
+    });
+  }
+});
+</script>
 </body>
 </html>
