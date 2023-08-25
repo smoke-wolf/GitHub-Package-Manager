@@ -1,5 +1,6 @@
 import datetime
 import inspect
+import subprocess
 from tkinter import ttk
 import System.Drive.Errors_Events.EventMan as AR
 global os
@@ -331,8 +332,16 @@ def Installer(value):
                                     print(value)
 
                                 try:
-                                    os.system(field2_value)
-                                    os.system(field3_value)
+                                    # Change the current working directory
+                                    subprocess.run(["cd", ChangeDir], shell=True)
+
+                                    # Run the commands using subprocess
+                                    subprocess.run(field1_value, shell=True)
+                                    subprocess.run(field2_value, shell=True)
+                                    subprocess.run(field3_value, shell=True)
+                                    subprocess.run(field4_value, shell=True)
+                                    subprocess.run(field5_value, shell=True)
+
                                 except:
                                     EV.guiEvent(0,
                                                 f'{get_current_function()} Error: Project Was Downloaded But Requirements or Permissions Not Installed',
