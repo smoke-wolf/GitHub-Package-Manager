@@ -5,7 +5,7 @@ import re
 import socket
 import subprocess
 from tkinter import ttk
-
+import System.Drive.Errors_Events.EventMan as AR
 
 global os
 import os
@@ -119,6 +119,7 @@ def GH():
         EV.NewEvent(event=f'Change Directory: {cc} ', Pol=0)
         EV.NewEvent(event=f'os command [!]{value}[!] ', Pol=0)
         try:
+            AR.AnalyticsRecord(4)
             os.system(
                 f'osascript -e \'tell application "Terminal" to do script "cd {cc}&&{selected_option}"\''
             )
@@ -128,6 +129,7 @@ def GH():
                         False, True,
                         1)
     def reinstall(opt, source):
+        AR.AnalyticsRecord(7)
         import System.Drive.UI_Functions.Install
         value = lines[int(options.index(opt))]
         print(value)
@@ -154,6 +156,7 @@ def GH():
 
 
     def updated(selected_option, source):
+        AR.AnalyticsRecord(6)
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
         value = lines[int(options.index(selected_option))]
         print(value)
@@ -329,6 +332,7 @@ def Activate():
                 try:
                     print(valueg[:-2])
                     print(value)
+                    AR.AnalyticsRecord(3)
                     os.system(
                         f'osascript -e \'tell application "Terminal" to do script "cd {value} && {valueg[:-2]}"\''
                     )
@@ -410,6 +414,7 @@ def Activate():
                         open(f'{cwd}System/.Cache/System/GitHub/Complex_install', 'w')
 
                         try:
+                            AR.AnalyticsRecord(5)
                             os.system(
                                 f'osascript -e \'tell application "Terminal" to do script "cd {B}&&{A}"\''
                             )
