@@ -20,7 +20,7 @@ def handle_first_use():
 
 handle_first_use()
 
-import System.Drive.FunctionRequest as fr
+
 
 
 def rename_folder(old_folder_name, new_folder_name):
@@ -67,7 +67,7 @@ def main():
     import System.Drive.Errors_Events.EventMan as EV
     import uuid
     EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Login', a3='None')
-
+    import System.Drive.FunctionRequest as fr
     fr.GUI()
 
 
