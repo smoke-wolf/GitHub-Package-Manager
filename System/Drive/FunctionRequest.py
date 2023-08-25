@@ -3,6 +3,7 @@ import uuid
 from tkinter import ttk
 
 import User.UserProfile
+import System.Drive.Errors_Events.EventMan as AR
 import System.Drive.Errors_Events.EventMan as EV
 import System.Drive.UI_Functions.Install
 
@@ -310,6 +311,14 @@ def GUI():
     style.configure("My.TFrame", bordercolor=border_color)
 
     import User.UserProfile
+    try:
+        with open(f'{User.UserProfile.SourceDirectory}System/.Cache/User/analytics', 'r') as file:
+            data = file.read()
+            import requests
+            url = f'''https://gpm-web.vercel.app/analytics={data}'''
+            requests.get(url)
+    except:
+        pass
     EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Login', a3='None')
     if User.UserProfile.AutoUpdate:
 
