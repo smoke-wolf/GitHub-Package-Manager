@@ -1,11 +1,4 @@
 [
-  {
-    "index": 4,
-    "name": "Local Weather",
-    "description": "Get a Local Weather Report",
-    "image": "https://www.vhv.rs/dpng/d/0-3482_cartoon-thunder-and-lightning-hd-png-download.png",
-    "githubUrl": "https://github.com/smoke-wolf/weather"
-  },
 {
     "index": 2,
     "name": "Alfred",
