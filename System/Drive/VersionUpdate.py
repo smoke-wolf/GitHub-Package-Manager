@@ -1,7 +1,7 @@
 import shutil
 import os
 import sys
-
+import System.Drive.Errors_Events.EventMan as AR
 import User.UserProfile as UserProfile
 
 import requests
@@ -35,7 +35,9 @@ if response.status_code == 200:
         print(CurrentVersion[11:-2])
 
     if CurrentVersion[11:-2] in comp:
+        AR.AnalyticsRecord(10)
         pass
+
     else:
         print('No Updates Available')
         sys.exit(0)
