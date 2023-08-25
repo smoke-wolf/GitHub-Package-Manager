@@ -1,7 +1,7 @@
 import datetime
 import inspect
 from tkinter import ttk
-
+import System.Drive.Errors_Events.EventMan as AR
 global os
 import User.UserProfile
 
@@ -66,6 +66,7 @@ def do_something_with_value(value):
             f = open(f'{cwd}System/.Cache/System/Local/Int.txt', 'a')
             f.write(f'\n{Form}')
             f.close()
+            AR.AnalyticsRecord(1)
             import User
 
             print('Installation Complete!')
@@ -250,6 +251,7 @@ def Installer(value):
     try:  # downloading from GitHub
         import System.Drive.Errors_Events.EventMan as EV
         import uuid
+
         EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Installation', a3=f'downloadined_from={Download_Source}')
         os.system(f"git clone '{Download_Source}'")
         EV.guiEvent(0, f'{get_current_function()} download complete', inspect.currentframe().f_lineno,
@@ -296,7 +298,7 @@ def Installer(value):
                     print(fi)
 
                     if fi == 0:
-
+                        AR.AnalyticsRecord(2)
                         import tkinter as tk
                         import os
                         from tkinter import messagebox
@@ -440,6 +442,7 @@ def Installer(value):
                         complexgather()
 
                     else:
+                        AR.AnalyticsRecord(0)
                         fi = Files0[int(fi)]
 
                         dashID = [
