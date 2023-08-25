@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Git Listings</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <div id="stars"></div>
+  <header>
+      <h1>Git Listings</h1>
+    </header>
+  <div id="container">
+
+
+    <!-- Exciting News: Coming Soon Banner -->
+
+    <div id="resultsContainer">
+      <ul id="clientList"></ul>
+
+      <!-- Discover Clients -->
+      <div class="client-post">
+        <h2>GitHubpm Advertisements</h2>
+        <p>Bringing you a better more natural option to grow your audience.</p>
+        <img src="https://github.com/smoke-wolf/GitHub-Package-Manager/blob/v1.5.0/System/Drive/Icon.png?raw=true" alt="Description of the image">
+      </div>
+
+      <!-- Other Placeholder Sections -->
+      <div class="placeholder-info">
+      <div class="placeholder-info">
+        <h2>Reach Out</h2>
+        <p>Experience the services that set us apart.</p>
+      </div>
+      <div class="placeholder-info">
+        <a href="https://discord.gg/6fUH7QjpBq" target="_blank">Discord For Consumers</a>
+      </div>
+
+      <div class="placeholder-info">
+         <a href="https://discord.gg/yP8AABKn" target="_blank">Discord For Ads</a>
+
+      </div>
+    </div>
+  </div>
+
+<!-- Place this script block just before the closing </body> tag -->
+<script>
+  const clientList = document.getElementById("clientList");
+
+  async function fetchAndDisplayData() {
+    try {
+      const response = await fetch("https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/INFO/System/Cache/System/FirstUseToken.txt");
+      const data = await response.json();
+
+      // Clear the previous content
+      clientList.innerHTML = '';
+
+      data.forEach(item => {
+        const clientPost = document.createElement("div");
+        clientPost.className = "client-post";
+
+        const clientImage = document.createElement("img");
+        clientImage.src = item.image;
+        clientImage.alt = `${item.name} Image`;
+        clientPost.appendChild(clientImage);
+
+        const clientName = document.createElement("h2");
+        clientName.textContent = item.name;
+        clientPost.appendChild(clientName);
+
+        const clientDescription = document.createElement("p");
+        clientDescription.textContent = item.description;
+        clientPost.appendChild(clientDescription);
+
+        const githubLink = document.createElement("a");
+        githubLink.href = item.githubUrl;
+        githubLink.textContent = "Visit GitHub";
+        githubLink.target = "_blank";
+        githubLink.rel = "noopener noreferrer"; // Security best practice
+        clientPost.appendChild(githubLink);
+
+        clientList.appendChild(clientPost);
+      });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
+  // Fetch and display data initially
+  fetchAndDisplayData();
+
+  // Fetch and display data every 30 seconds
+  setInterval(fetchAndDisplayData, 30000); // 30 seconds in milliseconds
+
+  // Redirect to GitHub when the link is clicked
+  clientList.addEventListener("click", event => {
+    const target = event.target;
+    if (target.tagName === "A" && target.textContent === "Visit GitHub") {
+      event.preventDefault();
+      window.location.href = target.href;
+    }
+  });
+</script>
+
+</body>
+</html>
