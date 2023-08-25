@@ -23,6 +23,8 @@ def Activate():
 
 def GUI():
     EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
+
+
     global directories
     directories = []
     import os
