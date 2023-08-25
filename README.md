@@ -41,7 +41,7 @@ I aim to address suggestions and am activly woking on improving the app.
  6. Small bugs fixed in "activate" 
  7. Better Bug Logging
  8. Browse Community Projects with **GhPm Recommended**  :sparkle:
- 9. New [Discord Server](https://discord.gg/6fUH7QjpBq) 
+ 9. New [Discord Server](https://discord.gg/D8ju7UNs) 
 
 
 
