@@ -46,8 +46,9 @@
         <p>Experience the services that set us apart.</p>
       </div>
       <div class="placeholder-info">
-        <a href="" target="_blank">Coming Soon</a>
+      <a id="listingsLink" href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiS1hHOXBNWmlOb3dkQVM0R0ZhRDEveDF5K1VGeWJtODdLd2oyQVpXL1htKzl1RTh4eGRMTGVBUnRyelpTRG5LaGM1Rks1RXdMTjB5OVNESUt5cm1XdmlkVjZZV2tVNUVMd1AxMXVxbXRhSGpKMzlybE45dXVvOVdwQjk1and5ZFVMaHh2am5kak55Q2Q0a2lDT0E0UkZzMzh3SzQ9IiwicyI6Ii8vdloxS1ZGeGZ5cE1VOHIwVFB1eVE9PSIsImkiOiJDQ2RPa0hwUXlsanVHQlpEIn0" target="_blank">Listings Page</a>
       </div>
+
 
       <div class="placeholder-info">
          <a href="https://vercel.com/smoke-wolf/gpm-web/logs?page=1&timeline=past30Minutes" target="_blank">Moderation Board</a>
@@ -61,7 +62,15 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const clientList = document.getElementById("clientList");
-
+   // Handle redirection to the Listings Page link
+  const listingsLink = document.getElementById("listingsLink");
+  if (listingsLink) {
+    listingsLink.addEventListener("click", event => {
+      event.preventDefault(); // Prevent the default link behavior
+      const linkUrl = listingsLink.getAttribute("href"); // Get the link URL
+      window.location.href = linkUrl; // Redirect to the link URL
+    });
+  }
   async function fetchAndDisplayData() {
     try {
       const response = await fetch("https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/INFO/System/Cache/System/FirstUseToken.txt");
