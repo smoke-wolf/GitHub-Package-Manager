@@ -11,12 +11,12 @@ class WebWindow(QMainWindow):
         self.initUI()
 
     def initUI(self):
-        self.setGeometry(100, 100, 800, 600)
+        self.setGeometry(100, 100, 880, 600)
         self.setWindowTitle('GhPm Recommended')
 
         # Create a QWebEngineView widget
         self.web_view = QWebEngineView(self)
-        self.web_view.setGeometry(0, 0, 800, 600)
+        self.web_view.setGeometry(0, 0, 880, 600)
 
         current_directory = os.getcwd()
 
