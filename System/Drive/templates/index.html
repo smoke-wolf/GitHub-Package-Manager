@@ -3,6 +3,21 @@
 <head>
   <title>Git Listings</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* Your existing CSS rules */
+    /* Add this CSS rule for the "Visit GitHub" link */
+    .github-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    /* Your existing CSS rules */
+  </style>
 </head>
 <body>
   <div id="stars"></div>
@@ -58,10 +73,17 @@ document.addEventListener("DOMContentLoaded", function() {
       data.forEach(item => {
         const clientPost = document.createElement("div");
         clientPost.className = "client-post";
+        
+        // Set a specific width for the client-post div (adjust the value as needed)
+        clientPost.style.width = "200px"; // For example, set to 200px width
 
         const clientImage = document.createElement("img");
         clientImage.src = item.image;
         clientImage.alt = `${item.name} Image`;
+        
+        // Set a specific width for the image (adjust the value as needed)
+        clientImage.style.width = "100px"; // For example, set to 100px width
+        
         clientPost.appendChild(clientImage);
 
         const clientName = document.createElement("h2");
@@ -90,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function() {
   fetchAndDisplayData();
 
   // Fetch and display data every 30 seconds
-  setInterval(fetchAndDisplayData, 30000); // 30 seconds in milliseconds
+  setInterval(fetchAndDisplayData, 30000);
 
   // Redirect to GitHub when the "Visit GitHub" link is clicked
   clientList.addEventListener("click", event => {
@@ -100,25 +122,9 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location.href = target.href;
     }
   });
-
-  // Redirect to the Discord link when the "Discord For Consumers" link is clicked
-  const discordLink = document.querySelector("a[href='https://discord.gg/6fUH7QjpBq']");
-  if (discordLink) {
-    discordLink.addEventListener("click", event => {
-      event.preventDefault();
-      window.location.href = discordLink.href;
-    });
-  }
-
-  // Redirect to the Moderation Board link when the "Moderation Board" link is clicked
-  const moderationLink = document.querySelector("a[href='https://vercel.com/smoke-wolf/gpm-web/logs?page=1&timeline=past30Minutes']");
-  if (moderationLink) {
-    moderationLink.addEventListener("click", event => {
-      event.preventDefault();
-      window.location.href = moderationLink.href;
-    });
-  }
 });
+
+
 </script>
 </body>
 </html>
