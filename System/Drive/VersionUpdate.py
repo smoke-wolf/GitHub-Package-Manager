@@ -1,14 +1,17 @@
 import shutil
 import os
 import sys
+import requests
+
 import System.Drive.Errors_Events.EventMan as AR
 import User.UserProfile as UserProfile
 
-import requests
-try:
-    shutil.rmtree(f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager')
-except:
-    pass
+def clear_downloads_dir():
+    try: 
+        shutil.rmtree(f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager')
+    except:
+        pass
+
 
 def replace_and_remove(directory_a, directory_b):
     # Copy the content of directory B to directory A
@@ -35,6 +38,7 @@ if response.status_code == 200:
         print(CurrentVersion[11:-2])
 
     if CurrentVersion[11:-2] in comp:
+        clear_downloads_dir()
         AR.AnalyticsRecord(10)
         pass
 
