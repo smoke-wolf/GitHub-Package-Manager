@@ -1,6 +1,13 @@
 [
 {
-    "index": 3,
+    "index": 9,
+    "name": "Osintgram",
+    "description": "Osintgram is a OSINT tool on Instagram. It offers an interactive shell to perform analysis on Instagram account of any users by its nickname",
+    "image": "https://github.com/Datalux/Osintgram/raw/master/.img/carbon.png",
+    "githubUrl": "https://github.com/Datalux/Osintgram"
+  },
+{
+    "index": 8,
     "name": "hackingtool",
     "description": "ALL IN ONE Hacking Tool For Hackers",
     "image": "https://github.com/Z4nzu/hackingtool/raw/master/images/A00.png",
