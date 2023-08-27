@@ -1,6 +1,6 @@
 import os
 import sys
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QAction
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import QUrl, Qt
 
@@ -24,6 +24,13 @@ class WebWindow(QMainWindow):
 
         self.web_view.urlChanged.connect(self.handleUrlChanged)
 
+        # Create a "Back" action in the menu bar
+        back_action = QAction("Back", self)
+        back_action.setShortcut("Alt+Left")  # Shortcut to trigger the action
+        back_action.triggered.connect(self.web_view.back)
+
+        self.menuBar().addAction(back_action)
+
         self.setCentralWidget(self.web_view)
 
         self.show()
@@ -36,6 +43,5 @@ def main():
     app = QApplication(sys.argv)
     window = WebWindow()
     sys.exit(app.exec_())
-
 
 main()
