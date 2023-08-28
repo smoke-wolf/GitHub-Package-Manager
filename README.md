@@ -22,6 +22,9 @@ And Finaly:
 
     python3 Start.py
 
+![o](https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/ezgif.com-video-to-gif.gif?raw=true)
+
+
 # Our Vision :stars:
 GHPM is designed to be a straightforward app for anyone to streamline their GitHub experience. 
 
