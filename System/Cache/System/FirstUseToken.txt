@@ -62,7 +62,7 @@
     "image": "https://raw.githubusercontent.com/wiki/zaproxy/zaproxy/images/zap-website.png",
     "githubUrl": "https://github.com/zaproxy/zaproxy"
   },
-{
+  {
     "index": 12,
     "name": "SecLists",
     "description": "SecLists is a collection of security-related lists including usernames, passwords, URLs, and more. A valuable resource for security professionals.",
