@@ -1,4 +1,5 @@
-[{
+[
+{
     "index": 9,
     "name": "Osintgram",
     "description": "Osintgram is an OSINT tool for Instagram. It offers an interactive shell to perform analysis on Instagram accounts using nicknames.",
@@ -60,4 +61,5 @@
     "description": "OWASP ZAP (Zed Attack Proxy) is a widely used open-source web application security scanner for finding security vulnerabilities in web applications.",
     "image": "https://raw.githubusercontent.com/wiki/zaproxy/zaproxy/images/zap-website.png",
     "githubUrl": "https://github.com/zaproxy/zaproxy"
-  }]
+  }
+]
