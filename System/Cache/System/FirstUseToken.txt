@@ -23,7 +23,7 @@
   {
     "index": 2,
     "name": "Alfred",
-    "data": "ad",
+    "data" : "ad",
     "description": "Alfred is an advanced OSINT information gathering tool",
     "image": "https://user-images.githubusercontent.com/105014217/263033253-04eb051d-15c3-4a32-b10b-dcdb12fee881.PNG",
     "githubUrl": "https://github.com/Alfredredbird/alfred"
@@ -31,6 +31,7 @@
   {
     "index": 5,
     "name": "Touch Script",
+    "colour" : "#FFD700",
     "description": ".touch is a lightweight and user-friendly scripting language designed to automate common tasks on your computer.",
     "image": "https://github.com/smoke-wolf/TouchScript/blob/main/169290725663027850.png?raw=true",
     "githubUrl": "https://github.com/smoke-wolf/TouchScript"
@@ -44,6 +45,7 @@
   },
   {
     "index": 18,
+    "colour" : "#FFD700",
     "name": "CyberChef",
     "description": "CyberChef is a web app for decoding, encoding, and analyzing data in various formats. It's useful for cybersecurity and data manipulation tasks.",
     "image": "https://www.networkdefense.co/media/images/AND_CyberChef_trans.original.png",
@@ -78,6 +80,7 @@
   },
   {
     "name": "SocialBox",
+    "colour" : "#FFD700",
     "description": "SocialBox is a Bruteforce Attack Framework that can perform bruteforce attacks on various social media platforms.",
     "image": "https://raw.githubusercontent.com/TunisianEagles/SocialBox/master/Screenshots/sb.png",
     "githubUrl": "https://github.com/TunisianEagles/SocialBox"
