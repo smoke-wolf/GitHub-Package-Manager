@@ -60,5 +60,5 @@
     "description": "SecLists is a collection of security-related lists including usernames, passwords, URLs, and more. A valuable resource for security professionals.",
     "image": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/logo.png",
     "githubUrl": "https://github.com/danielmiessler/SecLists"
-  },
+  }
  
