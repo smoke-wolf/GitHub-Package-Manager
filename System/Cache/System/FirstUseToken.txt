@@ -67,7 +67,7 @@
     "description": "Welcome to the ToolKit, a versatile assortment of Python projects designed to make your life easier and more efficient.",
     "image": "https://github.com/smoke-wolf/ToolKit/blob/main/Screen%20Shot%202023-08-28%20at%201.43.28%20AM.png?raw=true",
     "data": "ad",
-    "githubUrl": "https://github.com/smoke-wolf/ToolKit"
+    "githubUrl": "https://l.linklyhq.com/l/1tReQ"
      
   },
  {
