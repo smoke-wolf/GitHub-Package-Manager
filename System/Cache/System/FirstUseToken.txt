@@ -4,18 +4,4 @@
     "description": "Osintgram is an OSINT tool on Instagram. It offers an interactive shell to perform analysis on Instagram account of any users by its nickname",
     "image": "https://github.com/Datalux/Osintgram/raw/master/.img/carbon.png",
     "githubUrl": "https://github.com/Datalux/Osintgram"
-  },
-  {
-    "index": 8,
-    "name": "hackingtool",
-    "description": "ALL IN ONE Hacking Tool For Hackers",
-    "image": "https://github.com/Z4nzu/hackingtool/raw/master/images/A00.png",
-    "githubUrl": "https://github.com/Z4nzu/hackingtool"
-  },
-  {
-    "index": 3,
-    "name": "Craft",
-    "description": "A simple Minecraft clone written in C using modern OpenGL (shaders).",
-    "image": "",
-    "githubUrl": "https://github.com/fogleman/Craft"
   }
