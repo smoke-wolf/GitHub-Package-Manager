@@ -401,3 +401,74 @@ body, h1, h2, p, ul, li {
     margin-bottom: 10px;
 }
 
+/* Dark Peppermint Styles */
+
+body {
+  background-color: #2a2f33;
+  color: #ccc; /* Light-ish grey font color */
+  font-family: Arial, sans-serif;
+}
+
+.client-post {
+  background-color: #1d2124;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.client-post img {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+p {
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+a {
+  color: #66c0f4;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #38a1db;
+}
+
+/* Loader Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+#container {
+  background-color: black;
+  color: #ccc; /* Light-ish grey font color */
+}
+
+#resultsContainer {
+  background-color: black;
+  color: #ccc; /* Light-ish grey font color */
+}
+
