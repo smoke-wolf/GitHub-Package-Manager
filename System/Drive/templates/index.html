@@ -4,6 +4,11 @@
   <title>Git Listings</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
   <style>
+    .blurred {
+    filter: blur(50px); /* You can adjust the blur radius as needed */
+    transition: filter 5.3s ease-in-out; /* Add a smooth transition effect */
+    }
+
     /* Your existing CSS rules */
     /* Add this CSS rule for the "Visit GitHub" link */
     .github-link {
@@ -48,8 +53,9 @@
       <div class="placeholder-info">
       <a id="listingsLink" href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiS1hHOXBNWmlOb3dkQVM0R0ZhRDEveDF5K1VGeWJtODdLd2oyQVpXL1htKzl1RTh4eGRMTGVBUnRyelpTRG5LaGM1Rks1RXdMTjB5OVNESUt5cm1XdmlkVjZZV2tVNUVMd1AxMXVxbXRhSGpKMzlybE45dXVvOVdwQjk1and5ZFVMaHh2am5kak55Q2Q0a2lDT0E0UkZzMzh3SzQ9IiwicyI6Ii8vdloxS1ZGeGZ5cE1VOHIwVFB1eVE9PSIsImkiOiJDQ2RPa0hwUXlsanVHQlpEIn0" target="_blank">Listings Page</a>
       </div>
-
-
+        <div class="placeholder-info">
+      <a id="analyticsLink" href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiQi9YZ3U5cjdxQzRKL3FKdmdFbGtCNTNabGpPTFllRmhOVTh3VjA4WWNzZ0RVYXBPT1F0NDhnRXliQVE3akRiRExIdlVpNWtobFJrPSIsImgiOiJUaGlzIElzIGZvciBkZXZlbG9wbWVudCBzdGFmZiBvbmx5IiwicyI6IlFLbWZTT3lCNFFwMVAwRUY3RnM1L1E9PSIsImkiOiJ3RkNsVFl5c2dZbmJaU2ZKIn0=" target="_blank">Analytics Page</a>
+      </div>
       <div class="placeholder-info">
       <a id="moderationLink" href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoidklZNXVqSVM5dDVhSkxwVjBpVEJrT1JlSEhSaUptbHpPaXc2Q2cveHR2YlhZNzhleU5pK01uZVBvQnVxK1ZrM0dPeUhZRUdFSFBRNjQwUG9iR2NySVpiZS9QWTg3YzZBIiwicyI6Ing0K2kwU2VtYUM3bGMvbkkrRzFhdHc9PSIsImkiOiJJb1ptOTZhbWNnQ3UzNlFqIn0" target="_blank">Moderation Board</a>
     </div>
@@ -62,6 +68,44 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
   const clientList = document.getElementById("clientList");
+
+  // Function to apply the blur class to all client posts except the provided one
+  function applyBlurToOtherPosts(exceptPost) {
+    clientPosts.forEach(post => {
+      if (post !== exceptPost) {
+        post.classList.add("blurred");
+      }
+    });
+  }
+
+  // Function to remove the blur class from all client posts
+  function removeBlurFromAllPosts() {
+    clientPosts.forEach(post => {
+      post.classList.remove("blurred");
+    });
+  }
+
+  const clientPosts = document.querySelectorAll(".client-post");
+
+  // Function to handle click event
+  function handleClick(event) {
+    const clickedPost = event.currentTarget;
+
+    // If the clicked post is already blurred, remove blur from all posts
+    if (clickedPost.classList.contains("blurred")) {
+      removeBlurFromAllPosts();
+    } else {
+      // Otherwise, apply blur to all posts except the clicked post
+      applyBlurToOtherPosts(clickedPost);
+    }
+  }
+
+  // Attach click events to each client post
+  clientPosts.forEach(post => {
+    post.addEventListener("click", handleClick);
+  });
+
+
    // Handle redirection to the Listings Page link
 
   function appendToLogFile(data) {
@@ -88,6 +132,14 @@ document.addEventListener("DOMContentLoaded", function() {
     listingsLink.addEventListener("click", event => {
       event.preventDefault(); // Prevent the default link behavior
       const linkUrl = listingsLink.getAttribute("href"); // Get the link URL
+      window.location.href = linkUrl; // Redirect to the link URL
+    });
+  }
+  const analyticsLink = document.getElementById("analyticsLink");
+  if (analyticsLink) {
+    analyticsLink.addEventListener("click", event => {
+      event.preventDefault(); // Prevent the default link behavior
+      const linkUrl = analyticsLink.getAttribute("href"); // Get the link URL
       window.location.href = linkUrl; // Redirect to the link URL
     });
   }
