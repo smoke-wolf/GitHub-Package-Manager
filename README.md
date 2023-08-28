@@ -9,7 +9,7 @@ There are also a few main goals I am aiming to achieve in this version as well. 
 
 ## quick install :part_alternation_mark: :computer:
 
-### MacOS / Linux *v1.5.19*
+### MacOS / Linux *v1.5.22*
 	git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
 	cd GitHub-Package-Manager
 	python3 Start.py
@@ -29,7 +29,7 @@ I aim to address suggestions and am activly woking on improving the app.
 
 
 
-### :currency_exchange: Change Notes: v1.5.14 :currency_exchange:
+### :currency_exchange: Change Notes: v1.5.22 :currency_exchange:
 
  
 
