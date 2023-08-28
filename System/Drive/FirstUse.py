@@ -123,8 +123,12 @@ if FirstUse is True:  # Is first use
     except:
         print('Token Error')
         sys.exit(0)
-
-    print('Exiting System [1s] - Re-launch')
+    
+    if input('Enable global command (mac only) Y/n: ') is 'y' or "Y":     
+        os.system(f'''echo 'alias gh="cd {UserProfile} &&python3 Start.py"' >> ~/.zshrc && exec zsh ''')
+    else:
+        pass
+    
     time.sleep(1)
 
     import os
@@ -134,7 +138,8 @@ if FirstUse is True:  # Is first use
 
     with open(file_path, 'w') as file:
         file.write(f'{SourceDirectory}')
-    print(f'Token Saved @ {file_path}')
+        
+    os.system(f'{UserProfile}/Start.py')
 
 else:
     pass
