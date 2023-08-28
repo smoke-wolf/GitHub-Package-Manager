@@ -54,5 +54,59 @@
     "description": "LazyScript is a bash script to automate various information gathering and vulnerability scanning tasks during penetration testing.",
     "image": "https://camo.githubusercontent.com/93a2333aa1a91a03d8583e6066136126d0892b4b76d3cf9c79e1f558d6d79c5c/68747470733a2f2f692e696d6775722e636f6d2f617749706c53362e6a7067",
     "githubUrl": "https://github.com/arismelachroinos/lscript"
+  },
+{
+    "name": "Sn1per",
+    "description": "Sn1per is an automated scanner that can be used during a penetration test to enumerate and scan for vulnerabilities.",
+    "image": "https://camo.githubusercontent.com/8dfe150ca2ef303664fa421f8b43aff223768cd6c3aa101f3d6c7e9660d9c2b8/68747470733a2f2f736e3170657273656375726974792e636f6d2f696d616765732f536e3170657253656375726974792d41747461636b2d537572666163652d4d616e6167656d656e742d686561646572322e706e67",
+    "githubUrl": "https://github.com/1N3/Sn1per"
+  },
+  {
+    "name": "ReconDog",
+    "description": "ReconDog is an all-in-one tool for information gathering and reconnaissance. It automates the process of gathering information from various sources.",
+    "image": "https://camo.githubusercontent.com/fd70b14f6e80370a3b5cbc9d083bfadca5015b6dff8d0a5b4fb565425e7a7390/68747470733a2f2f696d6167652e6962622e636f2f6d784f39727a2f7265636f6e646f672e706e67",
+    "githubUrl": "https://github.com/UltimateHackers/ReconDog"
+  },
+  {
+    "name": "SocialBox",
+    "description": "SocialBox is a Bruteforce Attack Framework that can perform bruteforce attacks on various social media platforms.",
+    "image": "https://raw.githubusercontent.com/TunisianEagles/SocialBox/master/Screenshots/sb.png",
+    "githubUrl": "https://github.com/TunisianEagles/SocialBox"
+  },
+  {
+    "name": "Aquatone",
+    "description": "Aquatone is a tool for visual inspection of websites across a large number of hosts and is useful during reconnaissance.",
+    "image": "https://media.geeksforgeeks.org/wp-content/uploads/20210722215643/AQUATONEStep7minmin.jpg",
+    "githubUrl": "https://github.com/michenriksen/aquatone"
+  },
+  {
+    "name": "XRay",
+    "description": "XRay is a tool for automated penetration testing of web applications. It can discover and report vulnerabilities.",
+    "image": "data:image/png;base64,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",
+    "githubUrl": "https://github.com/evilsocket/xray"
+  },
+  {
+    "name": "EyeWitness",
+    "description": "EyeWitness is a tool that creates screenshots of websites, providing an overview of the visual appearance of the sites.",
+    "image": "https://opengraph.githubassets.com/af5e5ff023fd8166679bcd496b10e4472cc19a35cbf3668560159d370d042759/RedSiege/EyeWitness",
+    "githubUrl": "https://github.com/FortyNorthSecurity/EyeWitness"
+  },
+  {
+    "name": "Sublist3r",
+    "description": "Sublist3r is a tool designed to enumerate subdomains of websites using OSINT and brute-force techniques.",
+    "image": "https://linuxhint.com/wp-content/uploads/2021/06/Sublist3r-enumerate-subdomains-10.png",
+    "githubUrl": "https://github.com/aboul3la/Sublist3r"
+  },
+  {
+    "name": "Snort",
+    "description": "Snort is an open-source intrusion detection and prevention system. It's used for real-time traffic analysis and packet logging.",
+    "image": "https://1.bp.blogspot.com/-ntj3EkCrSqA/YG83tevX5oI/AAAAAAAAAaU/3s-jMVQHRrwrE7eCWnrgDpEcAjYqnmDZwCPcBGAYYCw/w1200-h630-p-k-no-nu/snort3_social_blog%2Bheader.jpg",
+    "githubUrl": "https://github.com/snort3/snort3"
+  },
+  {
+    "name": "BeEF",
+    "description": "BeEF (Browser Exploitation Framework) is a penetration testing tool focused on the web browser. It allows the attacker to control the target's browser.",
+    "image": "https://github.com/beefproject/beef/wiki/Images/logo.png",
+    "githubUrl": "https://github.com/beefproject/beef"
   }
 ]
