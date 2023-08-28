@@ -463,12 +463,13 @@ a:hover {
 }
 
 #container {
-  background-color: black;
-  color: #ccc; /* Light-ish grey font color */
+  background-color: rgba(0, 0, 0, 0.2); /* Black with 50% transparency */
+  color: #ccc;
 }
 
+
 #resultsContainer {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.2);
   color: #ccc; /* Light-ish grey font color */
 }
 
