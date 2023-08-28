@@ -83,25 +83,4 @@
     "image": "https://termux.com/files/logo/termux-logo-white.png",
     "githubUrl": "https://github.com/termux/termux-app"
   },
-  {
-    "index": 52,
-    "name": "TheHarvester",
-    "description": "TheHarvester is a tool for gathering information from search engines, DNS, and social networks for reconnaissance purposes.",
-    "image": "https://raw.githubusercontent.com/laramies/theHarvester/master/docs/logo.png",
-    "githubUrl": "https://github.com/laramies/theHarvester"
-  },
-  {
-    "index": 63,
-    "name": "Raccoon",
-    "description": "Raccoon is a tool for scraping files from public and private cloud storage services, aiding in OSINT and digital forensics tasks.",
-    "image": "https://raw.githubusercontent.com/evyatarmeged/Raccoon/master/raccoon_logo.png",
-    "githubUrl": "https://github.com/evyatarmeged/Raccoon"
-  },
-  {
-    "index": 71,
-    "name": "Steghide",
-    "description": "Steghide is a steganography tool to hide data within image and audio files, offering encryption and password protection.",
-    "image": "https://raw.githubusercontent.com/StefanoDeVuono/steghide/master/logo.png",
-    "githubUrl": "https://github.com/StefanoDeVuono/steghide"
-  }
-
+ 
