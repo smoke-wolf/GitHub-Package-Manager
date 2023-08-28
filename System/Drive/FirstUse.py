@@ -138,8 +138,9 @@ if FirstUse is True:  # Is first use
 
     with open(file_path, 'w') as file:
         file.write(f'{SourceDirectory}')
-        
-    os.system(f'python3 {UserProfile}/Start.py')
+    print("Relaunch with 'gh' if enabled or 'python3 start.py'")
+    time.sleep(1)
+    sys.exit(0)
 
 else:
     pass
