@@ -1,4 +1,3 @@
-[
 {
     "index": 9,
     "name": "Osintgram",
@@ -62,4 +61,4 @@
     "image": "https://raw.githubusercontent.com/wiki/zaproxy/zaproxy/images/zap-website.png",
     "githubUrl": "https://github.com/zaproxy/zaproxy"
   }
-]
+
