@@ -7,13 +7,6 @@
     "githubUrl": "https://github.com/Datalux/Osintgram"
   },
   {
-    "index": 67,
-    "name": "RouterSploit",
-    "description": "RouterSploit is an open-source exploitation framework dedicated to embedded devices.",
-    "image": "https://img.wonderhowto.com/img/71/72/63664322438160/0/seize-control-router-with-routersploit.w1456.jpg",
-    "githubUrl": "https://github.com/reverse-shell/routersploit"
-  },
-  {
     "index": 8,
     "name": "hackingtool",
     "description": "hackingtool is an all-in-one hacking tool designed for hackers.",
@@ -68,12 +61,5 @@
     "description": "OWASP ZAP (Zed Attack Proxy) is a widely used open-source web application security scanner for finding security vulnerabilities in web applications.",
     "image": "https://raw.githubusercontent.com/wiki/zaproxy/zaproxy/images/zap-website.png",
     "githubUrl": "https://github.com/zaproxy/zaproxy"
-  },
-{
-    "index": 22,
-    "name": "Wifiphisher",
-    "description": "Wifiphisher is a security tool that mounts automated phishing attacks against Wi-Fi networks to gain credentials.",
-    "image": "https://camo.githubusercontent.com/bab7e7097f2624f4b8c130ed3b320bb461e4deb771802c0cdf93ad517d627410/68747470733a2f2f77696669706869736865722e6769746875622e696f2f77696669706869736865722f77696669706869736865722e706e67",
-    "githubUrl": "https://github.com/wifiphisher/wifiphisher"
-  },
+  }
 ]
