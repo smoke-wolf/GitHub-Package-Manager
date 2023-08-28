@@ -1,5 +1,4 @@
-
-  {
+{
     "index": 9,
     "name": "Osintgram",
     "description": "Osintgram is an OSINT tool for Instagram. It offers an interactive shell to perform analysis on Instagram accounts using nicknames.",
@@ -56,31 +55,10 @@
     "githubUrl": "https://github.com/arismelachroinos/lscript"
   },
   {
-    "index": 36,
-    "name": "OWASP ZAP",
-    "description": "OWASP ZAP (Zed Attack Proxy) is a widely used open-source web application security scanner for finding security vulnerabilities in web applications.",
-    "image": "https://raw.githubusercontent.com/wiki/zaproxy/zaproxy/images/zap-website.png",
-    "githubUrl": "https://github.com/zaproxy/zaproxy"
-  },
-  {
     "index": 12,
     "name": "SecLists",
     "description": "SecLists is a collection of security-related lists including usernames, passwords, URLs, and more. A valuable resource for security professionals.",
     "image": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/logo.png",
     "githubUrl": "https://github.com/danielmiessler/SecLists"
-  },
-  {
-    "index": 25,
-    "name": "PwnedOrNot",
-    "description": "PwnedOrNot is a Python script that checks if an email or username has been compromised in a data breach.",
-    "image": "https://raw.githubusercontent.com/thewhiteh4t/pwnedOrNot/master/logo.png",
-    "githubUrl": "https://github.com/thewhiteh4t/pwnedOrNot"
-  },
-  {
-    "index": 48,
-    "name": "Termux",
-    "description": "Termux is an Android terminal emulator and Linux environment app, allowing command-line utilities on Android devices.",
-    "image": "https://termux.com/files/logo/termux-logo-white.png",
-    "githubUrl": "https://github.com/termux/termux-app"
   },
  
