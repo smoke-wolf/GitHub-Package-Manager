@@ -43,5 +43,6 @@ def main():
     app = QApplication(sys.argv)
     window = WebWindow()
     sys.exit(app.exec_())
-
+    
+os.system("""osascript -e 'tell application "Terminal" to set visible of window 1 to false' """)
 main()
