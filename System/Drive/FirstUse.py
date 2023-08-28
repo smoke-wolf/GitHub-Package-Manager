@@ -125,7 +125,7 @@ if FirstUse is True:  # Is first use
         sys.exit(0)
     
     if input('Enable global command (mac only) Y/n: ') is 'y' or "Y":     
-        os.system(f'''echo 'alias gh="cd {UserProfile} &&python3 Start.py"' >> ~/.zshrc && exec zsh ''')
+        os.system(f'''echo 'alias gh="cd {UserProfile} && python3 Start.py"' >> ~/.zshrc && exec zsh ''')
     else:
         pass
     
