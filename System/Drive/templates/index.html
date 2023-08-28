@@ -217,20 +217,18 @@ document.addEventListener("DOMContentLoaded", function() {
       }
       // Check if the 'data' field contains the 'ad' tag
       if (item.data === "ad") {
-      console.log("Item with 'ad' tag:", item.name);
-      // Add subtle background color to catch attention
+          console.log("Item with 'ad' tag:", item.name);
+          // Add subtle background color to catch attention
+          clientPost.style.backgroundColor = "#61131f"; // Light gray or any preferred color
+          clientPost.style.width = "471px";
+          clientPost.style.border = "2px solid #ff0066";
+          // Add box shadow for a subtle effect
+          clientPost.style.boxShadow = "0px 0px 15px rgba(0, 0, 0, 0.5)";
+          // Increase font size and apply an eye-catching font
+          clientPost.style.fontSize = "20px"; // Increase or decrease as desired
+          clientPost.style.fontFamily = "sherif, Garamond"; // Choose an appropriate font
+      }
 
-      clientPost.style.backgroundColor = "#61131f"; // Light gray or any preferred color
-      clientPost.style.width = "471px";
-      clientPost.style.border = "2px solid #ad588f";
-      // Add box shadow for a subtle effect
-
-      clientPost.style.boxShadow = "0px 0px 5px rgba(0, 0, 0, 0.2)";
-      // Increase font size and apply an eye-catching font
-
-      clientPost.style.fontSize = "25px"; // Increase or decrease as desired
-      clientPost.style.fontFamily = "Arial, sans-serif";
-       }
 
 
         const clientImage = document.createElement("img");
