@@ -87,7 +87,7 @@ def GUI():
 
     root = tk.Tk()
     root.title('GHpm')
-    root.config(bg='#403736')
+    root.config(bg='#C5E0DC')
 
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
@@ -98,10 +98,10 @@ def GUI():
     y_coordinate = (screen_height - window_height) // 2
     root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
-    bg_color = '#403736'
-    button_color = '#301c1b'
+    bg_color = '#C5E0DC'
+    button_color = '#A6D8CD'
     button_hover_color = '#D8D8D8'
-    text_color = '#732c03'
+    text_color = '#304B56'
     text_color_other = '#81BDA4'
 
     button_font = ('Helvetica', 14)
@@ -193,7 +193,7 @@ def GUI():
 
     # Peppermint theme colors
     bg_color = "#C5E0DC"  # Light blue
-    text_color = "#732c03"  # Dark gray
+    text_color = "#2d047a"  # Dark gray
     button_color = "#391e6b"  # Light teal
 
     # Border color for the frame
@@ -337,6 +337,5 @@ def GUI():
             import System.Drive.Login
             exec('System.Drive.Login')
         root.mainloop()
-
 
 
