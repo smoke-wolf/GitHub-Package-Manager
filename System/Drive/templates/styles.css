@@ -360,7 +360,7 @@ body, h1, h2, p, ul, li {
 
 /* Hover effect: Expand description */
 .client-post:hover, .placeholder-info:hover {
-  transform: scale(1.02);
+  transform: scale(1.15);
   z-index: 2; /* Place above the overlay */
 }
 .client-post {
