@@ -31,15 +31,6 @@ def rename_folder(old_folder_name, new_folder_name):
         print(f'Error: {e}')
 
 
-def create_virtual_environment(venv_dir):
-    if not os.path.exists(venv_dir):
-        print('Creating new virtual environment...')
-        venv.create(venv_dir, with_pip=True)
-    else:
-        print('Activating existing virtual environment...')
-        os.system('source venv/bin/activate')
-
-
 def run_module_verifier():
     try:
         import System.Drive.ModuleVerifier
@@ -56,9 +47,7 @@ def main():
         rename_folder(old_folder_name, new_folder_name)
     except:
         pass
-
-    venv_dir = os.path.join(os.getcwd(), 'venv')
-    create_virtual_environment(venv_dir)
+    
 
     run_module_verifier()
 
