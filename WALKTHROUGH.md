@@ -1,5 +1,8 @@
 ## Walk Through
 
+![o](https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/ezgif.com-video-to-gif.gif?raw=true)
+
+
  **Main app window**![Screenshot](https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/Screen%20Shot%202023-08-24%20at%206.52.15%20PM(2).jpg?raw=true)
  
  
