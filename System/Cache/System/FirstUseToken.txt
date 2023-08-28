@@ -1,29 +1,29 @@
-
-{
+[
+  {
     "index": 9,
     "name": "Osintgram",
-    "description": "Osintgram is a OSINT tool on Instagram. It offers an interactive shell to perform analysis on Instagram account of any users by its nickname",
+    "description": "Osintgram is an OSINT tool on Instagram. It offers an interactive shell to perform analysis on Instagram account of any users by its nickname",
     "image": "https://github.com/Datalux/Osintgram/raw/master/.img/carbon.png",
     "githubUrl": "https://github.com/Datalux/Osintgram"
   },
-{
+  {
     "index": 8,
     "name": "hackingtool",
     "description": "ALL IN ONE Hacking Tool For Hackers",
     "image": "https://github.com/Z4nzu/hackingtool/raw/master/images/A00.png",
     "githubUrl": "https://github.com/Z4nzu/hackingtool"
   },
-{
+  {
     "index": 3,
     "name": "Craft",
     "description": "A simple Minecraft clone written in C using modern OpenGL (shaders).",
     "image": "",
     "githubUrl": "https://github.com/fogleman/Craft"
   },
-{
+  {
     "index": 2,
     "name": "Alfred",
-    "description": "Alfred is a advanced OSINT information gathering tool",
+    "description": "Alfred is an advanced OSINT information gathering tool",
     "image": "https://user-images.githubusercontent.com/105014217/263033253-04eb051d-15c3-4a32-b10b-dcdb12fee881.PNG",
     "githubUrl": "https://github.com/Alfredredbird/alfred"
   },
@@ -41,26 +41,25 @@
     "image": "https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/System/Screen%20Shot%202023-08-24%20at%202.25.51%20PM.png?raw=true",
     "githubUrl": "https://github.com/smoke-wolf/ReqScanner"
   },
-{
+  {
     "index": 18,
     "name": "CyberChef",
     "description": "CyberChef is a web app for decoding, encoding, and analyzing data in various formats. It's useful for cybersecurity and data manipulation tasks.",
     "image": "https://www.networkdefense.co/media/images/AND_CyberChef_trans.original.png",
     "githubUrl": "https://github.com/gchq/CyberChef"
   },
-{
+  {
     "index": 61,
     "name": "LazyScript",
-    "description": "Description: LazyScript is a bash script to automate various information gathering and vulnerability scanning tasks during penetration testing.",
+    "description": "LazyScript is a bash script to automate various information gathering and vulnerability scanning tasks during penetration testing.",
     "image": "https://camo.githubusercontent.com/93a2333aa1a91a03d8583e6066136126d0892b4b76d3cf9c79e1f558d6d79c5c/68747470733a2f2f692e696d6775722e636f6d2f617749706c53362e6a7067",
     "githubUrl": "https://github.com/arismelachroinos/lscript"
   },
-{
+  {
     "index": 36,
     "name": "OWASP ZAP",
-    "description": "Description: OWASP ZAP (Zed Attack Proxy) is a widely used open-source web application security scanner for finding security vulnerabilities in web applications.",
+    "description": "OWASP ZAP (Zed Attack Proxy) is a widely used open-source web application security scanner for finding security vulnerabilities in web applications.",
     "image": "https://raw.githubusercontent.com/wiki/zaproxy/zaproxy/images/zap-website.png",
     "githubUrl": "https://github.com/zaproxy/zaproxy"
   }
-
-
+]
