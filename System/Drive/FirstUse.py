@@ -139,7 +139,7 @@ if FirstUse is True:  # Is first use
     with open(file_path, 'w') as file:
         file.write(f'{SourceDirectory}')
         
-    os.system(f'{UserProfile}/Start.py')
+    os.system(f'python3 {UserProfile}/Start.py')
 
 else:
     pass
