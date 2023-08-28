@@ -41,7 +41,7 @@
     "image": "https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/System/Screen%20Shot%202023-08-24%20at%202.25.51%20PM.png?raw=true",
     "githubUrl": "https://github.com/smoke-wolf/ReqScanner"
   },
- {
+  {
     "index": 18,
     "name": "CyberChef",
     "description": "CyberChef is a web app for decoding, encoding, and analyzing data in various formats. It's useful for cybersecurity and data manipulation tasks.",
