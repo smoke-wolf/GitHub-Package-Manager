@@ -10,7 +10,7 @@
     "index": 67,
     "name": "RouterSploit",
     "description": "RouterSploit is an open-source exploitation framework dedicated to embedded devices.",
-    "image": "https://raw.githubusercontent.com/reverse-shell/routersploit/master/docs/logo.png",
+    "image": "https://img.wonderhowto.com/img/71/72/63664322438160/0/seize-control-router-with-routersploit.w1456.jpg",
     "githubUrl": "https://github.com/reverse-shell/routersploit"
   },
   {
