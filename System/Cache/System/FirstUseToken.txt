@@ -54,11 +54,12 @@
     "image": "https://camo.githubusercontent.com/93a2333aa1a91a03d8583e6066136126d0892b4b76d3cf9c79e1f558d6d79c5c/68747470733a2f2f692e696d6775722e636f6d2f617749706c53362e6a7067",
     "githubUrl": "https://github.com/arismelachroinos/lscript"
   },
-  {
-    "index": 12,
-    "name": "SecLists",
-    "description": "SecLists is a collection of security-related lists including usernames, passwords, URLs, and more. A valuable resource for security professionals.",
-    "image": "https://raw.githubusercontent.com/danielmiessler/SecLists/master/logo.png",
-    "githubUrl": "https://github.com/danielmiessler/SecLists"
-  }
+{
+    "index": 36,
+    "name": "OWASP ZAP",
+    "description": "OWASP ZAP (Zed Attack Proxy) is a widely used open-source web application security scanner for finding security vulnerabilities in web applications.",
+    "image": "https://raw.githubusercontent.com/wiki/zaproxy/zaproxy/images/zap-website.png",
+    "githubUrl": "https://github.com/zaproxy/zaproxy"
+  },
+ 
  
