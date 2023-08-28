@@ -206,7 +206,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
       // Set a specific width for the client-post div (adjust the value as needed)
       clientPost.style.width = "200px"; // For example, set to 200px width
-
+      // Check if the 'colour' field is present in the data
+      if (item.colour) {
+        // Apply the specified color for the border
+        clientPost.style.border = `2px solid ${item.colour}`;
+      } else {
+        // Apply default border color
+        clientPost.style.border = "2px solid #000000"; // Default color, adjust as needed
+      }
       // Check if the 'data' field contains the 'ad' tag
       if (item.data === "ad") {
         console.log("Item with 'ad' tag:", item.name);
