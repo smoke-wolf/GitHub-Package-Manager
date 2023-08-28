@@ -7,6 +7,13 @@
     "githubUrl": "https://github.com/Datalux/Osintgram"
   },
   {
+    "index": 67,
+    "name": "RouterSploit",
+    "description": "RouterSploit is an open-source exploitation framework dedicated to embedded devices.",
+    "image": "https://raw.githubusercontent.com/reverse-shell/routersploit/master/docs/logo.png",
+    "githubUrl": "https://github.com/reverse-shell/routersploit"
+  },
+  {
     "index": 8,
     "name": "hackingtool",
     "description": "hackingtool is an all-in-one hacking tool designed for hackers.",
