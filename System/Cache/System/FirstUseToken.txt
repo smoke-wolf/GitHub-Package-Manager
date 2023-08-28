@@ -17,7 +17,7 @@
     "index": 3,
     "name": "Craft",
     "description": "A simple Minecraft clone written in C using modern OpenGL (shaders).",
-    "image": "",
+    "image": "https://camo.githubusercontent.com/243b812833ae0c7041a8d028505cdaa340e34e025e246e4662507febe38d5175/68747470733a2f2f692e696d6775722e636f6d2f534837776361732e706e67",
     "githubUrl": "https://github.com/fogleman/Craft"
   },
   {
