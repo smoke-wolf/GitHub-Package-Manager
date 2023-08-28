@@ -201,20 +201,38 @@ document.addEventListener("DOMContentLoaded", function() {
       clientList.innerHTML = '';
 
       data.forEach(item => {
-        const clientPost = document.createElement("div");
-        clientPost.className = "client-post";
-        
-        // Set a specific width for the client-post div (adjust the value as needed)
-        clientPost.style.width = "200px"; // For example, set to 200px width
+      const clientPost = document.createElement("div");
+      clientPost.className = "client-post";
+
+      // Set a specific width for the client-post div (adjust the value as needed)
+      clientPost.style.width = "200px"; // For example, set to 200px width
+
+      // Check if the 'data' field contains the 'ad' tag
+      if (item.data === "ad") {
+        console.log("Item with 'ad' tag:", item.name);
+        // Add subtle background color to catch attention
+        clientPost.style.backgroundColor = "#61131f"; // Light gray or any preferred color
+        clientPost.style.width = "471px";
+        clientPost.style.border = "2px solid #ff0066";
+        // Add box shadow for a subtle effect
+        clientPost.style.boxShadow = "0px 0px 5px rgba(0, 0, 0, 0.2)";
+        }
 
         const clientImage = document.createElement("img");
         clientImage.src = item.image;
         clientImage.alt = `${item.name} Image`;
-        
+
         // Set a specific width for the image (adjust the value as needed)
-        clientImage.style.width = "100px"; // For example, set to 100px width
-        
+        clientImage.style.width = "100px"; // Default width
+
+        // Check if the 'data' field contains the 'ad' tag
+        if (item.data === "ad") {
+          // Increase the width for the "ad" items
+          clientImage.style.width = "250px";
+        }
+
         clientPost.appendChild(clientImage);
+
 
         const clientName = document.createElement("h2");
         clientName.textContent = item.name;
@@ -224,8 +242,21 @@ document.addEventListener("DOMContentLoaded", function() {
         clientDescription.textContent = item.description;
         clientPost.appendChild(clientDescription);
 
+
         const githubLink = document.createElement("a");
         githubLink.href = item.githubUrl;
+        githubLink.target = "_blank";
+        githubLink.rel = "noopener noreferrer"; // Security best practice
+
+        // Check if the 'data' field contains the 'ad' tag
+        if (item.data === "ad") {
+          // Apply specific CSS styles to the "Visit GitHub" link
+          githubLink.style.color = "#80735b"; // Blue color, adjust as needed
+          githubLink.style.fontWeight = "bold"; // Bold text
+          githubLink.style.textDecoration = "none"; // Remove underline
+          githubLink.style.transition = "color 0.3s ease-in-out"; // Smooth color transition
+        }
+
         githubLink.textContent = "Visit GitHub";
         githubLink.target = "_blank";
         githubLink.rel = "noopener noreferrer"; // Security best practice
