@@ -12,6 +12,9 @@ GHPM Version = v1.3.5
 """
 
 Modules = [
+    'PyQtWebEngine',
+    'PyQt5'
+    'requests'
     'os',
     'platform',
     'sys',
@@ -23,7 +26,6 @@ Modules = [
     'base64',
     'cryptography',
     'tkinter',
-    'requests',
 ]
 
 Functions_Settings = """Settings Info:
