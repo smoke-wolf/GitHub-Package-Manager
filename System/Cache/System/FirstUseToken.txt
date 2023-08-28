@@ -26,7 +26,7 @@
     "description": "Craft is a simple Minecraft clone written in C using modern OpenGL (shaders).",
     "image": "",
     "githubUrl": "https://github.com/fogleman/Craft"
-  },
+  }
   {
     "index": 2,
     "name": "Alfred",
