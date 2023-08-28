@@ -62,7 +62,7 @@ def main():
     EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Login', a3='None')
     if is_mac_os() is not True:
         confirm = input('Use GUI (Linux only) Y/n: ')
-        if confirm is 'Y' or 'y':
+        if confirm == 'Y' or 'y':
             import System.Drive.FunctionRequest as fr
             fr.GUI()
         else:
