@@ -30,7 +30,7 @@
   {
     "index": 5,
     "name": "Touch Script",
-    "" : "#FFD700",
+    "colour" : "#FFD700",
     "description": ".touch is a lightweight and user-friendly scripting language designed to automate common tasks on your computer.",
     "image": "https://github.com/smoke-wolf/TouchScript/blob/main/169290725663027850.png?raw=true",
     "githubUrl": "https://github.com/smoke-wolf/TouchScript"
@@ -114,7 +114,7 @@
   },
   {
     "name": "BeEF",
-    "" : "#FFD700",
+    "colour" : "#FFD700",
     "description": "BeEF (Browser Exploitation Framework) is a penetration testing tool focused on the web browser. It allows the attacker to control the target's browser.",
     "image": "https://github.com/beefproject/beef/wiki/Images/logo.png",
     "githubUrl": "https://github.com/beefproject/beef"
@@ -172,6 +172,7 @@
 
   {
     "name": "Nmap",
+    "colour" : "#FFD700",
     "description": "Nmap is a powerful open-source tool for network discovery and security auditing. It's used to discover hosts and services on a computer network.",
     "image": "https://opengraph.githubassets.com/24ec68ee70f24060bef0e7f843ac9dd86ad0280c60c81bcad17c0a538dde0eb1/nmap/nmap",
     "githubUrl": "https://github.com/nmap/nmap"
@@ -196,6 +197,7 @@
   },
   {
     "name": "Gitleaks",
+    "colour" : "#64c44f",
     "description": "Gitleaks is a tool for finding secrets and sensitive information in Git repositories. It helps prevent exposing sensitive data.",
     "image": "https://miro.medium.com/v2/resize:fit:668/1*1d9SUqEtHUGx7IJ-ZWp2fg.png",
     "githubUrl": "https://github.com/zricethezav/gitleaks"
