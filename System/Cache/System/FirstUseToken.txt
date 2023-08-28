@@ -1,4 +1,5 @@
-{
+[
+  {
     "index": 9,
     "name": "Osintgram",
     "description": "Osintgram is an OSINT tool for Instagram. It offers an interactive shell to perform analysis on Instagram accounts using nicknames.",
@@ -18,7 +19,7 @@
     "description": "Craft is a simple Minecraft clone written in C using modern OpenGL (shaders).",
     "image": "",
     "githubUrl": "https://github.com/fogleman/Craft"
-  }
+  },
   {
     "index": 2,
     "name": "Alfred",
@@ -26,13 +27,7 @@
     "image": "https://user-images.githubusercontent.com/105014217/263033253-04eb051d-15c3-4a32-b10b-dcdb12fee881.PNG",
     "githubUrl": "https://github.com/Alfredredbird/alfred"
   },
-  {
-    "index": 5,
-    "name": "Touch Script",
-    "description": ".touch is a lightweight and user-friendly scripting language designed to automate common tasks on your computer.",
-    "image": "https://github.com/smoke-wolf/TouchScript/blob/main/169290725663027850.png?raw=true",
-    "githubUrl": "https://github.com/smoke-wolf/TouchScript"
-  },
+	@@ -37,30 +37,29 @@
   {
     "index": 6,
     "name": "ReqScanner",
@@ -61,4 +56,4 @@
     "image": "https://raw.githubusercontent.com/wiki/zaproxy/zaproxy/images/zap-website.png",
     "githubUrl": "https://github.com/zaproxy/zaproxy"
   }
-
+]
