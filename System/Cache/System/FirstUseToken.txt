@@ -1,4 +1,4 @@
-[
+
 {
     "index": 3,
     "name": "hackingtool",
@@ -64,4 +64,3 @@
 
   }
 
-]
