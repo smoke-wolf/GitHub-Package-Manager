@@ -6,6 +6,10 @@ import time
 import venv
 import System
 
+import platform
+
+def is_mac_os():
+    return platform.system() == "Darwin"
 
 def check_first_use():
     first_use_token = f'{os.getcwd()}/System/.Cache/User/FirstUseToken.txt'
@@ -56,8 +60,23 @@ def main():
     import System.Drive.Errors_Events.EventMan as EV
     import uuid
     EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Login', a3='None')
-    import System.Drive.FunctionRequest as fr
-    fr.GUI()
+    if is_mac_os() is not True:
+        confirm = input('Use GUI (Linux only) Y/n: ')
+        if confirm is 'Y' or 'y':
+            import System.Drive.FunctionRequest as fr
+            fr.GUI()
+        else:
+            import System.WinLin.comline
+            exec(System.WinLin.comline.checkpoint())
+    else:
+        import System.Drive.FunctionRequest as fr
+        fr.GUI()
+    
+    
+    
+    
+
+    
 
 
 if __name__ == '__main__':
