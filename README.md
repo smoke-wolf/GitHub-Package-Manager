@@ -5,6 +5,7 @@ GHPM Is coming along, with some key new features as of version 1.5.x. *Find more
 
 There are also a few main goals I am aiming to achieve in this version as well.  I plan on integrating a number of suggestions from the discussions.  As well as making it as useful as possible.
 
+Feel free to join the [Discord Server](https://discord.gg/dSQTDq39c)  and provide any feedback or suggestions to myself.
 [WALKTHROUGH](https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/WALKTHROUGH.md)
 
 ## quick install :part_alternation_mark: :computer:
@@ -44,7 +45,7 @@ I aim to address suggestions and am activly woking on improving the app.
  6. Small bugs fixed in "activate" 
  7. Better Bug Logging
  8. Browse Community Projects with **GhPm Recommended**  :sparkle:
- 9. New [Discord Server](https://discord.gg/D8ju7UNs) 
+ 9. New [Discord Server](https://discord.gg/dSQTDq39c) 
 
 
 
