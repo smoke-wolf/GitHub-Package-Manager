@@ -62,14 +62,14 @@ From The Devs! {version}Check out the GUI it's option 9!
 
             EV.NewEvent(event=f'FunctionRequest = Information', Pol=1)
 
-            import System.Requirements
+            import System.WinLin
 
-            print(System.Requirements.Information.SwAT)
+            print(System.WinLin.Information.SwAT)
             t = input('\n\nHit enter to continue: ')
             print('\n\n')
-            import System.Requirements
+            import System.WinLin
 
-            print(System.Requirements.FTD.dev_message)
+            print(System.WinLin.FTD.dev_message)
             t = input('\n\nHit enter to continue: ')
 
         except:
@@ -111,9 +111,9 @@ From The Devs! {version}Check out the GUI it's option 9!
 
             EV.NewEvent(event=f'FunctionRequest = Settings', Pol=1)
 
-            import System.Requirements
+            import System.WinLin
 
-            print(System.Requirements.Banner.Function_Settings)
+            print(System.WinLin.Banner.Function_Settings)
             import System.WinLin.Functions.Settings
 
             System.WinLin.Functions.Settings.main()
