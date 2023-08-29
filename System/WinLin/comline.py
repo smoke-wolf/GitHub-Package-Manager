@@ -91,9 +91,9 @@ From The Devs! {version}Check out the GUI it's option 9!
 
             EV.NewEvent(event=f'FunctionRequest = Cache', Pol=1)
 
-            import System.WinLinFunctions.Cache
+            import System.WinLin.Functions.Cache
 
-            exec('System.WinLinFunctions.Cache')
+            exec('System.WinLin.Functions.Cache')
 
         except:
 
