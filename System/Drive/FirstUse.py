@@ -1,146 +1,100 @@
 import os
 import sys
 import time
-
 import platform
-cwd = os.getcwd()
+import hashlib
+import uuid
+import tkinter as tk
+from tkinter import ttk
+
+# Function to check if the OS is macOS
 def is_mac_os():
     return platform.system() == "Darwin"
 
+# Function to create a user profile
+def create_user_profile():
+    cwd = os.getcwd()
+    user_profile_path = f"{cwd}/User/UserProfile.py"
+    with open(user_profile_path, "w") as user_profile:
+        username = username_entry.get()
+        password = password_entry.get()
+        hashed_password = generate_hashed_password(password)
+        user_privileges = "root" if not is_mac_os() else os.getlogin()
+        source_directory = os.getcwd()
+        uuid1 = uuid.uuid1().hex
+        uuid4 = uuid.uuid4().hex
 
-
-FirstUse = os.path.exists(
-    f'{cwd}/System/.Cache/User/FirstUseToken.txt'
-)  # checks if this is the first use
-
-if FirstUse is True:  # Is first use
-    print(cwd)
-    # System.Drive.Password.write_key()
-    UserProfile = open(f'{cwd}/User/UserProfile.py', 'w')
-
-    # import System.Drive.Errors_Events.EventMan as EV
-    # EV.NewEvent(event=f'Starting FirstUse', Pol=1)
-    print('\n' * 100)
-    print(
-        "Hey there, as this is the first use we are going to configure a few things. This shouldn't take long."
-    )
-    time.sleep(1)
-
-    print('Developing User Profile')
-    print('=======================')
-
-    def UserName():
-        print('Enter The Username You Would Like To Go By.')
-        Username = input('Username: ')
-
-        if Username is None:
-            UserName()
-        else:
-            UserProfile.write(f"Username = '{Username}'")
-            # import System.Drive.Errors_Events.EventMan as EV
-
-            # EV.NewEvent(event=f'Username Added', Pol=1)
-
-    try:
-        UserName()
-    except:
-        pass
-        # ER.NewIssue(Line=31, ErNo=0, SCR='FirstUse', KeFu=['Username=None/IncorrectValue'], UserInp=None)
-
-    def Password():
-        print('Create a Password For Protected Functions.')
-        password = input('Password: ')
-        import hashlib
-        import uuid
-        import sys
-
-        UUID = uuid.uuid1()
-        if is_mac_os() is not True:
-            UserID = 'root'
-        else:
-            UserID = os.getlogin()
-
-        salt = '9lk'
-
-        UUID = str(f'{UUID}')
-
-        uuidToken = UUID[30:]
-
-        Password = f'{password}{uuidToken}{UserID}'
-
-        password = Password + salt
-        hashed = hashlib.md5(password.encode())
-        Password = hashed.hexdigest()
-
-        UserProfile.write(f"\nPassword = '{Password}'")
-        import System.Drive.Errors_Events.EventMan as EV
-
-        with open(f'{cwd}/System/.Cache/User/local', 'w') as bl:
-            bl.write(hashed.hexdigest()[:16])
-
-        EV.NewEvent(event=f'Password created', Pol=1)
-
-    try:
-        Password()
-    except:
-        pass
-        # ER.NewIssue(Line=46, ErNo=0, SCR='FirstUse', KeFu=['Password=IncorrectEntry'], UserInp=None)
-
-    print('=======================')
-
-    SourceDirectory = (
-        os.getcwd()
-    )  # Getting the working directory for executing system calls
-
-      # Checks if user is root or not
-    if is_mac_os() is not True:
-        UserPrivileges = 'root'
-    else:
-        UserPrivileges = os.getlogin()
-            
-    import uuid
-
-    uuid1 = uuid.uuid1().hex
-    uuid4 = uuid.uuid4().hex
-
-    try:
-        UserProfile.write(
-            f"\nUserPrivileges = '{UserPrivileges}'\nSourceDirectory = '{SourceDirectory}/'\nForce_Import_Request = True \nForced_Login = False \nuuid1 = '{uuid1}'\nuuid4 = '{uuid4}'\nDisplayEvents = True \nPushLogs = True \nAdvancedL = True \nAutoUpdate = True"
+        user_profile_content = (
+            f"Username = '{username}'\n"
+            f"Password = '{hashed_password}'\n"
+            f"UserPrivileges = '{user_privileges}'\n"
+            f"SourceDirectory = '{source_directory}/'\n"
+            f"Force_Import_Request = True\n"
+            f"Forced_Login = False\n"
+            f"uuid1 = '{uuid1}'\n"
+            f"uuid4 = '{uuid4}'\n"
+            f"DisplayEvents = True\n"
+            f"PushLogs = True\n"
+            f"AdvancedL = True\n"
+            f"AutoUpdate = True\n"
         )
-        UserProfile.close()
+        user_profile.write(user_profile_content)
 
-    except:
-        pass
-        # ER.NewIssue(Line=56, ErNo=0, SCR='FirstUse', KeFu=['UserProfileNotConfigured'], UserInp=None)
-
-    print(f'User Profile Has Been Created.')
-    import System.Drive.Errors_Events.EventMan as EV
-
-    EV.NewEvent(event=f'Account Created', Pol=0)
-
-    try:
-        os.remove(f'{os.getcwd()}/System/.Cache/User/FirstUseToken.txt')
-    except:
-        print('Token Error')
-        sys.exit(0)
-    
-    if input('Enable global command (mac only) Y/n: ') is 'y' or "Y":     
-        os.system(f'''echo 'alias gh="cd {UserProfile} && python3 Start.py"' >> ~/.zshrc && exec zsh ''')
+# Function to generate hashed password
+def generate_hashed_password(password):
+    UUID = uuid.uuid1()
+    if not is_mac_os():
+        UserID = "root"
     else:
-        pass
-    
-    time.sleep(1)
+        UserID = os.getlogin()
+    salt = "9lk"
+    UUID = str(f"{UUID}")
+    uuidToken = UUID[30:]
+    Password = f"{password}{uuidToken}{UserID}"
+    password = Password + salt
+    hashed = hashlib.md5(password.encode())
+    return hashed.hexdigest()
 
-    import os
+# Function to handle the "Create Profile" button click
+def create_profile():
+    create_user_profile()
+    os.remove(f"{cwd}/System/.Cache/User/FirstUseToken.txt")
+    print("User Profile Has Been Created.")
+    root.destroy()
 
-    filename = '.SD.hidden'
-    file_path = os.path.join(os.path.expanduser('~'), filename)
+cwd = os.getcwd()
+FirstUse = os.path.exists(f"{cwd}/System/.Cache/User/FirstUseToken.txt")
 
-    with open(file_path, 'w') as file:
-        file.write(f'{SourceDirectory}')
-    print("Relaunch with 'gh' if enabled or 'python3 start.py'")
-    time.sleep(1)
-    sys.exit(0)
+if FirstUse:  # Is first use
+    root = tk.Tk()
+    root.title("First Use Configuration")
+    root.configure(bg="#333333")
+
+    # Styling
+    style = ttk.Style()
+    style.configure("TLabel", foreground="white", background="#333333", font=("Helvetica", 12))
+    style.configure("TEntry", foreground="white", background="black", font=("Helvetica", 12))
+    style.configure("TButton", foreground="white", background="#007b00", font=("Helvetica", 12))
+
+    frame = ttk.Frame(root, padding=20)
+    frame.pack()
+
+    username_label = ttk.Label(frame, text="Enter Username:")
+    username_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
+
+    username_entry = ttk.Entry(frame)
+    username_entry.grid(row=0, column=1, padx=10, pady=10)
+
+    password_label = ttk.Label(frame, text="Create Password:")
+    password_label.grid(row=1, column=0, padx=10, pady=10, sticky="w")
+
+    password_entry = ttk.Entry(frame, show="*")
+    password_entry.grid(row=1, column=1, padx=10, pady=10)
+
+    create_button = ttk.Button(frame, text="Create Profile", command=create_profile)
+    create_button.grid(row=2, columnspan=2, pady=20)
+
+    root.mainloop()
 
 else:
     pass
