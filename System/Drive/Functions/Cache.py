@@ -247,16 +247,7 @@ elif inp == '6':
         lines = ev.readlines()
         print('\033[1;37;40m=====================')
         for line in lines:
-            line.strip()
-            line_parts = line.split(' ')
-            for part in line_parts:
-                if 'line:' in part:
-                    linee = part.replace('line:','')
-                if 'function:' in part:
-                    function_ = part.replace('function:','')
-                else:
-                    pass
-            print(f'line noted \033[1;31;40m{linee}\033[0;37;40m || within function \033[1;31;40m{function_}\033[0;37;40m',end='')
-
+        	print(line,end='')
         input('\nhit enter to continue: ')
         sys.exit(0)
+
