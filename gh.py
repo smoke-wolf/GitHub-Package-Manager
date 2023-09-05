@@ -463,7 +463,7 @@ def Main():
                 import System.Drive.Errors_Events.EventMan as EV
 
                 EV.NewEvent(event=f'{count1}={count} --COMMAND LINE', Pol=0)
-                valuee = input('Enter a value to continue: ')
+                valuee = args[2]
                 value = lines[int(valuee) - 1]
                 listOfWords = value.split('-', 1)
                 if len(listOfWords) > 0:
@@ -526,6 +526,7 @@ def Main():
     elif args[1] == '-LG':  # list git
         spacer = '===================================================='
 
+
         import System.Drive.Errors_Events.EventMan as EV
 
         EV.NewEvent(event=f'Inp = GitHub --COMMAND LINE', Pol=0)
@@ -560,16 +561,18 @@ def Main():
                 pass
 
             if count1 == count:
-                valuee = input('Enter a value to continue: ')
+                valuee = args[2]
                 value = lines[int(valuee) - 1]
                 cc = value
                 listOfWords = value.split('&', 1)
                 if len(listOfWords) > 0:
                     value = listOfWords[1]
 
-                value = value.split('-', 1)[0]
+                value = value.split('≈', 1)[0]
 
                 cc = cc.split('@', 1)[0]
+
+                value = value.split("%", 1)[0]
                 import System.Drive.Errors_Events.EventMan as EV
 
                 EV.NewEvent(
