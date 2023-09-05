@@ -1,5 +1,9 @@
+import pty
+import subprocess
 import sys
 import os
+import threading
+import time
 
 # HIII
 args = sys.argv
@@ -464,37 +468,62 @@ def Main():
 
                 EV.NewEvent(event=f'{count1}={count} --COMMAND LINE', Pol=0)
                 valuee = args[2]
+
                 value = lines[int(valuee) - 1]
-                listOfWords = value.split('-', 1)
+                listOfWords = value.split('≈', 1)
                 if len(listOfWords) > 0:
                     valueg = listOfWords[1]
+                    LaunchCommand = valueg[:-2]
 
-                import System.Drive.Errors_Events.EventMan as EV
+                value1 = value.split(f'@', 1)[0]
 
-                EV.NewEvent(event=f'Creating value1 --COMMAND LINE', Pol=0)
-                try:
-                    value1 = value.split(f'@', 1)[0]
-                    Str = value1[: len(value1) - 1]
-                    import System.Drive.Errors_Events.EventMan as EV
+                listOfWords = value.split('+', 1)
+                if len(listOfWords) > 0:
+                    dir = listOfWords[1]
 
-                    EV.NewEvent(event=f'Success: {Str} --COMMAND LINE', Pol=0)
-                except:
-                    value1 = value.split(f'@', 1)[0]
-                    import System.Drive.Errors_Events.EventMan as EV
+                dir = dir.split('≈', 1)[0]
 
-                    EV.NewEvent(
-                        event=f'Failure: {value1} --COMMAND LINE', Pol=0
-                    )
 
                 try:
-                    os.system(f'{valueg}')
-
-                    import System.Drive.Errors_Events.EventMan as EV
-
                     EV.NewEvent(
-                        event=f'Directory changed [!]{value1}[!] --COMMAND LINE',
+                        event=f'cd {dir} && {LaunchCommand}',
                         Pol=0,
                     )
+                    print('\n'*100)
+                    subshell = LaunchCommand.split(' ')
+                    subshell = subshell[0]
+                    entrypoint = LaunchCommand.split('/')
+
+                    # Get the last part
+                    entrypoint = entrypoint[-1]
+                    print(f'''
+
+
+█▀▀ █░█ █▀█ █▀▄▀█   █░░ █▀█ █▀▀ ▄▀█ █░░   █▀ █░█ █▀▀ █░░ █░░ ▀
+█▄█ █▀█ █▀▀ █░▀░█   █▄▄ █▄█ █▄▄ █▀█ █▄▄   ▄█ █▀█ ██▄ █▄▄ █▄▄ ▄ 
+========================================================================================================================
+Is Alive: \033[91m True \033[0m  ||     Entrypoint File: \033[91m{entrypoint}\033[0m ||       Current SubShell: \033[91m{subshell}\033[0m 
+Shell Directory: \033[91m{dir}\033[0m  
+========================================================================================================================
+''')
+                    try:
+                        start_time = time.time()
+                        LaunchCommand2 = f'''cd {dir} && {LaunchCommand}'''
+
+                        os.system(LaunchCommand2)
+
+                        sys.exit(0)
+
+                    except:
+                        end_time = time.time()  # Record the end time when the exception is raised
+                        elapsed_time = end_time - start_time  # Calculate the elapsed time
+                        print(f'''
+========================================================================================================================
+Shell Quit After \033[91m{elapsed_time:.2f}\033[0m seconds 
+''')
+
+
+
 
                 except:
                     print('os error')
@@ -505,23 +534,7 @@ def Main():
                         event=f'Dir Change Canceled --COMMAND LINE', Pol=0
                     )
 
-                listOfWords = value.split('-', 1)
-                if len(listOfWords) > 0:
-                    value = listOfWords[1]
 
-                value = value.split('*', 1)[0]
-
-                try:
-                    os.system(f'{value}')
-
-                    import System.Drive.Errors_Events.EventMan as EV
-
-                    EV.NewEvent(
-                        event=f'Command Executed [!]{value}[!] --COMMAND LINE',
-                        Pol=0,
-                    )
-                except:
-                    pass
 
     elif args[1] == '-LG':  # list git
         spacer = '===================================================='
