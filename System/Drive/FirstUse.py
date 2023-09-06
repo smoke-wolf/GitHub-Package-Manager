@@ -7,6 +7,7 @@ import uuid
 import tkinter as tk
 from tkinter import ttk
 
+
 # Function to check if the OS is macOS
 def is_mac_os():
     return platform.system() == "Darwin"
@@ -59,6 +60,16 @@ def generate_hashed_password(password):
 def create_profile():
     create_user_profile()
     os.remove(f"{cwd}/System/.Cache/User/FirstUseToken.txt")
+    # Open a file for writing in the root directory
+    file_path = "/.GHPM"  # Replace with your desired file path
+    
+    try:
+        with open(file_path, "w") as file:
+            file.write(source_directory)  # Write your content here
+        print(f"GHPM Sytem has been successfully created and written.")
+    except IOError:
+        print(f"An error occurred while writing GHPM System.")
+
     print("User Profile Has Been Created.")
     root.destroy()
 
