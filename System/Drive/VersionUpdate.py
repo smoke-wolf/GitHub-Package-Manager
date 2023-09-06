@@ -53,6 +53,12 @@ if response.status_code == 200:
     content = response.text
     # Now, the content of the URL is stored in the 'content' variable
     print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
+    applescript = f"""
+display notification "Updated to {content[10:]}" with title "Update Complete"
+"""
+
+# Use osascript to execute the AppleScript command
+os.system(f"osascript -e '{applescript}'")
     with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py','w') as w:
         w.write(content)
 
