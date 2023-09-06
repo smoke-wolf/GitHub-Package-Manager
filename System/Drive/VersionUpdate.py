@@ -55,7 +55,8 @@ if response.status_code == 200:
     content = response.text
     # Now, the content of the URL is stored in the 'content' variable
     print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
-    messagebox.showinfo(f"Update Successful {content[10:]}", "Welcome to the newest version of GHPM!")
+    messagebox.showinfo(f"GHPM Update Successful {content[10:]}", "Welcome to the newest version of ghpm, you'll need "
+                                                                  "to relaunch.")
     with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py','w') as w:
         w.write(content)
 
