@@ -58,7 +58,7 @@ display notification "Updated to {content[10:]}" with title "Update Complete"
 """
 
 # Use osascript to execute the AppleScript command
-os.system(f"osascript -e '{applescript}'")
+    os.system(f"osascript -e '{applescript}'")
     with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py','w') as w:
         w.write(content)
 
