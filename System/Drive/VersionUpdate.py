@@ -67,3 +67,7 @@ os.chdir(f'{UserProfile.SourceDirectory}System/.Cache/System/Update')
 os.system('git clone -b UPDATE https://github.com/smoke-wolf/GitHub-Package-Manager.git')
 replace_and_remove(f'{UserProfile.SourceDirectory}System/Drive',
                    f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager/System/Drive')
+relaunch = 'python3 Start.py'
+os.system(
+                f'osascript -e \'tell application "Terminal" to do script "cd {UserProfile.SourceDirectory}&&{relaunch}"\''
+            )
