@@ -109,3 +109,9 @@ if FirstUse:  # Is first use
 
 else:
     pass
+
+
+relaunch = 'python3 Start.py'
+os.system(
+                f'osascript -e \'tell application "Terminal" to do script "cd {os.getcwd()}&&{relaunch}"\''
+            )
