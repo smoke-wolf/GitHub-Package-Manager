@@ -328,19 +328,35 @@ def Installer(value):
                                     field5_value,
                                     field6_value,
                                 ]
+
+                                import tkinter as tk
+
+                                def show_notification():
+                                    notification_window = tk.Tk()
+                                    notification_window.title("Warning")
+                                    label = tk.Label(notification_window, text="Installation may take up to 5 minutes. please hold tight.")
+                                    label.pack()
+                                    notification_window.after(5000,
+                                                              notification_window.destroy)  # Close the window after 3 seconds
+                                    notification_window.mainloop()
+
+                                
+
+
                                 for value in values:
-                                    print(value)
+                                    print(f'{values.index(value)} : {value}')
+                                    # Call the function to show the notification
+                                    
 
                                 try:
                                     # Change the current working directory
-                                    subprocess.run(["cd", ChangeDir], shell=True)
+                                    show_notification()
+                                    command = (f'cd {dir1} && {field2_value}', f'cd {dir1} && {field3_value}', f'cd {dir1} && {field4_value}', f'cd {dir1} && {field5_value}', f'cd {dir1} && {field6_value}')
+                                    for i in command:
+                                        print(f'running command : {i}')
+                                        subprocess.call(i, shell=True)
 
-                                    # Run the commands using subprocess
-                                    subprocess.run(field1_value, shell=True)
-                                    subprocess.run(field2_value, shell=True)
-                                    subprocess.run(field3_value, shell=True)
-                                    subprocess.run(field4_value, shell=True)
-                                    subprocess.run(field5_value, shell=True)
+
 
                                 except:
                                     EV.guiEvent(0,
