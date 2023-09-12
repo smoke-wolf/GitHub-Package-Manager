@@ -331,26 +331,16 @@ def Installer(value):
 
                                 import tkinter as tk
 
-                                def show_notification():
-                                    notification_window = tk.Tk()
-                                    notification_window.title("Warning")
-                                    label = tk.Label(notification_window, text="Installation may take up to 5 minutes. please hold tight.")
-                                    label.pack()
-                                    notification_window.after(5000,
-                                                              notification_window.destroy)  # Close the window after 3 seconds
-                                    notification_window.mainloop()
-
-                                
 
 
                                 for value in values:
                                     print(f'{values.index(value)} : {value}')
                                     # Call the function to show the notification
-                                    
 
                                 try:
                                     # Change the current working directory
-                                    show_notification()
+
+                                    messagebox.showinfo(f"Hold Tight! We're installing {os.path.basename(dir1)}")
                                     command = (f'cd {dir1} && {field2_value}', f'cd {dir1} && {field3_value}', f'cd {dir1} && {field4_value}', f'cd {dir1} && {field5_value}', f'cd {dir1} && {field6_value}')
                                     for i in command:
                                         print(f'running command : {i}')
