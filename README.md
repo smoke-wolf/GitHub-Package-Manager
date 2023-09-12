@@ -6,7 +6,7 @@ GHPM Is coming along, with some key new features as of version 1.5.x. *Find more
 There are also a few main goals I am aiming to achieve in this version as well.  I plan on integrating a number of suggestions from the discussions.  As well as making it as useful as possible.
 
 Feel free to join the [Discord Server](https://discord.gg/dSQTDq39c)  and provide any feedback or suggestions to myself.
-[WALKTHROUGH]([https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/WALKTHROUGH.md](https://github.com/smoke-wolf/GitHub-Package-Manager/wiki/Walkthrough-%E2%80%90Everything-about-GHPM#walk-through))
+[WALKTHROUGH](https://github.com/smoke-wolf/GitHub-Package-Manager/wiki/Walkthrough-%E2%80%90Everything-about-GHPM#walk-through)
 
 ## quick install :part_alternation_mark: :computer:
 
