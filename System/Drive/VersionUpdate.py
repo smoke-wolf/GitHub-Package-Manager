@@ -60,6 +60,14 @@ if response.status_code == 200:
     with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py','w') as w:
         w.write(content)
 
+    url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/Local/download/server.js"
+
+    response = requests.get(url)
+    if response.status_code == 200:
+        content = response.text
+        with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Local/download/server.js', 'w') as w:
+            w.write(content)
+
 else:
     print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
 
