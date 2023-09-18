@@ -1,7 +1,10 @@
 
-# GitHub Package Manager  1.5.x :low_brightness:
+# GitHub Package Manager  1.6.x :low_brightness:
 
-GHPM Is coming along, with some key new features as of version 1.5.x. *Find more on that later on.*
+
+GHPM Is coming along, with some key new features as of version 1.6.x. *Find more on that later on.*
+
+readme will be updated soon
 
 There are also a few main goals I am aiming to achieve in this version as well.  I plan on integrating a number of suggestions from the discussions.  As well as making it as useful as possible.
 
