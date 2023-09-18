@@ -13,7 +13,12 @@ app.use(cors());
 const sessionKey = generateSessionKey();
 
 // Define the optional stepOver flag
-const stepOver = true; // Change this value as needed
+const stepOver = false; // Change this value as needed
+
+const bodyParser = require('body-parser');
+
+// Parse incoming request data as JSON
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Function to generate a random session key
 function generateSessionKey() {
@@ -64,6 +69,7 @@ function executeNotificationCommand(callback) {
 app.get('/', (req, res) => {
   res.send('Local Server Is Up');
 });
+
 
 app.get('/clone/:owner/:repo', async (req, res) => {
   const { owner, repo } = req.params;
