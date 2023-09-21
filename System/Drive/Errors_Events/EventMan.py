@@ -118,15 +118,17 @@ def guiEvent(typeerror, event, line, address, terminate=False, record=True, seve
         Record(typeer)
 
     def Record(typeer):
-        display_format = f'{typeer} --> {event} @ line:{line} severity:{severity}'
-        if typeer == 'CheckPoint':
-            display_format = f'{typeer} line:{line} function:{address}'
-        print(display_format)
-        if User.UserProfile.PushLogs:
-            url = f"https://gpm-web.vercel.app/usr={User.UserProfile.Username}/log={display_format}"
-            import requests
-            requests.get(url)
-
+        try:
+            display_format = f'{typeer} --> {event} @ line:{line} severity:{severity}'
+            if typeer == 'CheckPoint':
+                display_format = f'{typeer} line:{line} function:{address}'
+            print(display_format)
+            if User.UserProfile.PushLogs:
+                url = f"https://gpm-web.vercel.app/usr={User.UserProfile.Username}/log={display_format}"
+                import requests
+                requests.get(url)
+        except:
+            print('Network Connection Error')
         logfile = f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents'
         with open (logfile, 'a') as log:
             log.write(f'\n{display_format}')
