@@ -276,9 +276,9 @@ def GUI():
         {
             "repo_name": "GHPM Powered Custom Shell",
             "repo_url": "https://github.com/smoke-wolf/GHPM-CUSTOM-SHELL",
-            "description": "GHPM-CUSTOM-SHELL add-on for easy implementation
+            "description": '''GHPM-CUSTOM-SHELL add-on for easy implementation
             of shortcuts and user preference modifications within 
-            the terminal interface",
+            the terminal interface''',
         },
         {
             "repo_name": "Requirement-Scanner",
