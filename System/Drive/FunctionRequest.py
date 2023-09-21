@@ -274,9 +274,11 @@ def GUI():
             "description": "Hope you enjoy using GHPM",
         },
         {
-            "repo_name": "alfred",
-            "repo_url": "https://github.com/Alfredredbird/alfred",
-            "description": "Alfred is a advanced OSINT information gathering tool",
+            "repo_name": "GHPM Powered Custom Shell",
+            "repo_url": "https://github.com/smoke-wolf/GHPM-CUSTOM-SHELL",
+            "description": "GHPM-CUSTOM-SHELL add-on for easy implementation
+            of shortcuts and user preference modifications within 
+            the terminal interface",
         },
         {
             "repo_name": "Requirement-Scanner",
