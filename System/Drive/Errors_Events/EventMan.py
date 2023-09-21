@@ -1,4 +1,5 @@
 import datetime
+import inspect
 import socket
 import time
 import requests
@@ -48,7 +49,7 @@ def NewEvent(event, Pol):
         EventReport = open(f'{cwd}/System/.Cache/System/ErrorLog/Events', 'a')
     except:
         EventReport = open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'a')
-        
+
     import datetime
 
     if Pol == 10:
@@ -108,6 +109,8 @@ def guiEvent(typeerror, event, line, address, terminate=False, record=True, seve
         global typeer
         if typeerror == 1:
             typeer = 'User'
+        elif typeerror == 2:
+            typeer = 'SYSTEM ERROR'
         elif typeerror == 0:
             typeer = 'System'
         elif typeerror == 3:
@@ -130,7 +133,7 @@ def guiEvent(typeerror, event, line, address, terminate=False, record=True, seve
         except:
             print('Network Connection Error')
         logfile = f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents'
-        with open (logfile, 'a') as log:
+        with open(logfile, 'a') as log:
             log.write(f'\n{display_format}')
         try:
             if User.UserProfile.LV:
@@ -147,22 +150,31 @@ def guiEvent(typeerror, event, line, address, terminate=False, record=True, seve
     else:
         pass
 
-def PushAnalytics(a1,a2,a3):
+def get_current_function():
+    stack = inspect.stack()
+    frame = stack[1]
+    code = frame[0]
+    return code.f_code.co_name
 
-    if User.UserProfile.PushLogs:
-        AnalyticsRecord(9)
-        import requests
-        global analytics_push_id
-        analytics_push_id = 0
-        ip = socket.gethostbyname(socket.gethostname())
+def PushAnalytics(a1, a2, a3):
+    try:
+        if User.UserProfile.PushLogs:
+            AnalyticsRecord(9)
+            import requests
+            global analytics_push_id
+            analytics_push_id = 0
+            ip = socket.gethostbyname(socket.gethostname())
 
-        url = f"https://gpm-web.vercel.app/push={analytics_push_id}/usr={User.UserProfile.Username}/ip{ip}/requesttype={a2}/aditional={a3}"
-        requests.get(url)
+            url = f"https://gpm-web.vercel.app/push={analytics_push_id}/usr={User.UserProfile.Username}/ip{ip}/requesttype={a2}/aditional={a3}"
+            requests.get(url)
+    except:
+        guiEvent(2, 'Network Issue With Log Push', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
+        print('network issue')
 
 def AnalyticsRecord(a1):
     push_types = ['install-github0', 'install-local1', 'install-github-complex2', 'activate-local3', 'activate-github4',
                   'activate-github-complex5', 'activator-update6', 'activator-reinstall7', 'settings8', 'send_logs9',
-                  'auto_update10','advertisement11']
+                  'auto_update10', 'advertisement11']
 
     bref = f'[{a1}]'
     if os.path.exists(f'{User.UserProfile.SourceDirectory}System/.Cache/User/analytics'):
