@@ -1,82 +1,83 @@
 import datetime
 import inspect
-import platform
-import re
-import socket
-import subprocess
 import tkinter as tk
 from tkinter import ttk
 import User.UserProfile
 import System.Drive.Errors_Events.EventMan as EV
-
 import os
-import sys
-import time
-
-cwd = User.UserProfile.SourceDirectory
-
-global os
-
 import uuid
-EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Uninstall', a3='None')
-def get_current_function():
+
+# Set the current working directory from UserProfile
+current_working_directory = User.UserProfile.SourceDirectory
+
+# Generate a unique UUID and send an analytics event
+unique_id = uuid.uuid1().hex
+EV.PushAnalytics(a1=unique_id, a2='Uninstall', a3='None')
+
+# Function to retrieve the current function's name
+def get_current_function_name():
     stack = inspect.stack()
     frame = stack[1]
     code = frame[0]
     return code.f_code.co_name
 
+# Function to confirm the uninstallation
 def confirm_uninstall(selected_item):
-    EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
+    # Send a GUI event to confirm uninstallation
+    EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function_name(), False, True, 1)
     import tkinter.messagebox
 
-    result = tk.messagebox.askyesno('Confirm Uninstall', 'Are you sure you want to uninstall ' + selected_item + '?')
+    result = tk.messagebox.askyesno('Confirm Uninstall', f'Are you sure you want to uninstall {selected_item}?')
 
+    # Close the list window
     list_window.destroy()
-    print(result)
-    if result:
-        valuee = items.index(selected_item)
 
-        if valuee >= count:
-            dr = int(valuee) - count
+    if result:
+        value_index = items.index(selected_item)
+
+        if value_index >= count:
+            dr = int(value_index) - count
             command = lines2[dr - 1]
             print(command)
 
             try:
                 import shutil
-                co = command.split('@', 1)[0]
-                shutil.rmtree(co)
+                directory_to_remove = command.split('@', 1)[0]
+                shutil.rmtree(directory_to_remove)
 
-                print(f'Project Removed {co}')
+                print(f'Project Removed: {directory_to_remove}')
 
             except:
-                print(f'Project Failed To Remove {co}')
-                EV.guiEvent(0, f'{get_current_function()} Error: {co} not removed',
+                print(f'Project Failed To Remove: {directory_to_remove}')
+                EV.guiEvent(0, f'{get_current_function_name()} Error: {directory_to_remove} not removed',
                             inspect.currentframe().f_lineno, os.path.abspath(__file__), False, True, 3)
 
         else:
-            with open(f'{cwd}System/.Cache/System/GitHub/int.txt', 'r') as file:
+            with open(f'{current_working_directory}System/.Cache/System/GitHub/int.txt', 'r') as file:
                 lines5 = file.readlines()
 
-            with open(f'{cwd}System/.Cache/System/GitHub/int.txt', 'w') as file:
-                for linef in lines5:
-                    if linef.find(selected_item) != -1:
-                        rmdir = linef.split('@')[0]
+            with open(f'{current_working_directory}System/.Cache/System/GitHub/int.txt', 'w') as file:
+                for line_in_file in lines5:
+                    if line_in_file.find(selected_item) != -1:
+                        rmdir = line_in_file.split('@')[0]
                         try:
                             import shutil
                             shutil.rmtree(rmdir)
                             tk.messagebox.showinfo('Success', f'{rmdir} has been uninstalled.')
                         except:
-                            EV.guiEvent(0, f'{get_current_function()} Error: Failed TO remove {rmdir}',
+                            EV.guiEvent(0, f'{get_current_function_name()} Error: Failed to remove {rmdir}',
                                         inspect.currentframe().f_lineno, os.path.abspath(__file__), False, True, 3)
                     else:
-                        file.write(linef)
+                        file.write(line_in_file)
 
         return rmdir
     else:
-        EV.guiEvent(0, 'Deletion Cancelled', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
+        EV.guiEvent(0, 'Deletion Cancelled', inspect.currentframe().f_lineno, get_current_function_name(), False, True, 1)
 
+# Function to display the list of items to uninstall
 def show_list_window():
-    EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
+    # Send a GUI event to show the list window
+    EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function_name(), False, True, 1)
     global list_window
     list_window = tk.Toplevel()
 
@@ -96,26 +97,26 @@ def show_list_window():
     global items
     items = []
     try:
-        with open(f'{cwd}System/.Cache/System/GitHub/int.txt', 'r') as r, open(f'{cwd}System/.Cache/System/GitHub/int2.txt', 'w') as o:
-            for line in r:
+        with open(f'{current_working_directory}System/.Cache/System/GitHub/int.txt', 'r') as original_file, open(f'{current_working_directory}System/.Cache/System/GitHub/int2.txt', 'w') as copy_file:
+            for line in original_file:
                 if line.strip():
-                    o.write(line)
+                    copy_file.write(line)
     except:
-        EV.guiEvent(0, f'{get_current_function()} Error: GitHub data locked or not found',
+        EV.guiEvent(0, f'{get_current_function_name()} Error: GitHub data is locked or not found',
                     inspect.currentframe().f_lineno, os.path.abspath(__file__), False, True, 4)
 
     try:
-        e = open(f'{cwd}System/.Cache/System/GitHub/Complex2', 'r')
+        e = open(f'{current_working_directory}System/.Cache/System/GitHub/Complex2', 'r')
     except:
-        EV.guiEvent(0, f'{get_current_function()} Error: github data cannot be read',
+        EV.guiEvent(0, f'{get_current_function_name()} Error: GitHub data cannot be read',
                     inspect.currentframe().f_lineno, os.path.abspath(__file__), False, True, 3)
 
     f = None  # Initialize f variable
 
     try:
-        f = open(f'{cwd}System/.Cache/System/GitHub/int2.txt', 'r')
+        f = open(f'{current_working_directory}System/.Cache/System/GitHub/int2.txt', 'r')
     except:
-        EV.guiEvent(0, f'{get_current_function()} Error: github data cannot be read',
+        EV.guiEvent(0, f'{get_current_function_name()} Error: GitHub data cannot be read',
                     inspect.currentframe().f_lineno, os.path.abspath(__file__), False, True, 3)
 
     lines = []
@@ -143,7 +144,7 @@ def show_list_window():
             count1 += 1
             items.append(line2)
     except:
-        EV.guiEvent(0, f'{get_current_function()} Error: Readlines failed Complex2',
+        EV.guiEvent(0, f'{get_current_function_name()} Error: Readlines failed for Complex2',
                     inspect.currentframe().f_lineno, os.path.abspath(__file__), False, True, 3)
 
     for item in items:
@@ -157,6 +158,3 @@ def show_list_window():
     exit_button = ttk.Button(list_window, text='Exit Uninstaller', command=lambda: list_window.destroy(),
                              style='Custom.TButton')
     exit_button.pack(pady=10)
-
-
-
