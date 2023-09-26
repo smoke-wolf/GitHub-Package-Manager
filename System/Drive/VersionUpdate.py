@@ -3,6 +3,7 @@ import os
 import sys
 from tkinter import messagebox
 
+'''optimize for windows''' 
 import System.Drive.Errors_Events.EventMan as AR
 import User.UserProfile as UserProfile
 
