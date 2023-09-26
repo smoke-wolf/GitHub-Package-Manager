@@ -1,3 +1,13 @@
+'''
+
+this script is primarily concerned with password authentication,
+device and user identity validation, and decryption of files when
+logging in. It ensures security and user authentication for the GitHub
+Package Manager application.
+
+-Revised Monday, September 25, 2023
+
+'''
 import os
 import time
 
