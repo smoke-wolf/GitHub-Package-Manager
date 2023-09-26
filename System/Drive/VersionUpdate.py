@@ -8,6 +8,11 @@ and related files. It then changes the working directory to a specific location 
 to clone the "UPDATE" branch of the GitHub repository to update the application's files.
 Finally, it opens a new Terminal window and runs a Python script to relaunch the updated application,
 ensuring that users are using the latest version of the GitHub Package Manager.
+
+Apply changes to accept Windows OS an it's filepath system. 
+
+
+-Revised Monday, September 25, 2023
 '''
 
 
