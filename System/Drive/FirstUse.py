@@ -1,3 +1,37 @@
+'''
+This script appears to be responsible for creating a user profile 
+during the first use of a program and then initiating a relaunch of the program.
+Here's a brief description of its logic:
+
+The script defines several functions to check the operating system,
+create a user profile, and generate a hashed password.
+
+is_mac_os() function checks if the current operating system is macOS by comparing
+the result of platform.system() with "Darwin."
+
+create_user_profile() function creates a user profile with various user-related
+information like username, hashed password, user privileges, source directory, and others.
+It writes this information to a file named "UserProfile.py" in the "User" directory.
+
+generate_hashed_password() function generates a hashed password by combining the provided
+password with a salt and other values, then using MD5 hashing.
+
+create_profile() function is called when a "Create Profile" button is clicked. 
+It creates the user profile, deletes a "FirstUseToken.txt" file, and writes some information to a "/.GHPM" file
+(you should replace this with your desired file path). After this,
+it prints messages indicating the actions performed and closes the GUI window.
+
+The script checks if it's the first use by looking for the existence of a "FirstUseToken.txt" file.
+
+If it's the first use, the script opens a GUI window using tkinter to prompt the user to enter a username and password.
+After filling out this information and clicking "Create Profile," the user profile is created, and the GUI window closes.
+
+After creating the user profile (or if it's not the first use), the script initiates a relaunch of the program. 
+It executes the "Start.py" file in a new terminal window by using os.system and AppleScript to run a command in Terminal.
+
+In summary, this script is used to set up a user profile during the first use of a program, and then it relaunches the program
+'''
+
 import os
 import sys
 import time
