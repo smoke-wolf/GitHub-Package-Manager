@@ -1,3 +1,9 @@
+'''
+ is script creates a graphical user interface for an application
+ with buttons for various functionalities and repositories. It 
+ also handles analytics and checks for updates or forced login 
+ based on user preferences.
+ '''
 import inspect
 import uuid
 from tkinter import ttk
