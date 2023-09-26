@@ -1,8 +1,12 @@
 
-name: Name of the bug or issue, This is can be assigned by you, just please keep it on topic.
+name: Name of the change or plan
+---------------------
 about: Create a report to help us improve
+---------------------
 title: ToDo
+---------------------
 labels: ''
+---------------------
 assignees: ''
 
 
