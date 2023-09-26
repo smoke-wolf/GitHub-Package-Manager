@@ -1,0 +1,6 @@
+# Python Byproducts
+__pycache__/
+
+# IDEs
+.vscode
+.idea
