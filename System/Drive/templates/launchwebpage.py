@@ -1,3 +1,17 @@
+'''
+This code creates a PyQt5 application with a WebWindow that displays a local HTML file.
+It also includes a "Back" action in the menu bar for navigation. 
+The osascript command is used to hide the Terminal window. 
+The main purpose is to provide a graphical interface for viewing a local HTML file and navigating backward in the browser-like interface.
+
+-also needs to be fixed
+*CrossPlatformCompatibility#002*
+'''
+
+
+
+
+
 import os
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QAction
