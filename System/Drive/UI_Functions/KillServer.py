@@ -1,3 +1,12 @@
+'''
+this script provides a way to kill a server process 
+running on a specific port (in this case, port 3000).
+It leverages subprocess commands and logs events for 
+analytics tracking.
+
+'''
+
+
 import datetime
 import inspect
 import platform
