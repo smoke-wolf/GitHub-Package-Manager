@@ -7,11 +7,6 @@ The main purpose is to provide a graphical interface for viewing a local HTML fi
 -also needs to be fixed
 *CrossPlatformCompatibility#002*
 '''
-
-
-
-
-
 import os
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QAction
