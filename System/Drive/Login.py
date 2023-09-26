@@ -1,3 +1,12 @@
+'''
+this script handles user authentication by validating
+the entered password, with multiple retries if necessary,
+and checks for device restrictions based on the device's UUID.
+If the device is not restricted, the user is allowed to log in.
+
+
+
+'''
 import sys
 import User.UserProfile
 
