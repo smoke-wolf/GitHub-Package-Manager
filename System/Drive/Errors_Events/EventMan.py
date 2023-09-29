@@ -86,6 +86,7 @@ def NewEvent(event, Pol):
             con.executemany(sql, data)
 
     Et = str(EventTime)[:-7]
+    
     try:
         Update(data=[(f'{event}', f'{Et}', f'{CRIS}')])
     except:
@@ -125,7 +126,12 @@ def guiEvent(typeerror, event, line, address, terminate=False, record=True, seve
             display_format = f'{typeer} --> {event} @ line:{line} severity:{severity}'
             if typeer == 'CheckPoint':
                 display_format = f'{typeer} line:{line} function:{address}'
-            print(display_format)
+                
+            if User.UserProfile.DisplayEvents is True:
+                print(display_format)
+            else:
+                pass
+                
             if User.UserProfile.PushLogs:
                 url = f"https://gpm-web.vercel.app/usr={User.UserProfile.Username}/log={display_format}"
                 import requests
