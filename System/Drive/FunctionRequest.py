@@ -1,7 +1,7 @@
 '''
  is script creates a graphical user interface for an application
- with buttons for various functionalities and repositories. It 
- also handles analytics and checks for updates or forced login 
+ with buttons for various functionalities and repositories. It
+ also handles analytics and checks for updates or forced login
  based on user preferences.
  '''
 
@@ -32,6 +32,12 @@ def Activate():
 
 
 def GUI():
+    import User.UserProfile as UP
+    if UP.Forced_Login:
+        import System.Drive.Login
+    else:
+        pass
+
     EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
 
 
@@ -332,21 +338,14 @@ def GUI():
         pass
     EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Login', a3='None')
     if User.UserProfile.AutoUpdate:
-
         try:
             import System.Drive.VersionUpdate
-            System.Drive.VersionUpdate
+            System.Drive.VersionUpdate()
 
         except:
-            if User.UserProfile.Forced_Login:
-                import System.Drive.Login
-                exec('System.Drive.Login')
 
             root.mainloop()
     else:
-        if User.UserProfile.Forced_Login:
-            import System.Drive.Login
-            exec('System.Drive.Login')
         root.mainloop()
 
 
