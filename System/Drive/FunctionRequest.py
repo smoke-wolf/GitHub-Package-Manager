@@ -113,11 +113,10 @@ def GUI():
     y_coordinate = (screen_height - window_height) // 2
     root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
-    bg_color = '#403736'
-    button_color = '#301c1b'
-    button_hover_color = '#D8D8D8'
-    text_color = '#732c03'
-    text_color_other = '#81BDA4'
+    # Define colors
+    bg_color = '#7A3B69'
+    text_color = '#3c3293'
+    button_color = '#3c3293'
 
     button_font = ('Helvetica', 14)
 
@@ -207,21 +206,23 @@ def GUI():
     bottom_button.pack(side='bottom', padx=10, pady=15)
 
     # Peppermint theme colors
-    bg_color = "#C5E0DC"  # Light blue
-    text_color = "#732c03"  # Dark gray
-    button_color = "#391e6b"  # Light teal
+    bg_color = '#7A3B69'
+    text_color = '#32936F'
+    button_color = '#32936F'
 
     # Border color for the frame
     border_color = "#391e6b"  # A light gold color
 
     # Apply Peppermint theme to canvas and scrollbar
     style = ttk.Style()
+
     style.theme_use("clam")  # Using the "clam" theme for a modern look
     style.configure("Vertical.TScrollbar", gripcount=0, background=bg_color, troughcolor=bg_color, bordercolor=bg_color, borderwidth=1)
     style.map("Vertical.TScrollbar", background=[("active", button_color), ("disabled", bg_color)])
 
     # Create a canvas and add a scrollbar
     canvas = tk.Canvas(root)
+
     scrollbar = ttk.Scrollbar(root, orient="vertical", command=canvas.yview, style="Vertical.TScrollbar")
     canvas.configure(yscrollcommand=scrollbar.set)
 
@@ -230,6 +231,11 @@ def GUI():
 
     # Create a frame inside the canvas to hold the content with a colored border
     content_frame = ttk.Frame(canvas, borderwidth=4, relief="solid")
+
+    style = ttk.Style()
+    style.configure("My.TFrame.TFrame", background="#7A3B69")  # Replace "blue" with your desired background color
+
+
     content_frame["style"] = "My.TFrame"  # Define a custom style for the frame
     canvas.create_window((0, 0), window=content_frame, anchor="nw")
 
@@ -259,7 +265,7 @@ def GUI():
             git_row_frame,
             text="Download",
             bg=button_color,
-            fg=text_color,
+            fg='#006b73',
             padx=10,
             pady=5,
             command=lambda: (System.Drive.UI_Functions.Install.Installer(value=repo_url)),
@@ -284,36 +290,36 @@ def GUI():
 
     git_rows = [
         {
-            "repo_name": "Thank You For Downloading!",
+            "repo_name": "Thank You For Downloading!                                                                                        ",
             "repo_url": "",
             "description": "Hope you enjoy using GHPM",
         },
         {
-            "repo_name": "GHPM Powered Custom Shell",
+            "repo_name": "GHPM Powered Custom Shell                                                                                        ",
             "repo_url": "https://github.com/smoke-wolf/GHPM-CUSTOM-SHELL",
             "description": '''GHPM-CUSTOM-SHELL add-on for easy implementation
             of shortcuts and user preference modifications within 
             the terminal interface''',
         },
         {
-            "repo_name": "Requirement-Scanner",
+            "repo_name": "Requirement-Scanner                                                                                         ",
             "repo_url": "https://github.com/smoke-wolf/ReqScanner",
             "description": "Compile a list of all pip packages used in a python application",
         },
         {
-            "repo_name": "Local Weather",
+            "repo_name": "Local Weather                                                                                       ",
             "repo_url": "https://github.com/smoke-wolf/weather",
             "description": "Get a Local Weather Report",
         },
         {
-            "repo_name": "Touch Script",
+            "repo_name": "Touch Script                                                                                        ",
             "repo_url": "https://github.com/smoke-wolf/TouchScript",
             "description": '''.touch is a lightweight and user-friendly scripting language
         designed to automate common tasks
         on your computer.''',
         },
         {
-            "repo_name": "GPlock",
+            "repo_name": "GPlock                                                                                                              ",
             "repo_url": "https://github.com/smoke-wolf/GpLock",
             "description": "Compile a list of all pip packages used in a python application",
         },
@@ -325,6 +331,8 @@ def GUI():
         )
 
     # Define the custom style for the frame border
+    style = ttk.Style()
+    style.configure("My.TFrame", background="#7A3B69")  # Replace "blue" with your desired background color
     style.configure("My.TFrame", bordercolor=border_color)
 
     import User.UserProfile
