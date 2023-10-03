@@ -33,7 +33,18 @@ def show_information():
     screen_height = info_window.winfo_screenheight()
     window_width = 440
     window_height = 460
-    info_window.config(bg='#C5E0DC')
+
+    alpha_value = 0.93  # Adjust the alpha value as needed
+
+    info_window.attributes("-alpha", alpha_value)
+
+    # Create a canvas to act as the window's background with a colored rectangle
+    canvas = tk.Canvas(info_window, width=526, height=505)
+
+    # Set the canvas background color
+    bg_color = '#EE85B5'
+    canvas.create_rectangle(0, 0, 526, 505, fill=bg_color, outline="")
+
     x_coordinate = (screen_width // 2) - (window_width // 2)
     y_coordinate = (screen_height // 2) - (window_height // 2)
     info_window.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
