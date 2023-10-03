@@ -9,9 +9,9 @@ to clone the "UPDATE" branch of the GitHub repository to update the application'
 Finally, it opens a new Terminal window and runs a Python script to relaunch the updated application,
 ensuring that users are using the latest version of the GitHub Package Manager.
 
-Apply changes to accept Windows OS an it's filepath system. 
+Apply changes to accept Windows OS an it's filepath system.
 
--Revised Monday, September 25, 2023
+-Revised Monday, October 3, 2023
 '''
 
 
@@ -29,7 +29,7 @@ try:
     shutil.rmtree(f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager')
 except:
     pass
-
+os.chdir(f'{UserProfile.SourceDirectory}System')
 def replace_and_remove(directory_a, directory_b):
     # Copy the content of directory B to directory A
     shutil.rmtree(directory_a)  # Remove existing content of directory A
@@ -39,28 +39,71 @@ def replace_and_remove(directory_a, directory_b):
     shutil.rmtree(directory_b)
 
 
-url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/COMPATABLE"
+import os
+import hashlib
+import requests
 
+# Function to generate a checksum for a file
+def generate_checksum_for_file(file_path, hash_algorithm='sha256'):
+    hasher = hashlib.new(hash_algorithm)
+    with open(file_path, 'rb') as file:
+        while True:
+            data = file.read(65536)  # Read in 64k chunks
+            if not data:
+                break
+            hasher.update(data)
+    return hasher.hexdigest()
+
+# Function to generate checksums for all files in the current directory and subdirectories
+def generate_checksums_for_current_directory(hash_algorithm='sha256'):
+    checksums = {}
+    for root, _, files in os.walk(f'{UserProfile.SourceDirectory}System/Drive'):
+        for file_name in files:
+            file_path = os.path.join(root, file_name)
+            checksum = generate_checksum_for_file(file_path, hash_algorithm)
+            checksums[file_path] = checksum
+    return checksums
+
+# URL to download the remote checksums
+url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Drive/CS/CheckSum"
+Update_ = False
 response = requests.get(url)
 if response.status_code == 200:
-    comp = response.text
+    remote_checksums = {}
+    for line in response.text.splitlines():
+        file_path, checksum = line.split(': ')
+        remote_checksums[file_path] = checksum
 
-    with open(
-            f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py',
-            'r',
-    ) as ver:
-        global CurrentVersion
-        CurrentVersion = ver.read()
+    # Generate local checksums for the current directory
+    local_checksums = generate_checksums_for_current_directory()
 
-        print(CurrentVersion[11:-2])
+    modified_paths = {}
+    for path, checksum in local_checksums.items():
+        # Find the position of '/System/' in the path
+        system_index = path.find('/System/')
 
-    if CurrentVersion[11:-2] in comp:
-        AR.AnalyticsRecord(10)
-        pass
+        if system_index != -1:
+            # Extract everything after and including '/System/' and update the dictionary
+            modified_path = path[system_index:]
+            modified_paths[modified_path] = checksum
+    local_checksums = modified_paths
+    for file_path, remote_checksum in remote_checksums.items():
+        for ind in local_checksums:
+            if file_path[1:-1] == ind:
+                print('=====================')
+                print(file_path[1:-1])
+                print(ind)
+                print('=====================')
+                if local_checksums[file_path[1:-1]] != remote_checksum[1:-1]:
+                    print(f'{local_checksums[file_path[1:-1]]} does not equal {remote_checksum}')
+                    print(f"Updated file detected: {file_path}")
+                    Update_ = True
 
-    else:
-        print('No Updates Available')
+    print("Checksum comparison completed.")
+    if Update_ is False:
+        print('No Update Found')
         sys.exit(0)
+
 else:
     print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
 
