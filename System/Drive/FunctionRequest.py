@@ -100,18 +100,34 @@ def GUI():
 
     global root
 
+    import tkinter as tk
+
     root = tk.Tk()
     root.title('GHpm')
-    root.config(bg='#403736')
+
+    # Set the transparency level for the entire window (0 is fully transparent, 1 is fully opaque)
+    alpha_value = 0.93  # Adjust the alpha value as needed
+
+    root.attributes("-alpha", alpha_value)
+
+    # Create a canvas to act as the window's background with a colored rectangle
+    canvas = tk.Canvas(root, width=526, height=505)
+
+
+    # Set the canvas background color
+    bg_color = '#EE85B5'
+    canvas.create_rectangle(0, 0, 526, 505, fill=bg_color, outline="")
 
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     root.resizable(False, False)
+
     window_width = 526
     window_height = 505
     x_coordinate = (screen_width - window_width) // 2
     y_coordinate = (screen_height - window_height) // 2
     root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
+
 
     # Define colors
     bg_color = '#7A3B69'
@@ -206,12 +222,12 @@ def GUI():
     bottom_button.pack(side='bottom', padx=10, pady=15)
 
     # Peppermint theme colors
-    bg_color = '#7A3B69'
+    bg_color = '#EE85B5'
     text_color = '#32936F'
-    button_color = '#32936F'
+    button_color = '#EE85B5'
 
     # Border color for the frame
-    border_color = "#391e6b"  # A light gold color
+    border_color = "#EE85B5"  # A light gold color
 
     # Apply Peppermint theme to canvas and scrollbar
     style = ttk.Style()
@@ -233,7 +249,7 @@ def GUI():
     content_frame = ttk.Frame(canvas, borderwidth=4, relief="solid")
 
     style = ttk.Style()
-    style.configure("My.TFrame.TFrame", background="#7A3B69")  # Replace "blue" with your desired background color
+    style.configure("My.TFrame.TFrame", background="#EE85B5")  # Replace "blue" with your desired background color
 
 
     content_frame["style"] = "My.TFrame"  # Define a custom style for the frame
@@ -332,7 +348,7 @@ def GUI():
 
     # Define the custom style for the frame border
     style = ttk.Style()
-    style.configure("My.TFrame", background="#7A3B69")  # Replace "blue" with your desired background color
+    style.configure("My.TFrame", background="#EE85B5")  # Replace "blue" with your desired background color
     style.configure("My.TFrame", bordercolor=border_color)
 
     import User.UserProfile
