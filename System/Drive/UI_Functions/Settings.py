@@ -743,7 +743,7 @@ def settings_window():
 
             target.write(f'\nAdvancedL = {status}')
             target.close()
-            messagebox.showinfo('Update', f'PAdvancedL set to {status}')
+            messagebox.showinfo('Update', f'AdvancedL set to {status}')
 
 
         elif index == 12:
@@ -776,8 +776,9 @@ def settings_window():
         'Send Logs',
         'Toggle Push Logs',
         'Toggle Auto Update',
-        'Toggle Advanced Logging',
         'Toggle Console visibility',
+        'Toggle Advanced Logging',
+
         'Exit Settings',
     ]
 
