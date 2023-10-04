@@ -14,8 +14,6 @@ Apply changes to accept Windows OS an it's filepath system.
 -Revised Monday, October 3, 2023
 '''
 
-
-
 import shutil
 import os
 import sys
@@ -25,11 +23,14 @@ import System.Drive.Errors_Events.EventMan as AR
 import User.UserProfile as UserProfile
 
 import requests
+
 try:
     shutil.rmtree(f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager')
 except:
     pass
 os.chdir(f'{UserProfile.SourceDirectory}System')
+
+
 def replace_and_remove(directory_a, directory_b):
     # Copy the content of directory B to directory A
     shutil.rmtree(directory_a)  # Remove existing content of directory A
@@ -43,6 +44,7 @@ import os
 import hashlib
 import requests
 
+
 # Function to generate a checksum for a file
 def generate_checksum_for_file(file_path, hash_algorithm='sha256'):
     hasher = hashlib.new(hash_algorithm)
@@ -54,6 +56,7 @@ def generate_checksum_for_file(file_path, hash_algorithm='sha256'):
             hasher.update(data)
     return hasher.hexdigest()
 
+
 # Function to generate checksums for all files in the current directory and subdirectories
 def generate_checksums_for_current_directory(hash_algorithm='sha256'):
     checksums = {}
@@ -63,6 +66,7 @@ def generate_checksums_for_current_directory(hash_algorithm='sha256'):
             checksum = generate_checksum_for_file(file_path, hash_algorithm)
             checksums[file_path] = checksum
     return checksums
+
 
 # URL to download the remote checksums
 url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Drive/CS/CheckSum"
@@ -107,6 +111,34 @@ if response.status_code == 200:
 else:
     print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
 
+#
+# `  ADDED METHOD FOR ALERTS
+#
+
+url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/COMPATABLE"
+
+response = requests.get(url)
+if response.status_code == 200:
+    comp = response.text
+
+    with open(
+            f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py',
+            'r',
+    ) as ver:
+
+        CurrentVersion = ver.read()
+
+
+
+    if CurrentVersion[11:-2] in comp:
+
+        pass
+
+    else:
+        FuckedWith = True
+else:
+    print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
+
 #   Try Update
 
 url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/Version.py"
@@ -116,9 +148,13 @@ if response.status_code == 200:
     content = response.text
     # Now, the content of the URL is stored in the 'content' variable
     print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
-    messagebox.showinfo(f"GHPM Update Successful {content[10:]}", "Welcome to the newest version of ghpm, you'll need "
-                                                                  "to relaunch.")
-    with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py','w') as w:
+    if FuckedWith:
+        messagebox.showinfo(f"ALERT",
+                            "Please Stop Messing With The Code")
+    else:
+        messagebox.showinfo(f"GHPM Update Successful {content[10:]}", "Welcome to the newest version of ghpm, you'll need "
+                                                                      "to relaunch.")
+    with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py', 'w') as w:
         w.write(content)
 
     url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/Local/download/server.js"
@@ -138,5 +174,5 @@ replace_and_remove(f'{UserProfile.SourceDirectory}System/Drive',
                    f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager/System/Drive')
 relaunch = 'python3 Start.py'
 os.system(
-                f'osascript -e \'tell application "Terminal" to do script "cd {UserProfile.SourceDirectory}&&{relaunch}"\''
-            )
+    f'osascript -e \'tell application "Terminal" to do script "cd {UserProfile.SourceDirectory}&&{relaunch}"\''
+)
