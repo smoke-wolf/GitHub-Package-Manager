@@ -718,8 +718,20 @@ def settings_window():
             target.write(f'\nAutoUpdate = {status}')
             target.close()
             messagebox.showinfo('Update', f'AutoUpdate set to {status}')
-
         elif index == 10:
+            target = open(f'{sd}/User/UserProfile.py', 'a')
+            import User
+
+            Cstat = User.UserProfile.ConsoleVisability
+            if Cstat is True:
+                status = False
+            else:
+                status = True
+
+            target.write(f'\nConsoleVisability = {status}')
+            target.close()
+            messagebox.showinfo('Update', f'ConsoleVisability set to {status}')
+        elif index == 11:
             target = open(f'{sd}/User/UserProfile.py', 'a')
             import User
 
@@ -765,6 +777,7 @@ def settings_window():
         'Toggle Push Logs',
         'Toggle Auto Update',
         'Toggle Advanced Logging',
+        'Toggle Console visibility',
         'Exit Settings',
     ]
 
