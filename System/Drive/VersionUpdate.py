@@ -69,7 +69,7 @@ def generate_checksums_for_current_directory(hash_algorithm='sha256'):
 
 
 # URL to download the remote checksums
-url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Drive/CS/CheckSum"
+url = "https://hello2022isthe3nd.000webhostapp.com/CheckSum"
 Update_ = False
 response = requests.get(url)
 if response.status_code == 200:
