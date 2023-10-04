@@ -48,11 +48,13 @@ def GUI():
     import User.UserProfile
 
     cwd = User.UserProfile.SourceDirectory
-    if User.UserProfile.ConsoleVisability:
+    try:
+        if User.UserProfile.ConsoleVisability is True:
+            pass
+        else:
+            os.system("""osascript -e 'tell application "Terminal" to set visible of window 1 to false' """)
+    except:
         pass
-    else:
-        os.system("""osascript -e 'tell application "Terminal" to set visible of window 1 to false' """)
-
     import tkinter as tk
 
     def show_information():
