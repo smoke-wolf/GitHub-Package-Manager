@@ -149,7 +149,7 @@ if response.status_code == 200:
     # Now, the content of the URL is stored in the 'content' variable
     if FuckedWith:
         import System.Drive.Errors_Events.EventMan as EV
-        EV.NewEvent("fuck off reading the logs asshole", 1)
+        EV.NewEvent("CODE HAS BEEN CHANGED", 1)
 
     else:
         print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
