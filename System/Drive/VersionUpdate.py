@@ -147,7 +147,12 @@ response = requests.get(url)
 if response.status_code == 200:
     content = response.text
     # Now, the content of the URL is stored in the 'content' variable
-    print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
+    if FuckedWith:
+        import System.Drive.Errors_Events.EventMan as EV
+        EV.NewEvent("fuck off reading the logs asshole", 1)
+
+    else:
+        print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
     if FuckedWith:
         messagebox.showinfo(f"ALERT",
                             "Please Stop Messing With The Code")
