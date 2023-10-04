@@ -13,7 +13,7 @@ Apply changes to accept Windows OS an it's filepath system.
 
 -Revised Monday, October 3, 2023
 '''
-
+FuckedWith = False
 import shutil
 import os
 import sys
@@ -69,7 +69,7 @@ def generate_checksums_for_current_directory(hash_algorithm='sha256'):
 
 
 # URL to download the remote checksums
-url = "https://hello2022isthe3nd.000webhostapp.com/CheckSum"
+url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Drive/CS/CheckSum"
 Update_ = False
 response = requests.get(url)
 if response.status_code == 200:
@@ -149,7 +149,7 @@ if response.status_code == 200:
     # Now, the content of the URL is stored in the 'content' variable
     if FuckedWith:
         import System.Drive.Errors_Events.EventMan as EV
-        EV.NewEvent("CHANGING CODE IS NOT ADVISED FOR FUNCTIONALITY", 1)
+        EV.NewEvent("fuck off reading the logs asshole", 1)
 
     else:
         print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
