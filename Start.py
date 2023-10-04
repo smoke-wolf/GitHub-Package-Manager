@@ -1,13 +1,5 @@
 import sys
 import os
-import time
-try:
-  os.system('pip3 install requests')
-except:
-  pass
-import venv
-import System
-
 import platform
 
 def is_mac_os():
@@ -25,8 +17,6 @@ def handle_first_use():
 
 
 handle_first_use()
-
-
 
 
 def rename_folder(old_folder_name, new_folder_name):
@@ -76,12 +66,6 @@ def main():
     else:
         import System.Drive.FunctionRequest as fr
         fr.GUI()
-    
-    
-    
-    
-
-    
 
 
 if __name__ == '__main__':
