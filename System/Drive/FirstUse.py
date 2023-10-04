@@ -72,6 +72,7 @@ def create_user_profile():
             f"PushLogs = True\n"
             f"AdvancedL = True\n"
             f"AutoUpdate = True\n"
+            "DisplayEvents = True\n"
         )
         user_profile.write(user_profile_content)
 
