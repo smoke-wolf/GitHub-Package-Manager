@@ -1,5 +1,5 @@
 
-# GitHub Package Manager  1.6.x :low_brightness:
+# GitHub Package Manager  1.7.x :low_brightness:
 
 
 GHPM Is coming along, with some key new features as of version 1.6.x. *Find more on that later on.*
@@ -36,7 +36,7 @@ I aim to address suggestions and am activly woking on improving the app.
 
 
 
-### :currency_exchange: Change Notes: v1.5.22 :currency_exchange:
+### :currency_exchange: Change Notes: v1.7.0 :currency_exchange:
 
  
 
@@ -45,10 +45,11 @@ I aim to address suggestions and am activly woking on improving the app.
  3. Faster & More Reliable Updates
  4. Small Bugs Fixed In Settings
  5. Post Installation Editing
- 6. Small bugs fixed in "activate" 
- 7. Better Bug Logging
- 8. Browse Community Projects with **GhPm Recommended**  :sparkle:
- 9. New [Discord Server](https://discord.gg/dSQTDq39c) 
+ 6. Small bugs fixed in "activate"
+ 7. installer features added
+ 8. Better Bug Logging
+ 9. Browse Community Projects with **GhPm Recommended**  :sparkle:
+ 10. New [Discord Server](https://discord.gg/dSQTDq39c) 
 
 
 
