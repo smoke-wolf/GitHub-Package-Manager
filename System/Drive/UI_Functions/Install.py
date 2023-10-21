@@ -644,7 +644,7 @@ def Installer(value):
 
                             print('[!] CheckPoint 4|4 [!]')
 
-                            Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}
+                            Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}'
                             import User.UserProfile as UP
                             f = open(
                                 f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt',
