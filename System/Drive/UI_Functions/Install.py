@@ -567,19 +567,87 @@ def Installer(value):
                             f.write(f'\n{Form}')
                             f.close()
                             print('Installation Complete!')
-                            
+
+                        elif ffi == 'java':
+                            # If the file is a Java program
+                            launch = f'&java {fi}'  # Create a Java program launch command
+                            print('[!] CheckPoint 4|4 [!]')
+                            print(launch)  # Print the launch command for debugging (optional)
+                            import time
+                            Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
+                            import User.UserProfile as UP
+                            # Append the launch command information to a cache or log file
+                            f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
+                            f.write(f'\n{Form}')
+                            f.close()
+                            print('Installation Complete!')  # Print a completion message
+
+                        elif ffi == 'js':
+                            # If the file is a JavaScript (Node.js) script
+                            launch = f'&node {fi}'  # Create a JavaScript (Node.js) launch command
+                            print('[!] CheckPoint 4|4 [!]')
+                            print(launch)  # Print the launch command for debugging (optional)
+                            import time
+                            Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
+                            import User.UserProfile as UP
+                            # Append the launch command information to a cache or log file
+                            f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
+                            f.write(f'\n{Form}')
+                            f.close()
+                            print('Installation Complete!')  # Print a completion message
+
+                        elif ffi == 'swift':
+                            # If the file is a Swift program
+                            launch = f'&swift {fi}'  # Create a Swift program launch command
+                            print('[!] CheckPoint 4|4 [!]')
+                            print(launch)  # Print the launch command for debugging (optional)
+                            import time
+                            Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
+                            import User.UserProfile as UP
+                            # Append the launch command information to a cache or log file
+                            f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
+                            f.write(f'\n{Form}')
+                            f.close()
+                            print('Installation Complete!')  # Print a completion message
+
+                        elif ffi == 'pl':
+                            # If the file is a Perl script
+                            launch = f'&perl {fi}'  # Create a Perl script launch command
+                            print('[!] CheckPoint 4|4 [!]')
+                            print(launch)  # Print the launch command for debugging (optional)
+                            import time
+                            Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
+                            import User.UserProfile as UP
+                            # Append the launch command information to a cache or log file
+                            f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
+                            f.write(f'\n{Form}')
+                            f.close()
+                            print('Installation Complete!')  # Print a completion message
+
+
+                        elif ffi == 'php':
+                            # If the file is a PHP script
+                            launch = f'&php {fi}'  # Create a PHP script launch command
+                            print('[!] CheckPoint 4|4 [!]')
+                            print(launch)  # Print the launch command for debugging (optional)
+                            import time
+                            Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
+                            import User.UserProfile as UP
+                            # Append the launch command information to a cache or log file
+                            f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
+                            f.write(f'\n{Form}')
+                            f.close()
+                            print('Installation Complete!')  # Print a completion message
+
                         elif ffi == 'rb':
                             launch = f'&ruby {fi}'
 
                             print('[!] CheckPoint 4|4 [!]')
-                            print(launch)
-                            import time
+
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}
                             import User.UserProfile as UP
-
-                            cwdd = UP.SourceDirectory
                             f = open(
-                                f'{cwdd}System/.Cache/System/GitHub/Int.txt',
+                                f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt',
                                 'a',
                             )
                             f.write(f'\n{Form}')
