@@ -567,6 +567,24 @@ def Installer(value):
                             f.write(f'\n{Form}')
                             f.close()
                             print('Installation Complete!')
+                            
+                        elif ffi == 'rb':
+                            launch = f'&ruby {fi}'
+
+                            print('[!] CheckPoint 4|4 [!]')
+                            print(launch)
+                            import time
+                            Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}
+                            import User.UserProfile as UP
+
+                            cwdd = UP.SourceDirectory
+                            f = open(
+                                f'{cwdd}System/.Cache/System/GitHub/Int.txt',
+                                'a',
+                            )
+                            f.write(f'\n{Form}')
+                            f.close()
+                            print('Installation Complete!')
 
                         elif ffi == 'sh':
                             launch = f'&bash {fi}'
