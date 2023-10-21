@@ -46,6 +46,7 @@ from tkinter import ttk
 def is_mac_os():
     return platform.system() == "Darwin"
 
+
 # Function to create a user profile
 def create_user_profile():
     cwd = os.getcwd()
@@ -64,17 +65,17 @@ def create_user_profile():
             f"Password = '{hashed_password}'\n"
             f"UserPrivileges = '{user_privileges}'\n"
             f"SourceDirectory = '{source_directory}/'\n"
-            f"Force_Import_Request = False\n"
-            f"Forced_Login = True\n"
+            f"Force_Import_Request = {force_import.get()}\n"
+            f"Forced_Login = {forced_login.get()}\n"
             f"uuid1 = '{uuid1}'\n"
             f"uuid4 = '{uuid4}'\n"
-            f"DisplayEvents = False\n"
-            f"PushLogs = True\n"
-            f"AdvancedL = True\n"
-            f"AutoUpdate = True\n"
-            "DisplayEvents = True\n"
+            f"DisplayEvents = {display_events.get()}\n"
+            f"PushLogs = {push_logs.get()}\n"
+            f"AdvancedL = {advanced_l.get()}\n"
+            f"AutoUpdate = {auto_update.get()}\n"
         )
         user_profile.write(user_profile_content)
+
 
 # Function to generate hashed password
 def generate_hashed_password(password):
@@ -91,22 +92,24 @@ def generate_hashed_password(password):
     hashed = hashlib.md5(password.encode())
     return hashed.hexdigest()
 
+
 # Function to handle the "Create Profile" button click
 def create_profile():
     create_user_profile()
     os.remove(f"{cwd}/System/.Cache/User/FirstUseToken.txt")
     # Open a file for writing in the root directory
     file_path = "/.GHPM"  # Replace with your desired file path
-    
+
     try:
         with open(file_path, "w") as file:
             file.write(source_directory)  # Write your content here
-        print(f"GHPM Sytem has been successfully created and written.")
+        print(f"GHPM System has been successfully created and written.")
     except IOError:
         print(f"An error occurred while writing GHPM System.")
 
     print("User Profile Has Been Created.")
     root.destroy()
+
 
 cwd = os.getcwd()
 FirstUse = os.path.exists(f"{cwd}/System/.Cache/User/FirstUseToken.txt")
@@ -137,16 +140,40 @@ if FirstUse:  # Is first use
     password_entry = ttk.Entry(frame, show="*")
     password_entry.grid(row=1, column=1, padx=10, pady=10)
 
+    # Checkboxes for settings
+    force_import = tk.BooleanVar()
+    force_import_check = ttk.Checkbutton(frame, text="Force Import Request", variable=force_import)
+    force_import_check.grid(row=2, columnspan=2, padx=10, pady=10, sticky="w")
+
+    forced_login = tk.BooleanVar()
+    forced_login_check = ttk.Checkbutton(frame, text="Forced Login", variable=forced_login)
+    forced_login_check.grid(row=3, columnspan=2, padx=10, pady=10, sticky="w")
+
+    display_events = tk.BooleanVar()
+    display_events_check = ttk.Checkbutton(frame, text="Display Events", variable=display_events)
+    display_events_check.grid(row=4, columnspan=2, padx=10, pady=10, sticky="w")
+
+    push_logs = tk.BooleanVar()
+    push_logs_check = ttk.Checkbutton(frame, text="Push Logs", variable=push_logs)
+    push_logs_check.grid(row=5, columnspan=2, padx=10, pady=10, sticky="w")
+
+    advanced_l = tk.BooleanVar()
+    advanced_l_check = ttk.Checkbutton(frame, text="AdvancedL", variable=advanced_l)
+    advanced_l_check.grid(row=6, columnspan=2, padx=10, pady=10, sticky="w")
+
+    auto_update = tk.BooleanVar()
+    auto_update_check = ttk.Checkbutton(frame, text="Auto Update", variable=auto_update)
+    auto_update_check.grid(row=7, columnspan=2, padx=10, pady=10, sticky="w")
+
     create_button = ttk.Button(frame, text="Create Profile", command=create_profile)
-    create_button.grid(row=2, columnspan=2, pady=20)
+    create_button.grid(row=8, columnspan=2, pady=20)
 
     root.mainloop()
 
 else:
     pass
 
-
 relaunch = 'python3 Start.py'
 os.system(
-                f'osascript -e \'tell application "Terminal" to do script "cd {os.getcwd()}&&{relaunch}"\''
-            )
+    f'osascript -e \'tell application "Terminal" to do script "cd {os.getcwd()}&&{relaunch}"\''
+)
