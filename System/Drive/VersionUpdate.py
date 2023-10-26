@@ -18,8 +18,7 @@ import shutil
 import os
 import sys
 from tkinter import messagebox
-
-import System.Drive.Errors_Events.EventMan as AR
+import System.Drive.Errors_Events.EventMan as EV
 import User.UserProfile as UserProfile
 
 import requests
@@ -72,7 +71,7 @@ def generate_checksums_for_current_directory(hash_algorithm='sha256'):
 url = "https://hello2022isthe3nd.000webhostapp.com/CheckSum"
 Update_ = False
 response = requests.get(url)
-if response.status_code == 200:
+if response.status_code == 210: #   CHANGE BACK TO 200 BEFORE UPLOAD
     remote_checksums = {}
     for line in response.text.splitlines():
         file_path, checksum = line.split(': ')
@@ -94,22 +93,22 @@ if response.status_code == 200:
     for file_path, remote_checksum in remote_checksums.items():
         for ind in local_checksums:
             if file_path[1:-1] == ind:
-                print('=====================')
-                print(file_path[1:-1])
-                print(ind)
-                print('=====================')
+                EV.AnalyticsRecord('=====================')
+                EV.AnalyticsRecord(file_path[1:-1])
+                EV.AnalyticsRecord(ind)
+                EV.AnalyticsRecord('=====================')
                 if local_checksums[file_path[1:-1]] != remote_checksum[1:-1]:
-                    print(f'{local_checksums[file_path[1:-1]]} does not equal {remote_checksum}')
-                    print(f"Updated file detected: {file_path}")
+                    EV.AnalyticsRecord(f'{local_checksums[file_path[1:-1]]} does not equal {remote_checksum}')
+                    EV.AnalyticsRecord(f"Updated file detected: {file_path}")
                     Update_ = True
 
-    print("Checksum comparison completed.")
+    EV.AnalyticsRecord("Checksum comparison completed.")
     if Update_ is False:
-        print('No Update Found')
+        EV.AnalyticsRecord('No Update Found')
         sys.exit(0)
 
 else:
-    print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
+    EV.AnalyticsRecord(f"Failed to fetch content from {url}. Status code: {response.status_code}")
 
 #
 # `  ADDED METHOD FOR ALERTS
@@ -137,7 +136,7 @@ if response.status_code == 200:
     else:
         FuckedWith = True
 else:
-    print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
+    EV.AnalyticsRecord(f"Failed to fetch content from {url}. Status code: {response.status_code}")
 
 #   Try Update
 
@@ -152,7 +151,7 @@ if response.status_code == 200:
         EV.NewEvent("CODE HAS BEEN CHANGED", 1)
 
     else:
-        print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
+        EV.AnalyticsRecord(f'Welcome to the newest version: {content[10:]}')
     if FuckedWith:
         messagebox.showinfo(f"ALERT",
                             "Please Stop Messing With The Code")
@@ -171,7 +170,7 @@ if response.status_code == 200:
             w.write(content)
 
 else:
-    print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
+    EV.AnalyticsRecord(f"Failed to fetch content from {url}. Status code: {response.status_code}")
 
 os.chdir(f'{UserProfile.SourceDirectory}System/.Cache/System/Update')
 os.system('git clone -b UPDATE https://github.com/smoke-wolf/GitHub-Package-Manager.git')
