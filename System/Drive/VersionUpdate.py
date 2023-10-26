@@ -93,10 +93,10 @@ if response.status_code == 200: #   CHANGE BACK TO 200 BEFORE UPLOAD
     for file_path, remote_checksum in remote_checksums.items():
         for ind in local_checksums:
             if file_path[1:-1] == ind:
-                EV.AnalyticsRecord('=====================')
-                EV.AnalyticsRecord(file_path[1:-1])
-                EV.AnalyticsRecord(ind)
-                EV.AnalyticsRecord('=====================')
+                print('=====================')
+                print(file_path[1:-1])
+                print(ind)
+                print('=====================')
                 if local_checksums[file_path[1:-1]] != remote_checksum[1:-1]:
                     EV.AnalyticsRecord(f'{local_checksums[file_path[1:-1]]} does not equal {remote_checksum}')
                     EV.AnalyticsRecord(f"Updated file detected: {file_path}")
