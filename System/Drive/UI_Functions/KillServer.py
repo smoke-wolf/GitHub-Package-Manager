@@ -44,7 +44,7 @@ def terminate_process_on_port(port):
         # Terminate the process using the obtained PID
         subprocess.call(['kill', pid])
         EV.guiEvent(0, f'killed {pid}', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
-        print(f"Process running on port {port} terminated successfully.")
+        EV.AnalyticsRecord(f"Process running on port {port} terminated successfully.")
     except subprocess.CalledProcessError:
         os.system('''osascript -e 'display notification "Server Not Connected" with title "gpm"'
                     ''')
