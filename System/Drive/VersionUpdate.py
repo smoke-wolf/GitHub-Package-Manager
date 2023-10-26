@@ -71,7 +71,7 @@ def generate_checksums_for_current_directory(hash_algorithm='sha256'):
 url = "https://hello2022isthe3nd.000webhostapp.com/CheckSum"
 Update_ = False
 response = requests.get(url)
-if response.status_code == 210: #   CHANGE BACK TO 200 BEFORE UPLOAD
+if response.status_code == 200: #   CHANGE BACK TO 200 BEFORE UPLOAD
     remote_checksums = {}
     for line in response.text.splitlines():
         file_path, checksum = line.split(': ')
