@@ -102,6 +102,7 @@ def create_profile():
 
     try:
         with open(file_path, "w") as file:
+            source_directory = f'{cwd}/User/UserProfile.py'
             file.write(source_directory)  # Write your content here
         print(f"GHPM System has been successfully created and written.")
     except IOError:
