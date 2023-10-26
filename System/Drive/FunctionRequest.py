@@ -22,14 +22,53 @@ import System.Drive.Errors_Events.EventMan as EV
 import System.Drive.UI_Functions.Install
 import os
 
+try:
+    with open('pfc.py','w') as pfc:
+        pfc.write('''
+        
+        
+        #   confirm profile integrity
+import System.Drive.Errors_Events.EventMan as EV
+
+
+
+
+def main():
+    import User.UserProfile as up
+
+
+    with open(f'{up.SourceDirectory}User/UserProfile.py','r') as prile:
+        plf = prile.read()
+
+        msi = ['AdvancedL','ConsoleVisability','Force_Import_Request','PushLogs','AutoUpdate','DisplayEvents','Forced_Login','Force_Import_Request','SourceDirectory','UserPrivileges']
+        for issue in msi:
+            if issue not in plf:
+                EV.AnalyticsRecord('issue is missing')
+                ui = input(f'{issue} -> 0[FALSE]  1[TRUE] -> ')
+                if '1' in ui:
+                    vt = True
+                else:
+                    vt = False
+                with open('User/UserProfile.py', 'a') as er:
+                    er.write(f'\n{issue} = {vt}')
+            else:
+                continue
+
+main()
+        
+        ''')
+except:
+    pass
+
 def display_notification(title, message):
     applescript = f'display notification "{message}" with title "{title}"'
-    subprocess.run(["osascript", "-e", applescript])
+    os.system(f"osascript -e '{applescript}'")
+
 
 try:
     response = requests.get("https://www.google.com", timeout=1)
     if response.status_code == 200:
-        pass
+        print('Posted')
 except:
     display_notification("Hold Up!", "To continue using ghpm. Please connect to the internet")
 
