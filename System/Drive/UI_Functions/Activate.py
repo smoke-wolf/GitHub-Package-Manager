@@ -30,11 +30,11 @@ def remove_line_by_content(file_path, content_to_remove):
                 if content_to_remove not in line:
                     file.write(line)
 
-        print(f"Lines containing '{content_to_remove}' removed from {file_path}")
+        EV.AnalyticsRecord(f"Lines containing '{content_to_remove}' removed from {file_path}")
     except FileNotFoundError:
-        print(f"File '{file_path}' not found.")
+        EV.AnalyticsRecord(f"File '{file_path}' not found.")
     except Exception as e:
-        print(f"An error occurred: {e}")
+        EV.AnalyticsRecord(f"An error occurred: {e}")
 
 def is_safe_input(input_str):
     EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
@@ -103,10 +103,10 @@ def GH():
         window.destroy()
 
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
-        print('Selected Option:', selected_option)
+        EV.AnalyticsRecord(f'Selected Option:  {selected_option}')
 
         value = lines[int(options.index(selected_option))]
-        print(value)
+        EV.AnalyticsRecord(value)
         cc = value
         listOfWords = value.split('&', 1)
         if len(listOfWords) > 0:
@@ -132,7 +132,7 @@ def GH():
         AR.AnalyticsRecord(7)
         import System.Drive.UI_Functions.Install
         value = lines[int(options.index(opt))]
-        print(value)
+        EV.AnalyticsRecord(value)
         cc = value
         listOfWords = value.split('&', 1)
         if len(listOfWords) > 0:
@@ -159,7 +159,7 @@ def GH():
         AR.AnalyticsRecord(6)
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
         value = lines[int(options.index(selected_option))]
-        print(value)
+        EV.AnalyticsRecord(value)
         cc = value
         listOfWords = value.split('&', 1)
         if len(listOfWords) > 0:
@@ -173,16 +173,16 @@ def GH():
         try:
             import tkinter as tk
             from tkinter import messagebox
-            print(f"Updating {source}")
+            EV.AnalyticsRecord(f"Updating {source}")
             import shutil
             shutil.rmtree(cc)
             os.chdir(f'{User.UserProfile.SourceDirectory}System/.Cache/System/Github/Downloads')
-            print('trying update')
+            EV.AnalyticsRecord('trying update')
             try:
                 import tkinter as tk
                 from tkinter import messagebox
                 if not is_safe_input(source):
-                    print("Unsafe input! Potential command injection detected.")
+                    EV.AnalyticsRecord("Unsafe input! Potential command injection detected.")
                     return
 
                 command = f'git clone {source}'
@@ -196,7 +196,7 @@ def GH():
         except:
             import tkinter as tk
             from tkinter import messagebox
-            print(f'')
+            EV.AnalyticsRecord(f'')
             messagebox.showinfo("Update Failed", f"Update Failed {source}")
             EV.guiEvent(0, f'{get_current_function()} Update Failed {source}', inspect.currentframe().f_lineno, os.path.abspath(__file__),
                         False, True,
@@ -224,7 +224,7 @@ def GH():
                         global date
                         date = Val[1]
                 except:
-                    print('package install date not available')
+                    EV.AnalyticsRecord('package install date not available')
                     date = 'unavailable'
 
                 try:
@@ -234,7 +234,7 @@ def GH():
                         global source
                         source = sourcex.split("#", 1)[0]
                 except:
-                    print('Source unavailable')
+                    EV.AnalyticsRecord('Source unavailable')
                     source = 'unavailable'
 
         information = f'''
@@ -269,7 +269,7 @@ def GH():
 
 def Activate():
     EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
-    print(cwd)
+    EV.AnalyticsRecord(cwd)
     import tkinter as tk
     from tkinter import messagebox
 
@@ -299,6 +299,24 @@ def Activate():
                 count1 += 1
                 options.append(line.strip())
 
+            options = []
+            lines_r = []
+            for line in lines:
+                value4 = line.strip()
+                lines_r.append(value4)
+                Val = value4.split('&', 1)
+                if len(Val) > 0:
+
+                    split_character = "="
+
+                    # Find the position of the split character
+                    split_index = line.find(split_character)
+
+
+                    resultw = line[:split_index]
+
+                    options.append(resultw)
+
             window = tk.Tk()
             window.title('Activate one of the following')
             screen_width = window.winfo_screenwidth()
@@ -312,14 +330,14 @@ def Activate():
 
             def select_option(selected_option):
                 EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
-                print('Selected Option:', selected_option)
+                EV.AnalyticsRecord(f'Selected Option:  {selected_option}')
 
                 pass  # event=f'{count1}={count} --COMMAND LINE', Pol=0)
                 value = lines[int(options.index(selected_option))]
                 listOfWords = value.split('≈', 1)
                 if len(listOfWords) > 0:
                     valueg = listOfWords[1]
-                    print(valueg)
+                    EV.AnalyticsRecord(valueg)
 
                 value1 = value.split(f'@', 1)[0]
 
@@ -330,8 +348,8 @@ def Activate():
                 value = value.split('≈', 1)[0]
 
                 try:
-                    print(valueg[:-2])
-                    print(value)
+                    EV.AnalyticsRecord(valueg[:-2])
+                    EV.AnalyticsRecord(value)
                     AR.AnalyticsRecord(3)
                     os.system(
                         f'osascript -e \'tell application "Terminal" to do script "cd {value} && {valueg[:-2]}"\''
@@ -384,7 +402,7 @@ def Activate():
 
                 def select_option(selected_option):
                     EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
-                    print('Selected Option:', selected_option)
+                    EV.AnalyticsRecord(f'Selected Option: {selected_option}')
 
                     def submit():
                         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
