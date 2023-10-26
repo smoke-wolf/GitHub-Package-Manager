@@ -47,17 +47,17 @@ def confirm_uninstall(selected_item):
         if value_index >= count:
             dr = int(value_index) - count
             command = lines2[dr - 1]
-            print(command)
+            EV.AnalyticsRecord(command)
 
             try:
                 import shutil
                 directory_to_remove = command.split('@', 1)[0]
                 shutil.rmtree(directory_to_remove)
 
-                print(f'Project Removed: {directory_to_remove}')
+                EV.AnalyticsRecord(f'Project Removed: {directory_to_remove}')
 
             except:
-                print(f'Project Failed To Remove: {directory_to_remove}')
+                EV.AnalyticsRecord(f'Project Failed To Remove: {directory_to_remove}')
                 EV.guiEvent(0, f'{get_current_function_name()} Error: {directory_to_remove} not removed',
                             inspect.currentframe().f_lineno, os.path.abspath(__file__), False, True, 3)
 
