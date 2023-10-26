@@ -6,6 +6,37 @@ import socket
 import User.UserProfile
 import os
 
+tryagain = True
+def display_notification(title, message):
+    applescript = f'display notification "{message}" with title "{title}"'
+    os.system(f"osascript -e '{applescript}'")
+
+
+try:
+    response = requests.get("https://www.google.com", timeout=1)
+    if response.status_code == 200:
+        print('Posted')
+except:
+    display_notification("Hold Up!", "To continue using ghpm. Please connect to the internet")
+
+
+    def check_internet_connection():
+        try:
+            response = requests.get("https://www.google.com", timeout=5)
+            return response.status_code == 200
+        except requests.ConnectionError:
+            return False
+
+
+    while True:
+        if check_internet_connection():
+            # Internet connection is available, display thank you message
+            display_notification("Thank you!", " Please continue enjoying ghpm!!")
+
+            break  # Exit the loop
+        else:
+            # Internet connection is not available, wait for a while and check again
+            time.sleep(0.5)  # Wait for 5 seconds before checking again
 
 pileup_push = 0
 avg_t = []
@@ -179,28 +210,63 @@ def get_current_function():
 
 
 def push_analytics_subprocess(a1, a2, a3):
+    tryagain = True
     try:
-        if User.UserProfile.PushLogs:
-            AnalyticsRecord(9)
-            global analytics_push_id
-            analytics_push_id = 0
-            ip = socket.gethostbyname(socket.gethostname())
+        if tryagain:
+            try:
+                if User.UserProfile.PushLogs:
+                    AnalyticsRecord(9)
+                    global analytics_push_id
+                    analytics_push_id = 0
+                    ip = socket.gethostbyname(socket.gethostname())
 
-            import requests
+                    import requests
 
-            # Define the base URL
-            base_url = f"https://hello2022isthe3nd.000webhostapp.com/eventlogger.php?data1={analytics_push_id}&data2={User.UserProfile.Username}&data3={ip}&data4={a2}&data5={a3}"
+                    # Define the base URL
+                    base_url = f"https://hello2022isthe3nd.000webhostapp.com/eventlogger.php?data1={analytics_push_id}&data2={User.UserProfile.Username}&data3={ip}&data4={a2}&data5={a3}"
 
-            print(base_url)
+                    print(base_url)
 
-            # Send a GET request with the parameters
-            requests.get(base_url)
+                    # Send a GET request with the parameters
+                    requests.get(base_url)
+            except:
+                try:
+                    lm = User.UserProfile.OFFLINE
+                except:
+                    lm = False
 
+                if lm is False:
+                    def display_notification(title, message):
+                        applescript = f'display notification "{message}" with title "{title}"'
+                        os.system(f"osascript -e '{applescript}'")
 
+                    try:
+                        response = requests.get("https://www.google.com", timeout=1)
+                        if response.status_code == 200:
+                            print('Posted')
+                    except:
+                        display_notification("Hold Up!", "To continue using ghpm. Please connect to the internet")
+
+                        def check_internet_connection():
+                            try:
+                                response = requests.get("https://www.google.com", timeout=5)
+                                return response.status_code == 200
+                            except requests.ConnectionError:
+                                return False
+
+                        while True:
+                            if check_internet_connection():
+                                # Internet connection is available, display thank you message
+                                display_notification("Thank you!", " Please continue enjoying ghpm!!")
+
+                                break  # Exit the loop
+                            else:
+                                # Internet connection is not available, wait for a while and check again
+                                time.sleep(0.5)  # Wait for 5 seconds before checking again
 
     except:
         guiEvent(2, 'Network Issue With Log Push', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
-        print('Network issue')
+        return None
 
 
 def PushAnalytics(a1, a2, a3):
