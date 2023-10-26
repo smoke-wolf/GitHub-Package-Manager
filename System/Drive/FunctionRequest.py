@@ -50,7 +50,7 @@ def main():
                 else:
                     vt = False
                 with open('User/UserProfile.py', 'a') as er:
-                    er.write(f'\n{issue} = {vt}')
+                    er.write(f'{issue} = {vt}')
             else:
                 continue
 
