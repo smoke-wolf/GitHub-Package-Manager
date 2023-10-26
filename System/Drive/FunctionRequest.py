@@ -8,13 +8,59 @@
 
 
 import inspect
+import subprocess
+import sys
+import time
 import uuid
-from tkinter import ttk
+from tkinter import ttk, messagebox
+
+import requests
 
 import User.UserProfile
 import System.Drive.Errors_Events.EventMan as AR
 import System.Drive.Errors_Events.EventMan as EV
 import System.Drive.UI_Functions.Install
+import os
+
+def display_notification(title, message):
+    applescript = f'display notification "{message}" with title "{title}"'
+    subprocess.run(["osascript", "-e", applescript])
+
+try:
+    response = requests.get("https://www.google.com", timeout=1)
+    if response.status_code == 200:
+        pass
+except:
+    display_notification("Hold Up!", "To continue using ghpm. Please connect to the internet")
+
+
+    def check_internet_connection():
+        try:
+            response = requests.get("https://www.google.com", timeout=5)
+            return response.status_code == 200
+        except requests.ConnectionError:
+            return False
+
+
+    while True:
+        if check_internet_connection():
+            # Internet connection is available, display thank you message
+            display_notification("Thank you!", " Please continue enjoying ghpm!!")
+
+            break  # Exit the loop
+        else:
+            # Internet connection is not available, wait for a while and check again
+            time.sleep(0.5)  # Wait for 5 seconds before checking again
+
+
+
+import pfc
+HasBeenRun = False
+if HasBeenRun is False:
+    pfc.main()
+    HasBeenRun = True
+else:
+    pass
 
 cwd = User.UserProfile.SourceDirectory
 
