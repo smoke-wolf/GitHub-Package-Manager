@@ -15,7 +15,7 @@ def display_notification(title, message):
 try:
     response = requests.get("https://www.google.com", timeout=1)
     if response.status_code == 200:
-        print('Posted')
+        pass
 except:
     display_notification("Hold Up!", "To continue using ghpm. Please connect to the internet")
 
@@ -225,7 +225,7 @@ def push_analytics_subprocess(a1, a2, a3):
                     # Define the base URL
                     base_url = f"https://hello2022isthe3nd.000webhostapp.com/eventlogger.php?data1={analytics_push_id}&data2={User.UserProfile.Username}&data3={ip}&data4={a2}&data5={a3}"
 
-                    print(base_url)
+
 
                     # Send a GET request with the parameters
                     requests.get(base_url)
@@ -243,7 +243,7 @@ def push_analytics_subprocess(a1, a2, a3):
                     try:
                         response = requests.get("https://www.google.com", timeout=1)
                         if response.status_code == 200:
-                            print('Posted')
+                            pass
                     except:
                         display_notification("Hold Up!", "To continue using ghpm. Please connect to the internet")
 
@@ -349,3 +349,4 @@ def AnalyticsRecord(a1):
 
             file.write(f"{formatted_date}\n")
             file.write(f"{bref}")
+
