@@ -59,7 +59,7 @@ def Password(Event, Input):
     if UserID == User.UserProfile.UserPrivileges:
         EV.NewEvent(event='Same User As Configured = True', Pol=0)
     else:
-        print(UserID)
+        EV.AnalyticsRecord(UserID)
         EV.NewEvent(
             event='Same User As Configured = False! ->> WARNING Not Original User',
             Pol=0,
@@ -77,12 +77,12 @@ def Password(Event, Input):
         EV.NewEvent(event=f'Password Correct {Event}\033[0;35m', Pol=1)
 
     else:
-        print('Password incorrect. Try again\033[0;35m')
+        EV.AnalyticsRecord('Password incorrect. Try again\033[0;35m')
         sys.exit(0)
 
     if Event == 'Login':
         try:
-            print('initiate')
+            EV.AnalyticsRecord('initiate')
             import User.UserProfile as up
             import os
             import glob
@@ -117,7 +117,7 @@ def Password(Event, Input):
                                 encrypted_data, tag
                             )
                         except ValueError:
-                            print(f'Failed to decrypt file: {filename}')
+                            EV.AnalyticsRecord(f'Failed to decrypt file: {filename}')
                             continue
                     with open(filename[:-4], 'wb') as f_out:
                         # Write the decrypted data to a new file with the same name but without the .enc extension
@@ -126,7 +126,7 @@ def Password(Event, Input):
                         os.remove(filename)
 
             # Print a message indicating the decryption is complete
-            print('Decryption complete')
+            EV.AnalyticsRecord('Decryption complete')
 
         except:
             pass
@@ -160,7 +160,7 @@ def Create():
         f'{User.UserProfile.SourceDirectory}System/.Cache/User/local', 'w'
     ) as bl:
         bl.write(hashed.hexdigest()[:16])
-    print(Password)
+    EV.AnalyticsRecord(Password)
 
 
 
