@@ -219,7 +219,7 @@ def PushAnalytics(a1, a2, a3):
         pass
 
 def AnalyticsRecord(a1):
-    print(000)
+
     push_types = ['install-github0', 'install-local1', 'install-github-complex2', 'activate-local3', 'activate-github4',
                   'activate-github-complex5', 'activator-update6', 'activator-reinstall7', 'settings8', 'send_logs9',
                   'auto_update10', 'advertisement11']
@@ -258,7 +258,7 @@ def AnalyticsRecord(a1):
 
                 # Define the base URL
                 base_url = f"https://hello2022isthe3nd.000webhostapp.com/eventlogger.php?data1={data}&data2={User.UserProfile.Username}&data3=none&data4=mone&data5=None"
-                print(base_url)
+
 
                 # Send a GET request
                 requests.get(base_url)
