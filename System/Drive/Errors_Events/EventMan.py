@@ -1,18 +1,19 @@
 import datetime
 import inspect
-import socket
 import time
 import requests
+import socket
+import User.UserProfile
+import os
+
 
 pileup_push = 0
+avg_t = []
+numr = 0
 
 try:
     import User.UserProfile
-except:
-    pass
-import os
 
-try:
     cwd = User.UserProfile.SourceDirectory
 except:
     cwd = os.getcwd()
@@ -101,6 +102,7 @@ def NewEvent(event, Pol):
         Report = f"""Event at {EventTime}:{CRIS} --> {event}"""
         EventReport.write(f'\n{Report}')
         EventReport.close()
+    push_analytics_subprocess(0, User.UserProfile.Username, event)
 
 
 def guiEvent(typeerror, event, line, address, terminate=False, record=True, severity=0):
@@ -133,9 +135,21 @@ def guiEvent(typeerror, event, line, address, terminate=False, record=True, seve
                 pass
                 
             if User.UserProfile.PushLogs:
-                url = f"https://gpm-web.vercel.app/usr={User.UserProfile.Username}/log={display_format}"
-                import requests
-                requests.get(url)
+                st = time.time()
+                push_analytics_subprocess(0, User.UserProfile.Username, display_format)
+                avg_t.append(time.time() - st)
+                total = sum(avg_t)
+                average = total / len(avg_t)
+                try:
+                    if User.UserProfile.AdvancedL:
+                        try:
+                            average = str(average)
+                        except:
+                            print(f'average time -> {average[:-3]}')
+
+                except:
+                    return EOFError
+
         except:
             print('Network Connection Error')
         logfile = f'{User.UserProfile.SourceDirectory}System/.Cache/System/ErrorLog/GUIevents'
@@ -156,33 +170,70 @@ def guiEvent(typeerror, event, line, address, terminate=False, record=True, seve
     else:
         pass
 
+
 def get_current_function():
     stack = inspect.stack()
     frame = stack[1]
     code = frame[0]
     return code.f_code.co_name
 
-def PushAnalytics(a1, a2, a3):
+
+def push_analytics_subprocess(a1, a2, a3):
     try:
         if User.UserProfile.PushLogs:
             AnalyticsRecord(9)
-            import requests
             global analytics_push_id
             analytics_push_id = 0
             ip = socket.gethostbyname(socket.gethostname())
 
-            url = f"https://gpm-web.vercel.app/push={analytics_push_id}/usr={User.UserProfile.Username}/ip{ip}/requesttype={a2}/aditional={a3}"
-            requests.get(url)
+            import requests
+
+            # Define the base URL
+            base_url = f"https://hello2022isthe3nd.000webhostapp.com/eventlogger.php?data1={analytics_push_id}&data2={User.UserProfile.Username}&data3={ip}&data4={a2}&data5={a3}"
+
+            print(base_url)
+
+            # Send a GET request with the parameters
+            requests.get(base_url)
+
+
+
     except:
         guiEvent(2, 'Network Issue With Log Push', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
-        print('network issue')
+        print('Network issue')
+
+
+def PushAnalytics(a1, a2, a3):
+    st = time.time()
+    push_analytics_subprocess(a1, a2, a3)
+    avg_t.append(time.time() - st)
+    total = sum(avg_t)
+    average = total / len(avg_t)
+    average = str(average)
+    try:
+        if User.UserProfile.AdvancedL:
+
+            print(f'average time -> {average[:3]}')
+
+    except:
+        pass
 
 def AnalyticsRecord(a1):
+    print(000)
     push_types = ['install-github0', 'install-local1', 'install-github-complex2', 'activate-local3', 'activate-github4',
                   'activate-github-complex5', 'activator-update6', 'activator-reinstall7', 'settings8', 'send_logs9',
                   'auto_update10', 'advertisement11']
 
     bref = f'[{a1}]'
+
+
+    try:
+        int(a1)
+    except:
+        if User.UserProfile.DisplayEvents:
+            NewEvent(f'NOTICE: {a1}', 1)
+
+
     if os.path.exists(f'{User.UserProfile.SourceDirectory}System/.Cache/User/analytics'):
         with open(f'{User.UserProfile.SourceDirectory}System/.Cache/User/analytics', 'a') as file:
             # Write content to the file
@@ -203,8 +254,17 @@ def AnalyticsRecord(a1):
         with open(f'{User.UserProfile.SourceDirectory}System/.Cache/User/analytics', 'r') as file:
             data = file.read()
             if is_same_date_as_today(f'{User.UserProfile.SourceDirectory}System/.Cache/User/analytics'):
-                url = f'''https://gpm-web.vercel.app/analytics={data}'''
-                requests.get(url)
+                import requests
+
+                # Define the base URL
+                base_url = f"https://hello2022isthe3nd.000webhostapp.com/eventlogger.php?data1={data}&data2={User.UserProfile.Username}&data3=none&data4=mone&data5=None"
+                print(base_url)
+
+                # Send a GET request
+                requests.get(base_url)
+
+
+
 
 
     else:
