@@ -41,7 +41,7 @@ def do_something_with_value(value):
         counter = 0
         for file in Files0:
             counter += 1
-            print(f'{counter} | {file}')
+            EV.AnalyticsRecord(f'{counter} | {file}')
 
         def button_click(item):
             EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
@@ -70,7 +70,7 @@ def do_something_with_value(value):
             AR.AnalyticsRecord(1)
             import User
 
-            print('Installation Complete!')
+            EV.AnalyticsRecord('Installation Complete!')
             os.chdir(User.UserProfile.SourceDirectory)
 
         root = tk.Tk()
@@ -234,7 +234,7 @@ def Installer(value):
     import os
 
     cwd = User.UserProfile.SourceDirectory
-    print('checkpoint')
+    EV.AnalyticsRecord('checkpoint')
     dir = f'{cwd}System/.Cache/System/GitHub/Downloads'
     try:
         os.mkdir(dir)
@@ -244,12 +244,12 @@ def Installer(value):
                     inspect.currentframe().f_lineno,
                     os.path.abspath(__file__), False, True,
                     1)
-    print(dir)
+    EV.AnalyticsRecord(dir)
     os.chdir(dir)
-    print('checkpoint')
+    EV.AnalyticsRecord('checkpoint')
     Download_Source = value
     SourceURI = value
-    print('[!] CheckPoint 1|4 [!]')
+    EV.AnalyticsRecord('[!] CheckPoint 1|4 [!]')
     EV.guiEvent(0, f'downloading from {Download_Source}', inspect.currentframe().f_lineno, os.path.abspath(__file__),
                 False, True, 2)
     Files = []
@@ -269,7 +269,7 @@ def Installer(value):
         EV.guiEvent(0, f'{get_current_function()} download complete', inspect.currentframe().f_lineno,
                     os.path.abspath(__file__), False, True,
                     1)
-        print('[!] CheckPoint 2|4 [!]')
+        EV.AnalyticsRecord('[!] CheckPoint 2|4 [!]')
 
         Files1 = []
         for path in os.listdir(cwd):
@@ -290,7 +290,7 @@ def Installer(value):
             if y in SDir:
                 pass
             else:
-                print('[!] CheckPoint 3|4 [!]')
+                EV.AnalyticsRecord('[!] CheckPoint 3|4 [!]')
                 dir1 = f'{cwd}System/.Cache/System/GitHub/Downloads/{y}'
 
                 ChangeDir = dir1
@@ -307,7 +307,7 @@ def Installer(value):
                     EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
                     root.destroy()
                     fi = Files0.index(item)
-                    print(fi)
+                    EV.AnalyticsRecord(fi)
 
                     if fi == 0:
                         AR.AnalyticsRecord(2)
@@ -345,7 +345,7 @@ def Installer(value):
 
 
                                 for value in values:
-                                    print(f'{values.index(value)} : {value}')
+                                    EV.AnalyticsRecord(f'{values.index(value)} : {value}')
                                     # Call the function to show the notification
 
                                 try:
@@ -354,7 +354,7 @@ def Installer(value):
                                     messagebox.showinfo(f"Hold Tight! We're installing {os.path.basename(dir1)}")
                                     command = (f'cd {dir1} && {field2_value}', f'cd {dir1} && {field3_value}', f'cd {dir1} && {field4_value}', f'cd {dir1} && {field5_value}', f'cd {dir1} && {field6_value}')
                                     for i in command:
-                                        print(f'running command : {i}')
+                                        EV.AnalyticsRecord(f'running command : {i}')
                                         subprocess.call(i, shell=True)
 
 
@@ -382,7 +382,7 @@ def Installer(value):
                                 ComplexLcaunch.close()
                                 Complexinstall.close()
                                 root.destroy()
-                                print('Successful Install')
+                                EV.AnalyticsRecord('Successful Install')
 
                             root = tk.Tk()
                             root.title('Complex Installation')
@@ -488,7 +488,7 @@ def Installer(value):
                                     try:
                                         os.system(dash1)
 
-                                        print('Requirements Installed')
+                                        EV.AnalyticsRecord('Requirements Installed')
                                     except:
                                         EV.guiEvent(0,
                                                     f'{get_current_function()} Error: Requirements or Permissions Not Installed',
@@ -512,8 +512,8 @@ def Installer(value):
                             launch = f'&python3 {fi}'
 
                             tier = f'&python3 {dir1}/{fi}'
-                            print('[!] CheckPoint 4|4 [!]')
-                            print(launch)
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord(launch)
                             import time
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
                             #
@@ -526,13 +526,13 @@ def Installer(value):
                             )
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')
+                            EV.AnalyticsRecord('Installation Complete!')
 
                         elif ffi == 'c':
                             launch = f'&gcc {fi}'
 
-                            print('[!] CheckPoint 4|4 [!]')
-                            print(launch)
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord(launch)
                             import time
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
                             #
@@ -545,13 +545,13 @@ def Installer(value):
                             )
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')
+                            EV.AnalyticsRecord('Installation Complete!')
 
                         elif ffi == 'cpp':
                             launch = f'&g++ {fi}'
 
-                            print('[!] CheckPoint 4|4 [!]')
-                            print(launch)
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord(launch)
                             import time
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
                             #
@@ -566,13 +566,13 @@ def Installer(value):
                             )
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')
+                            EV.AnalyticsRecord('Installation Complete!')
 
                         elif ffi == 'java':
                             # If the file is a Java program
                             launch = f'&java {fi}'  # Create a Java program launch command
-                            print('[!] CheckPoint 4|4 [!]')
-                            print(launch)  # Print the launch command for debugging (optional)
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord(launch)  # EV.AnalyticsRecord the launch command for debugging (optional)
                             import time
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
                             import User.UserProfile as UP
@@ -580,13 +580,13 @@ def Installer(value):
                             f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')  # Print a completion message
+                            EV.AnalyticsRecord('Installation Complete!')  # EV.AnalyticsRecord a completion message
 
                         elif ffi == 'js':
                             # If the file is a JavaScript (Node.js) script
                             launch = f'&node {fi}'  # Create a JavaScript (Node.js) launch command
-                            print('[!] CheckPoint 4|4 [!]')
-                            print(launch)  # Print the launch command for debugging (optional)
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord(launch)  # EV.AnalyticsRecord the launch command for debugging (optional)
                             import time
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
                             import User.UserProfile as UP
@@ -594,13 +594,13 @@ def Installer(value):
                             f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')  # Print a completion message
+                            EV.AnalyticsRecord('Installation Complete!')  # EV.AnalyticsRecord a completion message
 
                         elif ffi == 'swift':
                             # If the file is a Swift program
                             launch = f'&swift {fi}'  # Create a Swift program launch command
-                            print('[!] CheckPoint 4|4 [!]')
-                            print(launch)  # Print the launch command for debugging (optional)
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord(launch)  # EV.AnalyticsRecord the launch command for debugging (optional)
                             import time
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
                             import User.UserProfile as UP
@@ -608,13 +608,13 @@ def Installer(value):
                             f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')  # Print a completion message
+                            EV.AnalyticsRecord('Installation Complete!')  # Print a completion message
 
                         elif ffi == 'pl':
                             # If the file is a Perl script
                             launch = f'&perl {fi}'  # Create a Perl script launch command
-                            print('[!] CheckPoint 4|4 [!]')
-                            print(launch)  # Print the launch command for debugging (optional)
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord(launch)  # Print the launch command for debugging (optional)
                             import time
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
                             import User.UserProfile as UP
@@ -622,14 +622,14 @@ def Installer(value):
                             f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')  # Print a completion message
+                            EV.AnalyticsRecord('Installation Complete!')  # Print a completion message
 
 
                         elif ffi == 'php':
                             # If the file is a PHP script
                             launch = f'&php {fi}'  # Create a PHP script launch command
-                            print('[!] CheckPoint 4|4 [!]')
-                            print(launch)  # Print the launch command for debugging (optional)
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord(launch)  # Print the launch command for debugging (optional)
                             import time
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
                             import User.UserProfile as UP
@@ -637,12 +637,12 @@ def Installer(value):
                             f = open(f'{UP.SourceDirectory}System/.Cache/System/GitHub/Int.txt', 'a')
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')  # Print a completion message
+                            EV.AnalyticsRecord('Installation Complete!')
 
                         elif ffi == 'rb':
                             launch = f'&ruby {fi}'
 
-                            print('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
 
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}'
                             import User.UserProfile as UP
@@ -652,13 +652,13 @@ def Installer(value):
                             )
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')
+                            EV.AnalyticsRecord('Installation Complete!')
 
                         elif ffi == 'sh':
                             launch = f'&bash {fi}'
 
-                            print('[!] CheckPoint 4|4 [!]')
-                            print(launch)
+                            EV.AnalyticsRecord('[!] CheckPoint 4|4 [!]')
+                            EV.AnalyticsRecord(launch)
                             import time
                             Form = f'{ChangeDir}@{fi[:-3]} = {launch}%{SourceURI}#{datetime.datetime.today()}'
                             #
@@ -671,7 +671,7 @@ def Installer(value):
                             )
                             f.write(f'\n{Form}')
                             f.close()
-                            print('Installation Complete!')
+                            EV.AnalyticsRecord('Installation Complete!')
                             import sys
 
                 import tkinter as tk
