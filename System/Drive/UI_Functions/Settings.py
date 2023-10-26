@@ -72,7 +72,7 @@ def reset_all():
             time.sleep(0.23)
             try:
                 open(f'{cwd}System/.Cache/System/GitHub/Int.txt', 'w').close()
-                print('|  |                Int.txt Cleared')
+                EV.AnalyticsRecord('|  |                Int.txt Cleared')
                 open(f'{cwd}System/.Cache/System/Local/Int.txt', 'w').close()
                 open(f'{cwd}System/.Cache/System/Local/Int2.txt', 'w').close()
                 import shutil
@@ -87,7 +87,7 @@ def reset_all():
                     os.mkdir(f'{cwd}System/.Cache/System/GitHub')
                 except:
                     pass
-                print('|  |              dirs made & Cleared')
+                EV.AnalyticsRecord('|  |              dirs made & Cleared')
                 open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w').close()
                 open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'w').close()
                 open(f'{cwd}System/.Cache/System/ErrorLog/Event.db', 'w').close()
@@ -95,12 +95,12 @@ def reset_all():
                 open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w')
                 open(f'{cwd}System/.Cache/User/FirstUseToken.txt', 'w').close()
                 open(f'{cwd}User/UserProfile.py', 'w').close()
-                print('|  |                Int.txt Cleared')
+                EV.AnalyticsRecord('|  |                Int.txt Cleared')
                 open(f'{cwd}System/.Cache/System/Local/Int.txt', 'w').close()
                 open(f'{cwd}System/.Cache/System/Local/Int2.txt', 'w').close()
                 open(f'{cwd}System/.Cache/User/local', 'w').close()
 
-                print(f'|  |                Update Recorded')
+                EV.AnalyticsRecord(f'|  |                Update Recorded')
             except:
                 EV.guiEvent(1,
                             f'{get_current_function()} Error: Incorrect password',
@@ -112,7 +112,7 @@ def reset_all():
                 raise exit(0)
 
             time.sleep(2)
-            print(f'\n' * 60)
+            EV.AnalyticsRecord(f'\n' * 60)
 
         except:
             EV.guiEvent(1,
@@ -134,7 +134,7 @@ def reset_all():
                     messagebox.showinfo('Password', 'Correct Password')
                     try:
                         open(f'{cwd}System/.Cache/System/GitHub/Int.txt', 'w').close()
-                        print('|  |                Int.txt Cleared')
+                        EV.AnalyticsRecord('|  |                Int.txt Cleared')
                         open(f'{cwd}System/.Cache/System/Local/Int.txt', 'w').close()
                         open(f'{cwd}System/.Cache/System/Local/Int2.txt', 'w').close()
                         import shutil
@@ -148,7 +148,7 @@ def reset_all():
                             os.mkdir(f'{cwd}System/.Cache/System/GitHub')
                         except:
                             pass
-                        print('|  |              dirs made & Cleared')
+                        EV.AnalyticsRecord('|  |              dirs made & Cleared')
                         open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w').close()
                         open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'w').close()
                         open(f'{cwd}System/.Cache/System/ErrorLog/Event.db', 'w').close()
@@ -156,12 +156,12 @@ def reset_all():
                         open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w')
                         open(f'{cwd}System/.Cache/User/FirstUseToken.txt', 'w').close()
                         open(f'{cwd}User/UserProfile.py', 'w').close()
-                        print('|  |                Int.txt Cleared')
+                        EV.AnalyticsRecord('|  |                Int.txt Cleared')
                         open(f'{cwd}System/.Cache/System/Local/Int.txt', 'w').close()
                         open(f'{cwd}System/.Cache/System/Local/Int2.txt', 'w').close()
                         open(f'{cwd}System/.Cache/User/local', 'w').close()
 
-                        print(f'|  |                Update Recorded')
+                        EV.AnalyticsRecord(f'|  |                Update Recorded')
                     except:
                         EV.guiEvent(1,
                                     f'{get_current_function()} Error: Incorrect password',
@@ -173,7 +173,7 @@ def reset_all():
                         raise exit(0)
 
                     time.sleep(2)
-                    print(f'\n' * 60)
+                    EV.AnalyticsRecord(f'\n' * 60)
 
                 except:
                     EV.guiEvent(1,
@@ -196,7 +196,7 @@ def reset_all():
                             messagebox.showinfo('Password', 'Correct Password')
                             try:
                                 open(f'{cwd}System/.Cache/System/GitHub/Int.txt', 'w').close()
-                                print('|  |                Int.txt Cleared')
+                                EV.AnalyticsRecord('|  |                Int.txt Cleared')
                                 open(f'{cwd}System/.Cache/System/Local/Int.txt', 'w').close()
                                 open(f'{cwd}System/.Cache/System/Local/Int2.txt', 'w').close()
                                 import shutil
@@ -211,7 +211,7 @@ def reset_all():
                                 except:
                                     pass
 
-                                print('|  |              dirs made & Cleared')
+                                EV.AnalyticsRecord('|  |              dirs made & Cleared')
                                 open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w').close()
                                 open(f'{cwd}System/.Cache/System/ErrorLog/Events', 'w').close()
                                 open(f'{cwd}System/.Cache/System/ErrorLog/Event.db', 'w').close()
@@ -219,12 +219,12 @@ def reset_all():
                                 open(f'{cwd}System/.Cache/System/ErrorLog/GUIevents', 'w')
                                 open(f'{cwd}System/.Cache/User/FirstUseToken.txt', 'w').close()
                                 open(f'{cwd}User/UserProfile.py', 'w').close()
-                                print('|  |                Int.txt Cleared')
+                                EV.AnalyticsRecord('|  |                Int.txt Cleared')
                                 open(f'{cwd}System/.Cache/System/Local/Int.txt', 'w').close()
                                 open(f'{cwd}System/.Cache/System/Local/Int2.txt', 'w').close()
                                 open(f'{cwd}System/.Cache/User/local', 'w').close()
 
-                                print(f'|  |                Update Recorded')
+                                EV.AnalyticsRecord(f'|  |                Update Recorded')
                             except:
                                 EV.guiEvent(1,
                                             f'{get_current_function()} Error: Cache refused to clear',
@@ -233,7 +233,7 @@ def reset_all():
                                             3)
 
                             time.sleep(2)
-                            print(f'\n' * 60)
+                            EV.AnalyticsRecord(f'\n' * 60)
                         except:
                             EV.guiEvent(1,
                                         f'{get_current_function()} Error: Incorrect password',
@@ -271,7 +271,7 @@ def Create():
     up = open(f'{SourceDirectory}User/UserProfile.py', 'a')
     up.write(f"\nPassword = '{Password}'")
     up.close()
-    print(Password)
+    EV.AnalyticsRecord(Password)
 
 def create_custom_style():
     style = ttk.Style()
@@ -287,7 +287,6 @@ def create_custom_style():
 
 
 def settings_window():
-    print()
 
     def do_something(index):
         EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
@@ -543,7 +542,7 @@ def settings_window():
 
             alias = f"""echo 'alias gh="cd {User.UserProfile.SourceDirectory} &&python3 gh.py"' >> ~/.zshrc && exec zsh -l"""
             try:
-                print(alias)
+                EV.AnalyticsRecord(alias)
                 os.system(alias)
             except:
                 EV.guiEvent(0,
@@ -688,10 +687,10 @@ def settings_window():
                     response = requests.get(url)
 
                     if response.status_code == 414:
-                        print(f"Received 414 error. Retrying with a shorter URL: {url}")
+                        EV.AnalyticsRecord(f"Received 414 error. Retrying with a shorter URL: {url}")
                     else:
                         # The request was successful or encountered a different status code
-                        print(response.text)
+                        EV.AnalyticsRecord(response.text)
         elif index == 8:
             target = open(f'{sd}/User/UserProfile.py', 'a')
             import User
