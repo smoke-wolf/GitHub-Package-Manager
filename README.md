@@ -1,39 +1,19 @@
 
-# GitHub Package Manager  1.7.x :low_brightness:
 
-
-GHPM Is coming along, with some key new features as of version 1.6.x. *Find more on that later on.*
-
-readme will be updated soon
-
-There are also a few main goals I am aiming to achieve in this version as well.  I plan on integrating a number of suggestions from the discussions.  As well as making it as useful as possible.
-
-Feel free to join the [Discord Server](https://discord.gg/dSQTDq39c)  and provide any feedback or suggestions to myself.
-[WALKTHROUGH](https://github.com/smoke-wolf/GitHub-Package-Manager/wiki/Walkthrough-%E2%80%90Everything-about-GHPM#walk-through)
-
-## quick install :part_alternation_mark: :computer:
-
-### MacOS / Linux *v1.5.22*
-	git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
-	cd GitHub-Package-Manager
-	python3 Start.py
-	
-Post-Account notes:
-
-    python3 CLI.py
-Then Select **Option 4** From The List.
-And Finaly: 
-
-    python3 Start.py
-
-![o](https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/ezgif.com-video-to-gif.gif?raw=true)
-
+# GitHub Package Manager  :low_brightness:
 
 # Our Vision :stars:
 GHPM is designed to be a straightforward app for anyone to streamline their GitHub experience. 
 
-I aim to address suggestions and am activly woking on improving the app.
+We are actively reviewing and monitoring suggestions whilst also working heavily on improving the user experience. 
 
+Whilst GHPM is made up of a small inner core mainly led by **Smoke-Wolf**. We are quick to incorporate any needed improvements and bug fixes. 
+
+Thus for we uphold a stable application with support and an active development team, we welcome new members to join and provide their skills to improve the experience for everyone.
+
+---
+To provide the services we do we collect a small amount of analytics related to the usage and error tendencies of ghpm. 
+*you can opt out at first use*
 
 
 ### :currency_exchange: Change Notes: v1.7.0 :currency_exchange:
@@ -49,26 +29,45 @@ I aim to address suggestions and am activly woking on improving the app.
  7. installer features added
  8. Better Bug Logging
  9. Browse Community Projects with **GhPm Recommended**  :sparkle:
- 10. New [Discord Server](https://discord.gg/dSQTDq39c) 
+ 10. Faster Event Monitoring **We've got 'er down to 0.3s	:pray:**
+ 11. Significantly improved network connectivity redundancies
+ 12. Reworked checksum fetch structure
+ 13. Linux support is actively being implemented!
+ 14. Windows Development in work
+
+GHPM has been improving GitHub users' experience of the application for a while now, roughly since December 2022. 
+
+We have made several changes throughout the last few weeks. A number of these changes are rather important for you to take note of.
+
+To catch up on recent events and download the most recent secure version head over [HERE](https://maliq-barnard.vercel.app/ghpm_download.html).
+
+-----
+
+There are several goals we hope to achieve in the coming weeks. There will be a new look coming to ghpm, with some added os support!!!
+
+Make sure to check back here for updates or [join the discord server](https://discord.gg/j95ghjqsz)!
 
 
 
-	
-**First Use:**
+-----
+# Download GHPM Client
 
-When you first launch the application, you will be prompted to create a password and username. Once the profile has been created, run the following command.
+## Download Public Upload  :part_alternation_mark: :computer:
 
+### MacOS / Linux *v1.5.x*
+	git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
+	cd GitHub-Package-Manager
 	python3 Start.py
+	
+Post-Account notes:
+`python3 Start.py `
 
-
-[MORE INFO](https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/main/System/Cache/System/ErrorLog/Errors) "" [OtherVersions](https://github.com/smoke-wolf/GitHub-Package-Manager/blob/INFO/README.md)
-
-## Coming Soon:fire:
-
- 
-
- - [X] Post Installation Editing
- - [x] Better Error Tracking And Predictive Prevention
- - [ ] Multi Version Support 
- - [X] More Options For General Application Functioning
- - [x] More App Redesign
+## Current Release
+### MacOS /Linux v1.7.x
+This version is currently only available through the GHPM website.
+	
+### Download For Free With The Following Link
+	
+	Download From The Following Link: https://maliq-barnard.vercel.app/ghpm_download
+	
+[DOWNLOAD GHPM HERE](https://maliq-barnard.vercel.app/ghpm_download.html)
