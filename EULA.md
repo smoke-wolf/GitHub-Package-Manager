@@ -40,4 +40,4 @@ a. This EULA shall be governed by and construed in accordance with the laws of C
 
 8. Contact Information
 
-a. For any questions regarding this EULA, please contact Maliq Barnard, the developer of GitHub Package Manager, at [Your Contact Information].
+a. For any questions regarding this EULA, please contact Maliq Barnard, the developer of GitHub Package Manager, at maliq.barnard@gmail.com .
