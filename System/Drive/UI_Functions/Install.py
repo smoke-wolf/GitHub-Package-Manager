@@ -270,7 +270,7 @@ def Installer(value):
         EV.PushAnalytics(a1=uuid.uuid1().hex, a2='Installation', a3=f'downloadined_from={Download_Source}')
         import User.UserProfile as UP
         try:
-            url = f"https://hello2022isthe3nd.000webhostapp.com/loadComments.php?email={UP.Email}&url='{Download_Source}'"
+            url = f"https://hello2022isthe3nd.000webhostapp.com/loadComments.php?email={UP.Username}&url='{Download_Source}'"
             requests.get(url)
         except:
             pass
