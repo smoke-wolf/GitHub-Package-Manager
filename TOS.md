@@ -1,10 +1,13 @@
-# Terms of Service
 
-## Effective Date: October 26, 2023
+Terms of Service
+================
+
+Effective Date: October 31, 2023
+--------------------------------
 
 GHPM is dedicated to enhancing your GitHub experience, and we're committed to providing you with a seamless package management solution. Please read this document carefully to understand our terms regarding analytics.
 
-We've recently implemented several significant changes, and some of these changes relate to analytics. 
+We've recently implemented several significant changes, and some of these changes relate to analytics.
 
 This document outlines the terms and conditions regarding the analytics aspects of GHPM.
 
@@ -12,14 +15,15 @@ This document outlines the terms and conditions regarding the analytics aspects 
 
 GHPM may collect and use analytics data for the purpose of enhancing the application, improving user experience, and addressing suggestions from our community. The analytics data collected may include, but is not limited to, the following:
 
-1.  **Usage Information**: GHPM may collect data on how you interact with the application,  such as feature usage.
-    
-2.  **Error Logs**: When errors or issues occur, GHPM may log relevant data to diagnose and resolve problems, improve the application's stability, and prevent future errors.
-    
-3.  **Installation and Activation Data**: Information related to the installation and activation of GitHub repositories may be collected.
-    
-5.  **Community Projects**: Data related to the use of GHPM to browse community projects, including GhPm Recommended projects, may be collected to offer improved project recommendations.
-    
+1.  Usage Information: GHPM may collect data on how you interact with the application, such as feature usage.
+
+2.  Error Logs: When errors or issues occur, GHPM may log relevant data to diagnose and resolve problems, improve the application's stability, and prevent future errors.
+
+3.  Installation and Activation Data: Information related to the installation and activation of GitHub repositories may be collected.
+
+4.  Community Projects: Data related to the use of GHPM to browse community projects, including GhPm Recommended projects, may be collected to offer improved project recommendations.
+
+5.  Opting Out: We respect your privacy. You have the option to opt-out of analytics data collection, as it's essential to us that you are in control of your data. To exercise this option, refer to the [WALKTHROUGH](https://github.com/smoke-wolf/GitHub-Package-Manager/wiki/Walkthrough-%E2%80%90Everything-about-GHPM#walk-through) for instructions on how to control data collection settings.
 
 ### Data Privacy
 
@@ -27,7 +31,7 @@ GHPM is committed to protecting your data and privacy. We do not share any perso
 
 ### Opting Out
 
-While analytics data helps us improve GHPM, we respect your privacy. You have the option to opt-out of analytics data collection. You can refer to the [WALKTHROUGH](https://github.com/smoke-wolf/GitHub-Package-Manager/wiki/Walkthrough-%E2%80%90Everything-about-GHPM#walk-through) for instructions on how to control data collection settings.
+While analytics data helps us improve GHPM, we respect your privacy. You have the option to opt out of analytics and error logging methods and means. This choice can be changed whenever. It is, however, required in the TOS of the official release that Login and Download data will be collected as it is directly relevant to the base functionality of the app. First use information is also built on the GHPM Account Framework or (AF). The AF requires Username and Password authentication with additional requirements of an email for strict security reasons.
 
 ### Changes to this Policy
 
@@ -43,4 +47,4 @@ Our vision for GHPM is to provide a user-friendly application that streamlines y
 
 Thank you for choosing GitHub Package Manager (GHPM) for your GitHub package management needs. We look forward to serving you better with each update and iteration of our application.
 
-**Stay tuned for more exciting features and improvements!**
+Stay tuned for more exciting features and improvements!
