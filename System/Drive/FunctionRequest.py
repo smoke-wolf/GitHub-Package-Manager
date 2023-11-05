@@ -9,7 +9,6 @@
 
 import inspect
 import uuid
-from tkinter import ttk
 
 import User.UserProfile
 import System.Drive.Errors_Events.EventMan as AR
@@ -75,7 +74,7 @@ def GUI():
         import System.Drive.UI_Functions.KillServer as KS
         KS.kill_server()
 
-    def kill_r():
+    def update_server():
         import System.Drive.VersionUpdate
         try:
             exec('System.Drive.VersionUpdate')
@@ -101,255 +100,34 @@ def GUI():
     global root
 
     import tkinter as tk
+    from UI_Functions.UI_Builder import ghpmmaingui as gmg
+    from UI_Functions.UI_Builder import iconfilepaths as ifp
+    from UI_Functions.UI_Builder import formbuilder as fb
 
-    root = tk.Tk()
-    root.title('GHpm')
+    iconDict = ifp.generateFilePathDict("Assets")
 
-    # Set the transparency level for the entire window (0 is fully transparent, 1 is fully opaque)
-    alpha_value = 0.93  # Adjust the alpha value as needed
+    root = gmg.GHPMMainGui(1000, 650)
 
-    root.attributes("-alpha", alpha_value)
+    main = fb.CustomFrame(bgImage=iconDict["logo"])
 
-    # Create a canvas to act as the window's background with a colored rectangle
-    canvas = tk.Canvas(root, width=526, height=505)
+    main.setupIconButton(20, 20, iconDict["misc"]["local_update_button"], iconScale=0.30, command=open_update_local)
 
+    main.setupIconButton(20, 160, iconDict["side_panel"]["settings_button"], iconScale=0.25, command=settings_window)
+    main.setupIconButton(20, 230, iconDict["side_panel"]["install_button"], iconScale=0.25, command=show_install)
+    main.setupIconButton(20, 300, iconDict["side_panel"]["activate_button"], iconScale=0.25, command=Activate)
+    main.setupIconButton(20, 370, iconDict["side_panel"]["uninstall_button"], iconScale=0.25, command=show_list_window)
+    main.setupIconButton(20, 484, iconDict["misc"]["recommended_button"], iconScale=0.40, command=System.Drive.templates.main.main)
 
-    # Set the canvas background color
-    bg_color = '#EE85B5'
-    canvas.create_rectangle(0, 0, 526, 505, fill=bg_color, outline="")
+    main.setupIconButton(550, 540, iconDict["misc"]["command_line_button"], iconScale=0.25, command=crypt)
+    main.setupIconButton(772, 540, iconDict["misc"]["information_button"], iconScale=0.25, command=show_information)
 
-    screen_width = root.winfo_screenwidth()
-    screen_height = root.winfo_screenheight()
-    root.resizable(False, False)
+    main.setupIconButton(822, 10, iconDict["server_icons"]["start_server"], iconScale=0.10, command=start_server)
+    main.setupIconButton(878, 10, iconDict["server_icons"]["update_server"], iconScale=0.10, command=update_server)
+    main.setupIconButton(934, 10, iconDict["server_icons"]["kill_server"], iconScale=0.10, command=kill_server)
 
-    window_width = 526
-    window_height = 505
-    x_coordinate = (screen_width - window_width) // 2
-    y_coordinate = (screen_height - window_height) // 2
-    root.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
+    main.constructFrame()
 
-
-    # Define colors
-    bg_color = '#7A3B69'
-    text_color = '#3c3293'
-    button_color = '#3c3293'
-
-    button_font = ('Helvetica', 14)
-
-    toolbar = tk.Frame(root, bg=bg_color, width=120, height=window_height)
-    toolbar.pack(side='left', fill='y')
-
-    update_button = tk.Button(
-        root,
-        text='Update Local',
-        bg=button_color,
-        fg=text_color,
-        height=3,
-        width=12,
-        font=button_font,
-        command=open_update_local
-    )
-    update_button.pack(side='top', anchor='ne', fill='x', expand=True, padx=10, pady=10)
-
-    server_buttons_frame = tk.Frame(root, bg=bg_color)
-    server_buttons_frame.pack(side='top', anchor='nw', padx=10, pady=10)
-
-    start_server_button = tk.Button(
-        server_buttons_frame,
-        text='Start Server',
-        bg=button_color,
-        fg='#006b73',
-        height=3,
-        width=7,
-        font=button_font,
-        command=start_server
-    )
-    start_server_button.pack(side='left', padx=10)
-
-    kill_server_button = tk.Button(
-        server_buttons_frame,
-        text='Kill Server',
-        bg=button_color,
-        fg='#006b73',
-        height=3,
-        width=7,
-        font=button_font,
-        command=kill_server
-    )
-    kill_server_button.pack(side='left', padx=10)
-
-    kill_server_butto3n = tk.Button(
-        server_buttons_frame,
-        text='Update',
-        bg=button_color,
-        fg='#006b73',
-        height=3,
-        width=7,
-        font=button_font,
-        command=kill_r
-    )
-    kill_server_butto3n.pack(side='left', padx=10)
-
-    buttons = []
-
-    button_texts = ['Information', 'Settings', 'Install', 'Activate', 'Uninstall','CommandL']
-    button_commands = [show_information, settings_window, show_install, Activate, show_list_window,crypt]
-
-    for text, command in zip(button_texts, button_commands):
-        button = tk.Button(
-            toolbar,
-            text=text,
-            bg=button_color,
-            fg=text_color,
-            height=3,
-            width=12,
-            font=button_font,
-            command=command,
-        )
-        button.pack(side='top', padx=15, pady=15)
-        buttons.append(button)
-    import System.Drive.templates.main
-    bottom_button = tk.Button(
-        root,
-        text='GhPm Recommended',
-        bg='#C54034',
-        fg='white',
-        height=3,
-        width=15,
-        font=button_font,
-        command=System.Drive.templates.main.main,
-    )
-    bottom_button.pack(side='bottom', padx=10, pady=15)
-
-    # Peppermint theme colors
-    bg_color = '#EE85B5'
-    text_color = '#32936F'
-    button_color = '#EE85B5'
-
-    # Border color for the frame
-    border_color = "#EE85B5"  # A light gold color
-
-    # Apply Peppermint theme to canvas and scrollbar
-    style = ttk.Style()
-
-    style.theme_use("clam")  # Using the "clam" theme for a modern look
-    style.configure("Vertical.TScrollbar", gripcount=0, background=bg_color, troughcolor=bg_color, bordercolor=bg_color, borderwidth=1)
-    style.map("Vertical.TScrollbar", background=[("active", button_color), ("disabled", bg_color)])
-
-    # Create a canvas and add a scrollbar
-    canvas = tk.Canvas(root)
-
-    scrollbar = ttk.Scrollbar(root, orient="vertical", command=canvas.yview, style="Vertical.TScrollbar")
-    canvas.configure(yscrollcommand=scrollbar.set)
-
-    scrollbar.pack(side="right", fill="y")
-    canvas.pack(side="left", fill="both", expand=True)
-
-    # Create a frame inside the canvas to hold the content with a colored border
-    content_frame = ttk.Frame(canvas, borderwidth=4, relief="solid")
-
-    style = ttk.Style()
-    style.configure("My.TFrame.TFrame", background="#EE85B5")  # Replace "blue" with your desired background color
-
-
-    content_frame["style"] = "My.TFrame"  # Define a custom style for the frame
-    canvas.create_window((0, 0), window=content_frame, anchor="nw")
-
-    # Configure canvas scrolling
-    def configure_scroll_region(event):
-        canvas.configure(scrollregion=canvas.bbox("all"))
-
-    content_frame.bind("<Configure>", configure_scroll_region)
-
-    # Generate git rows function
-    def generate_git_row(repo_name, repo_url, description):
-
-        git_row_frame = ttk.Frame(content_frame)
-
-        repo_name_label = tk.Label(
-            git_row_frame,
-            text=repo_name,
-            bg=bg_color,
-            fg=text_color,
-            font="Helvetica 12 bold",
-            padx=10,
-            pady=5,
-        )
-        repo_name_label.pack(side="left")
-        import System.Drive.UI_Functions
-        download_button = tk.Button(
-            git_row_frame,
-            text="Download",
-            bg=button_color,
-            fg='#006b73',
-            padx=10,
-            pady=5,
-            command=lambda: (System.Drive.UI_Functions.Install.Installer(value=repo_url)),
-        )
-        download_button.pack(side="right")
-
-        git_row_frame.pack(fill="x", padx=10, pady=10)
-
-        description_label = tk.Label(
-            content_frame,
-            text=description,
-            bg=bg_color,
-            fg=text_color,
-            padx=10,
-            pady=5,
-            wraplength=300,  # Adjust the value as needed
-        )
-        description_label.pack(anchor="w", padx=10)
-
-        spacer_frame = tk.Frame(content_frame, bg=bg_color, height=10)
-        spacer_frame.pack()
-
-    git_rows = [
-        {
-            "repo_name": "Thank You For Downloading!                                                                                        ",
-            "repo_url": "",
-            "description": "Hope you enjoy using GHPM",
-        },
-        {
-            "repo_name": "GHPM Powered Custom Shell                                                                                        ",
-            "repo_url": "https://github.com/smoke-wolf/GHPM-CUSTOM-SHELL",
-            "description": '''GHPM-CUSTOM-SHELL add-on for easy implementation
-            of shortcuts and user preference modifications within 
-            the terminal interface''',
-        },
-        {
-            "repo_name": "Requirement-Scanner                                                                                         ",
-            "repo_url": "https://github.com/smoke-wolf/ReqScanner",
-            "description": "Compile a list of all pip packages used in a python application",
-        },
-        {
-            "repo_name": "Local Weather                                                                                       ",
-            "repo_url": "https://github.com/smoke-wolf/weather",
-            "description": "Get a Local Weather Report",
-        },
-        {
-            "repo_name": "Touch Script                                                                                        ",
-            "repo_url": "https://github.com/smoke-wolf/TouchScript",
-            "description": '''.touch is a lightweight and user-friendly scripting language
-        designed to automate common tasks
-        on your computer.''',
-        },
-        {
-            "repo_name": "GPlock                                                                                                              ",
-            "repo_url": "https://github.com/smoke-wolf/GpLock",
-            "description": "Compile a list of all pip packages used in a python application",
-        },
-    ]
-
-    for git_row in git_rows:
-        generate_git_row(
-            git_row["repo_name"], git_row["repo_url"], git_row["description"]
-        )
-
-    # Define the custom style for the frame border
-    style = ttk.Style()
-    style.configure("My.TFrame", background="#EE85B5")  # Replace "blue" with your desired background color
-    style.configure("My.TFrame", bordercolor=border_color)
+    root.addTab(main, "Main")
 
     import User.UserProfile
     try:
@@ -368,9 +146,9 @@ def GUI():
 
         except:
 
-            root.mainloop()
+            root.run()
     else:
-        root.mainloop()
+        root.run()
 
 
 
