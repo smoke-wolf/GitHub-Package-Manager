@@ -17,4 +17,4 @@ def generateFilePathDict(filePath):
 
 
 if __name__ == "__main__":
-    pprint(generateFilePathDict("Assets"))
+    pprint(generateFilePathDict("/System/Drive/Assets"))
