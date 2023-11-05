@@ -9,11 +9,13 @@
 
 import inspect
 import uuid
-
+import System.Drive
+from System.Drive import *
 import User.UserProfile
 import System.Drive.Errors_Events.EventMan as AR
 import System.Drive.Errors_Events.EventMan as EV
 import System.Drive.UI_Functions.Install
+import System
 
 cwd = User.UserProfile.SourceDirectory
 
@@ -101,22 +103,22 @@ def GUI():
 
     import tkinter as tk
     from System.Drive.UI_Functions.UI_Builder import ghpmmaingui as gmg
-    from System.Drive.UI_Functions.UI_Builder import iconfilepaths as ifp
+    from System.Drive.UI_Functions.UI_Builder import assetfilepaths as ifp
     from System.Drive.UI_Functions.UI_Builder import formbuilder as fb
 
-    iconDict = ifp.generateFilePathDict("Assets")
+    iconDict = ifp.generateFilePathDict(f"{UP.SourceDirectory}System/Drive/Assets")
 
     root = gmg.GHPMMainGui(1000, 650)
 
     main = fb.CustomFrame(bgImage=iconDict["logo"])
 
     main.setupIconButton(20, 20, iconDict["misc"]["local_update_button"], iconScale=0.30, command=open_update_local)
-
+    import System.Drive.templates.main as tmain
     main.setupIconButton(20, 160, iconDict["side_panel"]["settings_button"], iconScale=0.25, command=settings_window)
     main.setupIconButton(20, 230, iconDict["side_panel"]["install_button"], iconScale=0.25, command=show_install)
     main.setupIconButton(20, 300, iconDict["side_panel"]["activate_button"], iconScale=0.25, command=Activate)
     main.setupIconButton(20, 370, iconDict["side_panel"]["uninstall_button"], iconScale=0.25, command=show_list_window)
-    main.setupIconButton(20, 484, iconDict["misc"]["recommended_button"], iconScale=0.40, command=System.Drive.templates.main.main)
+    main.setupIconButton(20, 484, iconDict["misc"]["recommended_button"], iconScale=0.40, command=tmain.main)
 
     main.setupIconButton(550, 540, iconDict["misc"]["command_line_button"], iconScale=0.25, command=crypt)
     main.setupIconButton(772, 540, iconDict["misc"]["information_button"], iconScale=0.25, command=show_information)
