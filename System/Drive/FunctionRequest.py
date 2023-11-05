@@ -100,9 +100,9 @@ def GUI():
     global root
 
     import tkinter as tk
-    from UI_Functions.UI_Builder import ghpmmaingui as gmg
-    from UI_Functions.UI_Builder import iconfilepaths as ifp
-    from UI_Functions.UI_Builder import formbuilder as fb
+    from System.Drive.UI_Functions.UI_Builder import ghpmmaingui as gmg
+    from System.Drive.UI_Functions.UI_Builder import iconfilepaths as ifp
+    from System.Drive.UI_Functions.UI_Builder import formbuilder as fb
 
     iconDict = ifp.generateFilePathDict("Assets")
 
