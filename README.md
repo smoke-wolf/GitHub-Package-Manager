@@ -1,21 +1,34 @@
 
 
+
 # GitHub Package Manager  :low_brightness:
 
-# Our Vision :stars:
-GHPM is designed to be a straightforward app for anyone to streamline their GitHub experience. 
+### What's Cracking Today
+-----
+We have released a new development branch of the updated gui for testing. We will soon be releasing a beta version for **[official members](https://maliq-barnard.vercel.app/ghpm_download.html)**. As of yesterday changes were implemented to do with server connectivity and some excruciating waits with the logger. 
 
-We are actively reviewing and monitoring suggestions whilst also working heavily on improving the user experience. 
+**Backend Stuff**
+
+ - We've added account anonymity from the client-side connections. 
+ - The security has been improved with some changes to the token authentication system. (extended the length to 32 bytes)
+ - Account username protection has been implemented (usernames are unique)
+ - Push Authentication; We've been able to prevent incorrect log allocations from the client through token authentication. 
+ - Token refresh rates: Each session is under a new token, however, a session can only be initiated through the webapp, local devices refresh the saved token state for event pushes. 
+ 
+
+# What we do :stars:
+  
+GHPM was developed to address various challenges encountered by GitHub users. We achieve this by focusing on the client side of the GitHub interface. Instead of using the standard `git clone` command, we leverage the Git framework to ensure a standardized and efficient repository download process. Upon successfully obtaining the repository, our system offers invaluable support for building and configuring it through our integrated Dependency Manager (DM) and, most notably, our Entrypoint Detection (EPD) feature.
+
+After a successful installation, we continue to guide users in managing and modifying their installation profiles, including updates and reinstalls. The EPD process empowers users to swiftly create and execute applications within a controlled environment, supporting a wide array of commonly used programming languages. Furthermore, our DM is in the process of expanding to incorporate multi-language support, enhancing its versatility.
+
 
 Whilst GHPM is made up of a small inner core mainly led by **Smoke-Wolf**. We are quick to incorporate any needed improvements and bug fixes. 
 
 Thus for we uphold a stable application with support and an active development team, we welcome new members to join and provide their skills to improve the experience for everyone.
 
+We are actively reviewing and monitoring suggestions and feedback, please provide any information on issues and inconveniences.
 ---
-To provide the services we do we collect a small amount of analytics related to the usage and error tendencies of ghpm. 
-*you can opt out at first use*
-
-
 ### :currency_exchange: Change Notes: v1.7.0 :currency_exchange:
 
  
