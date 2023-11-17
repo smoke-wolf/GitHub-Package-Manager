@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GitHub Repository Search</title>
+  <link rel="stylesheet" type="text/css" href="web.css">
+</head>
+<body>
+  <header>
+    <h1>GitHub Repository Search</h1>
+    
+    <a href="https://maliq-barnard.vercel.app/gpm/Login.html">Go to Login Page</a>
+    <div class="buttons">
+      <button id="serverSettingsButton">Server Settings</button>
+
+  <button id="profileButton">Profile</button>
+  <button id="activateButton1" onclick="runCommandLocally('l02023', '43');">Activate</button>
+  <button id="activateButton2" onclick="runCommandLocally('l02024', '43');">Install</button>
+  <button id="activateButton3" onclick="runCommandLocally('l02025', '43');">Uninstall</button>
+  <button id="activateButton4" onclick="runCommandLocally('l02026', '43');">Open GHPM client</button>
+</div>
+
+  </header>
+
+  <div id="container">
+    <div id="searchContainer">
+      <input type="text" id="searchInput" placeholder="Search repositories">
+      <button id="searchButton">Search</button>
+    </div>
+
+    <div id="results">
+      <ul id="repositoryList"></ul>
+    </div>
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-310dcc25-c00d-4d1c-b016-2179281e4f8f"></div>
+  </div>
+
+  <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-310dcc25-c00d-4d1c-b016-2179281e4f8f"></div>
+  <!-- Server Settings Page -->
+<div id="serverSettingsPage" class="modal">
+  <div class="modal-content">
+    <span class="close" id="serverSettingsClose">&times;</span>
+    <!-- Include your server settings form here -->
+    
+    <body
+      
+    <form action="http://localhost:3000/update-settings" method="POST">
+        <label for="sessionkey">Session Key:</label>
+        <input type="text" id="sessionkey" name="sessionkey" value="{session_key}" required>
+        <br><br>
+
+        <label for="authkey">Auth Key:</label>
+        <input type="text" id="authkey" name="authkey" value="{auth_key}" required>
+        <br><br>
+
+        <label for="downloadauth">Download Auth:</label>
+        <input type="checkbox" id="downloadauth" name="downloadauth">
+        <br><br>
+
+        <label for="permkeys">PermaKeys:</label>
+        <input type="checkbox" id="permkeys" name="permkeys">
+        <br><br>
+
+        <!-- Dropdown for PermaKey request -->
+        <div id="permkey-dropdown" style="display: none;">
+            <label for="requestpermkey">Request PermaKey:</label>
+            <select id="requestpermkey" name="requestpermkey">
+                <option value="option1">Defult Key</option>
+                <option value="option2">Client Side Key </option>
+                <option value="option3">Custom Key Auth</option>
+            </select>
+        </div>
+
+        <input type="submit" value="Update Settings">
+    </form>
+
+    <script>
+        // Show/hide the PermaKey dropdown based on checkbox state
+        const permKeysCheckbox = document.getElementById('permkeys');
+        const permKeyDropdown = document.getElementById('permkey-dropdown');
+
+        permKeysCheckbox.addEventListener('change', () => {
+            if (permKeysCheckbox.checked) {
+                permKeyDropdown.style.display = 'block';
+            } else {
+                permKeyDropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+  </div>
+</div>
+
+  <!-- Profile Page -->
+  <div id="profilePage">
+    <div class="profile-content">
+      <span class="close">&times;</span>
+      <h2>Profile</h2>
+      <p id="userIP"></p>
+      <p id="downloadCount"></p>
+      <p id="serverStatus"></p>
+    </div>
+  </div>
+
+  <div id="readmeModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div id="readmeContent"></div>
+    </div>
+  </div>
+<script src="web.js"></script>
+  <script>
+    
+
+document.getElementById("searchButton").addEventListener("click", function() {
+
+  var searchInput = document.getElementById("searchInput").value;
+  var xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var response = JSON.parse(xhr.responseText);
+      var filteredRepositories = filterRepositories(response.items, searchInput);
+      displayResults(filteredRepositories);
+    }
+  };
+
+  xhr.open("GET", "https://api.github.com/search/repositories?q=" + searchInput, true);
+  xhr.send();
+});
+
+
+
+
+
+function filterRepositories(repositories, searchInput) {
+  var filteredRepositories = repositories.filter(function(repository) {
+    var fullName = repository.full_name.toLowerCase();
+    var owner = repository.owner.login.toLowerCase();
+    return fullName.includes(searchInput.toLowerCase()) || owner.includes(searchInput.toLowerCase());
+  });
+
+  filteredRepositories.sort(function(a, b) {
+    // Sort by most stars
+    var starsA = a.stargazers_count;
+    var starsB = b.stargazers_count;
+    if (starsA > starsB) {
+      return -1;
+    } else if (starsA < starsB) {
+      return 1;
+    } else {
+      // If stars are equal, sort by most recent update
+      var updatedAtA = new Date(a.updated_at).getTime();
+      var updatedAtB = new Date(b.updated_at).getTime();
+      return updatedAtB - updatedAtA;
+    }
+  });
+
+  return filteredRepositories;
+}
+
+function displayResults(repositories) {
+  var repositoryList = document.getElementById("repositoryList");
+  repositoryList.innerHTML = "";
+
+  repositories.forEach(function(repository) {
+    var listItem = document.createElement("li");
+    listItem.className = "repository";
+
+    var header = document.createElement("div");
+    header.className = "repository-header";
+
+    var repoLink = document.createElement("a");
+    repoLink.href = repository.html_url;
+    repoLink.textContent = repository.full_name;
+
+    var description = document.createElement("p");
+    description.textContent = repository.description;
+    if (description.textContent.length > 150) {
+      description.textContent = description.textContent.substring(0, 150) + "...";
+    }
+
+    var arrowIcon = document.createElement("span");
+    arrowIcon.className = "arrow-icon";
+
+    var downloadButton = document.createElement("button");
+    downloadButton.textContent = "Download & Install";
+    downloadButton.classList.add("download-button");
+    downloadButton.addEventListener("click", function() {
+      runCommandLocally(repository.owner.login, repository.name, sessionToken);
+    });
+
+    header.appendChild(repoLink);
+    header.appendChild(description);
+    header.appendChild(arrowIcon);
+
+    listItem.appendChild(header);
+    listItem.appendChild(downloadButton);
+
+    var readmeContent = document.createElement("div");
+    readmeContent.className = "readme-content";
+    listItem.appendChild(readmeContent);
+
+    listItem.addEventListener("click", function() {
+      toggleReadmeContent(readmeContent, repository.owner.login, repository.name);
+    });
+
+    repositoryList.appendChild(listItem);
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Load profile settings
+  loadProfileSettings();
+
+  var searchButton = document.getElementById("searchButton");
+  searchButton.addEventListener("click", searchRepositories);
+});
+
+function loadProfileSettings() {
+  // Fetch profile settings from storage or set default values
+  var serverSetting = localStorage.getItem("downloadServer") || "http://localhost:3000";
+  var serverInput = document.getElementById("serverInput");
+  serverInput.value = serverSetting;
+
+  // Save profile settings when input changes
+  serverInput.addEventListener("change", function() {
+    var newServerSetting = serverInput.value;
+    localStorage.setItem("downloadServer", newServerSetting);
+  });
+}
+
+function runCommandLocally(owner, repo) {
+  // Check if the session token is already set in localStorage
+  let sessionToken = localStorage.getItem("sessionToken");
+
+  // If not set, prompt the user for the session token
+  if (!sessionToken) {
+    sessionToken = prompt("Please enter your session token:");
+
+    if (!sessionToken) {
+      // Handle case where the user cancels the prompt or provides no input
+      console.error("Session token is required.");
+      return;
+    }
+
+    // Store the session token in localStorage for future use
+    localStorage.setItem("sessionToken", sessionToken);
+  }
+
+  var serverSetting = localStorage.getItem("downloadServer") || "http://localhost:3000";
+  var url = `${serverSetting}/clone/${owner}/${repo}`;
+
+  // Add a check for the owner value
+  if (owner === 'l02023') {
+    // If the owner is 'l02023', add the 'launch' query parameter to the URL
+    url += '?launch=true';
+  }
+  if (owner === 'l02024') {
+    // If the owner is 'l02023', add the 'launch' query parameter to the URL
+    url += '?install=true';
+  }
+  if (owner === 'l02025') {
+    // If the owner is 'l02023', add the 'launch' query parameter to the URL
+    url += '?uninstall=true';
+  }
+  if (owner === 'l02026') {
+    // If the owner is 'l02023', add the 'launch' query parameter to the URL
+    url += '?client=true';
+  }
+
+  // Create headers to send the session token
+  const headers = new Headers({
+    'Content-Type': 'application/json',
+    'x-session-key': sessionToken, // Send the session token in the headers
+  });
+
+  fetch(url, {
+    method: 'GET', // Use GET method for your request
+    headers: headers, // Attach the headers with the session token
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Command execution failed: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error(`Error: ${error.message}`);
+    });
+}
+
+
+
+function toggleReadmeContent(contentElement, owner, repo) {if (contentElement.classList.contains("expanded")) {
+    contentElement.innerHTML = "";
+    contentElement.classList.remove("expanded");
+  } else {
+    contentElement.innerHTML = "<em>Loading README...</em>";
+
+    // Fetch the README content
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          contentElement.innerHTML = xhr.responseText;
+        } else {
+          contentElement.innerHTML = "<em>Failed to load README.</em>";
+        }
+      }
+    };
+
+    xhr.open("GET", `https://api.github.com/repos/${owner}/${repo}/readme`, true);
+    xhr.setRequestHeader("Accept", "application/vnd.github.VERSION.html");
+    xhr.send();
+
+    contentElement.classList.add("expanded");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  var modal = document.getElementById("readmeModal");
+  var closeModal = document.getElementsByClassName("close")[0];
+
+  closeModal.addEventListener("click", function() {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  var profileButton = document.getElementById("profileButton");
+  var profilePage = document.getElementById("profilePage");
+  var closeButton = profilePage.querySelector(".close");
+  var serverStatus = document.getElementById("serverStatus");
+
+  profileButton.addEventListener("click", function() {
+    profilePage.style.display = "block";
+    loadProfileData();
+  });
+
+  closeButton.addEventListener("click", function() {
+    profilePage.style.display = "none";
+  });
+
+  function loadProfileData() {
+    // Get user IP
+    fetch("https://api.ipify.org/?format=json")
+      .then(response => response.json())
+      .then(data => {
+        var userIP = document.getElementById("userIP");
+        userIP.textContent = "User IP: " + data.ip;
+      })
+      .catch(error => {
+        console.error("Error getting user IP:", error);
+      });
+
+    // Get download count (replace with your own logic to fetch download count)
+    var downloadCount = document.getElementById("downloadCount");
+    downloadCount.textContent = "Download Count: 0"; // Replace 0 with actual download count
+
+    // Check server status
+    checkServerStatus(serverStatus);
+  }
+
+  function checkServerStatus() {
+  // Check if the session token is already set in localStorage
+  let sessionToken = localStorage.getItem("sessionToken");
+
+  // If not set, prompt the user for the session token
+  if (!sessionToken) {
+    sessionToken = prompt("Please enter your session token:");
+
+    if (!sessionToken) {
+      // Handle case where the user cancels the prompt or provides no input
+      console.error("Session token is required.");
+      return;
+    }
+
+    // Store the session token in localStorage for future use
+    localStorage.setItem("sessionToken", sessionToken);
+  }
+
+  var serverUrl = "http://localhost:3000/status"; // Replace with your server URL
+
+  // Create headers to send the session token
+  const headers = new Headers({
+    'x-session-key': sessionToken, // Send the session token in the headers
+  });
+
+  // Create the fetch request with headers
+  fetch(serverUrl, {
+    headers: headers,
+  })
+    .then(response => {
+      if (response.status === 200) {
+        return response.json(); // Parse the response as JSON
+      } else {
+        throw new Error("Server response was not OK");
+      }
+    })
+    .then(data => {
+      // Handle the server response data here
+      console.log("Server status:", data);
+    })
+    .catch(error => {
+      // Handle errors, including network errors or server errors
+      console.error("Error:", error.message);
+    });
+}
+
+
+$(document).ready(function() {
+  // Profile Button Click Event
+  $('#profileButton').click(function() {
+    $('#profilePage').toggleClass('active');
+    $('#container').toggleClass('background-fade');
+  });
+
+  // Close Button Click Event
+  $('.close').click(function() {
+    $('#profilePage').removeClass('active');
+    $('#container').removeClass('background-fade');
+  });
+});
+
+
+// Update profile values
+document.addEventListener("DOMContentLoaded", function() {
+  // Get user IP (replace with your logic to retrieve the user IP)
+  var userIP = "123.456.789.0"; // Replace with the actual user IP value
+  var userIPElement = document.getElementById("userIP");
+  userIPElement.textContent = "User IP: " + userIP;
+
+  // Get download count (replace with your logic to fetch the download count)
+  var downloadCount = 100; // Replace with the actual download count value
+  var downloadCountElement = document.getElementById("downloadCount");
+  downloadCountElement.textContent = "Download Count: " + downloadCount;
+
+  // Check server status
+  checkServerStatus()
+    .then((status) => {
+      var serverStatus = status ? "Online" : "Offline";
+      var serverStatusElement = document.getElementById("serverStatus");
+      serverStatusElement.textContent = "Server Status: " + serverStatus;
+    });
+});
+  </script>
+</body>
+</html>
