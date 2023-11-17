@@ -100,34 +100,51 @@ def GUI():
     global root
 
     import tkinter as tk
-    from UI_Functions.UI_Builder import ghpmmaingui as gmg
-    from UI_Functions.UI_Builder import iconfilepaths as ifp
-    from UI_Functions.UI_Builder import formbuilder as fb
+    import ttkbootstrap as ttk
 
-    iconDict = ifp.generateFilePathDict("Assets")
+    import UI_Functions.UI_Builder.widgetfactory as wf
+    import UI_Functions.UI_Builder.utilities as ut
+    import UI_Functions.UI_Builder.customnotebook as cnb
 
-    root = gmg.GHPMMainGui(1000, 650)
+    import UI_Functions.information as inf
 
-    main = fb.CustomFrame(bgImage=iconDict["logo"])
 
-    main.setupIconButton(20, 20, iconDict["misc"]["local_update_button"], iconScale=0.30, command=open_update_local)
+    fileHandler = ut.FileHandler()
+    log = fileHandler.readTextFile("LOG.txt")
 
-    main.setupIconButton(20, 160, iconDict["side_panel"]["settings_button"], iconScale=0.25, command=settings_window)
-    main.setupIconButton(20, 230, iconDict["side_panel"]["install_button"], iconScale=0.25, command=show_install)
-    main.setupIconButton(20, 300, iconDict["side_panel"]["activate_button"], iconScale=0.25, command=Activate)
-    main.setupIconButton(20, 370, iconDict["side_panel"]["uninstall_button"], iconScale=0.25, command=show_list_window)
-    main.setupIconButton(20, 484, iconDict["misc"]["recommended_button"], iconScale=0.40, command=System.Drive.templates.main.main)
+    theme = 'darkly'
+    root = ttk.Window(
+        title='GHPM',
+        themename=theme,
+        size=(1000, 650),
+        resizable=(False, False),
+    )
 
-    main.setupIconButton(550, 540, iconDict["misc"]["command_line_button"], iconScale=0.25, command=crypt)
-    main.setupIconButton(772, 540, iconDict["misc"]["information_button"], iconScale=0.25, command=show_information)
+    GhPM = cnb.Root(root, theme)
 
-    main.setupIconButton(822, 10, iconDict["server_icons"]["start_server"], iconScale=0.10, command=start_server)
-    main.setupIconButton(878, 10, iconDict["server_icons"]["update_server"], iconScale=0.10, command=update_server)
-    main.setupIconButton(934, 10, iconDict["server_icons"]["kill_server"], iconScale=0.10, command=kill_server)
+    main = wf.CustomFrame("Main")
+    main.addButton(name='Local Update', x=30, y=30, buttonBootstyle='warning', width=12, command=open_update_local)
+    import System.Drive.templates.main as tmain
+
+    main.addButton(name='Settings', x=30, y=155, buttonBootstyle='Outline', width=12, command=settings_window)
+    main.addButton(name='Install', x=30, y=275, buttonBootstyle='success.Outline', width=12, command=show_install)
+    main.addButton(name='Activate', x=30, y=345, buttonBootstyle='warning.Outline', width=12, command=Activate)
+    main.addButton(name='Uninstall', x=30, y=415, buttonBootstyle='danger.Outline', width=12, command=show_list_window)
+
+    main.addButton(name='Recommended Packages', x=30, y=545, command=tmain.main)
+    main.addButton(name='Command Line Interface', x=412, y=545, buttonBootstyle='light.Outline', command=crypt)
+    main.addButton(name='Information', x=780, y=545, width=12,
+                command=lambda: GhPM.addCustomFrame(inf.InfoFrame().getFrame()))
+
+    main.addButton(name='Start Server', x=340, y=30, buttonBootstyle='success', width=12, command=start_server)
+    main.addButton(name='Update Server', x=560, y=30, buttonBootstyle='warning', width=12, command=update_server)
+    main.addButton(name='Kill Server', x=780, y=30, buttonBootstyle='danger', width=12, command=kill_server)
+
+    main.addScrollText(log=log, x=240, y=120, width=65, height=16)
 
     main.constructFrame()
 
-    root.addTab(main, "Main")
+    GhPM.addCustomFrame(main)
 
     import User.UserProfile
     try:
@@ -146,9 +163,9 @@ def GUI():
 
         except:
 
-            root.run()
+            root.mainloop()
     else:
-        root.run()
+        root.mainloop()
 
 
 
