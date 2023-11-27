@@ -152,9 +152,25 @@ def GH():
         EV.NewEvent(event=f'os command [!]{value}[!] ', Pol=0)
         try:
             AR.AnalyticsRecord(4)
-            os.system(
-                f'osascript -e \'tell application "Terminal" to do script "cd {cc}&&{selected_option}"\''
-            )
+
+            if platform.system() == 'Windows':
+                EV.NewEvent('Windows',0)
+                full_command = f'cd /d {cc} && {selected_option}'
+                subprocess.run(full_command, shell=True)
+
+            elif platform.system() == 'Linux':
+                command = f'cd {cc} && {selected_option}'
+                EV.NewEvent('Linux',0)
+                subprocess.run(command, shell=True)
+            elif platform.system() == 'Darwin':  # 'Darwin' is the platform name for macOS
+                EV.NewEvent('MacOS',0)
+                os.system(
+                    f'osascript -e \'tell application "Terminal" to do script "cd {cc}&&{selected_option}"\''
+                )
+            else:
+                EV.NewEvent('NOT SUPPORTED OS',0)
+
+
 
         except:
             EV.guiEvent(0, f'Directory change failed', inspect.currentframe().f_lineno, os.path.abspath(__file__),
@@ -383,9 +399,24 @@ def Activate():
                     EV.AnalyticsRecord(valueg[:-2])
                     EV.AnalyticsRecord(value)
                     AR.AnalyticsRecord(3)
-                    os.system(
-                        f'osascript -e \'tell application "Terminal" to do script "cd {value} && {valueg[:-2]}"\''
-                    )
+
+                    if platform.system() == 'Windows':
+                        EV.NewEvent('Windows',0)
+                        full_command = f'cd /d {value} && {valueg[:-2]}'
+                        subprocess.run(full_command, shell=True)
+
+                    elif platform.system() == 'Linux':
+                        command = f'cd {value} && {valueg[:-2]}'
+                        EV.NewEvent('Linux',0)
+                        subprocess.run(command, shell=True)
+                    elif platform.system() == 'Darwin':  # 'Darwin' is the platform name for macOS
+                        EV.NewEvent('MacOS',0)
+                        os.system(
+                            f'osascript -e \'tell application "Terminal" to do script "cd {value} && {valueg[:-2]}"\''
+                        )
+                    else:
+                        EV.NewEvent('NOT SUPPORTED OS',0)
+
                 except:
                     EV.guiEvent(0, f'{get_current_function()} either Dir change failed or {valueg[:-2]}', inspect.currentframe().f_lineno,
                                 os.path.abspath(__file__), False, True,
@@ -420,18 +451,6 @@ def Activate():
 
                 count1 = 0
                 options = [line.strip() for line in linesd]
-
-                window = tk.Tk()
-                window.title('Activate one of the following')
-                screen_width = window.winfo_screenwidth()
-                screen_height = window.winfo_screenheight()
-                window_width = 440
-                window_height = 460
-                x_coordinate = (screen_width // 2) - (window_width // 2)
-                y_coordinate = (screen_height // 2) - (window_height // 2)
-                window.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
-                window.config(bg='#C5E0DC')
-
                 def select_option(selected_option):
                     EV.guiEvent(4, '', inspect.currentframe().f_lineno, get_current_function(), False, True, 1)
                     EV.AnalyticsRecord(f'Selected Option: {selected_option}')
@@ -465,9 +484,23 @@ def Activate():
 
                         try:
                             AR.AnalyticsRecord(5)
-                            os.system(
-                                f'osascript -e \'tell application "Terminal" to do script "cd {B}&&{A}"\''
-                            )
+                            if platform.system() == 'Windows':
+                                EV.NewEvent('Windows',0)
+                                full_command = f'cd /d {B} && {A}'
+                                subprocess.run(full_command, shell=True)
+
+                            elif platform.system() == 'Linux':
+                                command = f'cd {B} && {A}'
+                                EV.NewEvent('Linux',0)
+                                subprocess.run(command, shell=True)
+                            elif platform.system() == 'Darwin':  # 'Darwin' is the platform name for macOS
+                                EV.NewEvent('MacOS',0)
+                                os.system(
+                                    f'osascript -e \'tell application "Terminal" to do script "cd {B}&&{A}"\''
+                                )
+                            else:
+                                EV.NewEvent('NOT SUPPORTED OS',0)
+
                         except:
                             EV.guiEvent(0, f'{get_current_function()} either Dir change failed or {A}',
                                         inspect.currentframe().f_lineno, os.path.abspath(__file__), False, True, 1)
@@ -475,39 +508,66 @@ def Activate():
                     value = selected_option
                     window2 = tk.Tk()
                     window2.title('Package Inform')
+
+                    # Get screen dimensions
                     screen_width = window2.winfo_screenwidth()
                     screen_height = window2.winfo_screenheight()
+
+                    # Calculate window position and set dimensions
                     window_width = 440
-                    window_height = 460
-                    x_coordinate = (screen_width // 2) - (window_width // 2)
-                    y_coordinate = (screen_height // 2) - (window_height // 2)
+                    window_height = 200
+                    x_coordinate = (screen_width - window_width) // 2
+                    y_coordinate = (screen_height - window_height) // 2
                     window2.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
+
+                    # Set window background color
                     window2.config(bg='#C5E0DC')
 
-                    label_name = tk.Label(
-                        window2, text='Any Launch Arguments: '
-                    )
-                    entry_name = tk.Entry(window2)
+                    # Create Label for user input
+                    label_name = tk.Label(window2, text='Enter Launch Arguments:', font=('Arial', 12), bg='#C5E0DC')
+                    label_name.pack(pady=10)
 
-                    label_name.pack()
-                    entry_name.pack()
+                    # Create Entry widget for user input
+                    entry_name = tk.Entry(window2, width=40, font=('Arial', 10))
+                    entry_name.pack(pady=5)
 
-                    button = tk.Button(
-                        window2, text='Submit', command=submit
-                    )
-                    button.pack()
+                    # Create Submit Button
+                    button = tk.Button(window2, text='Submit', command=submit, font=('Arial', 12), bg='#008CBA',
+                                       fg='white')
+                    button.pack(pady=10)
 
                     window2.mainloop()
 
+                window = tk.Tk()
+                window.title('Activate one of the following')
+
+                # Get screen dimensions
+                screen_width = window.winfo_screenwidth()
+                screen_height = window.winfo_screenheight()
+
+                # Set window dimensions and position it at the center of the screen
+                window_width = 440
+                window_height = 460
+                x_coordinate = (screen_width // 2) - (window_width // 2)
+                y_coordinate = (screen_height // 2) - (window_height // 2)
+                window.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
+
+                # Set window background color
+                window.config(bg='#C5E0DC')
+
+                # Create buttons for each option
                 for option in options:
-                    b = tk.Button(
+                    button = tk.Button(
                         window,
                         text=option,
                         command=lambda opt=option: select_option(opt),
+                        width=20,  # Set width for better layout
+                        pady=10  # Add padding for better appearance
                     )
-                    b.pack()
+                    button.pack(pady=5)  # Add padding between buttons
 
                 window.mainloop()
+
             else:
                 pass
 
