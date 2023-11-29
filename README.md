@@ -10,9 +10,9 @@
 
 We've implemented a significant update to the **Git Listings** today, marking the first of several upcoming changes. Alongside this, we've introduced a new feature called **[Upload Listing](https://maliq-barnard.vercel.app/gpm/upload_listing.html)**, allowing authenticated GHPM users to create their own customized listings [1].
 
-Our **[official members](https://maliq-barnard.vercel.app/ghpm_download.html)** now have access to a new feature called **review**, enabling them to assess their downloads and usage of linked packages [2].
+Our **[official members](https://smoke-wolf.vercel.app/ghpm_download.html)** now have access to a new feature called **review**, enabling them to assess their downloads and usage of linked packages [2].
 
-Moreover, members can now conveniently manage their accounts online by changing passwords and deleting accounts via the [**Account Settings**](https://maliq-barnard.vercel.app/gpm/accountsettings.html) page.
+Moreover, members can now conveniently manage their accounts online by changing passwords and deleting accounts via the [**Account Settings**](https://smoke-wolf.vercel.app/gpm/accountsettings.html) page.
 
 Enhancements in account security have been implemented by fortifying the website's database. On the front end, we're actively engaged in a redesign, striving for a more appealing and user-friendly web app and website interface!
 
@@ -20,7 +20,7 @@ Enhancements in account security have been implemented by fortifying the website
 -
 - The Account Security Has Been Significantly Improved
 - Locked down CORS requests
--  Upload your repos to [**Git Listings**](https://maliq-barnard.vercel.app/gpm/listing.html)
+-  Upload your repos to [**Git Listings**](https://smoke-wolf.vercel.app/gpm/listing.html)
  - We've added account anonymity from the client-side connections. 
  - The security has been improved with some changes to the token authentication system. (extended the length to 32 bytes)
  - Account username protection has been implemented (usernames are unique)
@@ -68,7 +68,7 @@ GHPM has been improving GitHub users' experience of the application for a while 
 
 We have made several changes throughout the last few weeks. A number of these changes are rather important for you to take note of.
 
-To catch up on recent events and download the most recent secure version head over [HERE](https://maliq-barnard.vercel.app/ghpm_download.html).
+To catch up on recent events and download the most recent secure version head over [HERE](https://smoke-wolf.vercel.app/ghpm_download.html).
 
 -----
 
@@ -99,16 +99,16 @@ This version is currently only available through the GHPM website.
 	
 	Download From The Following Link: https://maliq-barnard.vercel.app/ghpm_download
 	
-[DOWNLOAD GHPM HERE](https://maliq-barnard.vercel.app/ghpm_download.html)
+[DOWNLOAD GHPM HERE](https://smoke-wolf.vercel.app/ghpm_download.html)
 
 
 
 # Reference
 
--   To create a GHPM account, click [here](https://maliq-barnard.vercel.app/ghpm_download.html).
--   Log in to your GHPM account [here](https://maliq-barnard.vercel.app/gpm/Login.html).
--   View Git Listings [here](https://maliq-barnard.vercel.app/gpm/listing.html).
--   Access Account Settings [here](https://maliq-barnard.vercel.app/gpm/accountsettings.html).
+-   To create a GHPM account, click [here](https://smoke-wolf.vercel.app/ghpm_download.html).
+-   Log in to your GHPM account [here](https://smoke-wolf.vercel.app/gpm/Login.html).
+-   View Git Listings [here](https://smoke-wolf.vercel.app/gpm/listing.html).
+-   Access Account Settings [here](https://smoke-wolf.vercel.app/gpm/accountsettings.html).
 
 1.  Registered GHPM users can fill out a form to create a listing, which will appear on the GitListings webpage and desktop micro-app. Removal of a listed repository requires contact with **Smoke-Wolf**. For safety, avoid including personal details like real names, addresses, or identifying information. Descriptions and project names must refrain from any profanity. Once a repository is listed, it cannot be relisted.
     
