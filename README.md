@@ -105,7 +105,7 @@ This version is currently only available through the GHPM website.
 
 # Reference
 
--   To create a GHPM account, click [here](https://smoke-wolf.vercel.app/ghpm_download.html).
+-   To create a GHPM account, [here](https://ghpm.vercel.app/create).
 -   Log in to your GHPM account [here](https://smoke-wolf.vercel.app/gpm/Login.html).
 -   View Git Listings [here](https://smoke-wolf.vercel.app/gpm/listing.html).
 -   Access Account Settings [here](https://smoke-wolf.vercel.app/gpm/accountsettings.html).
