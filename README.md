@@ -1,35 +1,52 @@
 
 
+# GitHub Package Manager Updates :zap:
 
-# GitHub Package Manager  :low_brightness:
+> [!IMPORTANT]
+> The biggest change: Windows support is now available!
 
-
-### Today's Highlights (Nov 25th, 2023)
-
+### Highlights (Dec 1st, 2023)
 ----------
 
-We've implemented a significant update to the **Git Listings** today, marking the first of several upcoming changes. Alongside this, we've introduced a new feature called **[Upload Listing](https://maliq-barnard.vercel.app/gpm/upload_listing.html)**, allowing authenticated GHPM users to create their own customized listings [1].
+We're thrilled to announce significant updates to the **Git Listings**, marking the second in a series of upcoming changes.
 
-Our **[official members](https://smoke-wolf.vercel.app/ghpm_download.html)** now have access to a new feature called **review**, enabling them to assess their downloads and usage of linked packages [2].
+1. **New Feature: [Upload Listing](https://maliq-barnard.vercel.app/gpm/upload_listing.html)**
+   - Authenticated GHPM users can now create customized listings [1].
 
-Moreover, members can now conveniently manage their accounts online by changing passwords and deleting accounts via the [**Account Settings**](https://smoke-wolf.vercel.app/gpm/accountsettings.html) page.
+2. **Improved Recommendation Algorithm**
+   - Now suggests listings based on your previous views. Expect segmentation-related algorithm enhancements soon [2].
 
-Enhancements in account security have been implemented by fortifying the website's database. On the front end, we're actively engaged in a redesign, striving for a more appealing and user-friendly web app and website interface!
+3. **Member Benefits**
+   - **[Official Members](https://ghpm.vercel.app/)** now have access to the **review feature** to evaluate downloads and usage of linked packages [3].
+   - An enhanced website, primarily designed by syntaxerror, is now live [here](https://ghpm.vercel.app/).
 
-**Backend Stuff**
--
-- The Account Security Has Been Significantly Improved
-- Locked down CORS requests
--  Upload your repos to [**Git Listings**](https://smoke-wolf.vercel.app/gpm/listing.html)
- - We've added account anonymity from the client-side connections. 
- - The security has been improved with some changes to the token authentication system. (extended the length to 32 bytes)
- - Account username protection has been implemented (usernames are unique)
- - Push Authentication; We've been able to prevent incorrect log allocations from the client through token authentication. 
- - Token refresh rates: Each session is under a new token, however, a session can only be initiated through the web app, local devices refresh the saved token state for event pushes. 
- 
+4. **Upcoming Enhancements**
+   - Expect significant improvements in website functionality and the account process.
+
+5. **Account Management**
+   - Users can now conveniently change passwords and delete accounts through the [**Account Settings**](https://smoke-wolf.vercel.app/gpm/accountsettings.html) page.
+
+6. **Security Enhancements**
+   - Database security has been fortified.
+
+### Backend Updates
+- **Recommendation Algorithm**: Implemented for personalized suggestions.
+- **Git Listings Security**:
+  - Profanity and malicious link protection implemented.
+- **Account Security**:
+  - Enhanced token authentication system for improved protection.
+  - Added account username uniqueness and push authentication.
+- **Token Management**:
+  - Refresh rates for improved security and session management.
+
+Stay tuned for more updates! :rocket:
 
 # What we do :stars:
-  
+
+  > [!IMPORTANT]
+> The biggest change: Windows support is now available!
+
+
 GHPM was developed to address various challenges encountered by GitHub users. We achieve this by focusing on the client side of the GitHub interface. Instead of using the standard `git clone` command, we leverage the Git framework to ensure a standardized and efficient repository download process. Upon successfully obtaining the repository, our system offers invaluable support for building and configuring it through our integrated Dependency Manager (DM) and, most notably, our Entry Point Detection (EPD) feature.
 
 After a successful installation, we continue to guide users in managing and modifying their installation profiles, including updates and reinstalls. The EPD process empowers users to swiftly create and execute applications within a controlled environment, supporting a wide array of commonly used programming languages. Furthermore, our DM is in the process of expanding to incorporate multi-language support, enhancing its versatility.
@@ -44,7 +61,7 @@ We are actively reviewing and monitoring suggestions and feedback, please provid
 
 
 
-### :currency_exchange: Change Notes: v1.7.0 :currency_exchange:
+### :currency_exchange: Change Notes: v1.7.14 :currency_exchange:
 
  
 
@@ -62,13 +79,13 @@ We are actively reviewing and monitoring suggestions and feedback, please provid
  12. Significantly improved network connectivity redundancies
  13. Reworked checksum fetch structure
  14. Linux support is actively being implemented!
- 15. Windows Development in work
+ 15. Windows Support completed :sparkle:
 
 GHPM has been improving GitHub users' experience of the application for a while now, roughly since December 2022. 
 
 We have made several changes throughout the last few weeks. A number of these changes are rather important for you to take note of.
 
-To catch up on recent events and download the most recent secure version head over [HERE](https://smoke-wolf.vercel.app/ghpm_download.html).
+To catch up on recent events and download the most recent secure version head over [HERE](https://ghpm.vercel.app/download).
 
 -----
 
@@ -81,35 +98,61 @@ Make sure to check back here for updates or [join the discord server](https://di
 -----
 # Download GHPM Client
 
+> [!IMPORTANT]
+> The biggest change: Windows support is now available!
+
 ## Download Public Upload  :part_alternation_mark: :computer:
 
-### MacOS / Linux *v1.5.x*
-	git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
-	cd GitHub-Package-Manager
-	python3 Start.py
-	
-Post-Account notes:
-`python3 Start.py `
+
+### Installation Instructions for MacOS / Linux _v1.5.x_
+
+bashCopy code
+
+`git clone https://github.com/smoke-wolf/GitHub-Package-Manager.git
+cd GitHub-Package-Manager
+python3 Start.py` 
+
+Post-Account Notes:
+
+bashCopy code
+
+`python3 Start.py` 
 
 ## Current Release
-### MacOS /Linux v1.7.x
-This version is currently only available through the GHPM website.
+
+### MacOS & Windows v1.7.x
+
+The current version, v1.7.x, is exclusively available on the GHPM website. We'll soon upgrade to v1.8.x after verifying and authenticating the Windows implementations.
+
+Upon the update to v1.8.x, anticipate the repository version to bump up to v1.7.x with added Windows support.
 	
-### Download For Free With The Following Link
-	
-	Download From The Following Link: https://maliq-barnard.vercel.app/ghpm_download
-	
-[DOWNLOAD GHPM HERE](https://smoke-wolf.vercel.app/ghpm_download.html)
+[DOWNLOAD GHPM HERE](https://ghpm.vercel.app/download)
 
 
+
+
+  
+Certainly! Here's an updated reference section, encompassing all the mentioned links:
+
+----------
 
 # Reference
 
--   To create a GHPM account, [here](https://ghpm.vercel.app/create).
--   Log in to your GHPM account [here](https://smoke-wolf.vercel.app/gpm/Login.html).
--   View Git Listings [here](https://smoke-wolf.vercel.app/gpm/listing.html).
--   Access Account Settings [here](https://smoke-wolf.vercel.app/gpm/accountsettings.html).
+### Account Related Links:
 
-1.  Registered GHPM users can fill out a form to create a listing, which will appear on the GitListings webpage and desktop micro-app. Removal of a listed repository requires contact with **Smoke-Wolf**. For safety, avoid including personal details like real names, addresses, or identifying information. Descriptions and project names must refrain from any profanity. Once a repository is listed, it cannot be relisted.
+-   [Create a GHPM account](https://ghpm.vercel.app/create)
+-   [Log in to your GHPM account](https://smoke-wolf.vercel.app/gpm/Login.html)
+-   [Access Git Listings](https://smoke-wolf.vercel.app/gpm/listing.html)
+-   [Account Settings](https://smoke-wolf.vercel.app/gpm/accountsettings.html)
+-   [Download GHPM](https://ghpm.vercel.app/download)
+-   [Join the Discord server](https://discord.gg/j95ghjqsz)
+
+1.  Registered GHPM users can fill out a form to create a listing, which will appear on the GitListings webpage and desktop micro-app. Removal of a listed repository requires contact with **Smoke-Wolf**. For safety, avoid including personal details like real names, addresses, or identifying information. Descriptions and project names must refrain from any profanity. Once a repository is listed, it cannot be listed again, adding additional data is limited to authorized users (*get in contact*)
+
+2. The latest alteration in the algorithm involves referencing user history based on their `REMOTE_IP`. However, this approach presents limitations. Physical movement or network interruptions can reset the algorithm's reference tied to a particular experience.
+
+	Another concern arises from potential IP assignment issues in smaller networks. In such cases, previously profiled IPs might be assigned to devices that haven't undergone profiling yet. This discrepancy could lead to users receiving algorithm references that don't belong to them.
+
+	The rationale behind utilizing `REMOTE_IP` is to maintain the public availability of the listings page without restrictions. However, transitioning to an account-based system would mitigate the second concern, ensuring personalized and accurate algorithm references for users.
     
-2.  The GHPM review provides users with a unique dashboard displaying usage frequency, timing, and other insightful data. Additionally, it contributes to refining the git listings algorithm for better effectiveness.
+3.  The GHPM review provides users with a unique dashboard displaying usage frequency, timing, and other insightful data. Additionally, it contributes to refining the git listings algorithm for better effectiveness.
