@@ -13,7 +13,7 @@
 
 We're thrilled to announce significant updates to the **Git Listings**, marking the second in a series of upcoming changes.
 
-1. **New Feature: [Upload Listing](https://maliq-barnard.vercel.app/gpm/upload_listing.html)**
+1. **New Feature: [Upload Listing](https://smoke-wolf.vercel.app/gpm/upload_listing.html)**
    - Authenticated GHPM users can now create customized listings [1].
 
 2. **Improved Recommendation Algorithm**
