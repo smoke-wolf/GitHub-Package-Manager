@@ -8,6 +8,9 @@
 ### Highlights (Dec 1st, 2023)
 ----------
 
+> [!NOTE]
+> Account Security Added, will be logged out after five minute session, and must be requesting from the same ip for each session.
+
 We're thrilled to announce significant updates to the **Git Listings**, marking the second in a series of upcoming changes.
 
 1. **New Feature: [Upload Listing](https://maliq-barnard.vercel.app/gpm/upload_listing.html)**
