@@ -4,6 +4,7 @@ The creator of this project is not to blame for any data leaks or damage caused.
 
 | Version | Supported          |
 | ------- | ------------------ |
+| 1.8.x   | :arrow_heading_down: Official Release |
 | 1.7.x   | :arrow_heading_down: Official Release |
 | 1.6.x   | :arrow_heading_down: Official Release |
 | 1.5.x   | :white_check_mark: Git Download |
