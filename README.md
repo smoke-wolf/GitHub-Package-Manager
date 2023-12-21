@@ -17,9 +17,9 @@ GitHub Package Manager Updates ⚡️
     -   Enjoy personalized listing suggestions based on your viewing history. Further segmentation enhancements are on the horizon [2].
 3.  **Member Benefits**
 
-    -   Official members on [GHPM](https://ghpm.vercel.app/) now have access to review features to assess downloads and package usage [3].
+    -   Official members on [GHPM]([https://ghpm.vercel.app/](https://smoke-wolf.vercel.app/ghpm_download.html)) now have access to review features to assess downloads and package usage [3].
 
-    -   The website has been revamped, primarily designed by SyntaxError. Check it out [here](https://ghpm.vercel.app/).
+    -   The website has been revamped, primarily designed by SyntaxError. Check it out [here]([https://ghpm.vercel.app/](https://smoke-wolf.vercel.app/ghpm_download.html)).
 
     -   Windows Support (we've added significant support for the first-use protocol, as it has had issues *and still may*)
 
@@ -99,7 +99,7 @@ GHPM has been improving GitHub users' experience of the application for a while 
 
 We have made several changes throughout the last few weeks. A number of these changes are rather important for you to take note of.
 
-To catch up on recent events and download the most recent secure version, head over [here](https://ghpm.vercel.app/download).
+To catch up on recent events and download the most recent secure version, head over [here]([https://ghpm.vercel.app/download](https://smoke-wolf.vercel.app/ghpm_download.html)).
 
 * * * * *
 
@@ -140,11 +140,11 @@ Reference
 
 ### Account-Related Links:
 
--   [Create a GHPM account.](https://ghpm.vercel.app/create)
+-   [Create a GHPM account.][https://ghpm.vercel.app/creat](https://smoke-wolf.vercel.app/ghpm_download.html)
 -   [Log in to your GHPM account.](https://smoke-wolf.vercel.app/gpm/Login.html)
 -   [Access Git Listings](https://smoke-wolf.vercel.app/gpm/listing.html)
 -   [Account Settings](https://smoke-wolf.vercel.app/gpm/accountsettings.html)
--   [Download GHPM](https://ghpm.vercel.app/download)
+-   [Download GHPM]([https://ghpm.vercel.app/download](https://smoke-wolf.vercel.app/ghpm_download.html))
 -   [Join the Discord server.](https://discord.gg/j95ghjqsz)
 
 1.  Registered GHPM users can fill out a form to create a listing, which will appear on the GitListings webpage and desktop micro-app. Removal of a listed repository requires contact with **Smoke-Wolf**. For safety, avoid including personal details like real names, addresses, or identifying information. Descriptions and project names must refrain from any profanity. Once a repository is listed, it cannot be listed again; adding additional data is limited to authorized users (*get in contact).*
