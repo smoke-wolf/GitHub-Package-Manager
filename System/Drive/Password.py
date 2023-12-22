@@ -1,11 +1,22 @@
 '''
 
-this script is primarily concerned with password authentication,
-device and user identity validation, and decryption of files when
-logging in. It ensures security and user authentication for the GitHub
-Package Manager application.
+Function: Password()
+- Overview: Performs password authentication using a remote service.
+- Logic:
+  - Sends a request to a remote service to verify the user's password.
+  - If the response text matches 'true', it continues; otherwise, it exits the program.
 
--Revised Monday, September 25, 2023
+Function: Create()
+- Overview: Generates a hashed password and updates user profile information.
+- Logic:
+  - Gathers user input for a new password.
+  - Generates a hashed password using input and system data.
+  - Appends the hashed password to the user profile file.
+  - Creates or updates a local cache file with a portion of the hashed password.
+  - Records analytics related to password creation/modification events.
+
+
+-Revised & updated Thursday, December 21st, 2023
 
 '''
 import os
