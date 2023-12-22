@@ -1,63 +1,60 @@
 import shutil
 import os
 import sys
+import requests
 
 import User.UserProfile as UserProfile
 
-import requests
-try:
-    shutil.rmtree(f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager')
-except:
-    pass
+def remove_existing_directory(directory):
+    if os.path.exists(directory):
+        shutil.rmtree(directory)
 
-def replace_and_remove(directory_a, directory_b):
-    # Copy the content of directory B to directory A
-    shutil.rmtree(directory_a)  # Remove existing content of directory A
+def update_directories(directory_a, directory_b):
+    remove_existing_directory(directory_a)
     shutil.copytree(directory_b, directory_a)
 
-    # Remove directory B
-    shutil.rmtree(directory_b)
+def fetch_content(url):
+    try:
+        response = requests.get(url)
+        if response.status_code == 200:
+            return response.text
+        else:
+            print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
+    except requests.RequestException as e:
+        print(f"Request to {url} failed: {str(e)}")
 
+def update_version_file(file_path, content):
+    with open(file_path, 'w') as file:
+        file.write(content)
 
-url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/COMPATABLE"
+update_directory = f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager'
 
-response = requests.get(url)
-if response.status_code == 200:
-    comp = response.text
+remove_existing_directory(f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager')
 
-    with open(
-            f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py',
-            'r',
-    ) as ver:
-        global CurrentVersion
-        CurrentVersion = ver.read()
+compatible_url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/COMPATABLE"
+version_url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/Version.py"
 
-        print(CurrentVersion[11:-2])
+compatible_content = fetch_content(compatible_url)
+if compatible_content:
+    with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py', 'r') as version_file:
+        current_version = version_file.read()[11:-2]
 
-    if CurrentVersion[11:-2] in comp:
-        pass
+    if current_version in compatible_content:
+        print(current_version)
     else:
         print('No Updates Available')
         sys.exit(0)
 else:
-    print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
+    sys.exit(1)
 
-#   Try Update
-
-url = "https://raw.githubusercontent.com/smoke-wolf/GitHub-Package-Manager/UPDATE/System/Cache/System/Version.py"
-
-response = requests.get(url)
-if response.status_code == 200:
-    content = response.text
-    # Now, the content of the URL is stored in the 'content' variable
-    print(f'Welcome to the newest version: {content[10:]}')  # You can print it or process it further
-    with open(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py','w') as w:
-        w.write(content)
-
+new_version_content = fetch_content(version_url)
+if new_version_content:
+    print(f'Welcome to the newest version: {new_version_content[10:]}')
+    update_version_file(f'{UserProfile.SourceDirectory}System/.Cache/System/Version.py', new_version_content)
 else:
-    print(f"Failed to fetch content from {url}. Status code: {response.status_code}")
+    sys.exit(1)
 
 os.chdir(f'{UserProfile.SourceDirectory}System/.Cache/System/Update')
 os.system('git clone -b UPDATE https://github.com/smoke-wolf/GitHub-Package-Manager.git')
-replace_and_remove(f'{UserProfile.SourceDirectory}System/Drive',
+update_directories(f'{UserProfile.SourceDirectory}System/Drive',
                    f'{UserProfile.SourceDirectory}System/.Cache/System/Update/GitHub-Package-Manager/System/Drive')
