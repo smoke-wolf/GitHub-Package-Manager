@@ -56,7 +56,7 @@ def create_user_profile():
 
     def login_to_php_function(username, password):
         # URL of the PHP function
-        url = "https://hello2022isthe3nd.000webhostapp.com/auth.php"  # Replace with the actual URL
+        url = "https://hello2022isthe3nd.000webhostapp.com/backend.php"  # Replace with the actual URL
 
         # Parameters to send in the GET request
         params = {
@@ -70,6 +70,7 @@ def create_user_profile():
             if response.status_code == 200:
                 # Successfully logged in
                 print("Login successful")
+
                 # You can access the response data using response.text if needed
             elif response.status_code == 401:
                 # Authentication failed (password is incorrect)
@@ -100,6 +101,17 @@ def create_user_profile():
         hashed_password = generate_hashed_password(password)
         user_privileges = "root" if not is_mac_os() else os.getlogin()
         source_directory = os.getcwd()
+        # Get the operating system name
+        current_os = platform.system()
+
+        # Assuming source_directory is defined
+        if current_os == 'Windows':
+            source_directory = r'' + source_directory
+            source_directory = source_directory.replace('\\', '\\\\') + '\\\\'
+            source_directory = source_directory[2:]
+        else:
+            source_directory = f'{source_directory}/'
+
         uuid1 = uuid.uuid1().hex
         uuid4 = uuid.uuid4().hex
         email = email_entry.get()
@@ -107,7 +119,7 @@ def create_user_profile():
             f"Username = '{username}'\n"
             f"Password = '{hashed_password}'\n"
             f"UserPrivileges = '{user_privileges}'\n"
-            f"SourceDirectory = '{source_directory}/'\n"
+            f"SourceDirectory = '{(source_directory)}'\n"
             f"Force_Import_Request = {force_import.get()}\n"
             f"Forced_Login = {forced_login.get()}\n"
             f"uuid1 = '{uuid1}'\n"
@@ -117,8 +129,13 @@ def create_user_profile():
             f"AdvancedL = {advanced_l.get()}\n"
             f"AutoUpdate = {auto_update.get()}\n"
             f"Email = '{email}'\n"
+            f"safeInstall = True\n"
+            "ConsoleVisability = False\n"
+            f"HasGitDownloaded = False\n"
+            f"Token = '000instantaneous'\n"
 
         )
+
         user_profile.write(user_profile_content)
 
 
@@ -208,9 +225,9 @@ if FirstUse:  # Is first use
     display_events_check.grid(row=5, columnspan=2, padx=10, pady=10, sticky="w")
 
     push_logs = tk.BooleanVar()
-    push_logs_check = ttk.Checkbutton(frame, text="Push Logs", variable=push_logs)
+    push_logs_check = ttk.Checkbutton(frame, text="Record Logs", variable=push_logs)
     push_logs_check.grid(row=6, columnspan=2, padx=10, pady=10, sticky="w")
-
+    
     advanced_l = tk.BooleanVar()
     advanced_l_check = ttk.Checkbutton(frame, text="AdvancedL", variable=advanced_l)
     advanced_l_check.grid(row=7, columnspan=2, padx=10, pady=10, sticky="w")
