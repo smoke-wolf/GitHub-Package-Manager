@@ -79,46 +79,33 @@ def create_user_profile():
     password = password_entry.get()
     import requests
 
-    def login_to_php_function(username, password):
-        # URL of the PHP function
-        url = "https://hello2022isthe3nd.000webhostapp.com/backend.php"  # Replace with the actual URL
-
-        # Parameters to send in the GET request
+    def create_account(username, password, email):
+        url = "https://hello2022isthe3nd.000webhostapp.com/createGHPMaccount.php"
         params = {
             'username': username,
-            'password': password
+            'password': password,
+            'email': email,
+            'country': "NOT_SET"
         }
 
         try:
             response = requests.get(url, params=params)
 
             if response.status_code == 200:
-                # Successfully logged in
-                print("Login successful")
-
-                # You can access the response data using response.text if needed
+                print("Account creation successful")
             elif response.status_code == 401:
-                # Authentication failed (password is incorrect)
-                print("Authentication failed. Password is incorrect.")
-                sys.exit()
+                print("Account creation failed. Unauthorized.")
             elif response.status_code == 404:
-                # User not found (check the username)
-                print("User not found. Check the username.")
-                sys.exit()
+                print("Account creation failed. Not found.")
             elif response.status_code == 400:
-                # Invalid request (provide both username and password)
-                print("Bad Request. Provide both username and password.")
-                sys.exit()
+                print("Account creation failed. Bad request.")
             else:
-                # Handle other status codes as needed
-                print("Failed with status code:", response.status_code)
-                sys.exit()
+                print("Account creation failed with status code:", response.status_code)
         except requests.exceptions.RequestException as e:
             print("Request failed:", str(e))
-            sys.exit()
 
     # Usage example
-    login_to_php_function(username, password)  # Replace with actual credentials
+    create_account(username, password, email_entry.get())  # Replace with actual credentials
 
     user_profile_path = f"{cwd}/User/UserProfile.py"
     with open(user_profile_path, "w") as user_profile:
@@ -217,19 +204,19 @@ if FirstUse:  # Is first use
     frame = ttk.Frame(root, padding=20)
     frame.pack()
 
-    username_label = ttk.Label(frame, text="Enter Username Used To Sign Up:")
+    username_label = ttk.Label(frame, text="Username Used To Sign Up:")
     username_label.grid(row=0, column=0, padx=10, pady=10, sticky="w")
 
     username_entry = ttk.Entry(frame)
     username_entry.grid(row=0, column=1, padx=10, pady=10)
 
-    password_label = ttk.Label(frame, text="Create Password Used To Sign Up:")
+    password_label = ttk.Label(frame, text="Password Used To Sign Up:")
     password_label.grid(row=1, column=0, padx=10, pady=10, sticky="w")
 
     password_entry = ttk.Entry(frame, show="*")
     password_entry.grid(row=1, column=1, padx=10, pady=10)
 
-    email_label = ttk.Label(frame, text="Enter Email Used To Sign Up:")
+    email_label = ttk.Label(frame, text="Email Used To Sign Up:")
     email_label.grid(row=2, column=0, padx=10, pady=10, sticky="w")
 
     email_entry = ttk.Entry(frame)
