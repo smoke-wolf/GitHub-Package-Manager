@@ -17,6 +17,6 @@ The creator of this project is not to blame for any data leaks or damage caused.
 
 Use this section to tell people how to report a vulnerability.
 
-If any security vulnerabilities are found -> email Maliq.Barnard@gmail.com
+If any security vulnerabilities are found -> email sahwe22.3@gmail.com
 List of critical modules: 
 FileVault
