@@ -1,60 +1,53 @@
 '''
-March 14th 2024
-                           +-----------------+
-                           | Start Execution |
-                           +--------+--------+
-                                    |
-                           +--------v--------+
-                           | Check First Use |
-                           +--------+--------+
-                                    |
-                   +----------------+----------------+
-                   |                                 |
-           First Use Exists?                   First Use
-                   |                                 |
-      +------------+------------+       +------------+------------+
-      |                         |       |                         |
-  Already Used                |       |  Initialize Configuration |
-      |                         |       |          Interface        |
-      |                         |       +------------+------------+
-+-----v-----+                   |                    |
-|           |           Collect User Data       User Interface
-|  Process  |                   |                    |
-| Existing  |                   |                    |
-|   Data    |                   |                    |
-|           |                   |                    |
-+-----+-----+                   |                    |
-      |                         |                    |
-      |    +--------------------+--------------------+--------+
-      |    |                                                 |
-      |    |                Create User Profile               |
-      |    |                                                 |
-      |    +--------------------+--------------------+--------+
-      |                         |                    |
-      |                         |                    |
-+-----v-----+                   |                    |
-|           |           Generate Hashed Password    Remove Token File
-|  Hashing  |                   |                    |
-|   Data    |                   |                    |
-|           |                   |                    |
-+-----+-----+                   |                    |
-      |                         |                    |
-      |                         |                    |
-+-----v-----+                   |                    |
-|           |            Write GHPM System       System Commands
-|  Write    |                   |                    |
-|   Data    |                   |                    |
-|           |                   |                    |
-+-----+-----+                   |                    |
-      |                         |                    |
-      |                         |                    |
-      +-------------------------+--------------------+
-                                    |
-                           +--------v--------+
-                           |  Terminate      |
-                           |  Execution      |
-                           +-----------------+
+May 8th
+subgraph "Start Execution"
+        A[Start Execution] --> B{Check First Use}
+    end
 
+    subgraph "Check First Use"
+        B --> C{First Use Exists?}
+        C -->|Yes| D[Already Used]
+        C -->|No| E[First Use]
+    end
+
+    subgraph "First Use"
+        E --> F[Initialize Configuration Interface]
+        F --> G[Collect User Data]
+        G --> H[Create User Profile]
+        H --> I[Generate Hashed Password]
+        I --> J[Write GHPM System]
+        J --> K[Remove Token File]
+        K --> L[Terminate Execution]
+    end
+
+    subgraph "Already Used"
+        D --> L[Terminate Execution]
+    end
+
+    %% Check First Use
+    %% If it is the first use of the system, initialize the configuration interface
+    %% to collect user data and create a user profile
+
+    %% Initialize Configuration Interface
+    %% Initialize a graphical user interface for collecting user data (username, password, email, etc.)
+
+    %% Collect User Data
+    %% Collect the user's data entered in the configuration interface
+
+    %% Create User Profile
+    %% Create a user profile file with the collected data
+
+    %% Generate Hashed Password
+    %% Hash the user's password for security
+
+    %% Write GHPM System
+    %% Write the GHPM system file with the user profile data
+
+    %% Remove Token File
+    %% Remove the token file indicating the first use of the system
+
+    %% Terminate Execution
+    %% End the script execution
 '''
 
 import os
@@ -65,7 +58,7 @@ import hashlib
 import uuid
 import tkinter as tk
 from tkinter import ttk
-
+#import System.Drive.PAMap.Patch0 as P0
 
 # Function to check if the OS is macOS
 def is_mac_os():
@@ -105,7 +98,21 @@ def create_user_profile():
             print("Request failed:", str(e))
 
     # Usage example
-    create_account(username, password, email_entry.get())  # Replace with actual credentials
+    create_account(username, password, email_entry.get())
+
+    def generate_hashed_password(password):
+        UUID = uuid.uuid1()
+        if not is_mac_os():
+            UserID = "root"
+        else:
+            UserID = os.getlogin()
+        salt = "9lk"
+        UUID = str(f"{UUID}")
+        uuidToken = UUID[30:]
+        Password = f"{password}{uuidToken}{UserID}"
+        password = Password + salt
+        hashed = hashlib.md5(password.encode())
+        return hashed.hexdigest()
 
     user_profile_path = f"{cwd}/User/UserProfile.py"
     with open(user_profile_path, "w") as user_profile:
@@ -142,6 +149,7 @@ def create_user_profile():
             f"AutoUpdate = {auto_update.get()}\n"
             f"Email = '{email}'\n"
             f"safeInstall = True\n"
+            f"OFFLINE = False\n"
             "ConsoleVisability = False\n"
             f"HasGitDownloaded = False\n"
             f"Token = '000instantaneous'\n"
@@ -151,20 +159,6 @@ def create_user_profile():
         user_profile.write(user_profile_content)
 
 
-# Function to generate hashed password
-def generate_hashed_password(password):
-    UUID = uuid.uuid1()
-    if not is_mac_os():
-        UserID = "root"
-    else:
-        UserID = os.getlogin()
-    salt = "9lk"
-    UUID = str(f"{UUID}")
-    uuidToken = UUID[30:]
-    Password = f"{password}{uuidToken}{UserID}"
-    password = Password + salt
-    hashed = hashlib.md5(password.encode())
-    return hashed.hexdigest()
 
 
 # Function to handle the "Create Profile" button click
@@ -256,7 +250,8 @@ if FirstUse:  # Is first use
 else:
     pass
 
+"""
 relaunch = 'python3 Start.py'
 os.system(
     f'osascript -e \'tell application "Terminal" to do script "cd {os.getcwd()}&&{relaunch}"\''
-)
+)"""
